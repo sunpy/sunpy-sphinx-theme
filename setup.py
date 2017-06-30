@@ -1,10 +1,8 @@
 from setuptools import setup, find_packages
 
-from sunpy_sphinx_theme import __version__
-
 setup(
     name="sunpy-sphinx-theme",
-    version=__version__,
+    version="0.1.0",
     use_2to3=False,
     description="The sphinx theme for the SunPy website and documentation.",
     long_description="",
