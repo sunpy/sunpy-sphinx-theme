@@ -1,16 +1,15 @@
 body {
-	background-image: url("../_static/img/sunpy-bg.jpg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	background-size: cover;
-	color: #444444;
+	background-color: white;
+	color: #333;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 17px;
 }
 @font-face {
 	font-family: 'Source Sans Pro', sans-serif;
 	src: url('fonts/SourceSansPro-Bold.ttf');
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Source Sans Pro', sans-serif;
 }
 a {
 	color: #FE7900;
@@ -25,6 +24,9 @@ h4 {
 	font-weight: 300;
 	padding: 15px 0px 15px 0px;
 	font-size: 21px;
+}
+h3{
+	margin-left: 20px;
 }
 p.content  {
 	line-height: 24px;
@@ -133,3 +135,10 @@ footer {
    		width: 75%;
  	}
 }
+@media (min-width: 768px) {
+	.container>.navbar-header, 
+	.container-fluid>.navbar-header, 
+	.container>.navbar-collapse, 
+	.container-fluid>.navbar-collapse {
+		margin-right: -30px;
+	}
