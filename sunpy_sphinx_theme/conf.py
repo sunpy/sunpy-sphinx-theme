@@ -8,7 +8,7 @@ html_theme = "sunpy"
 
 
 def page_url(page):
-    sunpy_website_url_base = "https://duygukeskek.github.io/sunpy-website/"
+    sunpy_website_url_base = "https://nabobalis.github.io/sunpy-website/"
     return urljoin(sunpy_website_url_base, page)
 
 
@@ -16,9 +16,8 @@ html_theme_options = {
     'navbar_links': [
         ("About", page_url("about.html"), 1),
         ("Blog", page_url("blog.html"), 1),
-        ("Documentation", "#"),
+        ("Documentation", "http://docs.sunpy.org/en/latest/"),
         ("Support Us", page_url("contribute.html"), 1),
-        ("Affiliated Projects", page_url("affiliated.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
     ]
