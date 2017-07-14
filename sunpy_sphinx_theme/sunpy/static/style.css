@@ -55,12 +55,16 @@ p.content.noheader {
 	color: #FE7900;
 	font-size: 20px;
 	font-weight: bold;
+	margin-right: 30px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
 	color: #FE7900;
 }
 .navbar-form {
+	display: none;
+}
+.navbar-default .navbar-text {
 	display: none;
 }
 /*End Navbar*/
