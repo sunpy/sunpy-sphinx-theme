@@ -18,7 +18,6 @@ html_theme_options = {
         ("Blog", page_url("blog.html"), 1),
         ("Documentation", "#"),
         ("Support Us", page_url("contribute.html"), 1),
-        ("Affiliated Projects", page_url("affiliated.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
     ]
