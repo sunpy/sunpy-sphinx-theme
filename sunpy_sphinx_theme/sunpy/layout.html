@@ -5,3 +5,26 @@
 {# Add some extra stuff before and use existing with 'super()' call. #}
 {% set title = 'SunPy' %}
 {% set docstitle = '' %}
+
+{%- block content %}
+{{ super() }}
+{%- endblock %}
+
+{%- macro sbsidebar() %}
+    {%- if render_sidebar %}
+    <div class="{{ bs_span_prefix }}3">
+        <div id="sidebar" class="bs-sidenav" role="complementary">
+            {% set toctree = toctree(maxdepth=4, collapse=True, includehidden=True) %}
+            {% if toctree %}
+                {{ toctree }}
+            {% else %}
+                <div class="local-toc">{{ toc }}</div>
+            {% endif %}
+        </div>
+    </div>
+    {%- endif %}
+{%- endmacro %}
+
+{%- block sidebar1 %}
+{{ sbsidebar() }}
+{% endblock %}
