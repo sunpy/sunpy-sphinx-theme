@@ -14,9 +14,16 @@
     {%- if render_sidebar %}
     <div class="{{ bs_span_prefix }}3">
         <div id="sidebar" class="bs-sidenav" role="complementary">
-            {% set toctree = toctree(maxdepth=4, collapse=True, includehidden=True) %}
+            {% set toctree = toctree(maxdepth=2, collapse=True, includehidden=True) %}
             {% if toctree %}
-                {{ toctree }}
+                {{ toctree }} 
+                <form class="navbar-form navbar-right" action="search.html" method="get">
+                    <div class="form-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search" />
+                    </div>
+                    <input type="hidden" name="check_keywords" value="yes" />
+                    <input type="hidden" name="area" value="default" />
+                </form>
             {% else %}
                 <div class="local-toc">{{ toc }}</div>
             {% endif %}

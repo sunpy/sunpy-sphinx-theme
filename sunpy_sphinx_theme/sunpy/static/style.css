@@ -61,9 +61,6 @@ p.content.noheader {
 .navbar-default .navbar-nav > li > a:focus {
 	color: #FE7900;
 }
-.navbar-form {
-	display: none;
-}
 .navbar-default .navbar-text {
 	display: none;
 }
@@ -121,6 +118,10 @@ a.btn.btn-default.btn2:hover {
 	color: white;
 	padding: 8px 20px;
 }
+.form-control {
+	height: 35px;
+	color: #444444;
+}
 .divider {
 	padding: 5px 0px 5px 0px;
 	border-bottom: 1px solid #eee;
@@ -145,4 +146,7 @@ footer {
 	.container>.navbar-collapse, 
 	.container-fluid>.navbar-collapse {
 		margin-right: -30px;
+	}
+	.navbar-right {
+		float: none !important;
 	}
