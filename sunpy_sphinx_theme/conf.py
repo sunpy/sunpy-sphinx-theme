@@ -23,5 +23,5 @@ html_theme_options = {
     ]
 }
 
-html_favicon = os.path.join(html_theme_path[0], html_theme, "static", "img",
-                            "favicon-32.ico")
+html_favicon = os.path.join(html_theme_path[0], html_theme, "static", "img", 
+														"favicon-32.ico")
