@@ -1,0 +1,65 @@
+language: python
+
+# Setting sudo to false opts in to Travis-CI container-based builds.
+sudo: false
+
+# The apt packages below are needed but can no longer be installed with
+# sudo apt-get.
+addons:
+    apt:
+        packages:
+            - libatlas-dev
+            - liblapack-dev
+            - gfortran
+            - graphviz
+            - texlive-latex-extra
+            - dvipng
+
+cache:
+  directories:
+  - $HOME/sunpy/data
+
+python:
+    - 3.6
+
+# Configure the build environment. Global varibles are defined for all configurations.
+env:
+    global:
+        - COLUMNS=240
+        - NUMPY_VERSION='stable'
+        - ASTROPY_VERSION='stable'
+        - MAIN_CMD='python setup.py'
+        - SETUP_CMD='test'
+        - CONDA_CHANNELS='astropy astropy-ci-extras conda-forge'
+        - CONDA_DEPENDENCIES='openjpeg Cython jinja2 scipy matplotlib mock requests beautifulsoup4 sqlalchemy scikit-image pytest-mock pyyaml pandas nomkl pytest-cov coverage hypothesis glymur'
+        - PIP_DEPENDENCIES='suds-jurko sphinx-gallery pytest-sugar'
+        - EVENT_TYPE='pull_request push'
+
+    matrix:
+        - SETUP_CMD='egg_info'
+
+matrix:
+    include:
+         - python: 3.6
+           env: SETUP_CMD='build_docs -w'
+                EVENT_TYPE='push pull_request cron'
+                SPHINX_VERSION='<1.6'
+
+install:
+    - git clone git://github.com/astropy/ci-helpers.git
+    - source ci-helpers/travis/setup_conda.sh
+    - git clone -b theme git://github.com/nabobalis/sunpy.git
+    - source sunpy/continuous-integration/travis/openjpeg.sh  # so glymur knows where to look
+
+script:
+    - python setup.py install
+    - cd sunpy
+    - $MAIN_CMD $SETUP_CMD
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $mytoken
+  local_dir: ~/sunpy/docs/_build/html/
+  on:
+    branch: master

@@ -8,7 +8,7 @@ html_theme = "sunpy"
 
 
 def page_url(page):
-    sunpy_website_url_base = "https://nabobalis.github.io/sunpy-website/"
+    sunpy_website_url_base = "https://duygukeskek.github.io/sunpy-website/"
     return urljoin(sunpy_website_url_base, page)
 
 
