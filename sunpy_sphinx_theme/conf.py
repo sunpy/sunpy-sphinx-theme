@@ -16,12 +16,12 @@ html_theme_options = {
     'navbar_links': [
         ("About", page_url("about.html"), 1),
         ("Blog", page_url("blog.html"), 1),
-        ("Documentation", "http://docs.sunpy.org/en/latest/"),
+        ("Documentation", "https://sunpy.github.io/sunpy-sphinx-theme/"),
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
     ]
 }
 
-html_favicon = os.path.join(html_theme_path[0], html_theme, "static", "img", 
+html_favicon = os.path.join(html_theme_path[0], html_theme, "static", "img",
 														"favicon-32.ico")

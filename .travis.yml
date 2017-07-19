@@ -60,6 +60,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $mytoken
-  local_dir: /home/travis/build/nabobalis/sunpy-sphinx-theme/sunpy/docs/_build/html/
+  local_dir: /home/travis/build/sunpy/sunpy-sphinx-theme/sunpy/docs/_build/html/
   on:
     branch: master
