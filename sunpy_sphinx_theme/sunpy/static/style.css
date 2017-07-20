@@ -118,9 +118,29 @@ a.btn.btn-default.btn2:hover {
 	color: white;
 	padding: 8px 20px;
 }
+.bs-sidenav .nav .nav > li > a {
+	color: #444444;
+	background-color: #e3e3e3;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-right : solid 1px #444444;
+	border-left : solid 1px #444444;
+}
+.bs-sidenav .nav .nav > li > a:hover {
+	background-color: #b3b3b3;
+}
 .form-control {
 	height: 35px;
 	color: #444444;
+	border-radius: 50px;
+}
+.form-control, input {
+	border-width: 1px;
+}
+.doc-title {
+	color: #FE7900;
+	text-align: center;
+	font-weight: bold;
 }
 .divider {
 	padding: 5px 0px 5px 0px;
