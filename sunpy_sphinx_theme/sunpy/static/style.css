@@ -109,6 +109,11 @@ a.btn.btn-default.btn2:hover {
 	background-color: #444444;
 	text-shadow: none;
 	margin-top: 50px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: fixed;
+	height: 60%;
+	width: 274px;
 }
 .bs-sidenav .nav > li > a {
 	color: white;
@@ -189,3 +194,8 @@ footer {
 	.navbar-right {
 		float: none !important;
 	}
+@media screen and (min-width: 1200px) {
+	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
+		width: 274px;
+	}
+}
