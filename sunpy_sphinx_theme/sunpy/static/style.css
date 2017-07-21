@@ -184,6 +184,15 @@ footer {
 	.sunpy-logo {
    		width: 75%;
  	}
+ 	.bs-sidenav {
+ 		position: relative;
+ 		width: 100%
+ 	}
+}
+@media (max-width: 768px) {
+	.bs-sidenav {
+ 		position: relative;
+ 	}
 }
 @media (min-width: 768px) {
 	.container>.navbar-header, 
