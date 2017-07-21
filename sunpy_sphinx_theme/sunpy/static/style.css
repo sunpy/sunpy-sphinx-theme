@@ -105,18 +105,23 @@ a.btn.btn-default.btn2:hover {
 	color: #444444;
 	background-color: white;
 }
+/*Sidebar*/ 
 .bs-sidenav {
 	background-color: #444444;
 	text-shadow: none;
 	margin-top: 50px;
 }
+.bs-sidenav .nav > li > a {
+	color: white;
+	padding: 8px 20px;
+}
 .bs-sidenav .nav > li > a:hover,
 .bs-sidenav .nav > li > a:focus {
 	background-color: rgba(230, 124, 25, 1);
 }
-.bs-sidenav .nav > li > a {
+.bs-sidenav .nav > li > a.current {
 	color: white;
-	padding: 8px 20px;
+	background-color: rgba(230, 124, 25, 1);
 }
 .bs-sidenav .nav .nav > li > a {
 	color: #444444;
@@ -125,9 +130,24 @@ a.btn.btn-default.btn2:hover {
 	padding-bottom: 5px;
 	border-right : solid 1px #444444;
 	border-left : solid 1px #444444;
+	font-size: 100%;
+}
+.bs-sidenav .nav .nav > li > a.current {
+	background-color: rgba(230, 124, 25, 1);
+	color: white;
 }
 .bs-sidenav .nav .nav > li > a:hover {
-	background-color: #b3b3b3;
+	background-color: #BDBDBD;
+}
+.bs-sidenav .nav .nav .nav > li > a {
+	padding-left: 45px;
+}
+.bs-sidenav .nav .nav .nav .nav > li > a {
+  background-color: #BDBDBD;
+  padding-left: 60px;
+}
+.bs-sidenav .nav .nav .nav .nav > li > a:hover {
+  color: #444444;
 }
 .form-control {
 	height: 35px;
@@ -142,6 +162,7 @@ a.btn.btn-default.btn2:hover {
 	text-align: center;
 	font-weight: bold;
 }
+/*End Sidebar*/ 
 .divider {
 	padding: 5px 0px 5px 0px;
 	border-bottom: 1px solid #eee;
