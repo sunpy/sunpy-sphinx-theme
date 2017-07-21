@@ -6,7 +6,6 @@ html_theme_path = get_html_theme_path()
 
 html_theme = "sunpy"
 
-
 def page_url(page):
     sunpy_website_url_base = "https://duygukeskek.github.io/sunpy-website/"
     return urljoin(sunpy_website_url_base, page)
