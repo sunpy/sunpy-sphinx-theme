@@ -113,6 +113,7 @@ a.btn.btn-default.btn2:hover {
 	background-color: #444444;
 	text-shadow: none;
 	margin-top: 50px;
+	margin-bottom: 50px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	position: fixed;
@@ -193,9 +194,11 @@ footer {
  		width: 100%
  	}
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 	.bs-sidenav {
  		position: relative;
+ 		display: block;
+ 		margin: 45px auto;
  	}
 }
 @media (min-width: 768px) {
@@ -207,6 +210,15 @@ footer {
 	}
 	.navbar-right {
 		float: none !important;
+	}
+@media screen and (min-width: 992px) {
+	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
+		position: fixed;
+		width: 274px;
+	}
+	.col-md-9 {
+		margin-left: 290px;
+		overflow: hidden;
 	}
 @media screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
