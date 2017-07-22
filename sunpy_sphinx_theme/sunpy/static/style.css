@@ -185,6 +185,76 @@ a.btn.btn-default.btn2:hover {
 footer {
 	display: none;
 }
+/*Docs specific styling*/
+pre {
+	padding: 12px;
+	margin: 30px 0px 30px 0px;
+	background-color: white;
+	border: 1px solid #E3E3E3
+}
+/*Warning*/
+div.admonition {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.alert-warning {
+	background-color: #FFF3E0;
+	border: 1px solid #FE7900;
+}
+p.admonition-title {
+	color: #333;
+}
+.alert>p+p {
+	color: #333;
+}
+/*Code*/
+code.xref, a code {
+	background-color: #EEEEEE;
+}
+code {
+	color: #0D47A1;
+	padding: 2px;
+}
+code.descname {
+	font-size: 17px;
+}
+/*Highlight*/
+.highlight .o {
+	color: #FE7900;
+}
+.highlight .nb, .highlight .kn  {
+	color: #0D47A1;
+}
+.highlight .gp {
+	color: #BF360C;
+}
+dt:target, .highlighted {
+	background-color: #EEEEEE;
+}
+/*Info*/
+.alert-info {
+	border: 1px solid #0D47A1;
+	background-color: #E3F2FD;
+	color: #333;
+}
+/*Button*/
+div.sphx-glr-download a {
+	background-color: white;
+	background-image: none !important;
+	border: 1px solid #FE7900;
+}
+div.sphx-glr-download a:hover {
+	background-color: #FE7900;
+}
+blockquote {
+	font-size: 17px;
+}
+.table, .table>tbody>tr>td {
+	border: 1px solid #333;
+	padding: 10px;
+}
+/*End Docs specific styling*/
 @media (max-width: 510px) {
 	.sunpy-logo {
    		width: 75%;
@@ -217,7 +287,7 @@ footer {
 		width: 274px;
 	}
 	.col-md-9 {
-		margin-left: 290px;
+		margin-left: 325px;
 		overflow: hidden;
 	}
 @media screen and (min-width: 1200px) {
