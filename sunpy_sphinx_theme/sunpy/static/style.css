@@ -20,7 +20,7 @@ a:hover {
 	color: #DD2C00;
 }
 h1 {
-	margin-top: 45px;
+	margin-top: 70px;
 }
 h4 {
 	font-weight: 300;
@@ -67,6 +67,11 @@ p.content.noheader {
 .navbar-default .navbar-text {
 	display: none;
 }
+div#navbar {
+	border-bottom: 3px;
+	border-bottom-color: #FE7900;
+	border-bottom-style: solid;
+}
 /*End Navbar*/
 .center {
 	text-align: center;
@@ -112,7 +117,7 @@ a.btn.btn-default.btn2:hover {
 .bs-sidenav {
 	background-color: #444444;
 	text-shadow: none;
-	margin-top: 50px;
+	margin-top: 70px;
 	margin-bottom: 50px;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -276,7 +281,8 @@ blockquote {
 	.container-fluid>.navbar-header, 
 	.container>.navbar-collapse, 
 	.container-fluid>.navbar-collapse {
-		margin-right: -30px;
+		margin-top: 10px;
+		height: 70px;
 	}
 	.navbar-right {
 		float: none !important;
