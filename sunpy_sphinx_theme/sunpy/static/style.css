@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900');
-
 body {
 	background-color: white;
 	color: #333;
@@ -45,6 +44,12 @@ p.content.noheader {
     width: 0px;
     background: transparent;
 }
+div.section::before {
+  display: block;
+  content: "";
+  height: 80px;
+  margin: -80px 0 0;
+}
 /*Navbar*/
 .navbar {
 	background-color: #444444;
@@ -65,6 +70,10 @@ p.content.noheader {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
 	color: #FE7900;
+}
+.navbar-default .navbar-nav > li > a:active {
+	background-color: #FE7900;
+	color: white;
 }
 .navbar-default .navbar-text {
 	display: none;
@@ -235,6 +244,9 @@ code.descname {
 }
 .highlight .gp {
 	color: #BF360C;
+}
+.highlight .c1 {
+	color: #610B0B;
 }
 dt:target, .highlighted {
 	background-color: #EEEEEE;
