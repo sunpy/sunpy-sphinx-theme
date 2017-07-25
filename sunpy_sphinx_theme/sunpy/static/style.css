@@ -40,9 +40,8 @@ p.content.noheader {
 .sunpy-logo {
 	width: 30%;
 }
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+.bs-sidenav::-webkit-scrollbar {
+    display: none;
 }
 div.section::before {
   display: block;
