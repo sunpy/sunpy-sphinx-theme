@@ -226,11 +226,12 @@ p.admonition-title {
 }
 /*Code*/
 code.xref, a code {
-	background-color: #EEEEEE;
+	background-color: transparent;
 }
 code {
 	color: #0D47A1;
 	padding: 2px;
+	background-color: transparent;
 }
 code.descname {
 	font-size: 17px;
