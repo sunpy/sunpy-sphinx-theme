@@ -204,8 +204,6 @@ a.btn.btn-default.btn2:hover {
 	height:450px;
 	padding-top: 50px;
 }
-footer {
-	display: none;
 }
 /*Docs specific styling*/
 pre {
@@ -326,4 +324,35 @@ blockquote {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 350px;
 	}
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	background-color: #F5F5F5;
+}
+.card p {
+	text-align: center;
+	padding-top:10px;
+}
+.button {
+    border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 5px 20px 5px 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	color: white;
+	background-color: #FE7900;
+	text-align: center;
+	cursor: pointer;
+	font-size: 17px;
+}
+.button:hover {
+    background-color: #444444;
+}
+.column {
+	float: left;
+	width: 20%;
+	margin-bottom: 16px;
+	padding: 0 8px;
 }
