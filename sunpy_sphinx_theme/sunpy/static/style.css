@@ -204,6 +204,8 @@ a.btn.btn-default.btn2:hover {
 	height:450px;
 	padding-top: 50px;
 }
+footer {
+	display: none;
 }
 /*Docs specific styling*/
 pre {
