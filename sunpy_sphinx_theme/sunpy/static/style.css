@@ -246,9 +246,10 @@ code.descname {
 	color: #BF360C;
 }
 .highlight .c1 {
-	color: #610B0B;
+	color: #998;
 }
-.highlight .s1 {
+.highlight .s1, .highlight .s2, 
+.highlight .si, .highlight .sd {
 	color: #006600;
 }
 dt:target, .highlighted {
