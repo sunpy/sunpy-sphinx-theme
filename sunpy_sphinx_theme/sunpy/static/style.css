@@ -278,6 +278,9 @@ blockquote {
 	border: 1px solid #333;
 	padding: 10px;
 }
+.label {
+	display: table-cell;
+}
 /*End Docs specific styling*/
 @media (max-width: 510px) {
 	.sunpy-logo {
