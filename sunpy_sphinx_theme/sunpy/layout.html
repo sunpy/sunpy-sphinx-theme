@@ -8,6 +8,18 @@
 {{ super() }}
 {%- endblock %}
 
+{%- block doctype -%}
+<!DOCTYPE html>
+<head>
+    <!-- Facebook OpenGraph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:site" content="{{ project }} documentation site"/>
+    <meta property="og:title" content="{{ project }}"/>
+    <meta property="og:description"
+          content="Check the documentation site for {{ project }}"/>
+</head>
+{%- endblock %}
+
 {%- macro sbsidebar() %}
     {%- if render_sidebar %}
     <div class="{{ bs_span_prefix }}3">
@@ -22,7 +34,7 @@
                     <input type="hidden" name="check_keywords" value="yes" />
                     <input type="hidden" name="area" value="default" />
                 </form>
-                {{ toctree }} 
+                {{ toctree }}
             {% else %}
                 <div class="local-toc">{{ toc }}</div>
             {% endif %}
