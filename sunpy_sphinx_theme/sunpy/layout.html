@@ -8,17 +8,14 @@
 {{ super() }}
 {%- endblock %}
 
-{%- block doctype -%}
-<!DOCTYPE html>
-<head>
+{%- block extrahead -%}
     <!-- Facebook OpenGraph -->
     <meta property="og:type" content="website"/>
     <meta property="og:site" content="{{ project }} documentation site"/>
     <meta property="og:title" content="{{ project }}"/>
     <meta property="og:description"
           content="Check the documentation site for {{ project }}"/>
-</head>
-{%- endblock %}
+{%- extrahead %}
 
 {%- macro sbsidebar() %}
     {%- if render_sidebar %}
