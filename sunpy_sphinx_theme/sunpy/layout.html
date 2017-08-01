@@ -16,30 +16,3 @@
     <meta property="og:description"
           content="Check the documentation site for {{ project }}"/>
 {%- endblock %}
-
-{%- macro sbsidebar() %}
-    {%- if render_sidebar %}
-    <div class="{{ bs_span_prefix }}3">
-        <div id="sidebar" class="bs-sidenav" role="complementary">
-            {% set toctree = toctree(maxdepth=4, collapse=True, includehidden=True) %}
-            {% if toctree %}
-                <p class="doc-title">SunPy 0.8dev</p>
-                <form class="navbar-form navbar-right" action="search.html" method="get">
-                    <div class="form-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search" />
-                    </div>
-                    <input type="hidden" name="check_keywords" value="yes" />
-                    <input type="hidden" name="area" value="default" />
-                </form>
-                {{ toctree }}
-            {% else %}
-                <div class="local-toc">{{ toc }}</div>
-            {% endif %}
-        </div>
-    </div>
-    {%- endif %}
-{%- endmacro %}
-
-{%- block sidebar1 %}
-{{ sbsidebar() }}
-{% endblock %}
