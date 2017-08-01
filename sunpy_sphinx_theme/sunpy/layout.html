@@ -4,10 +4,6 @@
 {% set css_files = css_files + ['_static/style.css'] %}
 {# Add some extra stuff before and use existing with 'super()' call. #}
 
-{%- block content %}
-{{ super() }}
-{%- endblock %}
-
 {%- block extrahead -%}
     <!-- Facebook OpenGraph -->
     <meta property="og:type" content="website"/>
@@ -15,4 +11,8 @@
     <meta property="og:title" content="{{ project }}"/>
     <meta property="og:description"
           content="Check the documentation site for {{ project }}"/>
+{%- endblock %}
+
+{%- block content %}
+{{ super() }}
 {%- endblock %}
