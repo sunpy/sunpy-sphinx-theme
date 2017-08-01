@@ -130,6 +130,9 @@ a.btn.btn-default.btn2:hover {
 	max-height: 80%;
 	border-left: 3px solid #FE7900;
 }
+.bs-sidenav a {
+ 	padding-left: 20px;
+}
 .bs-sidenav .nav > li > a {
 	color: white;
 	padding: 8px 20px;
