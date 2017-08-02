@@ -293,7 +293,7 @@ blockquote {
  	.bs-sidenav {
  		position: relative;
  		width: 100%
- 	}
+ 	} 
 }
 @media (max-width: 1000px) {
 	.bs-sidenav {
@@ -302,6 +302,32 @@ blockquote {
  		margin: 45px auto;
  		top: 50px !important;
  	}
+ 	.button {
+	  border: none;
+	  border-radius: 5px;
+		outline: 0;
+		display: block;
+		margin: 0 auto;
+		padding: 10px 50px 10px 50px;
+		color: white;
+		background-color: #FE7900;
+		text-align: center;
+		cursor: pointer;
+		font-size: 25px;
+	}
+	img {
+		max-width: 70%;
+		display: block;
+		margin: 0 auto;
+	}
+	.card {
+		padding-bottom: 75px;
+	}
+	.card p {
+		text-align: center;
+		padding-top: 10px;
+		font-size: 50px;
+	}
 }
 @media (min-width: 768px) {
 	.container>.navbar-header, 
@@ -323,14 +349,14 @@ blockquote {
 	.col-md-9 {
 		margin-left: 390px;
 		overflow: hidden;
-		width: 65%;
+		width: 70%;
 	}
 @media screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 350px;
 	}
 }
-
+/*Card Decks*/
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	background-color: #F5F5F5;
@@ -340,7 +366,7 @@ blockquote {
 	padding-top:10px;
 }
 .button {
-    border: none;
+  border: none;
 	outline: 0;
 	display: inline-block;
 	padding: 5px 20px 5px 20px;
