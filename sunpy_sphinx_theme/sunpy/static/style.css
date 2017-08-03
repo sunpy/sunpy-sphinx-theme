@@ -64,10 +64,6 @@ div.section::before {
 .navbar-default .navbar-nav > li > a:focus {
 	color: #FE7900;
 }
-.navbar-default .navbar-nav > li > a:active {
-	background-color: #FE7900;
-	color: white;
-}
 .navbar-default .navbar-text {
 	display: none;
 }
@@ -75,6 +71,28 @@ div#navbar {
 	border-bottom: 3px;
 	border-bottom-color: #FE7900;
 	border-bottom-style: solid;
+}
+.dropdown-menu {
+	top: 115%;
+	min-width: 190px;
+	margin : 2px 10px 0;
+}
+.dropdown-menu>li>a {
+	font-size: 17px;
+	padding: 10px 20px;
+	color: #333;
+}
+.dropdown-menu>li>a:hover {
+	background-color: #FE7900;
+}
+.caret {
+	margin-left: 5px;
+}
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:hover, 
+.navbar-default .navbar-nav>.open>a:focus {
+	background-color: #444444;
+	color: #FE7900;
 }
 /*End Navbar*/
 .center {
