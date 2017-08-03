@@ -58,7 +58,7 @@ div.section::before {
 	color: #FE7900;
 	font-size: 20px;
 	font-weight: bold;
-	margin-right: 30px;
+	margin-right: 10px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
