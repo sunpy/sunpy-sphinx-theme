@@ -133,9 +133,18 @@ a.btn.btn-default.btn2:hover {
 .bs-sidenav a {
  	padding-left: 20px;
 }
+.bs-sidenav h2 {
+	padding-left: 20px;
+	color: #FE7900;
+}
+.bs-sidenav .nav > li {
+	padding-left: 20px;
+	color: #FE7900;
+}
 .bs-sidenav .nav > li > a {
 	color: white;
 	padding: 8px 20px;
+	display: inline-block;
 }
 .bs-sidenav .nav > li > a:hover,
 .bs-sidenav .nav > li > a:focus {
@@ -147,7 +156,7 @@ a.btn.btn-default.btn2:hover {
 }
 .bs-sidenav .nav .nav > li > a {
 	color: #444444;
-	background-color: #e3e3e3;
+	background-color: #E3E3E3;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-left : none;
