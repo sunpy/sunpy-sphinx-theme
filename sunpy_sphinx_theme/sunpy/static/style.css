@@ -138,7 +138,6 @@ a.btn.btn-default.btn2:hover {
 	color: #FE7900;
 }
 .bs-sidenav .nav > li {
-	padding-left: 20px;
 	color: #FE7900;
 }
 .bs-sidenav .nav > li > a {
@@ -149,6 +148,7 @@ a.btn.btn-default.btn2:hover {
 .bs-sidenav .nav > li > a:hover,
 .bs-sidenav .nav > li > a:focus {
 	background-color: rgba(230, 124, 25, 1);
+	width: 100%;
 }
 .bs-sidenav .nav > li > a.current {
 	color: white;

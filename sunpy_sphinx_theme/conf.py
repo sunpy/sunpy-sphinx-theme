@@ -10,10 +10,8 @@ def page_url(page):
     sunpy_website_url_base = "https://duygukeskek.github.io/sunpy-website/"
     return urljoin(sunpy_website_url_base, page)
 
-
 html_theme_options = {
     'navbar_links': [
-        ("About", page_url("about.html"), 1),
         ("Blog", page_url("blog.html"), 1),
         ("Documentation", "http://sunpy.org/sunpy-sphinx-theme/index"),
         ("Support Us", page_url("contribute.html"), 1),

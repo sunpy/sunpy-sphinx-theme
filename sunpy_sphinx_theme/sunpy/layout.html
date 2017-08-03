@@ -4,6 +4,8 @@
 {% set css_files = css_files + ['_static/style.css'] %}
 {# Add some extra stuff before and use existing with 'super()' call. #}
 
+{% set docstitle = None %}
+
 {%- block extrahead -%}
     <!-- Facebook OpenGraph -->
     <meta property="og:type" content="website"/>
