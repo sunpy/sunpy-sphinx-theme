@@ -48,7 +48,7 @@ matrix:
 install:
     - git clone git://github.com/astropy/ci-helpers.git
     - source ci-helpers/travis/setup_conda.sh
-    - git clone -b theme git://github.com/nabobalis/sunpy.git@theme
+    - git clone -b theme git://github.com/nabobalis/sunpy.git
     - source sunpy/continuous-integration/travis/openjpeg.sh  # so glymur knows where to look
 
 script:
