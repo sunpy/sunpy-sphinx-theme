@@ -12,8 +12,6 @@ def page_url(page):
 
 html_theme_options = {
     'navbar_links': [
-        ("Blog", page_url("blog.html"), 1),
-        ("Documentation", "http://sunpy.org/sunpy-sphinx-theme/index"),
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
