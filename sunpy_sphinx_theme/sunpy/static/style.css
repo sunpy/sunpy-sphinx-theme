@@ -358,7 +358,7 @@ blockquote {
 	.col-md-9 {
 		margin-left: 390px;
 		overflow: hidden;
-		width: 70%;
+		width: 60%;
 	}
 @media screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
