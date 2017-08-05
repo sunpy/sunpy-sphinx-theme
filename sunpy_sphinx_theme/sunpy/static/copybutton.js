@@ -1,3 +1,5 @@
+/* This file is a modified version of the one from the core Python
+ * documentation, see https://github.com/python/cpython/blob/master/LICENSE */
 $(document).ready(function() {
     /* Add a [>>>] button on the top-right corner of code samples to hide
      * the >>> and ... prompts and the output and thus make the code
