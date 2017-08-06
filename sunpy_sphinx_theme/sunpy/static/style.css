@@ -29,8 +29,11 @@ p.content.last {
 p.content.noheader {
 	padding-top: 15px;
 }
+.row {
+	margin-top: 5%;
+}
 .sunpy-logo {
-	width: 30%;
+	width: 70%;
 	margin-top: 5%;
 }
 .bs-sidenav::-webkit-scrollbar {
@@ -100,7 +103,7 @@ div#navbar {
 }
 .icon-text{
 	color: #FE7900;
-	font-size: 96px;
+	font-size: 120px;
 	font-weight: bold;
 }
 .icon-text.color2{
@@ -365,6 +368,9 @@ blockquote {
 	.navbar-right {
 		float: none !important;
 		margin-right: 0;
+	}
+	.lead {
+		font-size: 33.5px;
 	}
 @media screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
