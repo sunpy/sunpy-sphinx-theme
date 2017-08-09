@@ -367,7 +367,7 @@ blockquote {
 	.card p {
 		text-align: center;
 		padding-top: 10px;
-		font-size: 50px;
+		font-size: 30px;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -385,6 +385,12 @@ blockquote {
 	.lead {
 		font-size: 33.5px;
 	}
+	.card img {
+		display: block;
+		margin: 0 auto;
+		max-width: 80%;
+		padding-top: 10px;
+	}
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
@@ -393,7 +399,7 @@ blockquote {
 	.col-md-9 {
 		margin-left: 390px;
 		overflow: hidden;
-		width: 60%;
+		width: 71%;
 	}
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
