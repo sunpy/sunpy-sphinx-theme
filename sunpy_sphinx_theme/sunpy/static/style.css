@@ -3,7 +3,7 @@ body {
 	background-color: white;
 	color: #333;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 17px;
+	font-size: 18px;
 	overflow-x: hidden;
 }
 h1 {
@@ -29,12 +29,12 @@ p.content.last {
 p.content.noheader {
 	padding-top: 15px;
 }
-.row {
-	margin-top: 5%;
-}
 .sunpy-logo {
 	width: 70%;
 	margin-top: 5%;
+}
+.logo-container {
+	margin-top: 10%;
 }
 .bs-sidenav::-webkit-scrollbar {
   display: none;
@@ -314,7 +314,7 @@ blockquote {
 	display: table-cell;
 }
 /*End Docs specific styling*/
-@media (max-width: 510px) {
+@media only screen and (max-width: 510px) {
 	.sunpy-logo {
    		width: 75%;
  	}
@@ -322,8 +322,21 @@ blockquote {
  		position: relative;
  		width: 100%
  	}
+ 	h1 {
+ 		font-size: 40px;
+ 		margin-top: 70px;
+ 	}
+ 	h2 {
+ 		font-size: 30px;
+ 	}
+ 	h3 {
+ 		font-size: 25px;
+ 	}
+ 	.bs-sidenav .nav > li > a {
+ 		font-size: 20px;
+ 	}
 }
-@media (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
 	.bs-sidenav {
  		position: relative;
  		display: block;
@@ -357,7 +370,7 @@ blockquote {
 		font-size: 50px;
 	}
 }
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
 	.container>.navbar-header, 
 	.container-fluid>.navbar-header, 
 	.container>.navbar-collapse, 
@@ -372,7 +385,7 @@ blockquote {
 	.lead {
 		font-size: 33.5px;
 	}
-@media screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
 		width: 350px;
@@ -382,7 +395,7 @@ blockquote {
 		overflow: hidden;
 		width: 60%;
 	}
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 350px;
 	}
