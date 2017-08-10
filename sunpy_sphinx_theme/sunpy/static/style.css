@@ -63,8 +63,9 @@ div.section::before {
 	font-weight: bold;
 	margin-right: 10px;
 }
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
 	color: #FE7900;
 }
 .navbar-default .navbar-text {
@@ -90,12 +91,6 @@ div#navbar {
 }
 .caret {
 	margin-left: 5px;
-}
-.navbar-default .navbar-nav>.open>a, 
-.navbar-default .navbar-nav>.open>a:hover, 
-.navbar-default .navbar-nav>.open>a:focus {
-	background-color: #444444;
-	color: #FE7900;
 }
 /*End Navbar*/
 .center {
@@ -356,13 +351,9 @@ blockquote {
 		cursor: pointer;
 		font-size: 25px;
 	}
-	img {
-		max-width: 70%;
-		display: block;
-		margin: 0 auto;
-	}
 	.card {
 		padding-bottom: 75px;
+		width: 52%;
 	}
 	.card p {
 		text-align: center;
@@ -384,12 +375,6 @@ blockquote {
 	}
 	.lead {
 		font-size: 33.5px;
-	}
-	.card img {
-		display: block;
-		margin: 0 auto;
-		max-width: 80%;
-		padding-top: 10px;
 	}
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
@@ -415,6 +400,12 @@ blockquote {
 	text-align: center;
 	padding-top:10px;
 }
+.card img {
+		display: block;
+		margin: 0 auto;
+		max-width: 80%;
+		padding-top: 10px;
+	}
 .button {
   border: none;
 	outline: 0;
