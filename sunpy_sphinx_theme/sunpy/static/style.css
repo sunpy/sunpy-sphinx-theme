@@ -128,6 +128,7 @@ a.btn.btn-default.btn1:hover {
 	border-color: #444444;
 	text-transform: uppercase;
 	margin-top: 20px;
+	padding: 10px 21px;
 }
 a.btn.btn-default.btn2:hover {
 	color: #444444;
