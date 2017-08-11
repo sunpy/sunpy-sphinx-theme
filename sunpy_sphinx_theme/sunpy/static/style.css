@@ -133,6 +133,35 @@ a.btn.btn-default.btn2:hover {
 	color: #444444;
 	background-color: white;
 }
+/*Whatsnew*/
+.border {
+	border : 1px #E5E5E5 solid;
+	border-left-style: none;
+	border-right-style: none;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.whatsnew {
+	padding-top: 15px;
+	font-size: 30px;
+	text-align: center;
+}
+p.whatsnew {
+	margin: 0 0 0px;
+}
+.whatsnew a {
+	color: #FE7900;
+	font-weight: bold;
+	text-decoration: none;
+}
+.whatsnew a:hover {
+	color: #333;
+}
+.version {
+	text-align: center;
+	color: #333;
+	margin-bottom: 15px;
+}
 /*Sidebar*/ 
 .bs-sidenav {
 	background-color: #444444;
