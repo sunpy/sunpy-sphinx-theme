@@ -142,7 +142,7 @@ a.btn.btn-default.btn2:hover {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	position: fixed;
-	width: 350px;
+	width: 300px;
 	max-height: 80%;
 	border-left: 3px solid #FE7900;
 }
@@ -332,7 +332,7 @@ blockquote {
  	}
  	.card {
 		padding-bottom: 75px;
-		max-width: 60% !important;
+		max-width: 55% !important;
 	}
 }
 @media only screen and (max-width: 1000px) {
@@ -383,16 +383,15 @@ blockquote {
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
-		width: 350px;
+		width: 300px;
 	}
 	.col-md-9 {
-		margin-left: 390px;
+		margin-left: 330px;
 		overflow: hidden;
-		width: 71%;
 	}
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
-		width: 350px;
+		width: 300px;
 	}
 }
 /*Card Decks*/
@@ -409,7 +408,7 @@ blockquote {
 		margin: 0 auto;
 		max-width: 60%;
 		padding-top: 10px;
-	}
+}
 .button {
   border: none;
 	outline: 0;
