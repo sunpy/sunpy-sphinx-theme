@@ -3,7 +3,7 @@ body {
 	background-color: white;
 	color: #333;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 18px;
+	font-size: 17px;
 	overflow-x: hidden;
 }
 h1 {
@@ -330,6 +330,10 @@ blockquote {
  	.bs-sidenav .nav > li > a {
  		font-size: 20px;
  	}
+ 	.card {
+		padding-bottom: 75px;
+		max-width: 60% !important;
+	}
 }
 @media only screen and (max-width: 1000px) {
 	.bs-sidenav {
@@ -344,7 +348,7 @@ blockquote {
 		outline: 0;
 		display: block;
 		margin: 0 auto;
-		padding: 10px 50px 10px 50px;
+		padding: 5px 20px 5px 20px;
 		color: white;
 		background-color: #FE7900;
 		text-align: center;
@@ -353,7 +357,7 @@ blockquote {
 	}
 	.card {
 		padding-bottom: 75px;
-		width: 52%;
+		max-width: 32%;
 	}
 	.card p {
 		text-align: center;
@@ -403,7 +407,7 @@ blockquote {
 .card img {
 		display: block;
 		margin: 0 auto;
-		max-width: 80%;
+		max-width: 60%;
 		padding-top: 10px;
 	}
 .button {
