@@ -68,8 +68,10 @@ div.section::before {
 .navbar-default .navbar-nav > li > a:active {
 	color: #FE7900;
 }
-.navbar-default .navbar-text {
-	display: none;
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	background-color: #FE7900;
 }
 div#navbar {
 	border-bottom: 3px;
@@ -79,7 +81,6 @@ div#navbar {
 .dropdown-menu {
 	top: 115%;
 	min-width: 190px;
-	margin : 2px 10px 0;
 }
 .dropdown-menu>li>a {
 	font-size: 17px;
@@ -396,17 +397,6 @@ blockquote {
 	}
 }
 @media only screen and (min-width: 768px) {
-	.container>.navbar-header, 
-	.container-fluid>.navbar-header, 
-	.container>.navbar-collapse, 
-	.container-fluid>.navbar-collapse {
-		margin-top: 10px;
-		height: 70px;
-	}
-	.navbar-right {
-		float: none !important;
-		margin-right: 0;
-	}
 	.lead {
 		font-size: 33.5px;
 	}
