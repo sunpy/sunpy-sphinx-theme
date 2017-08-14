@@ -477,3 +477,8 @@ div.sphx-glr-footer.docutils.container {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+@media only screen and (max-width:992px){
+	.navbar-brand{
+		display: none;
+	}
+}
