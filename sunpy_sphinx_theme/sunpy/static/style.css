@@ -172,15 +172,10 @@ p.whatsnew {
 	max-height: 80%;
 	border-left: 3px solid #FE7900;
 }
-.bs-sidenav a {
- 	padding-left: 10px;
-}
 .bs-sidenav h2 {
-	padding-left: 10px;
 	color: #FE7900;
 }
 .bs-sidenav .nav > li {
-	padding-left: 10px;
 	color: #FE7900;
 }
 .bs-sidenav .nav > li > a {
