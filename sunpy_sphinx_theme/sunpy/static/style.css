@@ -478,4 +478,7 @@ div.sphx-glr-footer.docutils.container {
         display: none;
     }
 }
-
+#front {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
