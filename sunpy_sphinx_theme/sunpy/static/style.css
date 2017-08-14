@@ -469,3 +469,13 @@ div.sphx-glr-footer.docutils.container {
 .section#sunpy-board h1 {
 	display: none;
 }
+.social-links {
+    line-height: 70px;
+    float: right;
+}
+@media only screen and (max-width: 992px) {
+    .social-links {
+        display: none;
+    }
+}
+
