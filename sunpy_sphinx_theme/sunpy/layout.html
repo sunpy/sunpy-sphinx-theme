@@ -3,7 +3,7 @@
 {# Custom CSS overrides #}
 {% set css_files = css_files + ['_static/style.css'] %}
 {% set script_files = script_files + ['_static/copybutton.js'] + ['_static/version.js']%}
-{# Add some extra stuff before and use existing with 'super()' call. #}:
+{# Add some extra stuff before and use existing with 'super()' call. #}
 
 {% macro seo_title() -%}
 	{% if ishome -%}
