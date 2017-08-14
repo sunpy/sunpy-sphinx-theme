@@ -180,6 +180,7 @@ p.whatsnew {
 	color: #FE7900;
 }
 .bs-sidenav .nav > li {
+	padding-left: 10px;
 	color: #FE7900;
 }
 .bs-sidenav .nav > li > a {
