@@ -5,15 +5,27 @@
 {% set script_files = script_files + ['_static/copybutton.js'] + ['_static/version.js']%}
 {# Add some extra stuff before and use existing with 'super()' call. #}
 
-{% set docstitle = None %}
+{% macro seo_title() -%}
+	{% if ishome -%}
+		{{ docstitle|striptags|e }}
+	{%- else -%}
+		{{ title|striptags|e }} | {{ docstitle|striptags|e }}
+	{%- endif %}
+{%- endmacro %}
+
+{%- macro description() -%}
+    {{ (seo_description or theme_seo_description )|striptags|e }}
+{%- endmacro -%}
 
 {%- block extrahead -%}
     <!-- Facebook OpenGraph -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:site" content="{{ project }} documentation site"/>
-    <meta property="og:title" content="{{ project }}"/>
-    <meta property="og:description"
-          content="Check the documentation site for {{ project }}"/>
+    <meta property="og:title" content="{{ seo_title() }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ pathto(theme_base_url + '/' + pagename, 1) }}.html" />
+    <meta property="og:image" content="{{ pathto(theme_base_url + '/_static/' + theme_opengraph_image, 1) }}" />
+    <meta property="og:description" content="{{ description() }}" />
+    <meta property="og:site_name" content="{{ docstitle|striptags|e }}" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 {%- endblock %}
