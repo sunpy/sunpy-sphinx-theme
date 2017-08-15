@@ -337,6 +337,16 @@ div.sphx-glr-footer.docutils.container {
 div.figure p.caption span.caption-text {
 	text-align: center;
 }
+.sphx-glr-thumbcontainer[tooltip]:hover:after {
+	bottom: -45%;
+	left: 0%;
+}
+.sphx-glr-thumbcontainer[tooltip]:hover:before {
+	display: none;
+}
+.sphx-glr-thumbcontainer a.internal {
+	padding : 130px 10px 0;
+}
 /*End Docs specific styling*/
 @media only screen and (max-width: 510px) {
 	.sunpy-logo {
