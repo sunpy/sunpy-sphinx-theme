@@ -334,6 +334,9 @@ div.sphx-glr-footer.docutils.container {
 	width: 70%;
 	display: inline-flex;
 }
+div.figure p.caption span.caption-text {
+	text-align: center;
+}
 /*End Docs specific styling*/
 @media only screen and (max-width: 510px) {
 	.sunpy-logo {
