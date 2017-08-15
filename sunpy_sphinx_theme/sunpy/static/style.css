@@ -373,6 +373,9 @@ div.figure p.caption span.caption-text {
 		padding-bottom: 75px;
 		max-width: 55% !important;
 	}
+  .column {
+      width: 80%; !important;
+  }
 }
 @media only screen and (max-width: 1000px) {
 	.bs-sidenav {
@@ -394,14 +397,9 @@ div.figure p.caption span.caption-text {
 		cursor: pointer;
 		font-size: 25px;
 	}
-	.card {
-		padding-bottom: 75px;
-		max-width: 32%;
-	}
 	.card p {
 		text-align: center;
 		padding-top: 10px;
-		font-size: 30px;
 	}
 }
 /* Do not close these, they break cards*/
@@ -409,11 +407,12 @@ div.figure p.caption span.caption-text {
  	.navbar-right {
   		float: none !important;
   		margin-right: 0;
-		padding-left: 0;
-  	}
+		  padding-left: 0;
+  }
 	.lead {
-		font-size: 33.5px;
+		  font-size: 33.5px;
 	}
+}
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
@@ -422,7 +421,8 @@ div.figure p.caption span.caption-text {
 	.col-md-9 {
 		margin-left: 330px;
 		overflow: hidden;
-    }
+  }
+}
 /* End of comment above */
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
@@ -433,6 +433,7 @@ div.figure p.caption span.caption-text {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	background-color: #F5F5F5;
+  margin: 0 auto;
 }
 .card p {
 	text-align: center;
