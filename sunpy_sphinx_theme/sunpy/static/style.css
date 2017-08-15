@@ -63,7 +63,7 @@ div.section::before {
 	font-weight: bold;
 	margin-right: 10px;
 }
-.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:active {
 	color: #FE7900;
@@ -159,7 +159,7 @@ p.whatsnew {
 	color: #333;
 	margin-bottom: 15px;
 }
-/*Sidebar*/ 
+/*Sidebar*/
 .bs-sidenav {
 	background-color: #444444;
 	text-shadow: none;
@@ -237,13 +237,13 @@ p.whatsnew {
 	text-align: center;
 	font-weight: bold;
 }
-/*End Sidebar*/ 
+/*End Sidebar*/
 .divider {
 	border-bottom: 1px solid #eee;
 }
 .livechat {
-	border:0; 
-	width:100%; 
+	border:0;
+	width:100%;
 	height:450px;
 	padding-top: 50px;
 }
@@ -298,7 +298,7 @@ code.descname {
 .highlight .c1 {
 	color: #616161;
 }
-.highlight .s1, .highlight .s2, 
+.highlight .s1, .highlight .s2,
 .highlight .si, .highlight .sd {
 	color: #006600;
 }
