@@ -391,6 +391,7 @@ div.sphx-glr-footer.docutils.container {
 		font-size: 30px;
 	}
 }
+/* Do not close these, they break cards*/
 @media only screen and (min-width: 768px) {
  	.navbar-right {
   		float: none !important;
@@ -408,7 +409,8 @@ div.sphx-glr-footer.docutils.container {
 	.col-md-9 {
 		margin-left: 330px;
 		overflow: hidden;
-	}
+    }
+/* End of comment above */
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 300px;
