@@ -392,15 +392,9 @@ div.sphx-glr-footer.docutils.container {
 	}
 }
 @media only screen and (min-width: 768px) {
-  	.navbar-right {
-  		float: none !important;
-  		margin-right: 0;
-		padding-left: 0;
-  	}
 	.lead {
 		font-size: 33.5px;
 	}
-}
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
@@ -410,7 +404,6 @@ div.sphx-glr-footer.docutils.container {
 		margin-left: 330px;
 		overflow: hidden;
 	}
-}
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 300px;
