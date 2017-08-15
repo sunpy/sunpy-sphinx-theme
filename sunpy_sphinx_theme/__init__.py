@@ -1,7 +1,7 @@
 """ SunPy Sphinx Theme """
 import os
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 import sphinx_bootstrap_theme
 
