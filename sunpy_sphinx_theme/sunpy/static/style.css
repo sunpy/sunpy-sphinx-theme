@@ -63,7 +63,7 @@ div.section::before {
 	font-weight: bold;
 	margin-right: 10px;
 }
-.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:active {
 	color: #FE7900;
@@ -159,7 +159,7 @@ p.whatsnew {
 	color: #333;
 	margin-bottom: 15px;
 }
-/*Sidebar*/ 
+/*Sidebar*/
 .bs-sidenav {
 	background-color: #444444;
 	text-shadow: none;
@@ -237,13 +237,13 @@ p.whatsnew {
 	text-align: center;
 	font-weight: bold;
 }
-/*End Sidebar*/ 
+/*End Sidebar*/
 .divider {
 	border-bottom: 1px solid #eee;
 }
 .livechat {
-	border:0; 
-	width:100%; 
+	border:0;
+	width:100%;
 	height:450px;
 	padding-top: 50px;
 }
@@ -298,7 +298,7 @@ code.descname {
 .highlight .c1 {
 	color: #616161;
 }
-.highlight .s1, .highlight .s2, 
+.highlight .s1, .highlight .s2,
 .highlight .si, .highlight .sd {
 	color: #006600;
 }
@@ -391,8 +391,9 @@ div.sphx-glr-footer.docutils.container {
 		font-size: 30px;
 	}
 }
+/* Do not close these, they break cards*/
 @media only screen and (min-width: 768px) {
-  	.navbar-right {
+ 	.navbar-right {
   		float: none !important;
   		margin-right: 0;
 		padding-left: 0;
@@ -400,7 +401,6 @@ div.sphx-glr-footer.docutils.container {
 	.lead {
 		font-size: 33.5px;
 	}
-}
 @media only screen and (min-width: 992px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		position: fixed;
@@ -409,8 +409,8 @@ div.sphx-glr-footer.docutils.container {
 	.col-md-9 {
 		margin-left: 330px;
 		overflow: hidden;
-	}
-}
+    }
+/* End of comment above */
 @media only screen and (min-width: 1200px) {
 	.bs-sidenav.affix-bottom, .bs-sidenav.affix {
 		width: 300px;
@@ -476,4 +476,9 @@ div.sphx-glr-footer.docutils.container {
 #front {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+@media only screen and (max-width:992px){
+	.navbar-brand{
+		display: none;
+	}
 }
