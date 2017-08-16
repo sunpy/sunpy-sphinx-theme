@@ -57,3 +57,28 @@
     </div>
   </div>
 {%- endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <footer class="footer">
+    <div class="container">
+      <div class="left-footer">
+        <p>© 2017. SunPy
+          <a rel="licence" href="http://creativecommons.org/licenses/by/4.0/">
+            <img src="https://i.creativecommons.org/l/by/4.0/80x15.png">
+          </a>
+        </p>
+      </div>
+      <div class="right-footer">
+        <p>Created using <a href="http://www.sphinx-doc.org/en/stable/index.html">Sphinx</a> 1.6.3</p>
+      </div>
+      <div class="center-footer ">
+        <a href="https://github.com/sunpy/sunpy">Github</a>
+        <span> • </span>
+        <a href="https://twitter.com/SunPyProject">Twitter</a>
+        <span> • </span>
+        <a href="https://riot.im/app/#/room/#sunpy-general:matrix.org">Matrix</a>
+      </div>
+    </div>
+  </footer>
+{% endblock %}

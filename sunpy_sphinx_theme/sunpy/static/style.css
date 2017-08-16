@@ -334,10 +334,6 @@ input {
   padding-top: 50px;
 }
 
-footer {
-  display: none;
-}
-
 /* Docs specific styling */
 
 pre {
@@ -473,6 +469,38 @@ div.figure p.caption span.caption-text {
 }
 
 /* End Docs specific styling */
+
+.footer {
+  background-color: #FAFAFA;
+  bottom: 0;
+  height: 3em; 
+  position: fixed;
+  width: 100%;
+  border-top: none;
+  padding-top: 13px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.center-footer {
+  float: none;
+  margin: 0 auto;
+  width: 20%;
+} 
+
+.left-footer {
+  float: left;
+}
+
+.right-footer {
+  float: right;
+}
+
+.center-footer a{
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+}
+
 @media only screen and (max-width: 510px) {
 
   .sunpy-logo {
@@ -499,6 +527,10 @@ div.figure p.caption span.caption-text {
 
   .bs-sidenav .nav > li > a {
     font-size: 20px;
+  }
+
+  footer {
+    display: none;
   }
 }
 
@@ -662,6 +694,19 @@ div.figure p.caption span.caption-text {
 @media only screen and (max-width: 992px) {
 
   .social-links {
+    display: none;
+  }
+  
+  .navbar-brand {
+    display: none;
+  }
+
+  .center-footer {
+    float: right;
+    width: 50%
+  }
+
+  .right-footer {
     display: none;
   }
 }
