@@ -219,6 +219,10 @@ p.whatsnew {
   color: #fe7900;
 }
 
+.bs-sidenav h3 {
+  padding-left: 20px;
+}
+
 .bs-sidenav .nav > li {
   color: #fe7900;
 }
