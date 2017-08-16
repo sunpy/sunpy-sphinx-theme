@@ -41,7 +41,7 @@ env:
 matrix:
     include:
          - python: 3.6
-           env: SETUP_CMD='build_docs -w'
+           env: SETUP_CMD='build_docs'
                 EVENT_TYPE='push pull_request cron'
                 SPHINX_VERSION='<1.6'
 
