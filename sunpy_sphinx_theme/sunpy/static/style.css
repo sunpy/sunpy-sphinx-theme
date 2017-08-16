@@ -507,6 +507,10 @@ div.figure p.caption span.caption-text {
     width: 75%;
   }
 
+  .navbar-nav {
+		margin: -1px -15px;
+	}
+
   .bs-sidenav {
     position: relative;
     width: 100%;
@@ -670,6 +674,11 @@ div.figure p.caption span.caption-text {
   .column {
     width: 45%;
   }
+
+  .navbar-nav {
+		margin: -1px -15px;
+	}
+
 }
 
 @media only screen and (max-width: 1000px) {
