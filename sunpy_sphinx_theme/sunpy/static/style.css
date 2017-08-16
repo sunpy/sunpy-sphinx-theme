@@ -477,15 +477,6 @@ div.figure p.caption span.caption-text {
   .bs-sidenav .nav > li > a {
     font-size: 20px;
   }
-
-  .card {
-    padding-bottom: 75px;
-    max-width: 55% !important;
-  }
-
-  .column {
-    width: 80% !important;
-  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -509,11 +500,6 @@ div.figure p.caption span.caption-text {
     text-align: center;
     cursor: pointer;
     font-size: 25px;
-  }
-
-  .card p {
-    text-align: center;
-    padding-top: 10px;
   }
 }
 
@@ -597,6 +583,17 @@ div.figure p.caption span.caption-text {
   padding: 0 10px;
 }
 
+.column-half {
+  min-width: 45%;
+}
+
+.column-half > h4 {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  height: 2.4em;
+}
+
 .section#sunpy-board {
   margin-left: -15px;
   margin-right: -15px;
@@ -605,6 +602,30 @@ div.figure p.caption span.caption-text {
   flex-wrap: wrap;
   margin-top: 30px;
 }
+
+@media only screen and (max-width: 355px) {
+
+  .column {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 356px) and (max-width: 680px) {
+
+  .column {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+
+  .card p {
+    text-align: center;
+    padding-top: 10px;
+  }
+}
+
+/* End Cards */
 
 .section#sunpy-board h1 {
   display: none;
