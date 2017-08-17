@@ -7,3 +7,5 @@ This repository contains the still work in progress sphinx theme for the new web
 To use put this in your `conf.py` file:
 
     from sunpy_sphinx_theme.conf import *
+
+We have live version of our documentation that uses SunPy master and the master version of the theme, [here](http://sunpy.org/sunpy-sphinx-theme).
