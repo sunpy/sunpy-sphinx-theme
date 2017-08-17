@@ -59,10 +59,15 @@ div.section::before {
   margin: -80px 0 0;
 }
 
+.content {
+    margin-bottom: 3em;
+}
+
 /* Navbar */
 
 .navbar {
   background-color: #444;
+
 }
 
 .navbar-brand.color2 {
@@ -202,6 +207,10 @@ p.whatsnew {
 }
 
 /* Sidebar */
+
+#sidebar {
+    z-index: 100;
+}
 
 .bs-sidenav {
   background-color: #444;
@@ -471,9 +480,9 @@ div.figure p.caption span.caption-text {
 /* End Docs specific styling */
 
 .footer {
-  background-color: #FAFAFA;
+  background-color: #fffd;
   bottom: 0;
-  height: 3em; 
+  height: 3em;
   position: fixed;
   width: 100%;
   border-top: none;
@@ -486,7 +495,7 @@ div.figure p.caption span.caption-text {
   float: none;
   margin: 0 auto;
   width: 20%;
-} 
+}
 
 .left-footer {
   float: left;
