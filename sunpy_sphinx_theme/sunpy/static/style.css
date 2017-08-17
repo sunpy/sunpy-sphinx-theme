@@ -60,14 +60,13 @@ div.section::before {
 }
 
 .content {
-    margin-bottom: 3em;
+  margin-bottom: 3em;
 }
 
 /* Navbar */
 
 .navbar {
   background-color: #444;
-
 }
 
 .navbar-brand.color2 {
@@ -209,7 +208,7 @@ p.whatsnew {
 /* Sidebar */
 
 #sidebar {
-    z-index: 100;
+  z-index: 100;
 }
 
 .bs-sidenav {
@@ -505,9 +504,9 @@ div.figure p.caption span.caption-text {
   float: right;
 }
 
-.center-footer a{
+.center-footer a {
   display: inline-block;
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px;
 }
 
 @media only screen and (max-width: 510px) {
@@ -517,8 +516,8 @@ div.figure p.caption span.caption-text {
   }
 
   .navbar-nav {
-		margin: -1px -15px;
-	}
+    margin: -1px -15px;
+  }
 
   .bs-sidenav {
     position: relative;
@@ -685,9 +684,8 @@ div.figure p.caption span.caption-text {
   }
 
   .navbar-nav {
-		margin: -1px -15px;
-	}
-
+    margin: -1px -15px;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -714,14 +712,14 @@ div.figure p.caption span.caption-text {
   .social-links {
     display: none;
   }
-  
+
   .navbar-brand {
     display: none;
   }
 
   .center-footer {
     float: right;
-    width: 50%
+    width: 50%;
   }
 
   .right-footer {

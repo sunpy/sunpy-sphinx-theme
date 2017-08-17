@@ -1,64 +1,27 @@
 language: python
 
-# Setting sudo to false opts in to Travis-CI container-based builds.
-sudo: false
-
-# The apt packages below are needed but can no longer be installed with
-# sudo apt-get.
-addons:
-    apt:
-        packages:
-            - libatlas-dev
-            - liblapack-dev
-            - gfortran
-            - graphviz
-            - texlive-latex-extra
-            - dvipng
-
-cache:
-  directories:
-  - $HOME/sunpy/data
-
 python:
-    - 3.6
+  - 3.6
 
-# Configure the build environment. Global varibles are defined for all configurations.
-env:
-    global:
-        - COLUMNS=240
-        - NUMPY_VERSION='stable'
-        - ASTROPY_VERSION='stable'
-        - MAIN_CMD='python setup.py'
-        - SETUP_CMD='test'
-        - CONDA_CHANNELS='astropy astropy-ci-extras conda-forge'
-        - CONDA_DEPENDENCIES='openjpeg Cython jinja2 scipy matplotlib mock requests beautifulsoup4 sqlalchemy scikit-image pytest-mock pyyaml pandas nomkl pytest-cov coverage hypothesis glymur'
-        - PIP_DEPENDENCIES='suds-jurko sphinx-gallery pytest-sugar'
-        - EVENT_TYPE='pull_request push'
+before_install:
+  - npm install -g stylelint
+  - npm install stylelint-config-standard --save-dev
+  - stylelint ./sunpy_sphinx_theme/sunpy/static/style.css
 
-    matrix:
-        - SETUP_CMD='egg_info'
-
-matrix:
-    include:
-         - python: 3.6
-           env: SETUP_CMD='build_docs'
-                EVENT_TYPE='push pull_request cron'
-                SPHINX_VERSION='<1.6'
-
-install:
-    - git clone git://github.com/astropy/ci-helpers.git
-    - source ci-helpers/travis/setup_conda.sh
-    - git clone git://github.com/sunpy/sunpy.git
+install:  
+  - pip install -e .
+  - git clone https://github.com/sunpy/sunpy.github.io.git
+  - cd sunpy.github.io
+  - pip install -r requirements.txt
 
 script:
-    - python setup.py install
-    - cd sunpy
-    - $MAIN_CMD $SETUP_CMD
+  - make html
+  - rm ./_build/html/CNAME
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $mytoken
-  local_dir: /home/travis/build/sunpy/sunpy-sphinx-theme/sunpy/docs/_build/html/
+  local_dir: ./_build/html/
   on:
     branch: master
