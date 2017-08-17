@@ -59,18 +59,32 @@
 {%- endblock %}
 
 {% block footer %}
-  {{ super() }}
   <footer class="footer">
     <div class="container">
       <div class="left-footer">
-        <p>© 2017. SunPy
-          <a rel="licence" href="http://creativecommons.org/licenses/by/4.0/">
-            <img src="https://i.creativecommons.org/l/by/4.0/80x15.png">
-          </a>
+          <p>
+            {%- if show_copyright %}
+              {%- if hasdoc('copyright') %}
+                {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}"></a> {{ copyright }}{% endtrans %}
+              {%- else %}
+                {% trans copyright=copyright|e %}&copy; {{ copyright }}  {% endtrans %}
+              {%- endif %}
+            {%- endif %}
+            {{ theme_copyright_html }}
         </p>
       </div>
       <div class="right-footer">
-        <p>Created using <a href="http://www.sphinx-doc.org/en/stable/index.html">Sphinx</a> 1.6.3</p>
+        {%- if last_updated %}
+          {% trans last_updated=last_updated|e %}Updated on {{ last_updated }}{% endtrans %}
+        {%- if show_sphinx %}
+          {% trans sphinx_version=sphinx_version|e %}, built with <a href="http://sphinx-doc.org/">Sphinx {{ sphinx_version }}</a>{% endtrans %}
+        {%- else %}
+          .
+        {%- endif %}
+        {%- endif %}
+        {%- if show_sphinx and not last_updated %}
+          {% trans sphinx_version=sphinx_version|e %}Built with <a href="http://sphinx-doc.org/">Sphinx {{ sphinx_version }}.</a>{% endtrans %}
+        {%- endif %}
       </div>
       <div class="center-footer ">
         <a href="https://github.com/sunpy/sunpy">Github</a>
