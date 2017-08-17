@@ -63,6 +63,7 @@ div.section::before {
 
 .navbar {
   background-color: #444;
+
 }
 
 .navbar-brand.color2 {
@@ -202,6 +203,10 @@ p.whatsnew {
 }
 
 /* Sidebar */
+
+#sidebar {
+    z-index: 100;
+}
 
 .bs-sidenav {
   background-color: #444;

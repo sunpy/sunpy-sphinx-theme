@@ -41,7 +41,7 @@
     <div class="row">
       {%- block sidebar1 %}
         {%- if render_sidebar and sidebars %}
-          <div class="{{ bs_span_prefix }}4">
+          <div class="{{ bs_span_prefix }}4" id="sidebar">
             <div id="sidebar" class="bs-sidenav" role="complementary">
               {%- for sidebartemplate in sidebars %}
                 {%- include sidebartemplate %}
