@@ -1,7 +1,8 @@
 # SunPy Sphinx Theme
 
-This repository contains the still work in progress sphinx theme for the new
-website and documentation.
+[![Build Status](https://travis-ci.org/sunpy/sunpy-sphinx-theme.svg?branch=master)](https://travis-ci.org/sunpy/sunpy-sphinx-theme)
+
+This repository contains the still work in progress sphinx theme for the new website and documentation.
 
 To use put this in your `conf.py` file:
 
