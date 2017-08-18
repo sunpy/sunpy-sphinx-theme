@@ -64,7 +64,7 @@ div.section::before {
 }
 
 .row {
-	overflow-x: scroll;
+  overflow-x: scroll;
 }
 
 .row::-webkit-scrollbar {
