@@ -63,14 +63,6 @@ div.section::before {
   margin-bottom: 3em;
 }
 
-.row {
-  overflow-x: scroll;
-}
-
-.row::-webkit-scrollbar {
-  display: none;
-}
-
 /* Navbar */
 
 .navbar {
