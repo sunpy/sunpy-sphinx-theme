@@ -648,11 +648,7 @@ div.figure p.caption span.caption-text {
   padding: 0 10px;
 }
 
-.column-half {
-  min-width: 45%;
-}
-
-.column-half > h4 {
+.column > h4 {
   text-align: center;
   font-size: 1.2em;
   line-height: 1.2em;
