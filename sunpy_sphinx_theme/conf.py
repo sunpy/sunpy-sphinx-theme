@@ -1,5 +1,8 @@
 import os
-from urllib.parse import urljoin
+try:
+    from urllib.parse import urljoin
+except ImportError:
+    from urlparse import urljoin
 from . import get_html_theme_path
 
 html_theme_path = get_html_theme_path()
