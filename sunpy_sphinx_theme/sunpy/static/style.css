@@ -204,14 +204,9 @@ p.whatsnew {
 
 /* Sidebar */
 
-#sidebar {
-  z-index: 100;
-}
-
 .bs-sidenav {
   background-color: #444;
   text-shadow: none;
-  margin-bottom: 50px;
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
@@ -552,7 +547,6 @@ div.figure p.caption span.caption-text {
     position: relative;
     display: block;
     margin: 45px auto;
-    top: 50px !important;
   }
 
   .button {
