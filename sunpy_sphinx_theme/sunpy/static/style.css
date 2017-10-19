@@ -206,7 +206,7 @@ p.whatsnew {
 /* Sidebar */
 
 #sidebar {
-  z-index: 100;
+  z-index: 0;
 }
 
 .bs-sidenav {
@@ -216,7 +216,7 @@ p.whatsnew {
   margin-bottom: 50px;
   overflow-x: hidden;
   overflow-y: scroll;
-  position: fixed;
+  position: relative;
   width: 300px;
   max-height: 80%;
   border-left: 3px solid #fe7900;
