@@ -4,7 +4,8 @@ python:
   - 3.6
 
 before_install:
-  - npm install -g stylelint stylelint-config-standard --save-dev
+  - npm install -g stylelint
+  - npm install stylelint-config-recommended
   - stylelint ./sunpy_sphinx_theme/sunpy/static/style.css
 
 install:  
