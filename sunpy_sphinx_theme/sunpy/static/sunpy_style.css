@@ -770,3 +770,9 @@ div.sphx-glr-download a:hover {
 div.prompt {
     display: none;
 }
+
+.frametransformgraph {
+  overflow-x: auto;
+  width: 100%;
+  border: 1px solid black;
+}
