@@ -25,6 +25,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $mytoken
-  local_dir: _build/html/
+  local_dir: sunpy.github.io/_build/html/
   on:
     branch: master
