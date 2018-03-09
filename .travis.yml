@@ -25,6 +25,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $mytoken
-  local_dir: $TRAVIS_BUILD_DIR/sunpy.github.io/_build/html/
+  local_dir: /home/travis/build/sunpy/sunpy-sphinx-theme/sunpy.github.io/_build/html/
   on:
     branch: master
