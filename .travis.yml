@@ -13,11 +13,11 @@ install:
   - git clone https://github.com/sunpy/sunpy.github.io.git
   - cd sunpy.github.io
   - pip install -r requirements.txt
+  - pip install -U sphinx
 
 script:
   - make html
   - rm ./_build/html/CNAME
-  - pwd
 
 deploy:
   edge:
