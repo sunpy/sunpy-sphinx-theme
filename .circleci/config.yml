@@ -24,8 +24,8 @@ jobs:
       - run: $MAIN_CMD $SETUP_CMD
       - run: git clone https://github.com/sunpy/sunpy.github.io.git
       - run: cd sunpy.github.io
-      - run: install -r requirements.txt
-      - run: install -U sphinx
+      - run: pip install -r requirements.txt
+      - run: pip install -U sphinx
 
       - store_artifacts:
           path: sunpy.github.io/_build/html
