@@ -9,7 +9,6 @@ pip-run: &pip-install
   command: |
     python3 -m venv venv
     . venv/bin/activate
-    pip install -r requirements/docs.txt
 
 version: 2
 jobs:
