@@ -48,6 +48,26 @@ jobs:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/project/sunpy.github.io/_build/html/index.html"; echo $DOCS_URL
 
+  docs:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *pip-install
+      - run: pip install -U setuptools
+      - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
+      - run: cd sunpy && pip install -e .
+      - run: pip install -r sunpy/requirements/docs.txt
+      - run: cd sunpy && python setup.py build_docs -w 
+
+      - store_artifacts:
+          path: sunpy/docs/_build/html
+
+      - run:
+          name: "Built documentation is available at:"
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/project/sunpy/docs/_build/html/index.html"; echo $DOCS_URL
+
 workflows:
   version: 2
 
@@ -55,9 +75,10 @@ workflows:
     jobs:
       - linter
 
-  test-website-build:
+  test-html-build:
     jobs:
       - website
+      - docs
 
 notify:
   webhooks:
