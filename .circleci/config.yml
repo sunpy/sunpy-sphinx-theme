@@ -1,0 +1,48 @@
+apt-run: &apt-install
+  name: Install apt packages
+  command: |
+    sudo apt update
+    sudo apt install -y graphviz
+
+pip-run: &pip-install
+  name: Install Python dependencies
+  command: |
+    python3 -m venv venv
+    . venv/bin/activate
+    pip install -r requirements/docs.txt
+
+version: 2
+jobs:
+  html-docs:
+    environment:
+      - MAIN_CMD: "venv/bin/pip install -e ."
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *pip-install
+      - run: $MAIN_CMD $SETUP_CMD
+      - run: git clone https://github.com/sunpy/sunpy.github.io.git
+      - run: cd sunpy.github.io
+      - run: install -r requirements.txt
+      - run: install -U sphinx
+
+      - store_artifacts:
+          path: sunpy.github.io/_build/html
+
+      - run:
+          name: "Built documentation is available at:"
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/docs/_build/html/index.html"; echo $DOCS_URL
+
+
+workflows:
+  version: 2
+
+  test-documentation:
+    jobs:
+      - html-docs
+
+notify:
+  webhooks:
+    - url: https://giles.cadair.com/circleci
