@@ -17,6 +17,7 @@ html_theme_options = {
     'navbar_links': [
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
-        ("SunPy Project", page_url("team.html"), 1),
-    ]
+        ("SunPy Project", page_url("team.html"), 1)
+                    ],
+    'html_sidebars': {'**': ['docsidebar.html']}
 }
