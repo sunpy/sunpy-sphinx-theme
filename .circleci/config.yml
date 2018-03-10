@@ -8,31 +8,33 @@ pip-run: &pip-install
   name: Install Python dependencies
   command: |
     python3 -m venv venv
-    . venv/bin/activate
+    echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
 
 version: 2
 jobs:
   html-docs:
     environment:
-      - MAIN_CMD: "venv/bin/pip install -e ."
+      - MAIN_CMD: "pip install -e ."
     docker:
       - image: circleci/python:3.6
     steps:
       - checkout
       - run: *apt-install
       - run: *pip-install
+      - run: pip install -U setuptools
       - run: $MAIN_CMD $SETUP_CMD
       - run: git clone https://github.com/sunpy/sunpy.github.io.git
-      - run: cd sunpy.github.io
-      - run: pip install -r requirements.txt
+      - run: pip install -r $HOME/project/sunpy.github.io/requirements.txt
       - run: pip install -U sphinx
-
+      - run: make -C $HOME/project/sunpy.github.io html
+      - run: rm $HOME/project/sunpy.github.io/_build/html/CNAME
+      
       - store_artifacts:
-          path: sunpy.github.io/_build/html
+          path: $HOME/project/sunpy.github.io/_build/html
 
       - run:
           name: "Built documentation is available at:"
-          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/sunpy.github.io/_build/html/index.html"; echo $DOCS_URL
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/project/sunpy.github.io/_build/html/index.html"; echo $DOCS_URL
 
 
 workflows:
