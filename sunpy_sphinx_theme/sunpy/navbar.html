@@ -1,56 +1,51 @@
-<div id="navbar" class="{{ theme_navbar_class }} navbar-default {% if theme_navbar_fixed_top|tobool -%} navbar-fixed-top{%- endif -%}">
+<div id="navbar" class="{{ theme_navbar_class }} navbar-default {% if theme_navbar_fixed_top|tobool %} navbar-fixed-top {% endif %}">
   <div class="container">
 	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse"></button>
 	    <a class="navbar-brand" href="{{ theme_logo_url }}">SunPy</a>
 	  </div>
 	  <div class="collapse navbar-collapse nav-collapse">
 	    <ul class="nav navbar-nav">
 		    {% if theme_navbar_links %}
-		    <div class="collapse navbar-collapse nav-collapse">
-			    <ul class="nav navbar-nav navbar-left">
-			    	<li class="dropdown">
-			    	 <a role="button" id="dLabelGlobalToc" data-toggle="dropdown" data-target="#" href="#">About<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-submenu">
-                  <a "{{ pathto("about") }}">About</a>
-                </li>
-                <li class="dropdown-submenu">
-                  <a href="{{ pathto("about") }}acknowledging-sunpy">Acknowledge</a>
+		      <div class="collapse navbar-collapse nav-collapse">
+			      <ul class="nav navbar-nav navbar-left">
+			    	  <li class="dropdown">
+			    	    <a role="button" id="dLabelGlobalToc" data-toggle="dropdown" data-target="" href="" }}>About<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a href="{{ pathto("about") }}">About</a>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="{{ pathto("about") }}acknowledging-sunpy">Acknowledge</a>
+            		  </li>
+            		  <li class="dropdown-submenu">
+                    <a href="http://docs.sunpy.org/en/stable/coc.html">Code of Conduct</a>
+            		  </li>
+                </ul>
+			        </li>
+			        <li class="dropdown">
+			    	    <a role="button" id="dLabelGlobalToc" data-toggle="dropdown" data-target="" href="">Documentation<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                      <a href="http://docs.sunpy.org/en/stable/">SunPy</a>
+                    </li>
+								    <li class="dropdown-submenu">
+									<a href="http://docs.sunpy.org/projects/ndcube">ndcube</a>
+								</li>
+            		<li class="dropdown-submenu">
+									<a href="http://docs.sunpy.org/projects/drms">drms</a>
             		</li>
             		<li class="dropdown-submenu">
-                  <a href="http://docs.sunpy.org/en/stable/coc.html">Code of Conduct</a>
+									<a href="http://docs.sunpy.org/projects/radiospectra/en/latest/index.html">radiospectra</a>
             		</li>
+								<li class="dropdown-submenu">
+									<a href="http://docs.sunpy.org/projects/irispy/en/latest/">IRISPy</a>
+								</li>
               </ul>
 			      </li>
-			      <li><a href="http://sunpy.org/blog.html">Blog</a></li>
-			      <li class="dropdown">
-			    	 <a role="button" id="dLabelGlobalToc" data-toggle="dropdown" data-target="#" href="#">Documentation<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-submenu">
-                  <a href="http://docs.sunpy.org/en/stable/">SunPy</a>
-                </li>
-                <li class="dropdown-submenu">
-                  <a href="http://docs.sunpy.org/projects/irispy/en/latest/">IRISPy</a>
-            		</li>
-            		<li class="dropdown-submenu">
-                  <a href="http://docs.sunpy.org/projects/ndcube">ndcube</a>
-            		</li>
-            		<li class="dropdown-submenu">
-                  <a href="http://docs.sunpy.org/projects/drms">drms</a>
-            		</li>
-            		<li class="dropdown-submenu">
-                    <a href="http://docs.sunpy.org/projects/radiospectra/en/latest/index.html">radiospectra</a>
-            		</li>
-              </ul>
-			      </li>
-			      {%- for link in theme_navbar_links %}
+			      {% for link in theme_navbar_links %}
 			      <li><a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a></li>
-			      {%- endfor %}
+			      {% endfor %}
 	    	{% endif %}
 	        </ul>
 	    </div>
