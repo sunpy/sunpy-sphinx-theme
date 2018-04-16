@@ -546,6 +546,10 @@ div.figure p.caption span.caption-text {
     padding-left: 0;
   }
 
+.navbar-brand {
+    display: none;
+}
+
   .lead {
     font-size: 33.5px;
   }
@@ -558,6 +562,10 @@ div.figure p.caption span.caption-text {
     position: fixed;
     width: 300px;
   }
+
+  .navbar-brand {
+    display: initial;
+}
 
   .col-md-9 {
     margin-left: 330px;
@@ -670,10 +678,6 @@ div.figure p.caption span.caption-text {
     display: none;
   }
 
-/*  .navbar-brand {
-    display: none;
-  }
-*/
   .center-footer {
     float: right;
     width: 50%;
