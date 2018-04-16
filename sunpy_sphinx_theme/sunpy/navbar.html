@@ -1,7 +1,11 @@
 <div id="navbar" class="{{ theme_navbar_class }} navbar-default {% if theme_navbar_fixed_top|tobool %} navbar-fixed-top {% endif %}">
   <div class="container">
 	  <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse"></button>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+			  <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 	    <a class="navbar-brand" href="{{ theme_logo_url }}">SunPy</a>
 	  </div>
 	  <div class="collapse navbar-collapse nav-collapse">

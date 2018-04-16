@@ -47,16 +47,6 @@ p.content.noheader {
   margin-top: 10%;
 }
 
-.bs-sidenav::-webkit-scrollbar {
-  display: none;
-  overflow-x: hidden;
-}
-
-div.section::before {
-  display: block;
-  content: '';
-}
-
 .content {
   margin-bottom: 3em;
 }
@@ -209,7 +199,7 @@ p.whatsnew {
   background-color: #444;
   text-shadow: none;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   width: 300px;
   max-height: 80%;
