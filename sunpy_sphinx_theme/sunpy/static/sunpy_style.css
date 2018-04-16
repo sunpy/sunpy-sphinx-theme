@@ -91,7 +91,7 @@ div#navbar {
 }
 
 .dropdown-menu > li > a {
-  font-size: 17px;
+  font-size: 16px;
   padding: 10px 20px;
   color: #333;
 }
@@ -126,7 +126,7 @@ div#navbar {
 }
 
 .btn {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bolder;
   margin-bottom: 40px;
 }
@@ -378,7 +378,7 @@ code {
 }
 
 code.descname {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 /* Highlight */
@@ -423,7 +423,7 @@ dt:target,
 /* Button */
 
 blockquote {
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .table,
@@ -612,7 +612,7 @@ div.figure p.caption span.caption-text {
   background-color: #fe7900;
   text-align: center;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .button:hover {
