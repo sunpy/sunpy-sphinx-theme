@@ -712,3 +712,12 @@ div.sphx-glr-download a:hover {
   height: 40px;
   visibility: hidden;
 }
+
+
+.carousel:before {
+  display: block;
+  content: "";
+  margin-top: 0;
+  height: 0;
+  visibility: hidden;
+}
