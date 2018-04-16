@@ -5,7 +5,7 @@ body {
   background-color: white;
   color: #333;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   overflow-x: hidden;
 }
 
@@ -214,6 +214,11 @@ p.whatsnew {
   width: 300px;
   max-height: 80%;
   border-left: 3px solid #fe7900;
+}
+
+.bs-sidenav form {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .bs-sidenav h2 {

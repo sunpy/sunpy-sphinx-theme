@@ -1,0 +1,9 @@
+language: python
+
+python:
+  - 3.6
+
+script:
+  - npm install -g stylelint
+  - npm install stylelint-config-recommended
+  - stylelint ./sunpy_sphinx_theme/sunpy/static/style.css

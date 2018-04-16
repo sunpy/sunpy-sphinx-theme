@@ -10,22 +10,8 @@ pip-run: &pip-install
     python3 -m venv venv
     echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
 
-npm-run: &npm-install
-  name: Install NPM dependencies
-  command: |
-    sudo apt update
-    sudo npm install -g stylelint
-    sudo npm install -g stylelint-config-recommended
-
 version: 2
 jobs:
-  linter:
-    docker:
-      - image: circleci/node:4.8.2
-    steps:
-      - run: *npm-install
-      - run: stylelint sunpy_sphinx_theme/sunpy/static/sunpy_style.css
-  
   website:
     docker:
       - image: circleci/python:3.6
@@ -71,13 +57,11 @@ jobs:
 workflows:
   version: 2
 
-  test-linter:
-    jobs:
-      - linter
-
-  test-html-build:
+  website-build:
     jobs:
       - website
+  doc-build:
+    jobs:
       - docs
 
 notify:

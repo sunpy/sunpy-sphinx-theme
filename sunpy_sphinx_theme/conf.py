@@ -12,11 +12,8 @@ html_theme = "sunpy"
 html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
 html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
 
-deploy = False
-if deploy:
-    sunpy_website_url_base = "http://sunpy.org/"
-else:
-    sunpy_website_url_base = socket.gethostname()
+# This seems to work no problem on live or as PRs
+sunpy_website_url_base = socket.gethostname()
 
 
 def page_url(page):
