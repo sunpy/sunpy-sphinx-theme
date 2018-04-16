@@ -23,10 +23,9 @@ jobs:
       - run: pip install -e .
       - run: git clone https://github.com/sunpy/sunpy.github.io.git
       - run: pip install -r sunpy.github.io/requirements.txt
-      - run: pip install -U sphinx
       - run: make -C $HOME/project/sunpy.github.io html
       - run: rm $HOME/project/sunpy.github.io/_build/html/CNAME
-      
+
       - store_artifacts:
           path: sunpy.github.io/_build/html
 
@@ -42,10 +41,11 @@ jobs:
       - run: *apt-install
       - run: *pip-install
       - run: pip install -U setuptools
+      - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
       - run: cd sunpy && pip install -e .
       - run: pip install -r sunpy/requirements/docs.txt
-      - run: cd sunpy && python setup.py build_docs -w 
+      - run: cd sunpy && python setup.py build_docs -w
 
       - store_artifacts:
           path: sunpy/docs/_build/html
@@ -57,11 +57,9 @@ jobs:
 workflows:
   version: 2
 
-  website-build:
+  html-builds:
     jobs:
       - website
-  doc-build:
-    jobs:
       - docs
 
 notify:
