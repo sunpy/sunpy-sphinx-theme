@@ -12,9 +12,7 @@ pip-run: &pip-install
 
 version: 2
 jobs:
-  html-docs:
-    environment:
-      - MAIN_CMD: "pip install -e ."
+  website:
     docker:
       - image: circleci/python:3.6
     steps:
@@ -22,27 +20,47 @@ jobs:
       - run: *apt-install
       - run: *pip-install
       - run: pip install -U setuptools
-      - run: $MAIN_CMD $SETUP_CMD
+      - run: pip install -e .
       - run: git clone https://github.com/sunpy/sunpy.github.io.git
-      - run: pip install -r $HOME/project/sunpy.github.io/requirements.txt
-      - run: pip install -U sphinx
+      - run: pip install -r sunpy.github.io/requirements.txt
       - run: make -C $HOME/project/sunpy.github.io html
       - run: rm $HOME/project/sunpy.github.io/_build/html/CNAME
-      
+
       - store_artifacts:
-          path: $HOME/project/sunpy.github.io/_build/html
+          path: sunpy.github.io/_build/html
 
       - run:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/project/sunpy.github.io/_build/html/index.html"; echo $DOCS_URL
 
+  docs:
+    docker:
+      - image: circleci/python:3.6
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *pip-install
+      - run: pip install -U setuptools
+      - run: pip install -e .
+      - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
+      - run: cd sunpy && pip install -e .
+      - run: pip install -r sunpy/requirements/docs.txt
+      - run: cd sunpy && python setup.py build_docs -w
+
+      - store_artifacts:
+          path: sunpy/docs/_build/html
+
+      - run:
+          name: "Built documentation is available at:"
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/project/sunpy/docs/_build/html/index.html"; echo $DOCS_URL
 
 workflows:
   version: 2
 
-  test-documentation:
+  html-builds:
     jobs:
-      - html-docs
+      - website
+      - docs
 
 notify:
   webhooks:

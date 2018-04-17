@@ -1,12 +1,11 @@
-{# Import the theme's layout. #}
+{# Import the theme's layout #}
 {% extends "bootstrap/layout.html" %}
-{# Custom CSS overrides #}
-{% set css_files = css_files + ['_static/style.css'] %}
+{# Extra JS files #}
 {% set script_files = script_files + ['_static/copybutton.js'] + ['_static/version.js']%}
-{# Add some extra stuff before and use existing with 'super()' call. #}
-
+{# Custom CSS overrides #}
+{% set css_files = css_files + ['_static/sunpy_style.css'] %}
+{# Add some extra stuff before and use existing with 'super()' call #}
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and sidebars %}
-
 {%- set bs_content_width2 = render_sidebar and "8" or "12"%}
 
 {% macro seo_title() -%}

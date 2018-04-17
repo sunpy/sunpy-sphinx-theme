@@ -1,11 +1,11 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="sunpy-sphinx-theme",
-    version="1.0.7",
+    version="1.1.0",
     use_2to3=False,
     description="The sphinx theme for the SunPy website and documentation.",
-    long_description="",
+    long_description="The sphinx theme for the SunPy website and documentation.",
     author="The SunPy Developers",
     install_requires=[
         "setuptools",
