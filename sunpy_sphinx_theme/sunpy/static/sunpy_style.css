@@ -755,3 +755,11 @@ div.sphx-glr-download a:hover {
   height: 0;
   visibility: hidden;
 }
+
+*[id^='sunpy']:before {
+  display: block;
+  content: "";
+  margin-top: 0;
+  height: 0;
+  visibility: hidden;
+}
