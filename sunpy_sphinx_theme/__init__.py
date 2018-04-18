@@ -3,7 +3,7 @@ import os
 
 import sphinx_bootstrap_theme
 
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 
 def get_html_theme_path():
