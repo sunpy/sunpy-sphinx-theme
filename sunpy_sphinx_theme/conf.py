@@ -12,7 +12,7 @@ html_theme = "sunpy"
 html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
 html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+on_rtd = os.environ.get('READTHEDOCS', False) == 'True'
 
 if on_rtd:
     sunpy_website_url_base = 'http://sunpy.org'
@@ -31,5 +31,6 @@ html_theme_options = {
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1)
-                    ]
+                    ],
+    'on_rtd': on_rtd
 }
