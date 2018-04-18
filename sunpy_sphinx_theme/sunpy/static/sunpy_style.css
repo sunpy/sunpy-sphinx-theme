@@ -5,7 +5,7 @@ body {
   background-color: white;
   color: #333;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   overflow-x: hidden;
 }
 
@@ -16,6 +16,7 @@ h1 {
 
 h4 {
   font-weight: 300;
+  font-size: 21px;
 }
 
 a {
@@ -68,6 +69,7 @@ p.content.noheader {
 
 .navbar-default .navbar-brand {
   color: #fe7900;
+  font-size: 20px;
   font-weight: bold;
   margin-right: 10px;
 }
@@ -90,6 +92,7 @@ div#navbar {
 }
 
 .dropdown-menu > li > a {
+  font-size: 16px;
   padding: 10px 20px;
   color: #333;
 }
@@ -124,6 +127,7 @@ div#navbar {
 }
 
 .btn {
+  font-size: 16px;
   font-weight: bolder;
   margin-bottom: 40px;
 }
@@ -247,6 +251,7 @@ p.whatsnew {
   padding-top: 5px;
   padding-bottom: 5px;
   border-left: none;
+  font-size: 100%;
 }
 
 .bs-sidenav .nav .nav > li > a.current {
@@ -373,6 +378,10 @@ code {
   background-color: transparent;
 }
 
+code.descname {
+  font-size: 16px;
+}
+
 /* Highlight */
 
 .highlight .o {
@@ -414,6 +423,10 @@ dt:target,
 
 /* Button */
 
+blockquote {
+  font-size: 16px;
+}
+
 .table,
 .table > tbody > tr > td {
   border: 1px solid #333;
@@ -443,6 +456,7 @@ div.figure p.caption span.caption-text {
   width: 100%;
   border-top: none;
   padding-top: 13px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -481,7 +495,20 @@ div.figure p.caption span.caption-text {
   }
 
   h1 {
+    font-size: 40px;
     margin-top: 70px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  .bs-sidenav .nav > li > a {
+    font-size: 20px;
   }
 
   footer {
@@ -508,6 +535,7 @@ div.figure p.caption span.caption-text {
     background-color: #fe7900;
     text-align: center;
     cursor: pointer;
+    font-size: 25px;
   }
 }
 
@@ -521,6 +549,10 @@ div.figure p.caption span.caption-text {
 
 .navbar-brand {
     display: none;
+}
+
+  .lead {
+    font-size: 33.5px;
   }
 }
 
@@ -581,6 +613,7 @@ div.figure p.caption span.caption-text {
   background-color: #fe7900;
   text-align: center;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .button:hover {
@@ -596,6 +629,7 @@ div.figure p.caption span.caption-text {
 
 .column > h4 {
   text-align: center;
+  font-size: 1.2em;
   line-height: 1.2em;
   height: 2.4em;
 }
@@ -715,6 +749,14 @@ div.sphx-glr-download a:hover {
 
 
 .carousel:before {
+  display: block;
+  content: "";
+  margin-top: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+*[id^='sunpy']:before {
   display: block;
   content: "";
   margin-top: 0;
