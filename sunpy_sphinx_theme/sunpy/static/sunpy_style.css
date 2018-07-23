@@ -342,6 +342,7 @@ pre {
   margin: 30px 0;
   background-color: white;
   border: 1px solid #e3e3e3;
+  color: inherit;
 }
 
 /* Warning */
@@ -762,4 +763,10 @@ div.sphx-glr-download a:hover {
   margin-top: 0;
   height: 0;
   visibility: hidden;
+}
+
+
+/* Jupyter Blog Post formatting */
+div.prompt {
+    display: none;
 }
