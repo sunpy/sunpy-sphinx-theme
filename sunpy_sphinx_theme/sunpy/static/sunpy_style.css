@@ -763,3 +763,9 @@ div.sphx-glr-download a:hover {
   height: 0;
   visibility: hidden;
 }
+
+
+/* Jupyter Blog Post formatting */
+div.prompt {
+    display: none;
+}
