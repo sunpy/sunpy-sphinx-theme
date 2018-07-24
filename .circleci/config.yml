@@ -3,6 +3,7 @@ apt-run: &apt-install
   command: |
     sudo apt update
     sudo apt install -y graphviz
+    sudo apt install -y pandoc
 
 pip-run: &pip-install
   name: Install Python dependencies
@@ -21,13 +22,12 @@ jobs:
       - run: *pip-install
       - run: pip install -U setuptools
       - run: pip install -e .
-      - run: git clone https://github.com/sunpy/sunpy.github.io.git
-      - run: pip install -r sunpy.github.io/requirements.txt
-      - run: make -C $HOME/project/sunpy.github.io html
-      - run: rm $HOME/project/sunpy.github.io/_build/html/CNAME
+      - run: git clone https://github.com/sunpy/sunpy.org.git
+      - run: pip install -r sunpy.org/requirements.txt
+      - run: make -C $HOME/project/sunpy.org html
 
       - store_artifacts:
-          path: sunpy.github.io/_build/html
+          path: sunpy.org/_build/html
 
       - run:
           name: "Built documentation is available at:"
