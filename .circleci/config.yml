@@ -25,7 +25,6 @@ jobs:
       - run: git clone https://github.com/sunpy/sunpy.org.git
       - run: pip install -r sunpy.org/requirements.txt
       - run: make -C $HOME/project/sunpy.org html
-      - run: rm $HOME/project/sunpy.org/_build/html/CNAME
 
       - store_artifacts:
           path: sunpy.org/_build/html
