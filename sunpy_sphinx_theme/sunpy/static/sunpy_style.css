@@ -302,6 +302,8 @@ div.sidelogo {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 img.sidenav {

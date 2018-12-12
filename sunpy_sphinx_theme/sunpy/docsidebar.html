@@ -1,8 +1,8 @@
 {% set toctree = toctree(maxdepth=4, collapse=True, includehidden=True) %}
 {% if toctree %}
-    {% if theme_sidebar_logo %}
+    {% if logo %}
     <div class="sidelogo">
-        <img class="sidelogo" src="{{ theme_sidebar_logo }}">
+        <img class="sidelogo" src="{{ pathto('_static/' + logo, 1) }}">
     </div>
     {% else %}
     <div class="sidenologo"></div>
