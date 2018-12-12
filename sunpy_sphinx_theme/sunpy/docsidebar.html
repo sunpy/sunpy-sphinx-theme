@@ -1,5 +1,12 @@
 {% set toctree = toctree(maxdepth=4, collapse=True, includehidden=True) %}
 {% if toctree %}
+    {% if theme_sidebar_logo %}
+    <div class="sidelogo">
+        <img class="sidelogo" src="{{ theme_sidebar_logo }}">
+    </div>
+    {% else %}
+    <div class="sidenologo"></div>
+    {% endif %}
     <p class="doc-title">
         <a style="padding-left: 0" href="{{ pathto('index') }}">{{ project|e }} {{ version|e }}</a>
     </p>
