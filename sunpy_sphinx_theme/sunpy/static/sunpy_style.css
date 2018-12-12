@@ -205,6 +205,7 @@ p.whatsnew {
   width: 300px;
   max-height: 80%;
   border-left: 3px solid #fe7900;
+  padding-top: 0px;
 }
 
 .bs-sidenav form {
@@ -291,6 +292,24 @@ p.whatsnew {
 .bs-sidenav form,
 .bs-sidenav #sourcelink {
   text-align: center;
+}
+
+div.sidenologo {
+    padding-top: 10px;
+}
+
+div.sidelogo {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+img.sidenav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-control {
