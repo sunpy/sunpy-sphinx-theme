@@ -10,6 +10,7 @@ from sunpy_sphinx_theme import get_html_theme_path
 html_theme_path = get_html_theme_path()
 html_theme = "sunpy"
 html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
+templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
 html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
 
 on_rtd = os.environ.get('READTHEDOCS', False) == 'True'
