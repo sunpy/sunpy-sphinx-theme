@@ -31,6 +31,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% if not version_slug in to_be_indexed  %}
+  <meta name="robots" content="noindex, nofollow">
+  {% endif %}
+
 {%- endblock %}
 
 

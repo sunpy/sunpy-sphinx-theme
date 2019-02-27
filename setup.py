@@ -2,7 +2,8 @@ from setuptools import setup
 
 setup(
     name="sunpy-sphinx-theme",
-    version="1.1.7",
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
     use_2to3=False,
     description="The sphinx theme for the SunPy website and documentation.",
     long_description="The sphinx theme for the SunPy website and documentation.",
