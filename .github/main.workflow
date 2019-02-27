@@ -4,7 +4,7 @@ workflow "Release to PyPi" {
 }
 
 action "tag-filter" {
-  uses = "actions/bin/filter@24a566c2524e05ebedadef0a285f72dc9b631411"
+  uses = "actions/bin/filter@master"
   args = "tag"
 }
 
