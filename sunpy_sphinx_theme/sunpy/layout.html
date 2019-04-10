@@ -54,7 +54,7 @@
           </div>
         {%- endif %}
       {% endblock %}
-      <div class="{{ bs_span_prefix }}{{ bs_content_width2 }} content">
+      <div class="body {{ bs_span_prefix }}{{ bs_content_width2 }} content" role="main">
         {% block body %}{% endblock %}
       </div>
       {% block sidebar2 %} {# possible location for sidebar #} {% endblock %}
