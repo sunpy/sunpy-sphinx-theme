@@ -43,7 +43,7 @@ jobs:
       - run: pip install -U setuptools
       - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
-      - run: cd sunpy && pip install -e .[all]
+      - run: cd sunpy && pip install -e .[all,dev]
       - run: cd sunpy && python setup.py build_docs -w
 
       - store_artifacts:
