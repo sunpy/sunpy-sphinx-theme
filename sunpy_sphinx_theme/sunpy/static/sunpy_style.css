@@ -23,6 +23,10 @@ a {
   color: #fe7900;
 }
 
+a.fn-backref {
+  font-size: 1.5em;
+}
+
 a:hover {
   color: #dd2c00;
 }
