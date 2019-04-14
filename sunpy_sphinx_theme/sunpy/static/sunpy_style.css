@@ -759,6 +759,11 @@ div.sphx-glr-download a:hover {
   padding: 130px 10px 0;
 }
 
+.sphx-glr-script-out {
+  color: #333;
+  margin: 0;
+}
+
 /*
    This should kind of fix the issue with the navbar and the sidelinks jumping.
    Taken from https://github.com/twbs/bootstrap/issues/1768
