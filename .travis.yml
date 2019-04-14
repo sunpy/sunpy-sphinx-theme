@@ -6,4 +6,4 @@ python:
 script:
   - npm install -g stylelint
   - npm install stylelint-config-recommended
-  - stylelint ./sunpy_sphinx_theme/sunpy/static/style.css
+  - stylelint ./sunpy_sphinx_theme/sunpy/static/sunpy_style.css

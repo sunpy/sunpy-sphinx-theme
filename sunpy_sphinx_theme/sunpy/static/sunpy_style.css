@@ -23,6 +23,10 @@ a {
   color: #fe7900;
 }
 
+a.fn-backref {
+  font-size: 1.5em;
+}
+
 a:hover {
   color: #dd2c00;
 }
@@ -751,8 +755,9 @@ div.sphx-glr-download a:hover {
   display: none;
 }
 
-.sphx-glr-thumbcontainer a.internal {
-  padding: 130px 10px 0;
+.sphx-glr-script-out {
+  color: #333;
+  margin: 0;
 }
 
 /*
@@ -762,11 +767,10 @@ div.sphx-glr-download a:hover {
 *[id]:before {
   display: block;
   content: " ";
-  margin-top: -40px;
-  height: 40px;
+  margin-top: -75px;
+  height: 75px;
   visibility: hidden;
 }
-
 
 .carousel:before {
   display: block;
