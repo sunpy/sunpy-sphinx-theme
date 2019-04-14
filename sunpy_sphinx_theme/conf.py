@@ -35,5 +35,12 @@ html_theme_options = {
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
     ],
+    "navbar_docs": [  # About and documentation is hard coded due to drop down
+        ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
+        ("ndcube", "https://docs.sunpy.org/projects/ndcube", 1),
+        ("drms", "https://docs.sunpy.org/projects/drms", 1),
+        ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/en/latest/index.html", 1),
+        ("IRISPy", "https://docs.sunpy.org/projects/irispy/en/latest/", 1),
+    ],
     "on_rtd": on_rtd,
 }
