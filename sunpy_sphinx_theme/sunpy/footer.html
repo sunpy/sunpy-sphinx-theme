@@ -20,7 +20,7 @@
               {% trans sphinx_version=sphinx_version|e %}, built with <a href="http://sphinx-doc.org/">Sphinx
                   {{ sphinx_version }}</a>{% endtrans %}
               {%- else %}
-              .
+
               {%- endif %}
               {%- endif %}
               {%- if show_sphinx and not last_updated %}
@@ -29,11 +29,13 @@
               {%- endif %}
           </div>
           <div class="center-footer ">
-              <a href="https://github.com/sunpy/sunpy">Github</a>
               <span> • </span>
-              <a href="https://twitter.com/SunPyProject">Twitter</a>
+              {% if theme_footer_links %}
+              {%- for link in theme_footer_links %}
+              <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
               <span> • </span>
-              <a href="https://riot.im/app/#/room/#sunpy-general:matrix.org">Matrix</a>
+              {%- endfor %}
+              {% endif %}
           </div>
       </div>
   </footer>

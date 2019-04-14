@@ -29,18 +29,24 @@ def page_url(page):
 
 html_sidebars = {"**": ["docsidebar.html"]}
 html_theme_options = {
-    "navbar_links": [  # About and documentation is hard coded due to drop down
+    "navbar_links": [
         ("Blog", page_url("blog.html"), 1),
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
         ("SunPy Project", page_url("team.html"), 1),
     ],
-    "navbar_docs": [  # About and documentation is hard coded due to drop down
+    "navbar_docs": [
         ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
         ("ndcube", "https://docs.sunpy.org/projects/ndcube", 1),
         ("drms", "https://docs.sunpy.org/projects/drms", 1),
         ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/en/latest/index.html", 1),
         ("IRISPy", "https://docs.sunpy.org/projects/irispy/en/latest/", 1),
+    ],
+    # Only really setup to look nice with 3 values.
+    "footer_links": [
+        ("Github", "https://github.com/sunpy/sunpy", 1),
+        ("Twitter", "https://twitter.com/SunPyProject", 1),
+        ("Matrix", "https://riot.im/app/#/room/#sunpy-general:matrix.org", 1),
     ],
     "on_rtd": on_rtd,
 }
