@@ -32,7 +32,7 @@
               {% if theme_footer_links %}
               {%- for link in theme_footer_links %}
               <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
-              {% if loop.last is not True %}
+              {% if loop.last is not true %}
               <span> • </span>
               {% endif %}
               {%- endfor %}
