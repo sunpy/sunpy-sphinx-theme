@@ -29,11 +29,12 @@
               {%- endif %}
           </div>
           <div class="center-footer ">
-              <span> • </span>
               {% if theme_footer_links %}
               {%- for link in theme_footer_links %}
               <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+              {% if not forloop.last %}
               <span> • </span>
+              {% endif %}
               {%- endfor %}
               {% endif %}
           </div>
