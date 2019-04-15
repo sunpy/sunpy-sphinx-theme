@@ -22,15 +22,12 @@
         <li class="dropdown">
           <a role="button" data-toggle="dropdown" data-target="#" href="#" }}>About<b class="caret"></b></a>
           <ul class="dropdown-menu">
+            {% if theme_about_links %}
+            {%- for link in theme_about_links %}
             <li class="dropdown-submenu">
-              <a href="{{ pathto("about") }}">Our Mission</a>
-            </li>
-            <li class="dropdown-submenu">
-              <a href="{{ pathto("about") }}#acknowledging-sunpy">Acknowledge SunPy</a>
-            </li>
-            <li class="dropdown-submenu">
-              <a href="https://docs.sunpy.org/en/latest/code_of_conduct.html">Code of Conduct</a>
-            </li>
+              <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a></li>
+            {%- endfor %}
+            {% endif %}
           </ul>
         </li>
         <li class="dropdown">
