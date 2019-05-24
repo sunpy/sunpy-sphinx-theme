@@ -192,12 +192,6 @@ p.whatsnew {
   color: #333;
 }
 
-.version {
-  text-align: center;
-  color: #333;
-  margin-bottom: 15px;
-}
-
 /* Sidebar */
 
 .bs-sidenav {
@@ -788,6 +782,9 @@ div.sphx-glr-download a:hover {
   visibility: hidden;
 }
 
+#version:before {
+  display: none;
+}
 
 /* Jupyter Blog Post formatting */
 div.prompt {
