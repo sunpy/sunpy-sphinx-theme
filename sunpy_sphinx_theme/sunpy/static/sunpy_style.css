@@ -78,9 +78,9 @@ p.content.noheader {
   margin-right: 10px;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:active {
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:active {
   color: #fe7900;
 }
 
@@ -95,13 +95,13 @@ div#navbar {
   min-width: 190px;
 }
 
-.dropdown-menu > li > a {
+.dropdown-menu>li>a {
   font-size: 16px;
   padding: 10px 20px;
   color: #333;
 }
 
-.dropdown-menu > li > a:hover {
+.dropdown-menu>li>a:hover {
   background-color: #fe7900;
 }
 
@@ -220,31 +220,31 @@ p.whatsnew {
   padding-left: 20px;
 }
 
-.bs-sidenav .nav > li {
+.bs-sidenav .nav>li {
   color: #fe7900;
 }
 
-.bs-sidenav .nav > li > span {
+.bs-sidenav .nav>li>span {
   padding-left: 10px;
 }
 
-.bs-sidenav .nav > li > a {
+.bs-sidenav .nav>li>a {
   color: white;
   padding-left: 20px;
   padding-top: 8px;
 }
 
-.bs-sidenav .nav > li > a:hover,
-.bs-sidenav .nav > li > a:focus {
+.bs-sidenav .nav>li>a:hover,
+.bs-sidenav .nav>li>a:focus {
   background-color: rgba(230, 124, 25, 1);
 }
 
-.bs-sidenav .nav > li > a.current {
+.bs-sidenav .nav>li>a.current {
   color: white;
   background-color: rgba(230, 124, 25, 1);
 }
 
-.bs-sidenav .nav .nav > li > a {
+.bs-sidenav .nav .nav>li>a {
   color: #444;
   background-color: #e3e3e3;
   padding-top: 5px;
@@ -253,37 +253,37 @@ p.whatsnew {
   font-size: 100%;
 }
 
-.bs-sidenav .nav .nav > li > a.current {
+.bs-sidenav .nav .nav>li>a.current {
   background-color: rgba(230, 124, 25, 1);
   color: white;
 }
 
-.bs-sidenav .nav .nav > li > a:hover {
+.bs-sidenav .nav .nav>li>a:hover {
   background-color: #bdbdbd;
 }
 
-.bs-sidenav .nav .nav .nav > li > a {
+.bs-sidenav .nav .nav .nav>li>a {
   padding-left: 45px;
 }
 
-.bs-sidenav .nav .nav .nav .nav > li > a {
+.bs-sidenav .nav .nav .nav .nav>li>a {
   background-color: #bdbdbd;
   padding-left: 60px;
 }
 
-.bs-sidenav .nav .nav .nav .nav > li > a:hover {
+.bs-sidenav .nav .nav .nav .nav>li>a:hover {
   color: #444;
 }
 
-.bs-sidenav ul > li#comments {
+.bs-sidenav ul>li#comments {
   padding-left: 0;
 }
 
-.bs-sidenav ul > li#comments > a {
+.bs-sidenav ul>li#comments>a {
   color: #fe7900;
 }
 
-.bs-sidenav ul > li#comments > a:hover {
+.bs-sidenav ul>li#comments>a:hover {
   color: #444;
 }
 
@@ -293,21 +293,21 @@ p.whatsnew {
 }
 
 div.sidenologo {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 div.sidelogo {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 img.sidenav {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-control {
@@ -370,6 +370,11 @@ div.admonition {
   padding: 10px;
 }
 
+.warning {
+  background-color: #fff3e0;
+  border: 1px solid #fe7900;
+}
+
 .alert-warning {
   background-color: #fff3e0;
   border: 1px solid #fe7900;
@@ -379,7 +384,7 @@ p.admonition-title {
   color: #333;
 }
 
-.alert > p + p {
+.alert>p+p {
   color: #333;
 }
 
@@ -446,7 +451,7 @@ blockquote {
 }
 
 .table,
-.table > tbody > tr > td {
+.table>tbody>tr>td {
   border: 1px solid #333;
   padding: 10px;
 }
@@ -525,7 +530,7 @@ div.figure p.caption span.caption-text {
     font-size: 25px;
   }
 
-  .bs-sidenav .nav > li > a {
+  .bs-sidenav .nav>li>a {
     font-size: 20px;
   }
 
@@ -565,9 +570,9 @@ div.figure p.caption span.caption-text {
     padding-left: 0;
   }
 
-.navbar-brand {
+  .navbar-brand {
     display: none;
-}
+  }
 
   .lead {
     font-size: 33.5px;
@@ -584,7 +589,7 @@ div.figure p.caption span.caption-text {
 
   .navbar-brand {
     display: initial;
-}
+  }
 
   .col-md-9 {
     margin-left: 330px;
@@ -645,7 +650,7 @@ div.figure p.caption span.caption-text {
   padding: 0 10px;
 }
 
-.column > h4 {
+.column>h4 {
   text-align: center;
   font-size: 1.2em;
   line-height: 1.2em;
@@ -713,8 +718,8 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (min-width: 190ex) {
-  div.sphx-glr-footer-example  {
-max-width: 100%;
+  div.sphx-glr-footer-example {
+    max-width: 100%;
   }
 }
 
@@ -788,7 +793,7 @@ div.sphx-glr-download a:hover {
 
 /* Jupyter Blog Post formatting */
 div.prompt {
-    display: none;
+  display: none;
 }
 
 .frametransformgraph {
