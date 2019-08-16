@@ -378,6 +378,7 @@ div.admonition {
 .alert-warning {
   background-color: #fff3e0;
   border: 1px solid #fe7900;
+  color: #333;
 }
 
 p.admonition-title {
