@@ -378,6 +378,7 @@ div.admonition {
 .alert-warning {
   background-color: #fff3e0;
   border: 1px solid #fe7900;
+  color: #333;
 }
 
 p.admonition-title {
@@ -800,4 +801,26 @@ div.prompt {
   overflow-x: auto;
   width: 100%;
   border: 1px solid black;
+}
+
+
+.versionmodified {
+  font-style: italic;
+  font-weight: bold;
+}
+
+div.deprecated{
+  border: 1px solid #000000;
+  background-color: #b7c3cc;
+  color: #333;
+  border-radius: 4px;
+}
+
+card.img {
+  border-radius: 50%;
+}
+
+table tr div.deprecated {
+  border: none;
+  background-color: white;
 }

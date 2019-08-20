@@ -2,8 +2,7 @@ apt-run: &apt-install
   name: Install apt packages
   command: |
     sudo apt update
-    sudo apt install -y graphviz
-    sudo apt install -y pandoc
+    sudo apt install -y graphviz pandoc
 
 pip-run: &pip-install
   name: Install Python dependencies
@@ -13,6 +12,7 @@ pip-run: &pip-install
 
 version: 2
 jobs:
+
   website:
     docker:
       - image: circleci/python:3.6
@@ -20,10 +20,10 @@ jobs:
       - checkout
       - run: *apt-install
       - run: *pip-install
-      - run: pip install -U setuptools
-      - run: pip install -e .
+      - run: pip install -U setuptools | cat
+      - run: pip install -e . | cat
       - run: git clone https://github.com/sunpy/sunpy.org.git
-      - run: pip install -r sunpy.org/requirements.txt
+      - run: pip install -r sunpy.org/requirements.txt | cat
       - run: make -C $HOME/project/sunpy.org html
 
       - store_artifacts:
@@ -33,33 +33,30 @@ jobs:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
 
-  docs:
+  test_docs:
     docker:
       - image: circleci/python:3.6
     steps:
       - checkout
       - run: *apt-install
       - run: *pip-install
-      - run: pip install -U setuptools
-      - run: pip install -e .
-      - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
-      - run: cd sunpy && pip install -e .[all,dev]
-      - run: cd sunpy && python setup.py build_docs -w
-
+      - run: pip install -U setuptools | cat
+      - run: pip install -e . | cat
+      - run: pip install sunpy[dev] | cat
+      - run: cd test_package && pip install -e . && cd docs && make html
       - store_artifacts:
-          path: sunpy/docs/_build/html
-
+          path: test_package/docs/_build/html
       - run:
           name: "Built documentation is available at:"
-          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/sunpy/docs/_build/html/index.html"; echo $DOCS_URL
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/test_package/docs/_build/html/index.html"; echo $DOCS_URL
 
 workflows:
   version: 2
 
   html-builds:
     jobs:
+      - test_docs
       - website
-      - docs
 
 notify:
   webhooks:
