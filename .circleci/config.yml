@@ -25,10 +25,8 @@ jobs:
       - run: git clone https://github.com/sunpy/sunpy.org.git
       - run: pip install -r sunpy.org/requirements.txt | cat
       - run: make -C $HOME/project/sunpy.org html
-
       - store_artifacts:
           path: sunpy.org/_build/html
-
       - run:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
