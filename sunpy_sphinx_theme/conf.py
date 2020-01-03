@@ -29,31 +29,41 @@ def page_url(page):
 
 html_sidebars = {"**": ["docsidebar.html"]}
 html_theme_options = {
-    "about_links": [
-        ("Our Mission", page_url("about.html"), 1),
-        (
-            "Acknowledge SunPy",
-            page_url("about.html") + "#acknowledging-or-citing-sunpy",
-            1,
-        ),
-        ("Code of Conduct", "https://docs.sunpy.org/en/latest/code_of_conduct.html", 1),
-    ],
     "navbar_links": [
+        ("About", [
+            ("Our Mission", page_url("about.html"), 1),
+            (
+                "Acknowledge SunPy",
+                page_url("about.html") + "#acknowledging-or-citing-sunpy",
+                1,
+            ),
+            ("Code of Conduct", "https://docs.sunpy.org/en/latest/code_of_conduct.html", 1)],
+         1
+        ),
+        ("Documentation", 
+         [
+             ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
+             ("ndcube", "https://docs.sunpy.org/projects/ndcube", 1),
+             ("drms", "https://docs.sunpy.org/projects/drms", 1),
+             (
+                 "radiospectra",
+                 "https://docs.sunpy.org/projects/radiospectra/en/latest/index.html",
+                 1,
+             ),
+             ("IRISPy", "https://docs.sunpy.org/projects/irispy/en/latest/", 1),
+         ],
+         1
+        ),
         ("Blog", page_url("blog.html"), 1),
         ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
-        ("SunPy Project", page_url("team.html"), 1),
-    ],
-    "navbar_docs": [
-        ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
-        ("ndcube", "https://docs.sunpy.org/projects/ndcube", 1),
-        ("drms", "https://docs.sunpy.org/projects/drms", 1),
-        (
-            "radiospectra",
-            "https://docs.sunpy.org/projects/radiospectra/en/latest/index.html",
-            1,
-        ),
-        ("IRISPy", "https://docs.sunpy.org/projects/irispy/en/latest/", 1),
+        ("SunPy Project", [
+            ("SunPy Project", page_url("project/"), 1),
+            ("Community Roles", page_url("project/roles.html"), 1),
+            ("Affiliated Packages", page_url("project/affiliated.html"), 1)
+            ],
+         1,
+         ),
     ],
     # Only really setup to look nice with 3 values.
     "footer_links": [
