@@ -28,5 +28,7 @@ jobs:
       run: |
         pip install requests
     - name: Build all RTD versions
+      env:
+        RTD_AUTH_TOKEN: ${{ secrets.RTD_AUTH_TOKEN }}
       run: |
         python rebuild_all.py
