@@ -31,4 +31,4 @@ jobs:
       env:
         RTD_AUTH_TOKEN: ${{ secrets.RTD_AUTH_TOKEN }}
       run: |
-        python rebuild_all.py
+        python rebuild_all_rtd.py

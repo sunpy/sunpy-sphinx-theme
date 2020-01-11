@@ -31,7 +31,7 @@ def get_active_versions(project):
 
 
 def get_all_subprojects(base_project):
-    r = requests.get(BASE_URL + f"{base_project}/subprojects", headers=headers, params={'active': True})
+    r = requests.get(BASE_URL + f"{base_project}/subprojects", headers=headers)
     r = r.json()
     results = r["results"]
     projects = []
