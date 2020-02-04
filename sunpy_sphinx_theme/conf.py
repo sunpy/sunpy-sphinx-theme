@@ -43,14 +43,9 @@ html_theme_options = {
         ("Documentation", 
          [
              ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
-             ("ndcube", "https://docs.sunpy.org/projects/ndcube", 1),
-             ("drms", "https://docs.sunpy.org/projects/drms", 1),
-             (
-                 "radiospectra",
-                 "https://docs.sunpy.org/projects/radiospectra/en/latest/index.html",
-                 1,
-             ),
-             ("IRISPy", "https://docs.sunpy.org/projects/irispy/en/latest/", 1),
+             ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
+             ("drms", "https://docs.sunpy.org/projects/drms/", 1),
+             ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
          ],
          1
         ),
