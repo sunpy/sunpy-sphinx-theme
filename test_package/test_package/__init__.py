@@ -7,8 +7,9 @@ from datetime import date, datetime
 from functools import singledispatch
 
 from sunpy.util.decorators import deprecated
+from .timerange import TimeRange
 
-__all__ = [ 'Animal', 'function', 'a_really_long_function_name_just_to_see_what_happens']
+__all__ = [ 'Animal', 'function', 'a_really_long_function_name_just_to_see_what_happens', 'TimeRange']
 
 @deprecated("1.0", alternative="sunpy.net.Fido")
 class Animal:
