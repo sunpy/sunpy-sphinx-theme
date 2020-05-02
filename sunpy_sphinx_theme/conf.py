@@ -40,7 +40,7 @@ html_theme_options = {
             ("Code of Conduct", "https://docs.sunpy.org/en/latest/code_of_conduct.html", 1)],
          1
         ),
-        ("Documentation", 
+        ("Documentation",
          [
              ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
              ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
@@ -68,3 +68,18 @@ html_theme_options = {
     ],
     "on_rtd": on_rtd,
 }
+
+def fix_circleci(app):
+    # Circle CI does weird things with redirections, which seem to break the
+    # import statements in the css files in the bootstrap theme. By doing this
+    # here we include these css files which are normally imported directly in
+    # the html which means they redirect properly. We only need to do this on
+    # circleci.
+    print(f"Checking for circleci: {os.environ.get('CIRCLECI')}")
+    if os.environ.get("CIRCLECI"):
+        app.add_css_file("basic.css")
+        app.add_css_file("bootswatch-3.3.7/flatly/bootstrap.min.css")
+
+
+def setup(app):
+    fix_circleci(app)
