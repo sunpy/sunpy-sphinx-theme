@@ -107,3 +107,5 @@ ENV/
 test_package/docs/_build
 test_package/docs/generated
 test_package/docs/api
+.history
+.vscode

@@ -1,8 +1,8 @@
 """
-Run all builds for all active versions of all SunPy and SunPy subprojects on RTD.
+Run all builds for all active versions of all SunPy and SunPy subprojects on
+RTD.
 """
 import os
-import json
 
 import requests
 
@@ -13,7 +13,9 @@ headers = {"Authorization": f"Token {TOKEN}"}
 
 
 def get_active_versions(project):
-    r = requests.get(BASE_URL + f"{project}/versions", headers=headers, params={'active': True})
+    r = requests.get(
+        BASE_URL + f"{project}/versions", headers=headers, params={"active": True}
+    )
     if not r.ok:
         print(f"Failed to get versions for {project}: {r}")
         return []
@@ -41,11 +43,14 @@ def get_all_subprojects(base_project):
 
 
 def rebuild_all_versions_for_project(project):
-  slugs = get_active_versions(project)
-  for slug in slugs:
-      r = requests.post(BASE_URL + f"{project}/versions/{slug}/builds/", headers=headers)
-      if r.status_code != 202:
-          print(f"{slug} failed to build with: {r}")
+    slugs = get_active_versions(project)
+    for slug in slugs:
+        r = requests.post(
+            BASE_URL + f"{project}/versions/{slug}/builds/", headers=headers
+        )
+        if r.status_code != 202:
+            print(f"{slug} failed to build with: {r}")
+
 
 if __name__ == "__main__":
     projects = [BASE_PROJECT] + get_all_subprojects(BASE_PROJECT)
