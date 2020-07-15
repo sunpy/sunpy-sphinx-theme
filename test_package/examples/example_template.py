@@ -16,8 +16,8 @@ show the sunpy.io.fits or like this `~sunpy.io.fits` to show just 'fits'
 # ``#sphinx_gallery_thumbnail_number = X``
 # where ``X`` is the figure number you want (from 1).
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 ##############################################################################
 # This code block is executed, although it produces no output. Lines starting
@@ -43,23 +43,21 @@ z = np.cos(xx) + np.cos(yy)
 plt.figure()
 plt.imshow(z)
 plt.colorbar()
-plt.xlabel('$x$')
-plt.ylabel('$y$')
+plt.xlabel("$x$")
+plt.ylabel("$y$")
 
 ###########################################################################
 # Again it is possible to continue the discussion with a new Python string. This
 # time to introduce the next code block generates 2 separate figures.
 
 plt.figure()
-plt.imshow(z, cmap=plt.cm.get_cmap('hot'))
+plt.imshow(z, cmap=plt.cm.get_cmap("hot"))
 plt.figure()
-plt.imshow(z, cmap=plt.cm.get_cmap('Spectral'), interpolation='none')
+plt.imshow(z, cmap=plt.cm.get_cmap("Spectral"), interpolation="none")
 
 ##########################################################################
 # There's some subtle differences between rendered html rendered comment
-# strings and code comment strings which I'll demonstrate below. (Some of this
-# only makes sense if you look at the
-# :download:`raw Python script <plot_notebook.py>`)
+# strings and code comment strings which I'll demonstrate below.
 #
 # Comments in comment blocks remain nested in the text.
 
@@ -68,7 +66,7 @@ def dummy():
     """
     Dummy function to make sure docstrings don't get rendered as text.
     """
-    pass
+
 
 # Code comments not preceded by the hash splitter are left in code blocks.
 
@@ -80,7 +78,7 @@ Triple-quoted string which tries to break parser but doesn't.
 ############################################################################
 # Output of the script is captured:
 
-print('Some output from Python')
+print("Some output from Python")
 
 ############################################################################
 # Finally, I'll call ``show`` at the end just so someone running the Python

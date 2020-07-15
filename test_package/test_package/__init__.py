@@ -1,15 +1,17 @@
 """
 This module provies a collection of functions.
 """
-import re
-import textwrap
-from datetime import date, datetime
-from functools import singledispatch
-
 from sunpy.util.decorators import deprecated
+
 from .timerange import TimeRange
 
-__all__ = [ 'Animal', 'function', 'a_really_long_function_name_just_to_see_what_happens', 'TimeRange']
+__all__ = [
+    "Animal",
+    "function",
+    "a_really_long_function_name_just_to_see_what_happens",
+    "TimeRange",
+]
+
 
 @deprecated("1.0", alternative="sunpy.net.Fido")
 class Animal:
@@ -26,19 +28,12 @@ class Animal:
 
     Attributes
     ----------
-    says_str : `str`
-        A formatted string to print out what the animal says.
     name : `str`
         The name of the animal.
     sound : `str`
         The sound that the animal makes.
     num_legs : int
         The number of legs the animal has (default 4).
-
-    Methods
-    -------
-    says(sound=None)
-        Prints the animals name and what sound it makes.
 
     Examples
     --------
@@ -143,6 +138,7 @@ def function():
 
     print("A SOUND")
 
+
 def a_really_long_function_name_just_to_see_what_happens():
     """
     Prints what the animals name is and what sound it makes.
@@ -185,4 +181,4 @@ def a_really_long_function_name_just_to_see_what_happens():
     * `A URL. <www.sunpy.org>`__
     """
 
-    print("A SOUND")    
+    print("A SOUND")
