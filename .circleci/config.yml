@@ -4,10 +4,10 @@ apt-run: &apt-install
   name: Install apt packages
   command: |
     sudo apt update
-    sudo apt install -y graphviz pandoc
+    sudo apt install -y graphviz build-essential libopenjp2-7 python3-dev pandoc
 
-pip-run: &pip-install
-  name: Install Python dependencies
+venv: &venv
+  name: Setup venv for the entire job
   command: |
     python3 -m venv venv
     echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
@@ -20,11 +20,10 @@ jobs:
     steps:
       - checkout
       - run: *apt-install
-      - run: *pip-install
-      - run: pip install -U setuptools | cat
-      - run: pip install -e . | cat
+      - run: *venv
+      - run: pip install -e .
       - run: git clone https://github.com/sunpy/sunpy.org.git
-      - run: pip install -r sunpy.org/requirements.txt | cat
+      - run: pip install -r sunpy.org/requirements.txt
       - run: make -C $HOME/project/sunpy.org html
       - store_artifacts:
           path: sunpy.org/_build/html
@@ -32,17 +31,33 @@ jobs:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
 
-  docs:
+  sunpy:
     docker:
       - image: circleci/python:3.8
     steps:
       - checkout
       - run: *apt-install
-      - run: *pip-install
-      - run: pip install -U setuptools | cat
-      - run: pip install -e . | cat
-      - run: pip install sunpy[dev] | cat
-      - run: cd test_package && pip install -e . && cd docs && make html
+      - run: *venv
+      - run: pip install -e .
+      - run: git clone https://github.com/sunpy/sunpy.git
+      - run: pip install -e sunpy/.[dev] | cat
+      - run: sphinx-build -D plot_gallery="False" --color -b html -d sunpy/docs/_build/.doctrees sunpy/docs sunpy/docs/_build/html
+      - store_artifacts:
+          path: sunpy/docs/_build/html
+      - run:
+          name: "Built documentation is available at:"
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/sunpy/docs/_build/html/index.html"; echo $DOCS_URL
+
+  test_package:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *venv
+      - run: pip install -e .
+      - run: pip install -e test_package/.[docs]
+      - run: cd test_package/docs && make html
       - store_artifacts:
           path: test_package/docs/_build/html
       - run:
@@ -62,15 +77,18 @@ jobs:
 workflows:
   version: 2
 
-  docs:
+  test_package:
     jobs:
-      - docs
+      - test_package
   website:
     jobs:
       - website
   linting:
     jobs:
       - linting
+  sunpy:
+    jobs:
+      - sunpy
 
 notify:
   webhooks:

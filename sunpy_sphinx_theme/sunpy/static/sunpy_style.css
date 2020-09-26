@@ -506,6 +506,16 @@ div.figure p.caption span.caption-text {
 
 @media only screen and (max-width: 510px) {
 
+  div.body {
+    width: 85%;
+    min-width: 375px;
+    max-width: 375px;
+  }
+
+  .body.col-md-12.content {
+    width: 85%;
+  }
+
   .col-md-6.center {
     width: 85%;
   }
