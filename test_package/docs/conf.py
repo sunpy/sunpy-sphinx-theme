@@ -153,19 +153,26 @@ graphviz_dot_args = [
 ]
 
 # -- Sphinx Gallery ------------------------------------------------------------
+from sphinx_gallery.sorting import ExplicitOrder  # NOQA
+from sphinx_gallery.sorting import ExampleTitleSortKey  # NOQA
 
 sphinx_gallery_conf = {
     "backreferences_dir": os.path.join("generated", "modules"),
     "filename_pattern": "^((?!skip_).)*$",
     "examples_dirs": os.path.join("..", "examples"),
+    "subsection_order": ExplicitOrder(
+        [
+            "../examples/section",
+        ]
+    ),
+    "within_subsection_order": ExampleTitleSortKey,
     "gallery_dirs": os.path.join("generated", "gallery"),
     "default_thumb_file": os.path.join("logo", "sunpy_icon_128x128.png"),
     "abort_on_example_error": False,
-    "plot_gallery": True,
+    "plot_gallery": "True",
     "remove_config_comments": True,
     "doc_module": ("sunpy"),
 }
-
 # -- Sphinx setup --------------------------------------------------------------
 
 

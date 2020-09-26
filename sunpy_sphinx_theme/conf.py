@@ -22,7 +22,11 @@ def page_url(page):
     return urljoin(sunpy_website_url_base, page)
 
 
-html_sidebars = {"**": ["docsidebar.html"]}
+html_sidebars = {
+    #  We use a custom sidebar for the gallery.
+    "generated/gallery/index": ["gallery_sidebar.html"],
+    "**": ["docsidebar.html"],
+}
 html_theme_options = {
     "navbar_links": [
         (
@@ -47,8 +51,11 @@ html_theme_options = {
             [
                 ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
+                ("aiapy", "https://aiapy.readthedocs.io/en/latest/", 1),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
+                ("pfsspy", "https://pfsspy.readthedocs.io/en/stable/", 1),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/en/latest/", 1),
             ],
             1,
         ),

@@ -1,3 +1,44 @@
 [build-system]
 requires = ["setuptools", "setuptools_scm", "wheel"]
 build-backend = 'setuptools.build_meta'
+
+[tool.black]
+line-length = 110
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.history
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[ tool.gilesbot ]
+  [ tool.gilesbot.circleci_artifacts ]
+    enabled = true
+
+  [ tool.gilesbot.circleci_artifacts.docs ]
+    url = "test_package/docs/_build/html/index.html"
+    message = "Click details to preview the HTML documentation."
+    report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.website ]
+    url = "sunpy.org/_build/html/index.html"
+    message = "Click details to see the website build"
+    report_on_fail = true
+
+  [ tool.gilesbot.pull_requests ]
+    enabled = true

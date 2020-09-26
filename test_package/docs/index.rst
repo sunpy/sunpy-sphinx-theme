@@ -7,6 +7,8 @@ Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
   :maxdepth: 2
 
   generated/gallery/index
+  subsections
+  subsections_toc
 
 .. code-block:: python
 
@@ -51,5 +53,9 @@ Normal
 
 Normal
 `numpy.ndarray.mean`
+
+Sometimes you need a URL: `BBC.COM <https://www.bbc.co.uk/sport>`__
+
+Contributing to ``sunraster``
 
 .. automodapi:: test_package

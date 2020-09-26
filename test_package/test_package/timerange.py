@@ -214,9 +214,7 @@ class TimeRange:
             `True` if equal, `False` otherwise.
         """
         if isinstance(other, TimeRange):
-            return is_time_equal(self.start, other.start) and is_time_equal(
-                self.end, other.end
-            )
+            return is_time_equal(self.start, other.start) and is_time_equal(self.end, other.end)
 
         return NotImplemented
 
@@ -235,10 +233,7 @@ class TimeRange:
             `True` if non-equal, `False` otherwise.
         """
         if isinstance(other, TimeRange):
-            return not (
-                is_time_equal(self.start, other.start)
-                and is_time_equal(self.end, other.end)
-            )
+            return not (is_time_equal(self.start, other.start) and is_time_equal(self.end, other.end))
 
         return NotImplemented
 
@@ -365,9 +360,7 @@ class TimeRange:
         n = 1
         times = [TimeRange(self.start, self.start + window)]
         while times[-1].end < self.end:
-            times.append(
-                TimeRange(self.start + cadence * n, self.start + cadence * n + window)
-            )
+            times.append(TimeRange(self.start + cadence * n, self.start + cadence * n + window))
             n += 1
         return times
 

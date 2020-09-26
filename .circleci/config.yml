@@ -1,3 +1,5 @@
+version: 2.1
+
 apt-run: &apt-install
   name: Install apt packages
   command: |
@@ -10,12 +12,11 @@ pip-run: &pip-install
     python3 -m venv venv
     echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
 
-version: 2
 jobs:
 
   website:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run: *apt-install
@@ -29,11 +30,11 @@ jobs:
           path: sunpy.org/_build/html
       - run:
           name: "Built documentation is available at:"
-          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
 
-  test_docs:
+  docs:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     steps:
       - checkout
       - run: *apt-install
@@ -46,15 +47,30 @@ jobs:
           path: test_package/docs/_build/html
       - run:
           name: "Built documentation is available at:"
-          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}/test_package/docs/_build/html/index.html"; echo $DOCS_URL
+          command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/test_package/docs/_build/html/index.html"; echo $DOCS_URL
+
+  linting:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: sudo npm install -g stylelint
+      - run: sudo npm install stylelint-config-recommended
+      - run: sudo stylelint ./sunpy_sphinx_theme/sunpy/static/sunpy_style.css
+
 
 workflows:
   version: 2
 
-  html-builds:
+  docs:
     jobs:
-      - test_docs
+      - docs
+  website:
+    jobs:
       - website
+  linting:
+    jobs:
+      - linting
 
 notify:
   webhooks:

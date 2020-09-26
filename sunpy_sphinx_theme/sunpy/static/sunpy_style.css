@@ -391,18 +391,17 @@ p.admonition-title {
 
 /* Code */
 
-code.xref,
-a code {
+a.code {
   background-color: transparent;
 }
 
-code {
+.code {
   color: #0d47a1;
   padding: 2px;
   background-color: transparent;
 }
 
-code.descname {
+.code.descname {
   font-size: 16px;
 }
 
@@ -432,8 +431,7 @@ code.descname {
   color: #060;
 }
 
-dt:target,
-.highlighted {
+dt + dd {
   background-color: #eee;
 }
 
@@ -823,4 +821,18 @@ card.img {
 table tr div.deprecated {
   border: none;
   background-color: white;
+}
+
+/*
+For superwide titles on the sidebar, this will add a scroll bar.
+*/
+.reference.internal.nav-header {
+  overflow-x: auto;
+}
+
+/*
+For any ``code`` on the sidebar.
+*/
+*[class^='docutils literal notranslate'] {
+  color: #fe7900;
 }
