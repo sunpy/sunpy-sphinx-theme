@@ -49,13 +49,13 @@ html_theme_options = {
         (
             "Documentation",
             [
-                ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
+                ("sunpy", "https://docs.sunpy.org/en/stable/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
-                ("aiapy", "https://aiapy.readthedocs.io/en/latest/", 1),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
-                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
+                ("aiapy", "https://aiapy.readthedocs.io/en/latest/", 1),
                 ("pfsspy", "https://pfsspy.readthedocs.io/en/stable/", 1),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/en/latest/", 1),
+                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
             ],
             1,
         ),

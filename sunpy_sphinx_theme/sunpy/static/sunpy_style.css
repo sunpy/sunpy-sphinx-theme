@@ -333,7 +333,8 @@ input {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0), 0 1px 0 rgba(255, 255, 255, 0);
 }
 
-.doc-title, .doc-title>a{
+.doc-title,
+.doc-title>a {
   color: #fe7900;
   text-align: center;
   font-weight: bold;
@@ -431,7 +432,9 @@ a.code {
   color: #060;
 }
 
-dt + dd {
+dt:target,
+.highlighted,
+dt+dd {
   background-color: #eee;
 }
 
@@ -503,12 +506,31 @@ div.figure p.caption span.caption-text {
 
 @media only screen and (max-width: 510px) {
 
-  .sunpy-logo {
-    width: 75%;
+  .col-md-6.center {
+    width: 85%;
   }
 
-  .navbar-nav {
-    margin: -1px -15px;
+  .section {
+    width: 85%;
+  }
+
+  .sunpy-logo {
+    display: none;
+  }
+
+  .navbar {
+    width: 85%;
+  }
+
+  .container {
+    margin-right: 15px;
+    margin-left: 15px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .col-md-3 {
+    width: 85%;
   }
 
   .bs-sidenav {
@@ -537,6 +559,7 @@ div.figure p.caption span.caption-text {
     display: none;
   }
 }
+
 
 @media only screen and (max-width: 1000px) {
 
@@ -758,38 +781,6 @@ div.sphx-glr-download a:hover {
   margin: 0;
 }
 
-/*
-   This should kind of fix the issue with the navbar and the sidelinks jumping.
-   Taken from https://github.com/twbs/bootstrap/issues/1768
-*/
-.navbar ::before {
-  display: block;
-  content: " ";
-  margin-top: -75px;
-  height: 75px;
-  visibility: hidden;
-}
-
-.carousel:before {
-  display: block;
-  content: "";
-  margin-top: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-*[id^='sunpy']:before {
-  display: block;
-  content: "";
-  margin-top: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-#version:before {
-  display: none;
-}
-
 /* Jupyter Blog Post formatting */
 div.prompt {
   display: none;
@@ -807,7 +798,7 @@ div.prompt {
   font-weight: bold;
 }
 
-div.deprecated{
+div.deprecated {
   border: 1px solid #000000;
   background-color: #b7c3cc;
   color: #333;
