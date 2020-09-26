@@ -23,10 +23,15 @@ def page_url(page):
 
 
 html_sidebars = {
-    #  We use a custom sidebar for the gallery.
-    "generated/gallery/index": ["gallery_sidebar.html"],
-    "**": ["docsidebar.html"],
+    "*": ["docsidebar.html"],
+    "code_ref/**": ["docsidebar.html"],
+    "dev_guide/**": ["docsidebar.html"],
+    "guide/**": ["docsidebar.html"],
+    "whatsnew/**": ["docsidebar.html"],
+    "generated/modules/**": ["docsidebar.html"],
+    "generated/gallery/**": ["gallery_sidebar.html"],
 }
+
 html_theme_options = {
     "navbar_links": [
         (
