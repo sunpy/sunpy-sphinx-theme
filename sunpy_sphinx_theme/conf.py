@@ -6,7 +6,7 @@ from sunpy_sphinx_theme import get_html_theme_path
 
 html_theme_path = get_html_theme_path()
 html_theme = "sunpy"
-htmlstatic_path = [os.path.join(html_theme_path[0], html_theme, "static")]
+html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
 html_extra_path = [os.path.join(
     html_theme_path[0], html_theme, "static", "img")]
 templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
