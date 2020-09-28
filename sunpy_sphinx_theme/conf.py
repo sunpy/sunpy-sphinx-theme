@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import socket
 from urllib.parse import urljoin
@@ -36,6 +37,12 @@ html_sidebars = {
 }
 
 html_theme_options = {
+    'keywords': 'sunpy, astronomy, python, science',
+    'author_name': "The SunPy Community",
+    'author_url': 'https://github.com/sunpy',
+    'twitter_id': '@SunPyProject',
+    'publish_date': datetime.now().date(),
+    'years': f'2012-{datetime.now().year}',
     "navbar_links": [
         (
             "About",
