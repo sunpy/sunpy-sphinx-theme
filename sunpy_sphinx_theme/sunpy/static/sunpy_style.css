@@ -2,7 +2,7 @@
 
 /* Main SunPy Styling */
 body {
-  background-color: white;
+  background-color: #f2f3f4;
   color: #333;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
@@ -63,7 +63,7 @@ p.content.noheader {
 }
 
 .navbar-brand.color2 {
-  color: white;
+  color: f2f3f4;
 }
 
 .navbar-default .navbar-brand:focus,
@@ -146,7 +146,7 @@ div#navbar {
 
 a.btn.btn-default.btn1:hover {
   color: #fe7900;
-  background-color: white;
+  background-color: #f2f3f4;
 }
 
 .btn.btn-default.btn2 {
@@ -159,7 +159,7 @@ a.btn.btn-default.btn1:hover {
 
 a.btn.btn-default.btn2:hover {
   color: #444;
-  background-color: white;
+  background-color: #f2f3f4;
 }
 
 /* Whatsnew */
@@ -229,7 +229,7 @@ p.whatsnew {
 }
 
 .bs-sidenav .nav>li>a {
-  color: white;
+  color: #f2f3f4;
   padding-left: 20px;
   padding-top: 8px;
 }
@@ -240,7 +240,7 @@ p.whatsnew {
 }
 
 .bs-sidenav .nav>li>a.current {
-  color: white;
+  color: #f2f3f4;
   background-color: rgba(230, 124, 25, 1);
 }
 
@@ -255,7 +255,7 @@ p.whatsnew {
 
 .bs-sidenav .nav .nav>li>a.current {
   background-color: rgba(230, 124, 25, 1);
-  color: white;
+  color: #f2f3f4;
 }
 
 .bs-sidenav .nav .nav>li>a:hover {
@@ -358,7 +358,7 @@ input {
 pre {
   padding: 12px;
   margin: 30px 0;
-  background-color: white;
+  background-color: #f2f3f4;
   border: 1px solid #e3e3e3;
   color: inherit;
 }
@@ -392,17 +392,18 @@ p.admonition-title {
 
 /* Code */
 
-a.code {
+code.xref,
+a code {
   background-color: transparent;
 }
 
-.code {
+code {
   color: #0d47a1;
   padding: 2px;
   background-color: transparent;
 }
 
-.code.descname {
+code.descname {
   font-size: 16px;
 }
 
@@ -429,12 +430,11 @@ a.code {
 .highlight .s2,
 .highlight .si,
 .highlight .sd {
-  color: #060;
+  color: #004602;
 }
 
 dt:target,
-.highlighted,
-dt+dd {
+.highlighted {
   background-color: #eee;
 }
 
@@ -530,7 +530,7 @@ div.figure p.caption span.caption-text {
     display: block;
     margin: 0 auto;
     padding: 5px 20px;
-    color: white;
+    color: #f2f3f4;
     background-color: #fe7900;
     text-align: center;
     cursor: pointer;
@@ -608,7 +608,7 @@ div.figure p.caption span.caption-text {
   padding: 5px 20px;
   margin-bottom: 20px;
   border-radius: 5px;
-  color: white;
+  color: #f2f3f4;
   background-color: #fe7900;
   text-align: center;
   cursor: pointer;
@@ -712,7 +712,7 @@ div.sphx-glr-footer.docutils.container {
 }
 
 div.sphx-glr-download a {
-  background-color: white;
+  background-color: #f2f3f4;
   background-image: none !important;
   border: 1px solid #fe7900;
 }
@@ -765,7 +765,7 @@ card.img {
 
 table tr div.deprecated {
   border: none;
-  background-color: white;
+  background-color: #f2f3f4;
 }
 
 /*

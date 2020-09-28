@@ -27,6 +27,7 @@ def page_url(page):
 
 html_sidebars = {
     "*": ["docsidebar.html"],
+    "api/**": ["docsidebar.html"],
     "code_ref/**": ["docsidebar.html"],
     "dev_guide/**": ["docsidebar.html"],
     "guide/**": ["docsidebar.html"],

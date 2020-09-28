@@ -12,3 +12,11 @@ To use put this in your `conf.py` file:
 ## Dropdown
 
 If you want to add entries to the dropdown menus you can find them in `sunpy_sphinx_theme/conf.py`.
+
+## Sidebar
+
+We do not have a recursive check for the sidebar on all pages.
+
+If you want to add pages to the sidebar you can find ``html_sidebars`` in `sunpy_sphinx_theme/conf.py`.
+
+You will want to add to this in your own packages ``conf.py``
