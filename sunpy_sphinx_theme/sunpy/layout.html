@@ -13,14 +13,14 @@
 
 {% macro seo_title() -%}
 {% if ishome -%}
-{{ docstitle|striptags|e }}
+{{ docstitle|striptags }}
 {%- else -%}
-{{ title|striptags|e }} | {{ docstitle|striptags|e }}
+{{ title|striptags }}
 {%- endif %}
 {%- endmacro %}
 
 {%- macro description() -%}
-{{ (seo_description or theme_seo_description )|striptags|e }}
+{{ (seo_description or theme_seo_description )|striptags }}
 {%- endmacro -%}
 
 {%- block extrahead -%}

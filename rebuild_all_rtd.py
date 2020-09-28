@@ -13,9 +13,7 @@ headers = {"Authorization": f"Token {TOKEN}"}
 
 
 def get_active_versions(project):
-    r = requests.get(
-        BASE_URL + f"{project}/versions", headers=headers, params={"active": True}
-    )
+    r = requests.get(BASE_URL + f"{project}/versions", headers=headers, params={"active": True})
     if not r.ok:
         print(f"Failed to get versions for {project}: {r}")
         return []
@@ -45,9 +43,7 @@ def get_all_subprojects(base_project):
 def rebuild_all_versions_for_project(project):
     slugs = get_active_versions(project)
     for slug in slugs:
-        r = requests.post(
-            BASE_URL + f"{project}/versions/{slug}/builds/", headers=headers
-        )
+        r = requests.post(BASE_URL + f"{project}/versions/{slug}/builds/", headers=headers)
         if r.status_code != 202:
             print(f"{slug} failed to build with: {r}")
 

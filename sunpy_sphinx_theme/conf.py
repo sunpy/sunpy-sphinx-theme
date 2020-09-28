@@ -6,9 +6,12 @@ from sunpy_sphinx_theme import get_html_theme_path
 
 html_theme_path = get_html_theme_path()
 html_theme = "sunpy"
-html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
+htmlstatic_path = [os.path.join(html_theme_path[0], html_theme, "static")]
+html_extra_path = [os.path.join(
+    html_theme_path[0], html_theme, "static", "img")]
 templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
-html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
+html_favicon = os.path.join(htmlstatic_path[0], "img", "favicon-32.ico")
+svg_icon = os.path.join(htmlstatic_path[0], "img", "sunpy_icon.svg")
 
 on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 
@@ -22,7 +25,16 @@ def page_url(page):
     return urljoin(sunpy_website_url_base, page)
 
 
-html_sidebars = {"**": ["docsidebar.html"]}
+html_sidebars = {
+    "*": ["docsidebar.html"],
+    "code_ref/**": ["docsidebar.html"],
+    "dev_guide/**": ["docsidebar.html"],
+    "guide/**": ["docsidebar.html"],
+    "whatsnew/**": ["docsidebar.html"],
+    "generated/modules/**": ["docsidebar.html"],
+    "generated/gallery/**": ["gallery_sidebar.html"],
+}
+
 html_theme_options = {
     "navbar_links": [
         (
@@ -45,9 +57,12 @@ html_theme_options = {
         (
             "Documentation",
             [
-                ("SunPy", "https://docs.sunpy.org/en/stable/", 1),
+                ("sunpy", "https://docs.sunpy.org/en/stable/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
+                ("aiapy", "https://aiapy.readthedocs.io/en/stable/", 1),
+                ("pfsspy", "https://pfsspy.readthedocs.io/en/stable/", 1),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/en/latest/", 1),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
             ],
             1,

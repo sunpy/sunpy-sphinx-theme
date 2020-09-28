@@ -8,3 +8,7 @@ This repository contains the still work in progress sphinx theme for the new web
 To use put this in your `conf.py` file:
 
     from sunpy_sphinx_theme.conf import *
+
+## Dropdown
+
+If you want to add entries to the dropdown menus you can find them in `sunpy_sphinx_theme/conf.py`.

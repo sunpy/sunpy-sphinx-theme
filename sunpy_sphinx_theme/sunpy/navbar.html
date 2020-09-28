@@ -23,13 +23,13 @@
         {%- for navlink in theme_navbar_links %}
         {% if navlink[1] is not string %}
         <li class="dropdown">
-            <a role="button" data-toggle="dropdown" data-target="" href="">{{ navlink[0] }}<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                {%- for link in navlink[1] %}
-                <li class="dropdown-submenu">
-                    <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a></li>
-                {%- endfor %}
-            </ul>
+          <a role="button" data-toggle="dropdown" data-target="" href="">{{ navlink[0] }}<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            {%- for link in navlink[1] %}
+            <li class="dropdown-submenu">
+              <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a></li>
+            {%- endfor %}
+          </ul>
         </li>
         {% else %}
         <li><a href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>

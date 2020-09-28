@@ -333,7 +333,8 @@ input {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0), 0 1px 0 rgba(255, 255, 255, 0);
 }
 
-.doc-title, .doc-title>a{
+.doc-title,
+.doc-title>a {
   color: #fe7900;
   text-align: center;
   font-weight: bold;
@@ -391,18 +392,17 @@ p.admonition-title {
 
 /* Code */
 
-code.xref,
-a code {
+a.code {
   background-color: transparent;
 }
 
-code {
+.code {
   color: #0d47a1;
   padding: 2px;
   background-color: transparent;
 }
 
-code.descname {
+.code.descname {
   font-size: 16px;
 }
 
@@ -433,7 +433,8 @@ code.descname {
 }
 
 dt:target,
-.highlighted {
+.highlighted,
+dt+dd {
   background-color: #eee;
 }
 
@@ -506,33 +507,7 @@ div.figure p.caption span.caption-text {
 @media only screen and (max-width: 510px) {
 
   .sunpy-logo {
-    width: 75%;
-  }
-
-  .navbar-nav {
-    margin: -1px -15px;
-  }
-
-  .bs-sidenav {
-    position: relative;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 40px;
-    margin-top: 70px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-
-  h3 {
-    font-size: 25px;
-  }
-
-  .bs-sidenav .nav>li>a {
-    font-size: 20px;
+    display: none;
   }
 
   footer {
@@ -760,38 +735,6 @@ div.sphx-glr-download a:hover {
   margin: 0;
 }
 
-/*
-   This should kind of fix the issue with the navbar and the sidelinks jumping.
-   Taken from https://github.com/twbs/bootstrap/issues/1768
-*/
-.navbar ::before {
-  display: block;
-  content: " ";
-  margin-top: -75px;
-  height: 75px;
-  visibility: hidden;
-}
-
-.carousel:before {
-  display: block;
-  content: "";
-  margin-top: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-*[id^='sunpy']:before {
-  display: block;
-  content: "";
-  margin-top: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-#version:before {
-  display: none;
-}
-
 /* Jupyter Blog Post formatting */
 div.prompt {
   display: none;
@@ -809,7 +752,7 @@ div.prompt {
   font-weight: bold;
 }
 
-div.deprecated{
+div.deprecated {
   border: 1px solid #000000;
   background-color: #b7c3cc;
   color: #333;
@@ -823,4 +766,18 @@ card.img {
 table tr div.deprecated {
   border: none;
   background-color: white;
+}
+
+/*
+For superwide titles on the sidebar, this will add a scroll bar.
+*/
+.reference.internal.nav-header {
+  overflow-x: auto;
+}
+
+/*
+For any ``code`` on the sidebar.
+*/
+*[class^='docutils literal notranslate'] {
+  color: #fe7900;
 }
