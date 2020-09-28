@@ -26,17 +26,12 @@ def page_url(page):
 
 
 html_sidebars = {
-    "*": ["docsidebar.html"],
-    "api/**": ["docsidebar.html"],
-    "code_ref/**": ["docsidebar.html"],
-    "dev_guide/**": ["docsidebar.html"],
-    "guide/**": ["docsidebar.html"],
-    "whatsnew/**": ["docsidebar.html"],
-    "generated/modules/**": ["docsidebar.html"],
-    "generated/gallery/**": ["gallery_sidebar.html"],
+    "**": ["docsidebar.html"],
 }
 
 html_theme_options = {
+
+    "page_toctree_depths": {'generated/gallery': 2},
     "navbar_links": [
         (
             "About",

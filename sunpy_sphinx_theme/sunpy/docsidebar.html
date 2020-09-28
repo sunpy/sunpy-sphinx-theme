@@ -1,4 +1,12 @@
-{% set toctree = toctree(maxdepth=3, collapse=True, includehidden=True) %}
+{% set default_depth = theme_default_toctree_depth | int %}
+{% set ttree = namespace(depth=default_depth) %}
+{% for config_prefix, config_depth in theme_page_toctree_depths.items() %}
+  {% if pagename.startswith(config_prefix) %}
+    {% set ttree.depth = config_depth | int %}
+  {% endif %}
+{% endfor %}
+{% set toctree = toctree(maxdepth=ttree.depth, collapse=True, includehidden=True) %}
+
 {% if toctree %}
 {% if logo %}
 <div class="sidelogo">
