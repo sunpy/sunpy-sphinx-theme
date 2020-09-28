@@ -41,7 +41,7 @@ jobs:
       - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
       - run: pip install -e sunpy/.[dev] | cat
-      - run: sphinx-build -D plot_gallery="False" --color -b html -d sunpy/docs/_build/.doctrees sunpy/docs sunpy/docs/_build/html
+      - run: cd sunpy/docs && sphinx-build -j auto -D plot_gallery="False" --color -b html -d _build/.doctrees . _build/html
       - run: rm -r sunpy/docs/_build/html/_sources
       - store_artifacts:
           path: sunpy/docs/_build/html
