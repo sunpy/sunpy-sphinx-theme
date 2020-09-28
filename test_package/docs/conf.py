@@ -167,8 +167,8 @@ sphinx_gallery_conf = {
     ),
     "within_subsection_order": ExampleTitleSortKey,
     "gallery_dirs": os.path.join("generated", "gallery"),
-    # html_favicon comes from the theme
-    "default_thumb_file": html_favicon,
+    # svg_icon comes from the theme conf
+    "default_thumb_file": svg_icon,
     "abort_on_example_error": False,
     "plot_gallery": "True",
     "remove_config_comments": True,
