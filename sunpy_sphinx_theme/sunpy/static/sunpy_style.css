@@ -506,70 +506,14 @@ div.figure p.caption span.caption-text {
 
 @media only screen and (max-width: 510px) {
 
-  div.body {
-    width: 85%;
-    min-width: 375px;
-    max-width: 375px;
-  }
-
-  .body.col-md-12.content {
-    width: 85%;
-  }
-
-  .col-md-6.center {
-    width: 85%;
-  }
-
-  .section {
-    width: 85%;
-  }
-
   .sunpy-logo {
     display: none;
-  }
-
-  .navbar {
-    width: 85%;
-  }
-
-  .container {
-    margin-right: 15px;
-    margin-left: 15px;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .col-md-3 {
-    width: 85%;
-  }
-
-  .bs-sidenav {
-    position: relative;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 40px;
-    margin-top: 70px;
-  }
-
-  h2 {
-    font-size: 30px;
-  }
-
-  h3 {
-    font-size: 25px;
-  }
-
-  .bs-sidenav .nav>li>a {
-    font-size: 20px;
   }
 
   footer {
     display: none;
   }
 }
-
 
 @media only screen and (max-width: 1000px) {
 
