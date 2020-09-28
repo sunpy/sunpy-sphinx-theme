@@ -10,8 +10,8 @@ html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
 html_extra_path = [os.path.join(
     html_theme_path[0], html_theme, "static", "img")]
 templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
-html_favicon = os.path.join(htmlstatic_path[0], "img", "favicon-32.ico")
-svg_icon = os.path.join(htmlstatic_path[0], "img", "sunpy_icon.svg")
+html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
+svg_icon = os.path.join(html_static_path[0], "img", "sunpy_icon.svg")
 
 on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 
