@@ -30,14 +30,19 @@ exclude = '''
   [ tool.gilesbot.circleci_artifacts ]
     enabled = true
 
-  [ tool.gilesbot.circleci_artifacts.docs ]
+  [ tool.gilesbot.circleci_artifacts.test_package ]
     url = "test_package/docs/_build/html/index.html"
-    message = "Click details to preview the HTML documentation."
+    message = "Click details to see the test_package doc build"
     report_on_fail = true
 
   [ tool.gilesbot.circleci_artifacts.website ]
     url = "sunpy.org/_build/html/index.html"
     message = "Click details to see the website build"
+    report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.sunpy ]
+    url = "sunpy/docs/_build/html/index.html"
+    message = "Click details to see the sunpy doc build"
     report_on_fail = true
 
   [ tool.gilesbot.pull_requests ]
