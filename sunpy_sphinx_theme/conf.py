@@ -67,9 +67,10 @@ html_theme_options = {
         (
             "SunPy Project",
             [
-                ("SunPy Project", page_url("project/"), 1),
+                ("SunPy Project", page_url("project/index.html"), 1),
                 ("Community Roles", page_url("project/roles.html"), 1),
                 ("Affiliated Packages", page_url("project/affiliated.html"), 1),
+                ("Former Members", page_url("project/former.html"), 1),
             ],
             1,
         ),
@@ -78,7 +79,7 @@ html_theme_options = {
     "footer_links": [
         ("Github", "https://github.com/sunpy/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
-        ("Matrix", "https://riot.im/app/#/room/#sunpy-general:matrix.org", 1),
+        ("Matrix", "https://app.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],
     "on_rtd": on_rtd,
 }
