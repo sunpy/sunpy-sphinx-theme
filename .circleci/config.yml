@@ -23,6 +23,7 @@ jobs:
       - run: *venv
       - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.org.git
+      - run: cd sunpy.org && git submodule update --init && cd ..
       - run: pip install -r sunpy.org/requirements.txt
       - run: make -C $HOME/project/sunpy.org html
       - store_artifacts:
