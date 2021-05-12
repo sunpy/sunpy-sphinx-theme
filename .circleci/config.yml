@@ -85,7 +85,7 @@ jobs:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/test_package/docs/_build/html/index.html"; echo $DOCS_URL
 
-  linting:
+  css_linting:
     docker:
       - image: circleci/node:10
     steps:
@@ -104,9 +104,9 @@ workflows:
   website:
     jobs:
       - website
-  linting:
+  css_linting:
     jobs:
-      - linting
+      - css_linting
   sunpy:
     jobs:
       - sunpy
