@@ -110,3 +110,6 @@ workflows:
   sunpy:
     jobs:
       - sunpy
+  codestyle:
+    jobs:
+      - codestyle
