@@ -98,18 +98,10 @@ jobs:
 workflows:
   version: 2
 
-  test_package:
-    jobs:
-      - test_package
-  website:
-    jobs:
-      - website
-  css_linting:
-    jobs:
-      - css_linting
-  sunpy:
-    jobs:
-      - sunpy
-  codestyle:
+  tests:
     jobs:
       - codestyle
+      - css_linting
+      - sunpy
+      - test_package
+      - website
