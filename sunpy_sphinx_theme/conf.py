@@ -30,6 +30,7 @@ html_sidebars = {
 
 html_theme_options = {
     "page_toctree_depths": {"generated/gallery": 2},
+    "on_rtd": on_rtd,
     "navbar_links": [
         (
             "About",
@@ -61,7 +62,7 @@ html_theme_options = {
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/en/stable/", 1),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/en/stable/", 1),
                 ("pyflct", "https://pyflct.readthedocs.io/en/stable/", 1),
-                ("ablog", "https://ablog.readthedocs.io/", 1),                
+                ("ablog", "https://ablog.readthedocs.io/", 1),
             ],
             1,
         ),
@@ -85,7 +86,6 @@ html_theme_options = {
         ("Twitter", "https://twitter.com/SunPyProject", 1),
         ("Matrix", "https://app.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],
-    "on_rtd": on_rtd,
 }
 
 
