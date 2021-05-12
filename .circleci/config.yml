@@ -14,9 +14,28 @@ venv: &venv
 
 jobs:
 
+  codestyle:
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          name: Install pre-commit
+          command: |
+            python -m venv venv
+            . venv/bin/activate
+            pip install -U pip setuptools
+            pip install pre-commit
+      - run:
+          name: Run pre-commit
+          command: |
+            . venv/bin/activate
+            pre-commit install-hooks
+            pre-commit run --color always --all-files --show-diff-on-failure
+
   website:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: *apt-install
@@ -34,7 +53,7 @@ jobs:
 
   sunpy:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: *apt-install
@@ -52,7 +71,7 @@ jobs:
 
   test_package:
     docker:
-      - image: circleci/python:3.8
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: *apt-install
@@ -91,7 +110,3 @@ workflows:
   sunpy:
     jobs:
       - sunpy
-
-notify:
-  webhooks:
-    - url: https://giles.cadair.dev/circleci

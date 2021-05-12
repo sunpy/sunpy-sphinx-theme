@@ -4,7 +4,7 @@ build-backend = 'setuptools.build_meta'
 
 [tool.black]
 line-length = 110
-target-version = ['py38']
+target-version = ['py39']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -25,25 +25,3 @@ exclude = '''
   | profiling
 )/
 '''
-
-[ tool.gilesbot ]
-  [ tool.gilesbot.circleci_artifacts ]
-    enabled = true
-
-  [ tool.gilesbot.circleci_artifacts.test_package ]
-    url = "test_package/docs/_build/html/index.html"
-    message = "Click details to see the test_package doc build"
-    report_on_fail = true
-
-  [ tool.gilesbot.circleci_artifacts.website ]
-    url = "sunpy.org/_build/html/index.html"
-    message = "Click details to see the website build"
-    report_on_fail = true
-
-  [ tool.gilesbot.circleci_artifacts.sunpy ]
-    url = "sunpy/docs/_build/html/index.html"
-    message = "Click details to see the sunpy doc build"
-    report_on_fail = true
-
-  [ tool.gilesbot.pull_requests ]
-    enabled = true
