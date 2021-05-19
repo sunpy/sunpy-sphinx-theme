@@ -8,6 +8,8 @@ To use put this in your `conf.py` file:
 
     from sunpy_sphinx_theme.conf import *
 
+and make sure you do not have the `html_theme` variable defined elsewhere in `conf.py`.
+
 ## Dropdown
 
 If you want to add entries to the dropdown menus you can find them in `sunpy_sphinx_theme/conf.py`.
