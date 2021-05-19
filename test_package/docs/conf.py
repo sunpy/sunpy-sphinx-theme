@@ -69,7 +69,6 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
-    "sunpy.util.sphinx.changelog",
     "sunpy.util.sphinx.doctest",
     "sunpy.util.sphinx.generate",
 ]
