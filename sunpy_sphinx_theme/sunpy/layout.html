@@ -19,19 +19,29 @@
 {%- endif %}
 {%- endmacro %}
 
-{%- macro description() -%}
-{{ (seo_description or theme_seo_description )|striptags }}
-{%- endmacro -%}
-
 {%- block extrahead -%}
 {{ super() }}
-<!-- Facebook OpenGraph -->
-<meta property="og:title" content="{{ seo_title() }}" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="{{ pathto(theme_base_url + '/' + pagename, 1) }}.html" />
-<meta property="og:image" content="{{ pathto(theme_base_url + '/_static/' + theme_opengraph_image, 1) }}" />
-<meta property="og:description" content="{{ description() }}" />
-<meta property="og:site_name" content="{{ docstitle|striptags|e }}" />
+
+<!-- HTML Meta Tags -->
+<title>{{ seo_title() }}</title>
+<meta name="description" content="{{ (seo_description or theme_seo_description )|striptags }}">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:description" content="{{ (seo_description or theme_seo_description )|striptags }}">
+<meta property="og:image" content="{{ theme_opengraph_imageurl }}" />
+<meta property="og:site_name" content="{{ seo_title() }}" />
+<meta property="og:title" content="{{ seo_title() }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ pathto(theme_base_url + '/' + pagename + ".html", 1) }}" />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="{{ (seo_description or theme_seo_description )|striptags }}">
+<meta name="twitter:image" content="{{ theme_opengraph_imageurl }}">
+<meta name="twitter:title" content="{{ seo_title() }}">
+<meta property="twitter:domain" content="{{ theme_base_url }}">
+<meta property="twitter:url" content="{{ pathto(theme_base_url + '/' + pagename + ".html", 1) }}">
+
 {% if not version_slug in to_be_indexed | default([])  %}
 <meta name="robots" content="noindex, nofollow">
 {% endif %}
