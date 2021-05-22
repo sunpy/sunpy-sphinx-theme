@@ -11,6 +11,7 @@ html_extra_path = [os.path.join(html_theme_path[0], html_theme, "static", "img")
 templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
 html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
 svg_icon = os.path.join(html_static_path[0], "img", "sunpy_icon.svg")
+png_icon = os.path.join(html_static_path[0], "img", "sunpy_icon_128x128.png")
 
 on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 
@@ -87,19 +88,3 @@ html_theme_options = {
         ("Matrix", "https://app.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],
 }
-
-
-def fix_circleci(app):
-    # Circle CI does weird things with redirections, which seem to break the
-    # import statements in the css files in the bootstrap theme. By doing this
-    # here we include these css files which are normally imported directly in
-    # the html which means they redirect properly. We only need to do this on
-    # circleci.
-    print(f"Checking for circleci: {os.environ.get('CIRCLECI')}")
-    if os.environ.get("CIRCLECI"):
-        app.add_css_file("basic.css")
-        app.add_css_file("bootswatch-3.3.7/flatly/bootstrap.min.css")
-
-
-def setup(app):
-    fix_circleci(app)
