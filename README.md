@@ -33,10 +33,12 @@ You will want to add to this in your own packages ``conf.py``
 
 ## Metadata
 
-If you want to use the OpenGraph settings correctly you will need to add the following variables in `conf.py`:
+If you want to use the OpenGraph settings correctly you will need to add the following variables in the project's `conf.py`:
 
-    html_context = {
+    html_theme_options.update(
+        {
         "base_url": This is the base url of where the docs or website will be hosted.,
         "opengraph_imageurl": This is the url of where the image will be stored in the final built version.,
         "seo_description": Description of the project build,
-    }
+        }
+    )
