@@ -11,18 +11,9 @@
 {# Custom CSS overrides #}
 {% set css_files = css_files + ['_static/sunpy_style.css'] %}
 
-{% macro title() -%}
-{% if ishome -%}
-{{ docstitle|striptags }}
-{%- else -%}
-{{ title|striptags }}
-{%- endif %}
-{%- endmacro %}
-
 {%- block extrahead -%}
 {{ super() }}
-
-<title> {{ title() }} </title>
+<title> {{ docstitle|striptags }} </title>
 <meta name="description" content="{{ (html_description or theme_html_description )|striptags }}" >
 {% if not version_slug in to_be_indexed | default([])  %}
 <meta name="robots" content="noindex, nofollow" >
