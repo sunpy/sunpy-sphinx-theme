@@ -14,7 +14,6 @@
 {%- block extrahead -%}
 {{ super() }}
 <title> {{ docstitle|striptags }} </title>
-<meta name="description" content="{{ (html_description or theme_html_description )|striptags }}" >
 {% if not version_slug in to_be_indexed | default([])  %}
 <meta name="robots" content="noindex, nofollow" >
 {% endif %}
