@@ -27,7 +27,8 @@
           <ul class="dropdown-menu">
             {%- for link in navlink[1] %}
             <li class="dropdown-submenu">
-              <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a></li>
+              <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+            </li>
             {%- endfor %}
           </ul>
         </li>
