@@ -82,7 +82,7 @@ html_theme_options = {
     ],
     # Only really setup to look nice with 3 values.
     "footer_links": [
-        ("Github", "https://github.com/sunpy/sunpy", 1),
+        ("GitHub", "https://github.com/sunpy/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
         ("Matrix", "https://app.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],
