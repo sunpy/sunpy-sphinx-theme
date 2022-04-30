@@ -1,41 +1,18 @@
 version: 2.1
-
 apt-run: &apt-install
   name: Install apt packages
   command: |
     sudo apt update
     sudo apt install -y graphviz build-essential libopenjp2-7 python3-dev pandoc
-
 venv: &venv
   name: Setup venv for the entire job
   command: |
     python3 -m venv venv
     echo "source /home/circleci/project/venv/bin/activate" >> $BASH_ENV
-
 jobs:
-
-  codestyle:
-    docker:
-      - image: circleci/python:3.8
-    steps:
-      - checkout
-      - run:
-          name: Install pre-commit
-          command: |
-            python -m venv venv
-            . venv/bin/activate
-            pip install -U pip setuptools
-            pip install pre-commit
-      - run:
-          name: Run pre-commit
-          command: |
-            . venv/bin/activate
-            pre-commit install-hooks
-            pre-commit run --color always --all-files --show-diff-on-failure
-
   website:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -44,16 +21,15 @@ jobs:
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.org.git
       - run: cd sunpy.org && git submodule update --init && cd ..
       - run: pip install -r sunpy.org/requirements.txt
-      - run: make -C $HOME/project/sunpy.org html
+      - run: cd sunpy.org && sphinx-build -W --color -b html -d _build/.doctrees . _build/html
       - store_artifacts:
           path: sunpy.org/_build/html
       - run:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/sunpy.org/_build/html/index.html"; echo $DOCS_URL
-
   sunpy:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -61,17 +37,16 @@ jobs:
       - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
       - run: pip install -e sunpy/.[dev] | cat
-      - run: cd sunpy/docs && sphinx-build -D plot_gallery="False" --color -b html -d _build/.doctrees . _build/html
+      - run: cd sunpy/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -W -D plot_gallery="False" --color -b html -d _build/.doctrees . _build/html
       - run: rm -r sunpy/docs/_build/html/_sources
       - store_artifacts:
           path: sunpy/docs/_build/html
       - run:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/sunpy/docs/_build/html/index.html"; echo $DOCS_URL
-
   test_package:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -84,23 +59,18 @@ jobs:
       - run:
           name: "Built documentation is available at:"
           command: DOCS_URL="${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/test_package/docs/_build/html/index.html"; echo $DOCS_URL
-
   css_linting:
     docker:
-      - image: circleci/node:10
+      - image: cimg/node:17.2.0
     steps:
       - checkout
       - run: sudo npm install -g stylelint
       - run: sudo npm install stylelint-config-recommended
       - run: sudo stylelint ./sunpy_sphinx_theme/sunpy/static/sunpy_style.css
-
-
 workflows:
   version: 2
-
   tests:
     jobs:
-      - codestyle
       - css_linting
       - sunpy
       - test_package

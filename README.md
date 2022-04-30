@@ -2,7 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/sunpy-sphinx-theme.svg)](https://badge.fury.io/py/sunpy-sphinx-theme)
 
-This repository contains the still work in progress sphinx theme for the new website and documentation.
+This repository contains the sphinx theme used by the Sunpy Project for its website and documentation.
 
 To use put this in your `conf.py` file:
 

@@ -404,10 +404,7 @@ class TimeRange:
         Return all partial days contained within the time range.
         """
         dates = []
-        dates = [
-            parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day)
-            for i in range(int(self.days.value) + 1)
-        ]
+        dates = [parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day) for i in range(int(self.days.value) + 1)]
         return dates
 
     @add_common_docstring(**_variables_for_parse_time_docstring())

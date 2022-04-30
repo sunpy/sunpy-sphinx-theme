@@ -9,6 +9,7 @@ Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
   generated/gallery/index
   subsections
   subsections_toc
+  api
 
 .. code-block:: python
 
@@ -23,7 +24,6 @@ It's good to have your upstream remote have a scary name [#]_, to remind you tha
 
     $ git remote add upstream-rw git@github.com:sunpy/sunpy.git
     $ git fetch upstream-rw
-
 
 .. [#] Text of the first footnote.
 
@@ -54,8 +54,6 @@ Normal
 Normal
 `numpy.ndarray.mean`
 
-Sometimes you need a URL: `BBC.COM <https://www.bbc.co.uk/sport>`__
+Sometimes you need a URL: `bbc.com <https://www.bbc.co.com>`__
 
 Contributing to ``sunraster``
-
-.. automodapi:: test_package
