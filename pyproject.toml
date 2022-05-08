@@ -2,26 +2,46 @@
 requires = ["setuptools", "setuptools_scm", "wheel"]
 build-backend = 'setuptools.build_meta'
 
+[tool.setuptools_scm]
+
+[project]
+name = "sunpy-sphinx-theme"
+description = "SunPy Project Sphinx Theme"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  "sphinx-bootstrap-theme",
+]
+license = { file = "LICENSE.md" }
+maintainers = [
+  { name = "Nabil Freij", email = "nabil.freij@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Theme",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["sunpy_sphinx_theme"]
+
 [tool.black]
-line-length = 110
-target-version = ['py39']
+line-length = "130"
+target-version = ["py39"]
 include = '\.pyi?$'
 exclude = '''
 /(
-    \.eggs
+  \.eggs
   | \.git
-  | \.hg
-  | \.mypy_cache
   | \.tox
   | \.venv
   | _build
-  | buck-out
   | build
   | dist
   | \.history
-  # The following are specific to Black, you probably don't want those.
-  | blib2to3
-  | tests/data
-  | profiling
 )/
 '''
