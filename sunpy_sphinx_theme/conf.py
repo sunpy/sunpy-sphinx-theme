@@ -24,11 +24,15 @@ def page_url(page):
 
 html_theme = "sunpy"
 theme_base_path = get_html_theme_path()
+
 img_dir = theme_base_path / "static" / "img"
 html_favicon = str(img_dir / "favicon-32.ico")
-
 html_logo = png_icon = str(img_dir / "sunpy_icon_128x128.png")
 svg_icon = str(img_dir / "sunpy_icon.svg")
+
+# TODO: Remove these after downstream repos have been fixed to not rely on them
+html_static_path = [str(theme_base_path / "static")]
+html_extra_path = [str(theme_base_path / "static" / "img")]
 
 on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 if on_rtd:
