@@ -4,29 +4,36 @@ from urllib.parse import urljoin
 
 from sunpy_sphinx_theme import get_html_theme_path
 
-html_theme_path = get_html_theme_path()
-html_theme = "sunpy"
-html_static_path = [os.path.join(html_theme_path[0], html_theme, "static")]
-html_extra_path = [os.path.join(html_theme_path[0], html_theme, "static", "img")]
-templates_path = [os.path.join(html_theme_path[0], html_theme, "templates")]
-html_favicon = os.path.join(html_static_path[0], "img", "favicon-32.ico")
-svg_icon = os.path.join(html_static_path[0], "img", "sunpy_icon.svg")
-png_icon = os.path.join(html_static_path[0], "img", "sunpy_icon_128x128.png")
-on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 
+def page_url(page):
+    """
+    Gets the formal URL for a page.
+
+    Parameters
+    ----------
+    page : `str`
+        HTML file/page name
+
+    Returns
+    -------
+    `str`
+        The URL for the page.
+    """
+    return urljoin(sunpy_website_url_base, page)
+
+
+html_theme = "sunpy"
+theme_base_path = get_html_theme_path()
+img_dir = theme_base_path / "static" / "images"
+html_favicon = str(img_dir / "favicon-32.ico")
+html_logo = png_icon = str(img_dir / "sunpy_icon_128x128.png")
+svg_icon = str(img_dir / "sunpy_icon.svg")
+
+on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 if on_rtd:
     sunpy_website_url_base = "https://sunpy.org"
 else:
     sunpy_website_url_base = socket.gethostname()
-
-
-def page_url(page):
-    return urljoin(sunpy_website_url_base, page)
-
-
-html_sidebars = {
-    "**": ["docsidebar.html"],
-}
 
 html_theme_options = {
     "page_toctree_depths": {"generated/gallery": 2},

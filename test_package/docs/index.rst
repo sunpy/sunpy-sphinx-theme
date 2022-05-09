@@ -3,12 +3,27 @@ Documentation
 
 Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
 
-.. toctree::
-  :maxdepth: 2
+.. panels::
 
-  generated/gallery/index
-  subsections
-  subsections_toc
+    Getting started
+    ^^^^^^^^^^^^^^^
+    .. toctree::
+      :maxdepth: 2
+
+      generated/gallery/index
+      code_ref/index
+
+    ---
+
+    Other info
+    ^^^^^^^^^^
+    .. toctree::
+      :maxdepth: 2
+
+      subsections
+      subsections_toc
+
+Some code:
 
 .. code-block:: python
 
@@ -23,7 +38,6 @@ It's good to have your upstream remote have a scary name [#]_, to remind you tha
 
     $ git remote add upstream-rw git@github.com:sunpy/sunpy.git
     $ git fetch upstream-rw
-
 
 .. [#] Text of the first footnote.
 
@@ -54,8 +68,6 @@ Normal
 Normal
 `numpy.ndarray.mean`
 
-Sometimes you need a URL: `BBC.COM <https://www.bbc.co.uk/sport>`__
+Sometimes you need a URL: `bbc.com <https://www.bbc.co.com>`__
 
 Contributing to ``sunraster``
-
-.. automodapi:: test_package

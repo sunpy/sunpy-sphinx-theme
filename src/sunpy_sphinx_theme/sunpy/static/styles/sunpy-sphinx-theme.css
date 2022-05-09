@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900");
+@import "sphinx-book-theme.css";
+
+/* CSS variables */
+/* See https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/customizing.html for pydata theme ones */
+:root {
+  --pst-font-size-base: 16px;
+  --pst-sidebar-font-size: 1em;
+  --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
+  /* sbt uses this for the footer */
+  --sbt-font-size-small-1: var(--pst-font-size-base);
+  /* SunPy Variables */
+  /* SunPy Logo Colors */
+  --sst-sunpy-primary-color: #fe7900;
+  --sst-sunpy-secondary-color: #fed20b;
+  --sst-sunpy-dark-gray: #444444;
+  /* Theme Accent Colors */
+  --sst-primary-accent-color: var(--sst-sunpy-primary-color);
+  --sst-footer-background-color: #fafafa;
+  --sst-accent-background-color: var(--sst-sunpy-dark-gray);
+  --sst-primary-text-color: #333333;
+}
+
+/* Main SunPy Styling */
+
+/* This adds a margin equal to the height of the footer so that things do not get */
+/* stuck behind the fixed footer. */
+/* We do this this deep into the page so that the sidebar doesn't move when */
+/* scrolling to the end of the page. I think this is because the margin is after */
+/* the magic scroll pixel added by sbt. */
+body>div.container-xl>div.row>div.content-container {
+  margin-bottom: 3em;
+}
+
+a {
+  color: var(--sst-primary-accent-color);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.current.reference.internal {
+  color: var(--sst-primary-accent-color);
+}
+
+.admonition.note {
+  background-color: #e3f2fd;
+  border: 1px solid #0d47a1;
+  color: var(--sst-primary-text-color);
+}
+
+.admonition.warning {
+  background-color: #fff3e0;
+  border: 1px solid var(--sst-primary-accent-color);
+  color: var(--sst-primary-text-color);
+}
+
+div.deprecated {
+  border: 1px solid red;
+}
+
+code {
+  color: #0d47a1;
+}
+
+code.xref {
+  color: var(--sst-primary-accent-color);
+}
+
+.sig-name.descname {
+  color: var(--sst-primary-accent-color);
+}
+
+.prev-next-area a p.prev-next-title {
+  color: var(--sst-primary-accent-color);
+}
+
+.bd-toc .toc-entry a,
+.bd-toc div.onthispage {
+  color: black;
+  margin-top: 15px;
+}
+
+#dropdownSubMenu .nav-link:hover {
+  color: black;
+}
+
+/* Navbars */
+
+#navbar-main {
+  color: beige;
+}
+
+nav.bd-links {
+  background-color: var(--sst-accent-background-color);
+}
+
+#site-navigation {
+  border-right: 0px;
+}
+
+#site-navigation nav ul.nav a:hover,
+#site-navigation nav ul.nav li.active>a,
+#site-navigation nav ul.nav li.active>a:hover {
+  color: var(--sst-primary-accent-color);
+}
+
+#site-navigation nav ul.nav li a,
+#site-navigation nav ul.nav ul li a {
+  color: white;
+}
+
+#site-navigation .bd-sidebar__bottom,
+#site-navigation .bd-sidebar__top {
+  margin-top: 75px;
+  padding-left: 1rem;
+}
+
+.bd-sidebar .nav li>a:hover {
+  color: var(--sst-primary-accent-color);
+}
+
+.content-container a,
+.content-container a:visited {
+  color: var(--sst-primary-accent-color);
+}
+
+.bd-sidebar__top {
+  background-color: var(--sst-accent-background-color);
+  border-left: 3px solid var(--sst-primary-accent-color);
+  border-radius: 3px;
+}
+
+i.fas.fa-chevron-down {
+  color: white;
+}
+
+#site-navigation h1.site-logo {
+  color: white;
+}
+
+.bd-sidebar label:hover {
+  background: currentColor;
+}
+
+div.navbar-brand-box {
+  padding-top: 0;
+}
+
+.dropdown,
+.dropleft,
+.dropright,
+.dropup {
+  padding-left: 0;
+}
+
+.navbar-brand {
+  color: var(--sst-primary-accent-color);
+  font-weight: bold;
+}
+
+div.navbar {
+  background-color: var(--sst-accent-background-color);
+  border-bottom: 3px;
+  border-bottom-color: var(--sst-primary-accent-color);
+  border-bottom-style: solid;
+}
+
+.navbar .container {
+  justify-content: left;
+}
+
+.navbar-brand img {
+  max-width: 35%;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+#bd-toc-nav {
+  margin-top: 45px;
+}
+
+div.navbar-brand-box a.navbar-brand img {
+  margin-top: 50px;
+}
+
+div.navbar-brand-box a.navbar-brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: -25px;
+}
+
+.dropdown-menu {
+  top: 140%;
+  min-width: 190px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav-item a {
+  color: white;
+  top: 7px;
+  position: relative;
+}
+
+.dropdown-submenu {
+  color: white;
+  position: relative;
+}
+
+ul.dropdown-submenu {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dropdown-submenu a {
+  display: block;
+  clear: both;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 16px;
+  color: var(--sst-primary-text-color);
+  text-align: left;
+  top: 0px;
+}
+
+.dropdown-submenu a:hover {
+  background-color: var(--sst-primary-accent-color);
+  color: white;
+}
+
+/* Highlight */
+
+.highlight {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.highlight .o {
+  color: var(--sst-primary-accent-color);
+}
+
+.highlight .nb,
+.highlight .kn {
+  color: #0d47a1;
+}
+
+.highlight .gp {
+  color: #bf360c;
+}
+
+.highlight .c1 {
+  color: #616161;
+}
+
+.highlight .s1,
+.highlight .s2,
+.highlight .si,
+.highlight .sd {
+  color: #004602;
+}
+
+dt:target,
+.highlighted {
+  background-color: #eee;
+}
+
+/* Gallery */
+
+div.sphx-glr-footer-example {
+  position: initial;
+  background: rgba(200, 200, 200, 0);
+  border: none;
+  max-width: 100ex;
+}
+
+div.sphx-glr-footer.docutils.container {
+  width: 100%;
+  display: inline-flex;
+}
+
+div.sphx-glr-download a {
+  background-color: #f2f3f4;
+  background-image: none !important;
+  border: 1px solid var(--sst-primary-accent-color);
+}
+
+div.sphx-glr-download a:hover {
+  background-color: burlywood;
+}
+
+.sphx-glr-thumbcontainer[tooltip]:hover::after {
+  bottom: -45%;
+  left: 0;
+}
+
+.sphx-glr-thumbcontainer[tooltip]:hover::before {
+  display: none;
+}
+
+.sphx-glr-script-out {
+  color: var(--sst-primary-text-color);
+  margin: 0;
+}
+
+/* Footer */
+
+div.footer-content {
+  border: 0;
+}
+
+div.footer-page {
+  width: 100%;
+  justify-content: center;
+  background-color: var(--sst-footer-background-color);
+  border: 0px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.footer-section {
+  text-align: center;
+}
+
+.footer-section p {
+  margin-bottom: 0;
+}
+
+/* Misc */
+
+i.fa-download,
+i.fa-bars,
+i.fa-expand {
+  color: var(--sst-primary-accent-color);
+}
+
+:not(li)>ol>li:last-child> :last-child,
+:not(li)>ul>li:last-child> :last-child {
+  margin-bottom: 0px;
+  top: 0;
+}
+
+/* Navbar Collapse Styles To Stack Items At Mobile Widths*/
+@media(max-width:47.9em) {
+  .navbar .collapse {
+    max-height: 250px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar .navbar-brand {
+    float: none;
+  }
+
+  .navbar .nav-item {
+    float: none;
+    margin-left: .1rem;
+  }
+
+  .navbar {
+    float: none !important;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar .collapse .dropdown-menu {
+    position: relative;
+    float: none;
+    background: none;
+    border: none;
+  }
+}
+
+.navbar button.navbar-toggler {
+  color: white;
+}

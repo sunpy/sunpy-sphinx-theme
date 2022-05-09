@@ -112,3 +112,6 @@ test_package/docs/api
 
 # temp directory that tox uses
 .tmp
+
+node_modules
+.nodeenv
