@@ -37,7 +37,7 @@ jobs:
       - run: pip install -e .
       - run: git clone --depth 1 https://github.com/sunpy/sunpy.git
       - run: pip install -e sunpy/.[dev] | cat
-      - run: cd sunpy/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -W -D plot_gallery="False" --color -b html -d _build/.doctrees . _build/html
+      - run: cd sunpy/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -j auto -W -D plot_gallery="False" --color -b html -d _build/.doctrees . _build/html
       - run: rm -r sunpy/docs/_build/html/_sources
       - store_artifacts:
           path: sunpy/docs/_build/html
@@ -53,7 +53,7 @@ jobs:
       - run: *venv
       - run: pip install -e .
       - run: pip install -e "test_package/.[dev]"
-      - run: cd test_package/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -W -D plot_gallery="True" --color -b html -d _build/.doctrees . _build/html
+      - run: cd test_package/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -j auto -W -D plot_gallery="True" --color -b html -d _build/.doctrees . _build/html
       - store_artifacts:
           path: test_package/docs/_build/html
       - run:
