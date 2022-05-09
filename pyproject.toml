@@ -38,7 +38,7 @@ enabled = true
 url = "sunpy.org/_build/html/index.html"
 message = "sunpy.org build preview"
 
-[tool.gilesbot.circleci_artifacts.sunpy]
+[tool.gilesbot.circleci_artifacts.website]
 url = "sunpy/_build/html/index.html"
 message = "sunpy core docs build preview"
 
