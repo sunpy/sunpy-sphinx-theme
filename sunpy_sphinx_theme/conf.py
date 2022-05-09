@@ -1,6 +1,5 @@
 import os
 import socket
-from pathlib import Path
 from urllib.parse import urljoin
 
 from sunpy_sphinx_theme import get_html_theme_path
