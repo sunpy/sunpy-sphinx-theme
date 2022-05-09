@@ -1,0 +1,15 @@
+include *.txt
+include *.rst
+include *.py
+include sunpy_sphinx_theme/__init__.py
+
+# Non-python files.
+recursive-include sunpy_sphinx_theme *
+
+# Extra packages
+recursive-exclude test_package *
+prune test_package *
+
+# Extraneous files.
+global-exclude .DS_Store
+global-exclude *.pyc
