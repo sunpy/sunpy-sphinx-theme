@@ -3,27 +3,13 @@ Documentation
 
 Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
 
-.. panels::
+.. toctree::
+  :maxdepth: 2
 
-    Getting started
-    ^^^^^^^^^^^^^^^
-    .. toctree::
-      :maxdepth: 2
-
-      generated/gallery/index
-      code_ref/index
-
-    ---
-
-    Other info
-    ^^^^^^^^^^
-    .. toctree::
-      :maxdepth: 2
-
-      subsections
-      subsections_toc
-
-Some code:
+  generated/gallery/index
+  subsections
+  subsections_toc
+  api
 
 .. code-block:: python
 
