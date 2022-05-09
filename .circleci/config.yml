@@ -75,7 +75,3 @@ workflows:
       - sunpy
       - test_package
       - website
-
-notify:
-  webhooks:
-    - url: https://giles.cadair.dev/circleci
