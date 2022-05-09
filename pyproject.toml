@@ -29,23 +29,6 @@ classifiers = [
 [tool.setuptools]
 packages = ["sunpy_sphinx_theme"]
 
-[tool.gilesbot]
-
-[tool.gilesbot.circleci_artifacts]
-enabled = true
-
-[tool.gilesbot.circleci_artifacts.website]
-url = "sunpy.org/_build/html/index.html"
-message = "sunpy.org build preview"
-
-[tool.gilesbot.circleci_artifacts.website]
-url = "sunpy/_build/html/index.html"
-message = "sunpy core docs build preview"
-
-[tool.gilesbot.circleci_artifacts.testpackage]
-url = "test_package/_build/html/index.html"
-message = "sunpy core docs build preview"
-
 [tool.black]
 line-length = "130"
 target-version = ["py39"]
