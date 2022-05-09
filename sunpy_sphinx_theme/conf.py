@@ -30,9 +30,6 @@ html_favicon = str(img_dir / "favicon-32.ico")
 html_logo = png_icon = str(img_dir / "sunpy_icon_128x128.png")
 svg_icon = str(img_dir / "sunpy_icon.svg")
 
-# TODO: Remove these after downstream repos have been fixed to not rely on them
-html_static_path = [str(theme_base_path / "static")]
-html_extra_path = [str(theme_base_path / "static" / "img")]
 
 on_rtd = os.environ.get("READTHEDOCS", False) == "True"
 if on_rtd:
