@@ -52,8 +52,8 @@ jobs:
       - run: *apt-install
       - run: *venv
       - run: pip install -e .
-      - run: pip install -e test_package/.[docs]
-      - run: cd test_package/docs && make html
+      - run: pip install -e "test_package/.[dev]"
+      - run: cd test_package/docs && HIDE_PARFIVE_PROGESS=1 sphinx-build -W -D plot_gallery="True" --color -b html -d _build/.doctrees . _build/html
       - store_artifacts:
           path: test_package/docs/_build/html
       - run:

@@ -12,6 +12,7 @@ extensions = [
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
     "sphinx_gallery.gen_gallery",
+    "sphinx_panels",
     "sphinx.ext.autodoc",
     "sphinx.ext.coverage",
     "sphinx.ext.doctest",
