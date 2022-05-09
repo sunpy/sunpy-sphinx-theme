@@ -3,13 +3,10 @@ This module provies a collection of functions.
 """
 from sunpy.util.decorators import deprecated
 
-from .timerange import TimeRange
-
 __all__ = [
     "Animal",
     "function",
     "a_really_long_function_name_just_to_see_what_happens",
-    "TimeRange",
 ]
 
 

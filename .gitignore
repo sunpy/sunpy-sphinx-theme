@@ -109,3 +109,7 @@ test_package/docs/generated
 test_package/docs/api
 .history
 .vscode
+
+node_modules
+.nodeenv
+.tmp

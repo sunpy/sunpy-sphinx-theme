@@ -1,15 +1,10 @@
-include *.txt
-include *.rst
-include *.py
-include sunpy_sphinx_theme/__init__.py
+recursive-include src/sunpy_sphinx_theme/sunpy/ *
 
-# Non-python files.
-recursive-include sunpy_sphinx_theme *
-
-# Extra packages
-recursive-exclude test_package *
-prune test_package *
-
-# Extraneous files.
-global-exclude .DS_Store
-global-exclude *.pyc
+exclude  rebuild_all_rtd.py
+exclude  tox.ini
+exclude .gitignore
+exclude .pre-commit-config.yaml
+exclude .stylelintrc
+prune .circleci/
+prune .github/
+prune test_package/
