@@ -44,6 +44,10 @@ a.current.reference.internal {
   color: var(--sst-primary-accent-color);
 }
 
+h1 {
+  margin-top: 20px;
+}
+
 .admonition.note {
   background-color: #e3f2fd;
   border: 1px solid #0d47a1;
@@ -175,10 +179,6 @@ div.navbar {
   max-width: 35%;
 }
 
-h1 {
-  margin-top: 20px;
-}
-
 #bd-toc-nav {
   margin-top: 45px;
 }
@@ -233,6 +233,14 @@ ul.dropdown-submenu {
 .dropdown-submenu a:hover {
   background-color: var(--sst-primary-accent-color);
   color: white;
+}
+
+.navbar button.navbar-toggler {
+  color: white;
+}
+
+.navbar-nav {
+  margin-bottom: 1rem;
 }
 
 /* Highlight */
@@ -345,8 +353,11 @@ i.fa-expand {
   top: 0;
 }
 
-/* Navbar Collapse Styles To Stack Items At Mobile Widths*/
-@media(max-width:47.9em) {
+/*
+We want to hide the navbar items as at 1000px
+as the items become two lines
+*/
+@media (max-width: 1000px) {
   .navbar .collapse {
     max-height: 250px;
     width: 100%;
@@ -360,7 +371,7 @@ i.fa-expand {
 
   .navbar .nav-item {
     float: none;
-    margin-left: .1rem;
+    margin-left: 0.5rem;
   }
 
   .navbar {
@@ -375,11 +386,18 @@ i.fa-expand {
   .navbar .collapse .dropdown-menu {
     position: relative;
     float: none;
-    background: none;
-    border: none;
+  }
+
+  .navbar-toggler {
+    margin-left: -0.3rem;
   }
 }
 
-.navbar button.navbar-toggler {
-  color: white;
+/*
+We want to hide the navbar toggle until we hide the navbar items
+*/
+@media (min-width: 1000px) {
+  .navbar-toggler {
+    display: none;
+  }
 }
