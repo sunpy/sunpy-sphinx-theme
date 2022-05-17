@@ -19,6 +19,7 @@
   --sst-footer-background-color: #fafafa;
   --sst-accent-background-color: var(--sst-sunpy-dark-gray);
   --sst-primary-text-color: #333333;
+  --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
 }
 
 /* Main SunPy Styling */
@@ -28,7 +29,7 @@
 /* We do this this deep into the page so that the sidebar doesn't move when */
 /* scrolling to the end of the page. I think this is because the margin is after */
 /* the magic scroll pixel added by sbt. */
-body > div.container-xl > div.row > div.content-container {
+body>div.container-xl>div.row>div.content-container {
   margin-bottom: 3em;
 }
 
@@ -105,8 +106,8 @@ nav.bd-links {
 }
 
 #site-navigation nav ul.nav a:hover,
-#site-navigation nav ul.nav li.active > a,
-#site-navigation nav ul.nav li.active > a:hover {
+#site-navigation nav ul.nav li.active>a,
+#site-navigation nav ul.nav li.active>a:hover {
   color: var(--sst-primary-accent-color);
 }
 
@@ -121,7 +122,7 @@ nav.bd-links {
   padding-left: 1rem;
 }
 
-.bd-sidebar .nav li > a:hover {
+.bd-sidebar .nav li>a:hover {
   color: var(--sst-primary-accent-color);
 }
 
@@ -148,15 +149,9 @@ i.fas.fa-chevron-down {
   background: currentColor;
 }
 
-div.navbar-brand-box {
-  padding-top: 0;
-}
-
-.dropdown,
-.dropleft,
-.dropright,
-.dropup {
-  padding-left: 0;
+.header a,
+.header div.dropdown button {
+  color: white;
 }
 
 .navbar-brand {
@@ -164,83 +159,11 @@ div.navbar-brand-box {
   font-weight: bold;
 }
 
-div.navbar {
+.header {
   background-color: var(--sst-accent-background-color);
   border-bottom: 3px;
   border-bottom-color: var(--sst-primary-accent-color);
   border-bottom-style: solid;
-}
-
-.navbar .container {
-  justify-content: left;
-}
-
-.navbar-brand img {
-  max-width: 35%;
-}
-
-#bd-toc-nav {
-  margin-top: 45px;
-}
-
-div.navbar-brand-box a.navbar-brand img {
-  margin-top: 50px;
-}
-
-div.navbar-brand-box a.navbar-brand {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-top: -25px;
-}
-
-.dropdown-menu {
-  top: 140%;
-  min-width: 190px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.nav-item a {
-  color: white;
-  top: 7px;
-  position: relative;
-}
-
-.dropdown-submenu {
-  color: white;
-  position: relative;
-}
-
-ul.dropdown-submenu {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.dropdown-submenu a {
-  display: block;
-  clear: both;
-  white-space: nowrap;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 16px;
-  color: var(--sst-primary-text-color);
-  text-align: left;
-  top: 0px;
-}
-
-.dropdown-submenu a:hover {
-  background-color: var(--sst-primary-accent-color);
-  color: white;
-}
-
-.navbar button.navbar-toggler {
-  color: white;
-}
-
-.navbar-nav {
-  margin-bottom: 1rem;
 }
 
 /* Highlight */
@@ -302,6 +225,10 @@ div.sphx-glr-download a:hover {
   background-color: burlywood;
 }
 
+.announcement {
+  background-color: var(--sst-accent-background-color);
+}
+
 .sphx-glr-thumbcontainer[tooltip]:hover::after {
   bottom: -45%;
   left: 0;
@@ -347,60 +274,26 @@ i.fa-expand {
   color: var(--sst-primary-accent-color);
 }
 
-:not(li) > ol > li:last-child > :last-child,
-:not(li) > ul > li:last-child > :last-child {
+:not(li)>ol>li:last-child> :last-child,
+:not(li)>ul>li:last-child> :last-child {
   margin-bottom: 0px;
   top: 0;
 }
 
-/*
-We want to hide the navbar items as at 1000px
-as the items become two lines
-*/
-@media (max-width: 1000px) {
-  .navbar .collapse {
-    max-height: 250px;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .navbar .navbar-brand {
-    float: none;
-  }
-
-  .navbar .nav-item {
-    float: none;
-    margin-left: 0.5rem;
-  }
-
-  .navbar {
-    float: none !important;
-  }
-
-  .nav-item {
-    width: 100%;
-    text-align: left;
-  }
-
-  .navbar .collapse .dropdown-menu {
-    position: relative;
-    float: none;
-  }
-
-  .navbar-toggler {
-    padding: 20px 20px;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
+.headerbtn.header-toggle-button {
+  background-color: var(--sst-accent-background-color);
 }
 
-/*
-We want to hide the navbar toggle until we hide the navbar items
-*/
-@media (min-width: 1000px) {
-  .navbar-toggler {
-    display: none;
-  }
+.header__brand a {
+  color: var(--sst-sunpy-primary-color);
+  font-weight: bold;
+}
+
+.header__brand:hover a {
+  color: var(--sst-sunpy-primary-color);
+  font-weight: bold;
+}
+
+a.dropdown-item {
+  color: black;
 }

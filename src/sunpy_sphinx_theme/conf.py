@@ -38,89 +38,56 @@ else:
 html_theme_options = {
     "page_toctree_depths": {"generated/gallery": 2},
     "on_rtd": on_rtd,
-    "navbar_links": [
-        (
-            "About",
-            [
-                ("Our Mission", page_url("about.html"), 1),
-                (
-                    "Acknowledge SunPy",
-                    page_url("about.html") + "#acknowledging-or-citing-sunpy",
-                    1,
-                ),
-                (
-                    "Code of Conduct",
-                    page_url("coc.html"),
-                    1,
-                ),
-            ],
-            1,
-        ),
-        (
-            "Documentation",
-            [
-                ("sunpy", "https://docs.sunpy.org/en/stable/", 1),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 1),
-                ("aiapy", "https://aiapy.readthedocs.io/en/stable/", 1),
-                ("pfsspy", "https://pfsspy.readthedocs.io/en/stable/", 1),
-                (
-                    "sunraster",
-                    "https://docs.sunpy.org/projects/sunraster/en/stable/",
-                    1,
-                ),
-                (
-                    "sunkit-instruments",
-                    "https://docs.sunpy.org/projects/sunkit-instruments/en/stable/",
-                    1,
-                ),
-                (
-                    "sunkit-image",
-                    "https://docs.sunpy.org/projects/sunkit-image/en/stable/",
-                    1,
-                ),
-                (
-                    "radiospectra",
-                    "https://docs.sunpy.org/projects/radiospectra/en/stable/",
-                    1,
-                ),
-                ("pyflct", "https://pyflct.readthedocs.io/en/stable/", 1),
-                ("ablog", "https://ablog.readthedocs.io/", 1),
-            ],
-            1,
-        ),
-        ("Blog", page_url("blog.html"), 1),
-        ("Support Us", page_url("contribute.html"), 1),
-        ("Get Help", page_url("help.html"), 1),
-        (
-            "SunPy Project",
-            [
-                ("SunPy Project", page_url("project/"), 1),
-                (
-                    "Community Roles",
-                    page_url("project/roles.html"),
-                    1,
-                ),
-                (
-                    "Affiliated Packages",
-                    page_url("project/affiliated.html"),
-                    1,
-                ),
-                (
-                    "Emeritus role holders",
-                    page_url("project/former.html"),
-                    1,
-                ),
-                (
-                    "Meetings",
-                    page_url("project/meetings.html"),
-                    1,
-                ),
-            ],
-            1,
-        ),
-    ],
-    # Only really setup to look nice with 3 values.
+    "header": {
+        "brand": {
+            "type": "text",
+            "content": "SunPy",
+            "url": "https://sunpy.org",
+        },
+        "start": [
+            {
+                "type": "dropdown",
+                "content": "About",
+                "items": [
+                    {"url": page_url("about.html"), "content": "Our Mission"},
+                    {"url": page_url("about.html") + "#acknowledging-or-citing-sunpy", "content": "Acknowledge SunPy"},
+                    {"url": page_url("coc.html"), "content": "Code of Conduct"},
+                ],
+            },
+            {
+                "type": "dropdown",
+                "content": "Documentation",
+                "items": [
+                    {"url": "https://docs.sunpy.org", "content": "sunpy"},
+                    {"url": "https://docs.sunpy.org/projects/ndcube/", "content": "ndcube"},
+                    {"url": "https://docs.sunpy.org/projects/drms/", "content": "drms"},
+                    {"url": "https://aiapy.readthedocs.io", "content": "aiapy"},
+                    {"url": "https://pfsspy.readthedocs.io", "content": "pfsspy"},
+                    {"url": "https://docs.sunpy.org/projects/sunraster", "content": "sunraster"},
+                    {"url": "https://docs.sunpy.org/projects/sunkit-instruments", "content": "sunkit-instruments"},
+                    {"url": "https://docs.sunpy.org/projects/sunkit-image", "content": "sunkit-image"},
+                    {"url": "https://docs.sunpy.org/projects/radiospectra", "content": "radiospectra"},
+                    {"url": "https://pyflct.readthedocs.io", "content": "pyflct"},
+                    {"url": "https://ablog.readthedocs.io", "content": "ablog"},
+                ],
+            },
+            {"type": "text", "url": page_url("blog.html"), "content": "Blog"},
+            {"type": "text", "url": page_url("contribute.html"), "content": "Support Us"},
+            {"type": "text", "url": page_url("help.html"), "content": "Get Help"},
+            {
+                "type": "dropdown",
+                "content": "SunPy Project",
+                "items": [
+                    {"url": page_url("project/"), "content": "SunPy Project"},
+                    {"url": page_url("project/roles.html"), "content": "Community Roles"},
+                    {"url": page_url("project/affiliated.html"), "content": "Affiliated Packages"},
+                    {"url": page_url("project/former.html"), "content": "Emeritus role holders"},
+                    {"url": page_url("project/meetings.html"), "content": "Meetings"},
+                ],
+            },
+        ],
+    },
+    # Only really setup to look nice with 3 links.
     "footer_links": [
         ("GitHub", "https://github.com/sunpy/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
