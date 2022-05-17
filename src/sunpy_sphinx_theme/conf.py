@@ -36,7 +36,9 @@ else:
     sunpy_website_url_base = socket.gethostname()
 
 html_theme_options = {
-    "page_toctree_depths": {"generated/gallery": 2},
+    "show_nav_level": 1,
+    "navigation_depth": 1,
+    "show_prev_next": False,
     "on_rtd": on_rtd,
     "header": {
         "brand": {
