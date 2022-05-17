@@ -389,10 +389,6 @@ as the items become two lines
   }
 
   .navbar-toggler {
-    margin-left: -0.3rem;
-  }
-
-  .navbar-toggler {
     padding: 20px 20px;
     position: absolute;
     right: 0;

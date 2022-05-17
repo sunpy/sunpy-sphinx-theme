@@ -1,34 +1,36 @@
 <div id="navbar" class="navbar fixed-top navbar-expand-lg">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="{{ theme_logo_url }}">
-            {% if theme_navbar_title -%}{{ theme_navbar_title|e }}{%- else -%}{{ project|e }}{%- endif -%}
-        </a>
-    </div>
-    {% if theme_navbar_links %}
-    <div class="navbar-collapse" id="navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            {%- for navlink in theme_navbar_links %}
-            {% if navlink[1] is not string %}
-            <ul class="dropdown nav-item">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">{{ navlink[0] }}<b
-                        class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    {%- for link in navlink[1] %}
-                    <li class="dropdown-submenu">
-                        <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
-                    </li>
-                    {%- endfor %}
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ theme_logo_url }}">
+                {% if theme_navbar_title -%}{{ theme_navbar_title|e }}{%- else -%}{{ project|e }}{%- endif -%}
+            </a>
+        </div>
+        {% if theme_navbar_links %}
+        <div class="navbar-collapse" id="navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                {%- for navlink in theme_navbar_links %}
+                {% if navlink[1] is not string %}
+                <ul class="dropdown nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">{{ navlink[0] }}<b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        {%- for link in navlink[1] %}
+                        <li class="dropdown-submenu">
+                            <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+                        </li>
+                        {%- endfor %}
+                    </ul>
                 </ul>
+                {% else %}
+                <ul class="nav-link nav-item"><a href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></ul>
+                {% endif %}
+                {%- endfor %}
+                {% endif %}
             </ul>
-            {% else %}
-            <ul class="nav-link nav-item"><a href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></ul>
-            {% endif %}
-            {%- endfor %}
-            {% endif %}
-        </ul>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+            data-target=".nav-collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
-        data-target=".nav-collapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 </div>
