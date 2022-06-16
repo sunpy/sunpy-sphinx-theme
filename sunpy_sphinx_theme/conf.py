@@ -85,6 +85,6 @@ html_theme_options = {
     "footer_links": [
         ("GitHub", "https://github.com/sunpy/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
-        ("Chat (Matrix lol)", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
+        ("Chat (The Matrix)", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],
 }
