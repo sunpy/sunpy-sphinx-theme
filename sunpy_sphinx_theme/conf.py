@@ -36,23 +36,14 @@ html_theme_options = {
             "About",
             [
                 ("Our Mission", page_url("about.html"), 1),
-                (
-                    "Acknowledge SunPy",
-                    page_url("about.html") + "#acknowledging-or-citing-sunpy",
-                    1,
-                ),
-                (
-                    "Code of Conduct",
-                    page_url("coc.html"),
-                    1,
-                ),
+                ("Project Structure", page_url("project/"), 1)
             ],
             1,
         ),
         (
             "Documentation",
             [
-                ("sunpy", "https://docs.sunpy.org/en/stable/", 1),
+                ("sunpy core", "https://docs.sunpy.org/en/stable/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
                 ("aiapy", "https://aiapy.readthedocs.io/en/stable/", 1),
@@ -66,23 +57,12 @@ html_theme_options = {
             ],
             1,
         ),
-        ("Blog", page_url("blog.html"), 1),
-        ("Support Us", page_url("contribute.html"), 1),
         ("Get Help", page_url("help.html"), 1),
-        (
-            "SunPy Project",
-            [
-                ("SunPy Project", page_url("project/"), 1),
-                ("Community Roles", page_url("project/roles.html"), 1),
-                ("Affiliated Packages", page_url("project/affiliated.html"), 1),
-                ("Emeritus role holders", page_url("project/former.html"), 1),
-                ("Meetings", page_url("project/meetings.html"), 1),
-            ],
-            1,
-        ),
+        ("Support Us", page_url("contribute.html"), 1),
+        ("Blog", page_url("blog.html"), 1),
     ],
-    # Only really setup to look nice with 3 values.
     "footer_links": [
+        ("Code of Conduct", "coc.html", 1),
         ("GitHub", "https://github.com/sunpy/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
         ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
