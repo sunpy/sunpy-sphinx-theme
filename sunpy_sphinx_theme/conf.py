@@ -75,7 +75,6 @@ html_theme_options = {
                 ("SunPy Project", page_url("project/"), 1),
                 ("Community Roles", page_url("project/roles.html"), 1),
                 ("Affiliated Packages", page_url("project/affiliated.html"), 1),
-                ("Emeritus role holders", page_url("project/former.html"), 1),
                 ("Meetings", page_url("project/meetings.html"), 1),
             ],
             1,
