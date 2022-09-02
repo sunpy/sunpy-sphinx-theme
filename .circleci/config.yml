@@ -87,7 +87,7 @@ jobs:
 
   css_linting:
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:16
     steps:
       - checkout
       - run: npm install --save-dev stylelint stylelint-config-standard
