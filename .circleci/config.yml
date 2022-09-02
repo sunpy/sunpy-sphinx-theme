@@ -90,9 +90,8 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - run: sudo npm install -g stylelint
-      - run: sudo npm install stylelint-config-recommended
-      - run: sudo stylelint ./sunpy_sphinx_theme/sunpy/static/sunpy_style.css
+      - run: npm install --save-dev stylelint stylelint-config-standard
+      - run: npx stylelint "**/*.css"
 
 
 workflows:
