@@ -57,6 +57,8 @@ html_theme_options = {
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
                 ("pfsspy", "https://pfsspy.readthedocs.io/en/stable/", 1),
+                ("pyflct", "https://pyflct.readthedocs.io/en/stable/", 1),
+                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/en/stable/", 1),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/en/stable/", 1),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/en/stable/", 1),
             ],
@@ -78,7 +80,7 @@ html_theme_options = {
     ],
     # Only really setup to look nice with 3 values.
     "footer_links": [
-        ("GitHub", "https://github.com/sunpy/sunpy", 1),
+        ("GitHub", "https://github.com/sunpy", 1),
         ("Twitter", "https://twitter.com/SunPyProject", 1),
         ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
     ],

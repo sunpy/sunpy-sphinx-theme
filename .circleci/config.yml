@@ -16,7 +16,7 @@ jobs:
 
   codestyle:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run:
@@ -35,7 +35,7 @@ jobs:
 
   website:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -53,7 +53,7 @@ jobs:
 
   sunpy:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -71,7 +71,7 @@ jobs:
 
   test_package:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.10
     steps:
       - checkout
       - run: *apt-install
@@ -87,7 +87,7 @@ jobs:
 
   css_linting:
     docker:
-      - image: circleci/node:16
+      - image: cimg/node:18.8.0
     steps:
       - checkout
       - run: npm install --save-dev stylelint stylelint-config-standard
