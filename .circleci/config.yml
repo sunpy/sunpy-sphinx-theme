@@ -14,25 +14,6 @@ venv: &venv
 
 jobs:
 
-  codestyle:
-    docker:
-      - image: cimg/python:3.10
-    steps:
-      - checkout
-      - run:
-          name: Install pre-commit
-          command: |
-            python -m venv venv
-            . venv/bin/activate
-            pip install -U pip setuptools
-            pip install pre-commit
-      - run:
-          name: Run pre-commit
-          command: |
-            . venv/bin/activate
-            pre-commit install-hooks
-            pre-commit run --color always --all-files --show-diff-on-failure
-
   website:
     docker:
       - image: cimg/python:3.10
@@ -99,7 +80,6 @@ workflows:
 
   tests:
     jobs:
-      - codestyle
       - css_linting
       - sunpy
       - test_package
