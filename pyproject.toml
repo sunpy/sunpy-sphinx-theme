@@ -1,6 +1,29 @@
 [build-system]
-requires = ["setuptools", "setuptools_scm", "wheel"]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2", "wheel"]
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = "sunpy-sphinx-theme"
+authors = [
+  {name = "The SunPy Developers"},
+]
+description = "The sphinx theme for the SunPy website and documentation."
+dynamic = ["version"]
+readme = "README.md"
+license = {text = "2-clause BSD"}
+classifiers = [
+  "Intended Audience :: Developers",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: BSD License",
+]
+dependencies = ["sphinx-bootstrap-theme",]
+
+[tool.setuptools]
+packages = ["sunpy_sphinx_theme"]
+
+[tool.setuptools_scm]
 
 [tool.black]
 line-length = 110
