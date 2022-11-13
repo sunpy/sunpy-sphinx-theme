@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900");
 
 /* Main SunPy Styling */
 body {
   color: #333;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
   overflow-x: hidden;
 }
@@ -77,9 +77,9 @@ p.content.noheader {
   margin-right: 10px;
 }
 
-.navbar-default .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li>a:active {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
   color: #fe7900;
 }
 
@@ -94,13 +94,13 @@ div#navbar {
   min-width: 190px;
 }
 
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
   font-size: 16px;
   padding: 10px 20px;
   color: #333;
 }
 
-.dropdown-menu>li>a:hover {
+.dropdown-menu > li > a:hover {
   background-color: #fe7900;
 }
 
@@ -219,31 +219,31 @@ p.whatsnew {
   padding-left: 20px;
 }
 
-.bs-sidenav .nav>li {
+.bs-sidenav .nav > li {
   color: #fe7900;
 }
 
-.bs-sidenav .nav>li>span {
+.bs-sidenav .nav > li > span {
   padding-left: 10px;
 }
 
-.bs-sidenav .nav>li>a {
+.bs-sidenav .nav > li > a {
   color: #f2f3f4;
   padding-left: 20px;
   padding-top: 8px;
 }
 
-.bs-sidenav .nav>li>a:hover,
-.bs-sidenav .nav>li>a:focus {
+.bs-sidenav .nav > li > a:hover,
+.bs-sidenav .nav > li > a:focus {
   background-color: rgba(230, 124, 25, 1);
 }
 
-.bs-sidenav .nav>li>a.current {
+.bs-sidenav .nav > li > a.current {
   color: #f2f3f4;
   background-color: rgba(230, 124, 25, 1);
 }
 
-.bs-sidenav .nav .nav>li>a {
+.bs-sidenav .nav .nav > li > a {
   color: #444;
   background-color: #e3e3e3;
   padding-top: 5px;
@@ -252,37 +252,37 @@ p.whatsnew {
   font-size: 100%;
 }
 
-.bs-sidenav .nav .nav>li>a.current {
+.bs-sidenav .nav .nav > li > a.current {
   background-color: rgba(230, 124, 25, 1);
   color: #f2f3f4;
 }
 
-.bs-sidenav .nav .nav>li>a:hover {
+.bs-sidenav .nav .nav > li > a:hover {
   background-color: #bdbdbd;
 }
 
-.bs-sidenav .nav .nav .nav>li>a {
+.bs-sidenav .nav .nav .nav > li > a {
   padding-left: 45px;
 }
 
-.bs-sidenav .nav .nav .nav .nav>li>a {
+.bs-sidenav .nav .nav .nav .nav > li > a {
   background-color: #bdbdbd;
   padding-left: 60px;
 }
 
-.bs-sidenav .nav .nav .nav .nav>li>a:hover {
+.bs-sidenav .nav .nav .nav .nav > li > a:hover {
   color: #444;
 }
 
-.bs-sidenav ul>li#comments {
+.bs-sidenav ul > li#comments {
   padding-left: 0;
 }
 
-.bs-sidenav ul>li#comments>a {
+.bs-sidenav ul > li#comments > a {
   color: #fe7900;
 }
 
-.bs-sidenav ul>li#comments>a:hover {
+.bs-sidenav ul > li#comments > a:hover {
   color: #444;
 }
 
@@ -325,15 +325,17 @@ input {
 .navbar-form {
   margin-left: 0;
   margin-right: 0;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0), 0 1px 0 rgba(255, 255, 255, 0);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0),
+    0 1px 0 rgba(255, 255, 255, 0);
 }
 
 .navbar-collapse {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0), 0 1px 0 rgba(255, 255, 255, 0);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0),
+    0 1px 0 rgba(255, 255, 255, 0);
 }
 
 .doc-title,
-.doc-title>a {
+.doc-title > a {
   color: #fe7900;
   text-align: center;
   font-weight: bold;
@@ -385,7 +387,7 @@ p.admonition-title {
   color: #333;
 }
 
-.alert>p+p {
+.alert > p + p {
   color: #333;
 }
 
@@ -452,7 +454,7 @@ blockquote {
 }
 
 .table,
-.table>tbody>tr>td {
+.table > tbody > tr > td {
   border: 1px solid #333;
   padding: 10px;
 }
@@ -464,7 +466,6 @@ blockquote {
 div.figure p.caption span.caption-text {
   text-align: center;
 }
-
 
 .rst-versions.rst-badge {
   bottom: 50px;
@@ -504,7 +505,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (max-width: 510px) {
-
   .sunpy-logo {
     display: none;
   }
@@ -515,7 +515,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (max-width: 1000px) {
-
   .bs-sidenav {
     position: relative;
     display: block;
@@ -538,7 +537,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (min-width: 768px) {
-
   .navbar-right {
     float: none !important;
     margin-right: 0;
@@ -555,7 +553,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (min-width: 992px) {
-
   .bs-sidenav.affix-bottom,
   .bs-sidenav.affix {
     position: fixed;
@@ -573,7 +570,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (min-width: 1200px) {
-
   .bs-sidenav.affix-bottom,
   .bs-sidenav.affix {
     width: 300px;
@@ -625,7 +621,7 @@ div.figure p.caption span.caption-text {
   padding: 0 10px;
 }
 
-.column>h4 {
+.column > h4 {
   text-align: center;
   font-size: 1.2em;
   line-height: 1.2em;
@@ -639,14 +635,12 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (max-width: 355px) {
-
   .column {
     width: 80%;
   }
 }
 
 @media only screen and (min-width: 356px) and (max-width: 680px) {
-
   .column {
     width: 45%;
   }
@@ -657,7 +651,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (max-width: 1000px) {
-
   .card p {
     text-align: center;
     padding-top: 10px;
@@ -672,7 +665,6 @@ div.figure p.caption span.caption-text {
 }
 
 @media only screen and (max-width: 992px) {
-
   .social-links {
     display: none;
   }
@@ -745,7 +737,6 @@ div.prompt {
   border: 1px solid black;
 }
 
-
 .versionmodified {
   font-style: italic;
   font-weight: bold;
@@ -777,6 +768,6 @@ For superwide titles on the sidebar, this will add a scroll bar.
 /*
 For any ``code`` on the sidebar.
 */
-*[class^='docutils literal notranslate'] {
+*[class^="docutils literal notranslate"] {
   color: #fe7900;
 }
