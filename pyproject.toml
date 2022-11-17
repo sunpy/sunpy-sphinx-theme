@@ -10,18 +10,25 @@ authors = [
 description = "The sphinx theme for the SunPy website and documentation."
 dynamic = ["version"]
 readme = "README.md"
-license = {text = "2-clause BSD"}
+license = { file = "LICENSE.md" }
 classifiers = [
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
+  "Framework :: Sphinx",
+  "Framework :: Sphinx :: Theme",
   "Operating System :: OS Independent",
   "License :: OSI Approved :: BSD License",
 ]
-dependencies = ["sphinx-bootstrap-theme",]
+requires-python = ">=3.7"
+dependencies = ["sphinx-bootstrap-theme"]
+
+[project.entry-points]
+"sphinx.html_themes" = { sunpy = "sunpy_sphinx_theme" }
 
 [tool.setuptools]
-packages = ["sunpy_sphinx_theme"]
+include-package-data = true
 
 [tool.setuptools_scm]
 
