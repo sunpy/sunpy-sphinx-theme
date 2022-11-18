@@ -29,7 +29,7 @@
 /* We do this this deep into the page so that the sidebar doesn't move when */
 /* scrolling to the end of the page. I think this is because the margin is after */
 /* the magic scroll pixel added by sbt. */
-body>div.container-xl>div.row>div.content-container {
+body > div.container-xl > div.row > div.content-container {
   margin-bottom: 3em;
 }
 
@@ -106,8 +106,8 @@ nav.bd-links {
 }
 
 #site-navigation nav ul.nav a:hover,
-#site-navigation nav ul.nav li.active>a,
-#site-navigation nav ul.nav li.active>a:hover {
+#site-navigation nav ul.nav li.active > a,
+#site-navigation nav ul.nav li.active > a:hover {
   color: var(--sst-primary-accent-color);
 }
 
@@ -122,7 +122,7 @@ nav.bd-links {
   padding-left: 1rem;
 }
 
-.bd-sidebar .nav li>a:hover {
+.bd-sidebar .nav li > a:hover {
   color: var(--sst-primary-accent-color);
 }
 
@@ -274,8 +274,8 @@ i.fa-expand {
   color: var(--sst-primary-accent-color);
 }
 
-:not(li)>ol>li:last-child> :last-child,
-:not(li)>ul>li:last-child> :last-child {
+:not(li) > ol > li:last-child > :last-child,
+:not(li) > ul > li:last-child > :last-child {
   margin-bottom: 0px;
   top: 0;
 }
