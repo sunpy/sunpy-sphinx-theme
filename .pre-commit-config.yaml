@@ -11,12 +11,12 @@ repos:
     - id: autoflake
       args: ['--in-place', '--remove-all-unused-imports', '--remove-unused-variable']
 -   repo: https://github.com/PyCQA/docformatter
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: docformatter
         args: ['--make-summary-multi-line', '--pre-summary-newline', '-ri']
 -   repo: https://github.com/PyCQA/isort
-    rev: 5.11.1
+    rev: v5.11.3
     hooks:
     - id: isort
 -   repo: https://github.com/pre-commit/pre-commit-hooks
