@@ -1,8 +1,8 @@
 """
 Configuration file for the Sphinx documentation builder.
 """
-import datetime
 import os
+import datetime
 
 project = "Test Package"
 author = "The Test Package Community"
