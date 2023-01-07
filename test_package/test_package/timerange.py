@@ -405,8 +405,7 @@ class TimeRange:
         """
         dates = []
         dates = [
-            parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day)
-            for i in range(int(self.days.value) + 1)
+            parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day) for i in range(int(self.days.value) + 1)
         ]
         return dates
 

@@ -1,6 +1,6 @@
 BSD 2-Clause License
 
-Copyright (c) 2018-2019, The SunPy Developers
+Copyright (c) 2018-2023, The SunPy Developers
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
