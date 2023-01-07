@@ -33,25 +33,18 @@ include-package-data = true
 [tool.setuptools_scm]
 
 [tool.black]
-line-length = 110
-target-version = ['py39']
+line-length = 120
+target-version = ["py39"]
 include = '\.pyi?$'
 exclude = '''
 /(
-    \.eggs
+  \.eggs
   | \.git
-  | \.hg
-  | \.mypy_cache
   | \.tox
   | \.venv
   | _build
-  | buck-out
   | build
   | dist
   | \.history
-  # The following are specific to Black, you probably don't want those.
-  | blib2to3
-  | tests/data
-  | profiling
 )/
 '''
