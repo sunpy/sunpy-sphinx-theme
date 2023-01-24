@@ -241,7 +241,6 @@ class TimeRange:
         """
         Returns a human-readable representation of `sunpy.time.TimeRange`.
         """
-
         t1 = self.start.strftime(TIME_FORMAT)
         t2 = self.end.strftime(TIME_FORMAT)
         center = self.center.strftime(TIME_FORMAT)
