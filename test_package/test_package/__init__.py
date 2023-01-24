@@ -56,7 +56,6 @@ class Animal:
         num_legs : int, optional
             The number of legs the animal (default is 5).
         """
-
         self.name = name
         self.sound = sound
         self.num_legs = num_legs
@@ -83,7 +82,6 @@ class Animal:
         ----------
         * `A URL. <www.sunpy.org>`__
         """
-
         if self.sound is None and sound is None:
             raise NotImplementedError("Silent Animals are not supported!")
 
@@ -132,7 +130,6 @@ def function():
     ----------
     * `A URL. <www.sunpy.org>`__
     """
-
     print("A SOUND")
 
 
@@ -177,5 +174,4 @@ def a_really_long_function_name_just_to_see_what_happens():
     ----------
     * `A URL. <www.sunpy.org>`__
     """
-
     print("A SOUND")
