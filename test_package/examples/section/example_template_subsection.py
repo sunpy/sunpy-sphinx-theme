@@ -68,12 +68,11 @@ def dummy():
     """
     Dummy function to make sure docstrings don't get rendered as text.
     """
+    print("This is a dummy function")
+
+
 # Code comments not preceded by the hash splitter are left in code blocks.
-
-
-string = """
-Triple-quoted string which tries to break parser but doesn't.
-"""
+string = """Triple-quoted string which tries to break parser but doesn't."""
 
 ############################################################################
 # Output of the script is captured:
