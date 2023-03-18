@@ -127,6 +127,7 @@ div#navbar {
 .lead {
   max-width: 550px;
   margin: 0 auto;
+  hyphens: none;
 }
 
 .btn {
