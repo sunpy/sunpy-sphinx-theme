@@ -211,12 +211,15 @@ p.whatsnew {
   padding-right: 10px;
 }
 
-.bs-sidenav h2 {
+.bs-sidenav h2,
+.bs-sidenav h2 > a {
   color: #fe7900;
   padding-left: 10px;
 }
 
-.bs-sidenav h3 {
+.bs-sidenav h3,
+.bs-sidenav h3 > a {
+  color: #fe7900;
   padding-left: 20px;
 }
 
