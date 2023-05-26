@@ -35,12 +35,10 @@ html_theme_options = {
         (
             "About",
             [
-                ("Our Mission", page_url("about.html"), 1),
-                (
-                    "Acknowledge SunPy",
-                    page_url("about.html") + "#acknowledging-or-citing-sunpy",
-                    1,
-                ),
+                ("Our Mission", page_url("about/mission.html"), 1),
+                ("The SunPy Project", page_url("about/project.html"), 1),
+                ("Community Roles", page_url("about/roles.html"), 1),
+                ("Meetings", page_url("about/meetings.html"), 1),
                 (
                     "Code of Conduct",
                     page_url("coc.html"),
@@ -66,19 +64,10 @@ html_theme_options = {
             ],
             1,
         ),
-        ("Blog", page_url("blog.html"), 1),
-        ("Support Us", page_url("contribute.html"), 1),
+        ("Affiliated Packages", page_url("affiliated.html"), 1),
         ("Get Help", page_url("help.html"), 1),
-        (
-            "SunPy Project",
-            [
-                ("SunPy Project", page_url("project/"), 1),
-                ("Community Roles", page_url("project/roles.html"), 1),
-                ("Affiliated Packages", page_url("project/affiliated.html"), 1),
-                ("Meetings", page_url("project/meetings.html"), 1),
-            ],
-            1,
-        ),
+        ("Contribute", page_url("contribute.html"), 1),
+        ("Blog", page_url("blog.html"), 1),
     ],
     # Only really setup to look nice with 3 values.
     "footer_links": [
