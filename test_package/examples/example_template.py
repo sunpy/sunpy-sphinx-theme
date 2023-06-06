@@ -1,13 +1,12 @@
 """
-=================
-<Verbing> a thing
-=================
+================= <Verbing> a thing =================
 
 How to <verb> <active tense> <does something>.
 
-The example uses <packages> to <do something> and <other package> to <do other
-thing>. Include links to referenced packages like this: `sunpy.io.fits` to
-show the sunpy.io.fits or like this `~sunpy.io.fits` to show just 'fits'
+The example uses <packages> to <do something> and <other package> to <do
+other thing>. Include links to referenced packages like this:
+`sunpy.io.fits` to show the sunpy.io.fits or like this `~sunpy.io.fits`
+to show just 'fits'
 """
 ###########################################################################
 # If you have multiple plots in your example, Sphinx will use the first
