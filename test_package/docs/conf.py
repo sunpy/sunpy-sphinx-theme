@@ -53,7 +53,8 @@ intersphinx_mapping = {
     "parfive": ("https://parfive.readthedocs.io/en/latest/", None),
     "reproject": ("https://reproject.readthedocs.io/en/stable/", None),
 }
-from sunpy_sphinx_theme.conf import *  # NOQA
+
+html_theme = "sunpy"
 
 graphviz_output_format = "svg"
 graphviz_dot_args = [
@@ -79,7 +80,7 @@ sphinx_gallery_conf = {
     "within_subsection_order": ExampleTitleSortKey,
     "gallery_dirs": os.path.join("generated", "gallery"),
     # svg_icon comes from the theme conf
-    "default_thumb_file": svg_icon,
+    # "default_thumb_file": svg_icon,
     "abort_on_example_error": False,
     "plot_gallery": "True",
     "remove_config_comments": True,

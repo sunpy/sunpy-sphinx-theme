@@ -1,0 +1,20 @@
+<ul class="nav navbar-nav navbar-left">
+  {% if theme_navbar_links %}
+    {%- for navlink in theme_navbar_links %}
+      {% if navlink[1] is not string %}
+        <li class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{{ navlink[0] }}<b class="caret"></b></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {%- for link in navlink[1] %}
+              <li>
+                  <a class="dropdown-item" href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+              </li>
+            {%- endfor %}
+            </ul>
+        </li>
+      {% else %}
+        <li><a class="btn btn-secondary" role="button" href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
+      {% endif %}
+    {%- endfor %}
+  {% endif %}
+</ul>
