@@ -3,47 +3,56 @@ apt-run: &apt-install
   name: Install apt packages
   command: |
     sudo apt update
-    sudo apt install -y graphviz build-essential libopenjp2-7 python3-dev pandoc
+    sudo apt install -y graphviz build-essential libopenjp2-7 python3-dev pandoc libcairo2-dev
 tox: &tox
   name: Setup tox
   command: |
     python -m pip install --upgrade tox
 jobs:
   website:
+    resource_class: large
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:3.11
     steps:
       - checkout
       - run: *apt-install
       - run: *tox
-      - run: python -m tox -e website
+      - run: python -m tox -e website -- -j 4
       - store_artifacts:
           path: .tmp/website/sunpy.org/_build/html
   sunpy:
+    resource_class: large
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:3.11
     steps:
       - checkout
       - run: *apt-install
       - run: *tox
       # Needed to install mplcairo
       - run: sudo apt install libcairo2-dev pkg-config
-      - run: python -m tox -e sunpy-docs
+      # the large resource_class has 4 CPUs but auto detection does not work
+      - run: python -m tox -e sunpy-docs  -- -j 4
+      # Remove some parts of the build to speed up upload
+      - run: rm -r .tmp/sunpy-docs/sunpy/docs/_build/html/.doctrees
+      - run: rm -r .tmp/sunpy-docs/sunpy/docs/_build/html/_downloads
+      - run: rm -r .tmp/sunpy-docs/sunpy/docs/_build/html/_sources
       - store_artifacts:
           path: .tmp/sunpy-docs/sunpy/docs/_build/html
   test_package:
+    resource_class: large
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:3.11
     steps:
       - checkout
       - run: *apt-install
       - run: *tox
-      - run: python -m tox -e testpackage-docs
+      - run: python -m tox -e testpackage-docs -- -j 4
       - store_artifacts:
           path: test_package/docs/_build/html
   css_linting:
+    resource_class: small
     docker:
-      - image: cimg/node:17.2.0
+      - image: cimg/node:current
     steps:
       - checkout
       - run: sudo npm install -g stylelint
@@ -57,6 +66,3 @@ workflows:
       - sunpy
       - test_package
       - website
-notify:
-  webhooks:
-    - url: https://giles.cadair.dev/circleci
