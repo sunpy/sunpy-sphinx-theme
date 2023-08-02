@@ -2,19 +2,65 @@
 
 html {
   --pst-font-size-base: 16px;
-  --pst-font-family-base-system: -apple-system, BlinkMacSystemFont, Segoe UI,
-    "Source Sans Pro", Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol;
+  --pst-sidebar-font-size: 1em;
+  --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
+  /* sbt uses this for the footer */
+  --sbt-font-size-small-1: var(--pst-font-size-base);
+  /* SunPy Variables */
+  /* SunPy Logo Colors */
+  --sst-sunpy-logo-primary-color: #fe7900;
+  --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
+  --sst-sunpy-light-gray: #333333;
+  --sst-sunpy-logo-secondary-color: #fed20b;
+  --sst-sunpy-dark-gray: #444444;
+  /* Theme Accent Colors */
+  --sst-footer-background-color: #fafafa;
+  --sst-accent-background-color: var(--sst-sunpy-dark-gray);
+  --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: #333;
-  --pst-color-secondary: #bd5b00;
-  --pst-color-on-surface: rgb(68, 68, 68);
+  --pst-color-primary: var(--sst-sunpy-light-gray);
+  --pst-color-secondary: var(--sst-sunpy-theme-orange);
+  --pst-color-on-surface: var(--sst-sunpy-dark-gray);
 }
 
 html[data-theme="dark"] {
-  --pst-color-secondary: #333;
-  --pst-color-primary: #bd5b00;
-  --pst-color-on-surface: rgb(68, 68, 68);
+  /* Swap primary and secondary for dark theme */
+  --pst-color-secondary: var(--sst-sunpy-light-gray);
+  --pst-color-primary: var(--sst-sunpy-theme-orange);
+  --pst-color-on-surface: var(--sst-sunpy-dark-gray);
+}
+
+/* Main SunPy Styling */
+code.literal {
+  border: none;
+}
+
+.bd-sidebar-primary {
+  border-right-width: 3px;
+  border-right-color: var(--sst-sunpy-logo-primary-color);
+}
+
+/* Navbars */
+nav.bd-header {
+  background-color: var(--sst-sunpy-dark-gray) !important;
+  border-bottom: 3px;
+  border-bottom-color: var(--sst-sunpy-logo-primary-color);
+  border-bottom-style: solid;
+  position: sticky; /* We need to re-set this to the bootstrap default here */
+  box-shadow: none;
+}
+
+.bd-header .navbar-nav li a.nav-link {
+  color: white;
+}
+.bd-header .navbar-nav li a.nav-link:focus,
+.bd-header .navbar-nav li a.nav-link:hover {
+  color: var(--sst-sunpy-logo-primary-color);
+}
+
+.bd-header a.navbar-brand {
+  font-weight: bold;
+  color: var(--sst-sunpy-logo-primary-color);
 }

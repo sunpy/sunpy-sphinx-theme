@@ -1,9 +1,9 @@
-<ul class="nav navbar-nav navbar-left">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
   {% if theme_navbar_links %}
     {%- for navlink in theme_navbar_links %}
       {% if navlink[1] is not string %}
-        <li class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{{ navlink[0] }}<b class="caret"></b></a>
+        <li class="nav-item dropdown ms-2">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">{{ navlink[0] }}<b class="caret"></b></a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             {%- for link in navlink[1] %}
               <li>
@@ -13,7 +13,7 @@
             </ul>
         </li>
       {% else %}
-        <li><a class="btn btn-secondary" role="button" href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
+        <li class="nav-item ms-2"><a class="nav-link" role="button" href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
       {% endif %}
     {%- endfor %}
   {% endif %}
