@@ -83,6 +83,16 @@ def update_config(app):
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar()
 
+    if not theme_options.get("footer_start"):
+        theme_options["footer_start"] = ["templates/page-footer.html"]
+
+    if not theme_options.get("footer_links"):
+        theme_options["footer_links"] = [
+            ("GitHub", "https://github.com/sunpy", 1),
+            ("Discourse", "https://community.openastronomy.org/c/sunpy", 1),
+            ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
+        ]
+
 
 def setup(app: Sphinx):
     # Register theme

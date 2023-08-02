@@ -17,6 +17,8 @@ html {
   --sst-footer-background-color: #fafafa;
   --sst-accent-background-color: var(--sst-sunpy-dark-gray);
   --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
+
+  --sst-footer-height: 58.4px;
 }
 
 html[data-theme="light"] {
@@ -40,6 +42,11 @@ code.literal {
 .bd-sidebar-primary {
   border-right-width: 3px;
   border-right-color: var(--sst-sunpy-logo-primary-color);
+  top: var(--pst-header-height);
+}
+
+.bd-sidebar-secondary {
+  top: var(--pst-header-height);
 }
 
 /* Navbars */
@@ -50,6 +57,7 @@ nav.bd-header {
   border-bottom-style: solid;
   position: sticky; /* We need to re-set this to the bootstrap default here */
   box-shadow: none;
+  margin-bottom: -3px;
 }
 
 .bd-header .navbar-nav li a.nav-link {
@@ -63,4 +71,52 @@ nav.bd-header {
 .bd-header a.navbar-brand {
   font-weight: bold;
   color: var(--sst-sunpy-logo-primary-color);
+}
+
+/* Footers */
+.bd-footer-content {
+  display: none !important;
+}
+
+.bd-container {
+  margin-bottom: var(--sst-footer-height);
+}
+
+.bd-footer {
+  background-color: var(--sst-footer-background-color);
+  height: var(--sst-footer-height);
+  width: 100%;
+  border-top: none;
+  bottom: 0;
+  position: fixed;
+}
+
+.bd-footer a {
+  color: var(--sst-sunpy-theme-orange);
+}
+
+.footer-items__start {
+  width: 100%;
+}
+
+.footer-item {
+  width: 100%;
+}
+
+.sst-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.center-footer a {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  .bd-footer {
+    display: none;
+  }
 }
