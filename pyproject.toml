@@ -56,11 +56,14 @@ exclude = '''
   [ tool.gilesbot.circleci_artifacts.testpackage ]
     url = "testpackage//_build/html/index.html"
     message = "testpackage docs preview"
+    report_on_fail = true
 
   [ tool.gilesbot.circleci_artifacts.website ]
     url = "sunpy.org/_build/html/index.html"
     message = "SunPy website preview"
-
+    report_on_fail = true
+    
   [ tool.gilesbot.circleci_artifacts.sunpydocs ]
     url = "sunpy/docs/_build/html/index.html"
     message = "sunpy docs preview"
+    report_on_fail = true
