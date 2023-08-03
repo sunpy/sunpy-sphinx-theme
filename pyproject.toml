@@ -51,3 +51,16 @@ exclude = '''
   | \.history
 )/
 '''
+
+[ tool.gilesbot ]
+  [ tool.gilesbot.circleci_artifacts.testpackage ]
+    url = "testpackage//_build/html/index.html"
+    message = "testpackage docs preview"
+
+  [ tool.gilesbot.circleci_artifacts.website ]
+    url = "sunpy.org/_build/html/index.html"
+    message = "SunPy website preview"
+
+  [ tool.gilesbot.circleci_artifacts.sunpydocs ]
+    url = "sunpy/docs/_build/html/index.html"
+    message = "sunpy docs preview"
