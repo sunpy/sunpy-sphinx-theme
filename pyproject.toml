@@ -54,6 +54,9 @@ exclude = '''
 
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]
+    enabled = false
+
+  [ tool.gilesbot.circleci_artifacts.testpackage ]
     url = "testpackage/_build/html/index.html"
     message = "testpackage docs preview"
     report_on_fail = true
