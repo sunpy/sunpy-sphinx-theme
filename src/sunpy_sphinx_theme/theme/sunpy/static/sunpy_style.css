@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900");
 
 html {
-  --pst-font-size-base: 16px;
+  --pst-font-size-base: 17px;
   --pst-sidebar-font-size: 1em;
   --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
   /* sbt uses this for the footer */
@@ -10,28 +10,38 @@ html {
   /* SunPy Logo Colors */
   --sst-sunpy-logo-primary-color: #fe7900;
   --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
-  --sst-sunpy-light-gray: #333333;
   --sst-sunpy-logo-secondary-color: #fed20b;
-  --sst-sunpy-dark-gray: #444444;
+  --sst-sunpy-light-gray: #444444;
+  --sst-sunpy-dark-gray: #333333;
+  --sst-sunpy-darkest-gray: #222222;
   /* Theme Accent Colors */
-  --sst-footer-background-color: #fafafa;
   --sst-accent-background-color: var(--sst-sunpy-dark-gray);
   --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
 
   --sst-footer-height: 58.4px;
+  --sst-header-background: var(--sst-sunpy-light-gray);
+  --sst-header-text: rgb(231, 231, 231);
+  --sst-sidebar-background-color: var(--pst-color-background);
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: var(--sst-sunpy-light-gray);
+  --pst-color-primary: var(--sst-sunpy-dark-gray);
   --pst-color-secondary: var(--sst-sunpy-theme-orange);
-  --pst-color-on-surface: var(--sst-sunpy-dark-gray);
+  --pst-color-link: var(--sst-sunpy-theme-orange);
+  --sst-footer-background-color: #fafafa;
 }
 
 html[data-theme="dark"] {
   /* Swap primary and secondary for dark theme */
-  --pst-color-secondary: var(--sst-sunpy-light-gray);
-  --pst-color-primary: var(--sst-sunpy-theme-orange);
-  --pst-color-on-surface: var(--sst-sunpy-dark-gray);
+  --pst-color-secondary: var(--sst-sunpy-dark-gray);
+  --pst-color-primary: var(--sst-sunpy-logo-primary-color);
+  --pst-color-background: var(--sst-sunpy-darkest-gray);
+  /* Make the text colours slightly lighter than default as we are using a lighter background */
+  --pst-color-text-base: rgb(231, 231, 231);
+  --pst-color-text-muted: rgb(206, 206, 206);
+
+  --sst-header-background: var(--sst-sunpy-dark-gray);
+  --sst-footer-background-color: var(--sst-sunpy-light-gray);
 }
 
 /* Main SunPy Styling */
@@ -51,7 +61,7 @@ code.literal {
 
 /* Navbars */
 nav.bd-header {
-  background-color: var(--sst-sunpy-dark-gray) !important;
+  background-color: var(--sst-header-background) !important;
   border-bottom: 3px;
   border-bottom-color: var(--sst-sunpy-logo-primary-color);
   border-bottom-style: solid;
@@ -61,7 +71,7 @@ nav.bd-header {
 }
 
 .bd-header .navbar-nav li a.nav-link {
-  color: white;
+  color: var(--sst-header-text);
 }
 .bd-header .navbar-nav li a.nav-link:focus,
 .bd-header .navbar-nav li a.nav-link:hover {
@@ -73,26 +83,42 @@ nav.bd-header {
   color: var(--sst-sunpy-logo-primary-color);
 }
 
+/* Sidebar */
+.bd-sidebar-primary {
+  background-color: var(--sst-sidebar-background-color);
+  max-height: calc(100vh - var(--pst-header-height));
+  flex-basis: 25%;
+  max-width: 300px;
+}
+
+/* Bizzarely having a minimum height here fixes the permanent appearence of the */
+/* sidebar scrollbar */
+#rtd-footer-container {
+  min-height: 1rem;
+}
+
 /* Footers */
 .bd-footer-content {
   display: none !important;
 }
 
-.bd-container {
-  margin-bottom: var(--sst-footer-height);
-}
+/* Uncomment this for sticky footer */
+/* .bd-container { */
+/*   margin-bottom: var(--sst-footer-height); */
+/* } */
 
 .bd-footer {
   background-color: var(--sst-footer-background-color);
   height: var(--sst-footer-height);
   width: 100%;
   border-top: none;
-  bottom: 0;
-  position: fixed;
+  /* TODO: Decide if we want a fixed footer or not */
+  /* bottom: 0; */
+  /* position: fixed; */
 }
 
 .bd-footer a {
-  color: var(--sst-sunpy-theme-orange);
+  color: var(--pst-color-link);
 }
 
 .footer-items__start {
