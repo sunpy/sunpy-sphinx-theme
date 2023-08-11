@@ -24,7 +24,7 @@ classifiers = [
 requires-python = ">=3.7"
 dependencies = [
   "sphinx-bootstrap-theme",
-  "sphinx<6"
+  "sphinx"
 ]
 
 [project.entry-points]
