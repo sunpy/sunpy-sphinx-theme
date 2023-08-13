@@ -146,3 +146,14 @@ nav.bd-header {
     display: none;
   }
 }
+
+.bd-header .navbar-nav .dropdown .dropdown-menu {
+
+	--bs-dropdown-border-radius: 0rem;
+	background-color: var(--sst-header-background);
+  box-shadow: none;
+  margin-top: 0.99rem;
+  /* Make the top border smaller so it lines up */
+  border-width: 2px 0px 0px 0px;
+  border-color: var(--sst-sunpy-logo-primary-color);
+}
