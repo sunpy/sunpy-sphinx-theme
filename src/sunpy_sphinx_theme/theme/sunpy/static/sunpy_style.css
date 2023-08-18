@@ -41,12 +41,30 @@ html[data-theme="dark"] {
   --pst-color-text-muted: rgb(206, 206, 206);
 
   --sst-header-background: var(--sst-sunpy-dark-gray);
-  --sst-footer-background-color: var(--sst-sunpy-light-gray);
+  --sst-footer-background-color: var(--sst-sunpy-dark-gray);
+  --sg-thumb-box-shadow-color: var(--sst-sunpy-light-gray);
+  --sd-color-secondary: var(--pst-color-primary)
 }
+
+/* sphinx-gallery themeing */
+:root, html, body{
+  --sg-download-a-background-color: var(--sst-footer-background-color);
+  --sg-download-a-background-image: none;
+  --sg-download-a-border-color: none;
+  --sg-download-a-color: var(--pst-color-link);
+  --sg-download-a-hover-background-color: var(--sg-download-a-background-color);
+  --sg-download-a-hover-box-shadow-1: none;
+  --sg-download-a-hover-box-shadow-2: none;
+}
+
+/* html[data-theme="dark"] .sphx-glr-thumbcontainer { */
+/*   border-color: var(--sst-sunpy-logo-primary-color); */
+/* } */
 
 /* Main SunPy Styling */
 code.literal {
   border: none;
+  background-color: inherit;
 }
 
 .bd-sidebar-primary {
@@ -102,11 +120,6 @@ nav.bd-header {
   display: none !important;
 }
 
-/* Uncomment this for sticky footer */
-/* .bd-container { */
-/*   margin-bottom: var(--sst-footer-height); */
-/* } */
-
 .bd-footer {
   background-color: var(--sst-footer-background-color);
   height: var(--sst-footer-height);
@@ -116,6 +129,11 @@ nav.bd-header {
   /* bottom: 0; */
   /* position: fixed; */
 }
+
+/* Uncomment this for sticky footer */
+/* .bd-container { */
+/*   margin-bottom: var(--sst-footer-height); */
+/* } */
 
 .bd-footer a {
   color: var(--pst-color-link);
@@ -148,7 +166,6 @@ nav.bd-header {
 }
 
 .bd-header .navbar-nav .dropdown .dropdown-menu {
-
 	--bs-dropdown-border-radius: 0rem;
 	background-color: var(--sst-header-background);
   box-shadow: none;
