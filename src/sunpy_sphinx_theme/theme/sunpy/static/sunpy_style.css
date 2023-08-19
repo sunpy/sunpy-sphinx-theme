@@ -14,13 +14,15 @@ html {
   --sst-sunpy-light-gray: #444444;
   --sst-sunpy-dark-gray: #333333;
   --sst-sunpy-darkest-gray: #222222;
+  --sst-sunpy-white: rgb(231, 231, 231);
+  --sst-sunpy-less-white: rgb(206, 206, 206);
   /* Theme Accent Colors */
   --sst-accent-background-color: var(--sst-sunpy-dark-gray);
   --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
 
   --sst-footer-height: 58.4px;
   --sst-header-background: var(--sst-sunpy-light-gray);
-  --sst-header-text: rgb(231, 231, 231);
+  --sst-header-text: var(--sst-sunpy-white);
   --sst-sidebar-background-color: var(--pst-color-background);
 }
 
@@ -37,13 +39,21 @@ html[data-theme="dark"] {
   --pst-color-primary: var(--sst-sunpy-logo-primary-color);
   --pst-color-background: var(--sst-sunpy-darkest-gray);
   /* Make the text colours slightly lighter than default as we are using a lighter background */
-  --pst-color-text-base: rgb(231, 231, 231);
-  --pst-color-text-muted: rgb(206, 206, 206);
+  --pst-color-text-base: var(--sst-sunpy-white);
+  --pst-color-text-muted: var(--sst-sunpy-less-white);
 
   --sst-header-background: var(--sst-sunpy-dark-gray);
   --sst-footer-background-color: var(--sst-sunpy-dark-gray);
   --sg-thumb-box-shadow-color: var(--sst-sunpy-light-gray);
   --sd-color-secondary: var(--pst-color-primary)
+}
+
+.always-light-theme{
+  color: var(--sst-sunpy-dark-gray) !important;
+}
+
+.modal {
+  --bs-modal-bg: var(--pst-color-background);
 }
 
 /* sphinx-gallery themeing */
@@ -115,6 +125,10 @@ nav.bd-header {
   min-height: 1rem;
 }
 
+.bd-footer .bd-footer__inner {
+  padding-bottom: 0;
+}
+
 /* Footers */
 .bd-footer-content {
   display: none !important;
@@ -166,11 +180,158 @@ nav.bd-header {
 }
 
 .bd-header .navbar-nav .dropdown .dropdown-menu {
-	--bs-dropdown-border-radius: 0rem;
-	background-color: var(--sst-header-background);
+  --bs-dropdown-border-radius: 0rem;
+  background-color: var(--sst-header-background);
   box-shadow: none;
   margin-top: 0.99rem;
   /* Make the top border smaller so it lines up */
   border-width: 2px 0px 0px 0px;
   border-color: var(--sst-sunpy-logo-primary-color);
 }
+
+/* Things from sunpy.org but generally useful */
+
+.sunpy-icon-text {
+  color: var(--sst-sunpy-logo-primary-color);
+  font-size: 120px;
+  font-weight: bold;
+}
+
+.sunpy-icon-text-color2 {
+  color: var(--sst-sunpy-light-gray);
+}
+
+/* sunpy.org landing page buttons */
+.sunpy-btn-grid a {
+  text-transform: uppercase;
+  margin-top: 20px;
+  padding: 10px 21px;
+}
+
+/* Generic buttons */
+.btn-sunpy {
+  font-size: 16px;
+  font-weight: bolder;
+  border-width: 2px;
+}
+
+.btn-sunpy1 {
+  color: var(--sst-sunpy-darkest-gray);
+  background-color: var(--sst-sunpy-logo-primary-color);
+  border-color: var(--sst-sunpy-logo-primary-color);
+}
+
+.btn-sunpy1:hover {
+  color: var(--sst-sunpy-light-gray);
+  background-color: #fff;
+  border-color: var(--sst-sunpy-logo-primary-color);
+  text-decoration-line: none;
+}
+
+.btn-sunpy2 {
+  color: #fff;
+  background-color: var(--sst-sunpy-light-gray);
+  border-color: var(--sst-sunpy-light-gray);
+}
+
+.btn-sunpy2:hover {
+  color: var(--sst-sunpy-light-gray);
+  background-color: #fff;
+  text-decoration-line: none;
+  border-color: var(--sst-sunpy-light-gray);
+}
+
+/* Card Decks */
+
+.card {
+  background-color: var(--pst-color-on-background);
+  box-shadow: 0 4px 8px 0;
+  margin: 0 auto;
+}
+
+html[data-theme="light"] .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="dark"] .card {
+  box-shadow: 0 4px 8px 0 rgba(150, 150, 150, 0.2);
+}
+
+.card p {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+  padding-top: 10px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: var(--sst-sunpy-white);
+  background-color: var(--sst-sunpy-logo-primary-color);
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: var(--sst-sunpy-dark-gray);
+}
+
+h4.modal-title {
+  margin-top: 0;
+}
+
+.column {
+  display: inline-block;
+  width: 24%;
+  margin-bottom: 16px;
+  padding: 0 10px;
+}
+
+.column > h4 {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  height: 3.6em;
+}
+
+.section#sunpy-board {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 355px) {
+  .column {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 356px) and (max-width: 680px) {
+  .column {
+    width: 45%;
+  }
+
+  .navbar-nav {
+    margin: -1px -15px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .card p {
+    text-align: center;
+    padding-top: 10px;
+  }
+}
+
+/* End Cards */
