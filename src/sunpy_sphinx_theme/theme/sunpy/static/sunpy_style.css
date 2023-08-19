@@ -45,10 +45,10 @@ html[data-theme="dark"] {
   --sst-header-background: var(--sst-sunpy-dark-gray);
   --sst-footer-background-color: var(--sst-sunpy-dark-gray);
   --sg-thumb-box-shadow-color: var(--sst-sunpy-light-gray);
-  --sd-color-secondary: var(--pst-color-primary)
+  --sd-color-secondary: var(--pst-color-primary);
 }
 
-.always-light-theme{
+.always-light-theme {
   color: var(--sst-sunpy-dark-gray) !important;
 }
 
@@ -57,7 +57,9 @@ html[data-theme="dark"] {
 }
 
 /* sphinx-gallery themeing */
-:root, html, body{
+:root,
+html,
+body {
   --sg-download-a-background-color: var(--sst-footer-background-color);
   --sg-download-a-background-image: none;
   --sg-download-a-border-color: none;
