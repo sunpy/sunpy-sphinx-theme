@@ -79,16 +79,6 @@ code.literal {
   background-color: inherit;
 }
 
-.bd-sidebar-primary {
-  border-right-width: 3px;
-  border-right-color: var(--sst-sunpy-logo-primary-color);
-  top: var(--pst-header-height);
-}
-
-.bd-sidebar-secondary {
-  top: var(--pst-header-height);
-}
-
 /* Navbars */
 nav.bd-header {
   background-color: var(--sst-header-background) !important;
@@ -117,8 +107,14 @@ nav.bd-header {
 .bd-sidebar-primary {
   background-color: var(--sst-sidebar-background-color);
   max-height: calc(100vh - var(--pst-header-height));
-  flex-basis: 25%;
-  max-width: 300px;
+  flex-basis: 22%;
+  border-right-width: 3px;
+  border-right-color: var(--sst-sunpy-logo-primary-color);
+  top: var(--pst-header-height);
+}
+
+.bd-sidebar-secondary {
+  top: var(--pst-header-height);
 }
 
 /* Bizzarely having a minimum height here fixes the permanent appearence of the */
