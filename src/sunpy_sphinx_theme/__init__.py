@@ -2,14 +2,12 @@
 SunPy Sphinx Theme.
 """
 import os
-import socket
 from pathlib import Path
+from functools import partial
 from urllib.parse import urljoin
 
 from pydata_sphinx_theme import utils
 from sphinx.application import Sphinx
-
-ON_RTD = os.environ.get("READTHEDOCS", False) == "True"
 
 
 def get_html_theme_path():
@@ -21,15 +19,9 @@ def get_html_theme_path():
     return theme_path
 
 
-def page_url(page):
-    if ON_RTD:
-        sunpy_website_url_base = "https://sunpy.org"
-    else:
-        sunpy_website_url_base = socket.gethostname()
-    return urljoin(sunpy_website_url_base, page)
+def default_navbar(navbar_base):
+    page_url = partial(urljoin, navbar_base)
 
-
-def default_navbar():
     return [
         (
             "About",
@@ -38,18 +30,14 @@ def default_navbar():
                 ("The SunPy Project", page_url("about/project.html"), 1),
                 ("Community Roles", page_url("about/roles.html"), 1),
                 ("Meetings", page_url("about/meetings.html"), 1),
-                (
-                    "Code of Conduct",
-                    page_url("coc.html"),
-                    1,
-                ),
+                ("Code of Conduct", page_url("coc.html"), 1),
             ],
             1,
         ),
         (
             "Documentation",
             [
-                ("sunpy", page_url("/"), 1),
+                ("sunpy", "https://docs.sunpy.org/", 1),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
                 ("aiapy", "https://aiapy.readthedocs.io/", 1),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 1),
@@ -81,7 +69,7 @@ def update_config(app):
     theme_options = utils.get_theme_options_dict(app)
 
     if not theme_options.get("navbar_links"):
-        theme_options["navbar_links"] = default_navbar()
+        theme_options["navbar_links"] = default_navbar(theme_options["navbar_base"])
 
     if not theme_options.get("footer_start"):
         theme_options["footer_start"] = ["page-footer.html"]
@@ -99,6 +87,7 @@ def setup(app: Sphinx):
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
     app.add_css_file("sunpy_style.css")
+    app.add_js_file("version.js")
 
     app.connect("builder-inited", update_config)
 
@@ -106,3 +95,9 @@ def setup(app: Sphinx):
         "parallel_read_safe": True,
         "parallel_write_safe": True,
     }
+
+
+_sunpy_static_path = get_html_theme_path() / "static"
+ON_RTD = os.environ.get("READTHEDOCS", False) == "True"
+SVG_ICON = _sunpy_static_path / "img" / "sunpy_icon.svg"
+PNG_ICON = _sunpy_static_path / "img" / "sunpy_icon_128x128.png"
