@@ -87,7 +87,6 @@ def setup(app: Sphinx):
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
     app.add_css_file("sunpy_style.css")
-    app.add_js_file("version.js")
 
     app.connect("builder-inited", update_config)
 
