@@ -26,6 +26,8 @@ jobs:
       - checkout
       - run: *apt-install
       - run: *tox
+      # Needed to install mplcairo
+      - run: sudo apt install libcairo2-dev pkg-config
       - run: python -m tox -e sunpy-docs
       - store_artifacts:
           path: .tmp/sunpy-docs/sunpy/docs/_build/html
