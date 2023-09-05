@@ -23,6 +23,7 @@ html {
   --sst-header-background: var(--sst-sunpy-light-gray);
   --sst-header-text: var(--sst-sunpy-white);
   --sst-sidebar-background-color: var(--pst-color-background);
+  --pst-header-height: 3.5rem;
 }
 
 html[data-theme="light"] {
