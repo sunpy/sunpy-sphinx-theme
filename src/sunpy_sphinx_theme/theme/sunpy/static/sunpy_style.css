@@ -103,6 +103,27 @@ nav.bd-header {
   color: var(--sst-sunpy-logo-primary-color);
 }
 
+.search-button {
+  color: var(--sst-header-text);
+}
+.search-button:hover {
+  color: var(--sst-sunpy-logo-primary-color);
+}
+
+html[data-theme="light"] .theme-switch-button {
+  border: none;
+}
+
+.theme-switch-button span {
+  color: var(--sst-header-text);
+}
+
+.theme-switch-button:active,
+.theme-switch-button:hover {
+  background-color: var(--sst-sunpy-logo-primary-color) !important;
+  border-color: var(--pst-color-on-background) !important;
+}
+
 /* Sidebar */
 .bd-sidebar-primary {
   background-color: var(--sst-sidebar-background-color);
