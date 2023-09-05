@@ -127,57 +127,46 @@ nav.bd-header {
   min-height: 1rem;
 }
 
-.bd-footer .bd-footer__inner {
-  padding-bottom: 0;
-}
-
 /* Footers */
-.bd-footer-content {
-  display: none !important;
-}
 
 .bd-footer {
   background-color: var(--sst-footer-background-color);
-  height: var(--sst-footer-height);
   width: 100%;
   border-top: none;
-  /* TODO: Decide if we want a fixed footer or not */
-  /* bottom: 0; */
-  /* position: fixed; */
 }
 
-/* Uncomment this for sticky footer */
-/* .bd-container { */
-/*   margin-bottom: var(--sst-footer-height); */
-/* } */
+/* Override the default start and end from pst here so we make it the same as our new center */
+.bd-footer .footer-items__end,
+.bd-footer .footer-items__start,
+.bd-footer .footer-items__center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.bd-footer .footer-items__end {
+  margin-left: 0;
+}
 
 .bd-footer a {
   color: var(--pst-color-link);
 }
 
-.footer-items__start {
-  width: 100%;
-}
-
-.footer-item {
-  width: 100%;
-}
-
-.sst-footer {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.center-footer a {
+.footer-links a {
   display: inline-block;
   padding: 0 10px;
 }
 
-@media only screen and (max-width: 700px) {
-  .bd-footer {
+/* This width is hard coded, ideally it should be when then content gets wider than */
+/* the viewport, I just don't know how to do that. */
+@media only screen and (max-width: 800px) {
+  .bd-footer .footer-items__end,
+  .bd-footer .footer-items__start {
     display: none;
+  }
+  .bd-footer .footer-items__center {
+    align-items: center;
   }
 }
 

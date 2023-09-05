@@ -1,0 +1,15 @@
+<p class="theme-version">
+    {%- if last_updated %}
+    {% trans last_updated=last_updated|e %}Updated on {{ last_updated }}{% endtrans %}
+    {%- if show_sphinx %}
+    {% trans sphinx_version=sphinx_version|e %}, built with <a href="http://sphinx-doc.org/">Sphinx
+        {{ sphinx_version }}</a>{% endtrans %}
+    {%- else %}
+
+    {%- endif %}
+    {%- endif %}
+    {%- if show_sphinx and not last_updated %}
+    {% trans sphinx_version=sphinx_version|e %}Built with <a href="http://sphinx-doc.org/">Sphinx
+        {{ sphinx_version }}.</a>{% endtrans %}
+    {%- endif %}
+</p>

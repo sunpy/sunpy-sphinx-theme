@@ -74,9 +74,6 @@ def update_config(app):
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar(theme_options["sst_site_root"])
 
-    if not theme_options.get("footer_start"):
-        theme_options["footer_start"] = ["page-footer.html"]
-
     if not theme_options.get("footer_links"):
         theme_options["footer_links"] = [
             ("GitHub", "https://github.com/sunpy", 1),
@@ -92,6 +89,28 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     context["sst_site_root"] = app.builder.theme_options["sst_site_root"]
 
 
+# See https://github.com/pydata/pydata-sphinx-theme/blob/f6e1943c5f9fab4442f7e7d6f5ce5474833b66f6/src/pydata_sphinx_theme/__init__.py#L178
+# Copied here to make footer_center behave like footer start and end
+def update_and_remove_templates(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:
+    """
+    Update template names and assets for page build.
+    """
+    # Allow for more flexibility in template names
+    template_sections = [
+        "theme_footer_center",
+    ]
+    for section in template_sections:
+        if context.get(section):
+            # Break apart `,` separated strings so we can use , in the defaults
+            if isinstance(context.get(section), str):
+                context[section] = [ii.strip() for ii in context.get(section).split(",")]
+
+            # Add `.html` to templates with no suffix
+            for ii, template in enumerate(context.get(section)):
+                if not os.path.splitext(template)[1]:
+                    context[section][ii] = template + ".html"
+
+
 def setup(app: Sphinx):
     # Register theme
     theme_dir = get_html_theme_path()
@@ -100,6 +119,7 @@ def setup(app: Sphinx):
 
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
+    app.connect("html-page-context", update_and_remove_templates)
 
     return {
         "parallel_read_safe": True,
