@@ -23,7 +23,7 @@ classifiers = [
 ]
 requires-python = ">=3.7"
 dependencies = [
-  "sphinx-book-theme",
+  "pydata-sphinx-theme",
   "sphinx"
 ]
 
