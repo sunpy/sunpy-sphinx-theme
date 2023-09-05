@@ -81,12 +81,18 @@ def update_config(app):
             ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
         ]
 
+    # TODO: This is nasty
+    # Set the default value of show_source to False unless it's specified in the user config
+    if "html_show_sourcelink" not in app.config._raw_config:
+        app.config.html_show_sourcelink = False
+
 
 def update_html_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:
     """
     Set extra things to use in jinja templates.
     """
     context["sst_site_root"] = app.builder.theme_options["sst_site_root"]
+    context["favicon_url"] = context.get("favicon_url", None) or "_static/img/sunpy_icon.svg"
 
 
 # See https://github.com/pydata/pydata-sphinx-theme/blob/f6e1943c5f9fab4442f7e7d6f5ce5474833b66f6/src/pydata_sphinx_theme/__init__.py#L178
