@@ -88,7 +88,6 @@ nav.bd-header {
   border-bottom: 3px;
   border-bottom-color: var(--sst-sunpy-logo-primary-color);
   border-bottom-style: solid;
-  position: sticky; /* We need to re-set this to the bootstrap default here */
   box-shadow: none;
   margin-bottom: -3px;
 }
@@ -154,6 +153,10 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   text-align: center;
 }
 
+.bd-navbar-elements .ms-2 {
+  margin-left: 0 !important;
+}
+
 /* Bizzarely having a minimum height here fixes the permanent appearence of the */
 /* sidebar scrollbar */
 #rtd-footer-container {
@@ -211,9 +214,8 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   --bs-dropdown-border-radius: 0rem;
   background-color: var(--sst-header-background);
   box-shadow: none;
-  margin-top: 0.99rem;
-  /* Make the top border smaller so it lines up */
-  border-width: 2px 0px 0px 0px;
+  margin-top: 0.85rem;
+  border: 0;
   border-color: var(--sst-sunpy-logo-primary-color);
 }
 
@@ -350,10 +352,6 @@ h4.modal-title {
 @media only screen and (min-width: 356px) and (max-width: 680px) {
   .column {
     width: 45%;
-  }
-
-  .navbar-nav {
-    margin: -1px -15px;
   }
 }
 
