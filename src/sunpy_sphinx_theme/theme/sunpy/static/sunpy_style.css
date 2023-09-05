@@ -20,7 +20,6 @@ html {
   --sst-accent-background-color: var(--sst-sunpy-dark-gray);
   --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
 
-  --sst-footer-height: 58.4px;
   --sst-header-background: var(--sst-sunpy-light-gray);
   --sst-header-text: var(--sst-sunpy-white);
   --sst-sidebar-background-color: var(--pst-color-background);
@@ -74,6 +73,10 @@ body {
 /* } */
 
 /* Main SunPy Styling */
+a:visited {
+  color: var(--pst-color-link);
+}
+
 code.literal {
   border: none;
   background-color: inherit;
@@ -110,8 +113,12 @@ nav.bd-header {
   color: var(--sst-sunpy-logo-primary-color);
 }
 
-html[data-theme="light"] .theme-switch-button {
+.theme-switch-button {
   border: none;
+}
+
+html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
+  color: var(--pst-color-muted);
 }
 
 .theme-switch-button span {
@@ -122,6 +129,10 @@ html[data-theme="light"] .theme-switch-button {
 .theme-switch-button:hover {
   background-color: var(--sst-sunpy-logo-primary-color) !important;
   border-color: var(--pst-color-on-background) !important;
+}
+
+.bd-header label.sidebar-toggle {
+  color: var(--sst-header-text);
 }
 
 /* Sidebar */
@@ -138,8 +149,9 @@ html[data-theme="light"] .theme-switch-button {
   top: var(--pst-header-height);
 }
 
-.navbar-brand p.logo__title {
-  width: 100%;
+.navbar-brand {
+  white-space: inherit;
+  text-align: center;
 }
 
 /* Bizzarely having a minimum height here fixes the permanent appearence of the */
@@ -164,6 +176,10 @@ html[data-theme="light"] .theme-switch-button {
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+}
+
+.bd-footer .footer-items__center {
+  text-align: center;
 }
 
 .bd-footer .footer-items__end {
@@ -227,7 +243,8 @@ html[data-theme="light"] .theme-switch-button {
   border-width: 2px;
 }
 
-.btn-sunpy1 {
+.btn-sunpy1,
+.btn-sunpy1:visited {
   color: var(--sst-sunpy-darkest-gray);
   background-color: var(--sst-sunpy-logo-primary-color);
   border-color: var(--sst-sunpy-logo-primary-color);
@@ -240,7 +257,8 @@ html[data-theme="light"] .theme-switch-button {
   text-decoration-line: none;
 }
 
-.btn-sunpy2 {
+.btn-sunpy2,
+.btn-sunpy2:visited {
   color: #fff;
   background-color: var(--sst-sunpy-light-gray);
   border-color: var(--sst-sunpy-light-gray);
