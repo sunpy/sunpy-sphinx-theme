@@ -1,7 +1,7 @@
 <div class="footer-links">
     {% if theme_footer_links %}
         {%- for link in theme_footer_links %}
-            <a href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+            <a href="{{ sst_pathto(*link[1:]) }}">{{ link[0] }}</a>
             {% if not loop.last %}
                 <span> • </span>
             {% endif %}
