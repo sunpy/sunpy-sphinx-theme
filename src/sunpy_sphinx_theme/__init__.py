@@ -72,6 +72,9 @@ def update_config(app):
     if not theme_options.get("sst_site_root"):
         theme_options["sst_site_root"] = "https://sunpy.org"
 
+    if not theme_options.get("sst_is_root"):
+        theme_options["sst_is_root"] = False
+
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar(theme_options["sst_site_root"])
     # Let users pass a callable which take the sst_site_root to calculate the links
@@ -99,7 +102,6 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     """
     Set extra things to use in jinja templates.
     """
-    context["sst_site_root"] = app.builder.theme_options["sst_site_root"]
     context["favicon_url"] = context.get("favicon_url", None) or "_static/img/sunpy_icon.svg"
 
 
