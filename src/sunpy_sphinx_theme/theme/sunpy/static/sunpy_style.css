@@ -74,9 +74,6 @@ body {
   --sg-download-a-hover-box-shadow-2: none;
 }
 
-/* html[data-theme="dark"] .sphx-glr-thumbcontainer { */
-/*   border-color: var(--sst-sunpy-logo-primary-color); */
-/* } */
 
 /* Main SunPy Styling */
 a:visited {
