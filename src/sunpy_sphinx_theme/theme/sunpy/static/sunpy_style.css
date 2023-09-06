@@ -53,19 +53,6 @@ html[data-theme="dark"] {
   --sd-color-secondary: var(--pst-color-primary);
 }
 
-.always-light-theme {
-  color: var(--sst-darker-color) !important;
-}
-
-.modal {
-  --bs-modal-bg: var(--pst-color-background);
-}
-
-/* Flip the colours on graphviz graphs on dark mode */
-html[data-theme="dark"] div.graphviz > object.inheritance {
-  filter: invert(0.9);
-}
-
 /* sphinx-gallery themeing */
 :root,
 html,
@@ -79,7 +66,7 @@ body {
   --sg-download-a-hover-box-shadow-2: none;
 }
 
-/* Main SunPy Styling */
+/* Global Styling */
 a:visited {
   color: var(--pst-color-link);
 }
@@ -89,7 +76,20 @@ code.literal {
   background-color: inherit;
 }
 
-/* Navbars */
+.always-light-theme {
+  color: var(--sst-darker-color) !important;
+}
+
+.modal {
+  --bs-modal-bg: var(--pst-color-background);
+}
+
+/* Flip the colours on graphviz graphs on dark mode */
+html[data-theme="dark"] div.graphviz > object.inheritance {
+  filter: invert(0.9);
+}
+
+/* Top Nav */
 nav.bd-header {
   background-color: var(--sst-header-background) !important;
   border-bottom: 3px;
@@ -143,6 +143,16 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
 
 .bd-header label.sidebar-toggle {
   color: var(--sst-header-text);
+}
+
+/* Style the dropdown from the top nav */
+.bd-header .navbar-nav .dropdown .dropdown-menu {
+  --bs-dropdown-border-radius: 0rem;
+  background-color: var(--sst-header-background);
+  box-shadow: none;
+  margin-top: 0.85rem;
+  border: 0;
+  border-color: var(--sst-accent-color-bright);
 }
 
 /* Sidebar */
@@ -227,13 +237,4 @@ img.logo__image {
   .bd-footer .footer-items__center {
     align-items: center;
   }
-}
-
-.bd-header .navbar-nav .dropdown .dropdown-menu {
-  --bs-dropdown-border-radius: 0rem;
-  background-color: var(--sst-header-background);
-  box-shadow: none;
-  margin-top: 0.85rem;
-  border: 0;
-  border-color: var(--sst-accent-color-bright);
 }
