@@ -31,7 +31,7 @@ jobs:
       # Needed to install mplcairo
       - run: sudo apt install libcairo2-dev pkg-config
       # the large resource_class has 4 CPUs but auto detection does not work
-      - run: python -m tox -e sunpy-docs  -- -j 4
+      - run: python -m tox -e sunpy-docs -- -j 4
       # Remove some parts of the build to speed up upload
       - run: rm -r .tmp/sunpy-docs/sunpy/docs/_build/html/.doctrees
       - run: rm -r .tmp/sunpy-docs/sunpy/docs/_build/html/_downloads

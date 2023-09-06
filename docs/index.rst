@@ -16,7 +16,6 @@ The core changes between this theme and the `pydata-sphinx-theme` are:
 * Add a center element to the footer bar.
 * Restyled the theme for SunPy colors.
 
-
 .. toctree::
    :maxdepth: 2
 

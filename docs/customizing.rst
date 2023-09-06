@@ -35,15 +35,14 @@ This is a list of tuples specifying the links to place in the top navbar.
 An element of this list takes the form ``(title, document, relative_to)``.
 ``title`` is the text to be rendered for the link.
 ``document`` is a reference to a document or an absolute URL.
-``relative_to`` controls how the ``document`` paramter is interpreted.
+``relative_to`` controls how the ``document`` parameter is interpreted.
 
 The links in ``navbar_links`` are parsed using a wrapper around sphinx's builtin `pathto <https://www.sphinx-doc.org/en/master/development/templating.html#pathto>`__ function.
-If you want to reference things relative to the current sphinx build for every project built with the theme (i.e they all have an about page at the site root) then you can pass ``0`` or ``1`` here to mimic the behavior of the sphinx builtin.
+If you want to reference things relative to the current sphinx build for every project built with the theme (i.e., they all have an about page at the site root) then you can pass ``0`` or ``1`` here to mimic the behavior of the sphinx builtin.
 If you want to pass an absolute URL through set ``relative_to`` to ``3``.
 If you want to pass a document which is relative to ``sst_site_root`` when ``sst_is_root`` is False and relative to the current sphinx build when it's True then set ``relative_to`` to ``2``.
 
 It's possible to add dropdown menus to the topnav by setting document equal to a list of tuples following the same format.
-
 
 ``footer_links``
 ################
