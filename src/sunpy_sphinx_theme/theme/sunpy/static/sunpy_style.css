@@ -169,12 +169,15 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   top: var(--pst-header-height);
 }
 
-.bdsidebar .navbar-brand {
+.bd-sidebar a.navbar-brand {
   height: fit-content;
   margin: 0;
   max-height: none;
   padding: 0;
-  white-space: inherit;
+}
+
+.bd-sidebar a.navbar-brand > p {
+  white-space: normal;
   text-align: center;
 }
 
