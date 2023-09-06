@@ -24,6 +24,8 @@ This functionality allows you to have a sphinx project where instead of linking 
 ``sst_is_root``
 ###############
 
+Set this to true if you are building the project which will be deployed to ``sst_site_root``.
+
 If this is set to `True` then this sphinx build is the root of your many-sphinx trees and links in the topnav (see below) should be relative to this site and not the ``sst_site_root`` configuration variable.
 
 ``navbar_links``
@@ -45,3 +47,31 @@ It's possible to add dropdown menus to the topnav by setting document equal to a
 
 ``footer_links``
 ################
+
+Footer links are a number of links which will get placed in the center of the footer.
+They are specified in the same format as the ``navbar_links``.
+
+
+Adjusting the Styling
+---------------------
+
+This theme makes some minor CSS tweaks from the pydata-sphinx-theme both to adjust the styling for SunPy's branding and to make our customisations work.
+We have tried to use CSS variables to control the styling the key variables are:
+
+.. code-block:: css
+
+  --sst-accent-color-bright
+  --sst-accent-color-muted
+  --sst-dark-color
+  --sst-darker-color
+  --sst-darkest-color
+  --sst-lightest-color
+  --sst-lighter-color
+  --sst-light-color
+  --sst-header-background: var(--sst-dark-color);
+  --sst-header-text: var(--sst-lighter-color);
+  --sst-sidebar-background-color: var(--pst-color-background);
+
+
+The included CSS uses "light" (light, lighter, lightest) colors for the background on the light theme and "dark" colors for the text, and the inverse on the dark theme.
+The bright accent color is used for some text (e.g. links) on the dark theme, and the muted variant on the light theme to increase contrast.

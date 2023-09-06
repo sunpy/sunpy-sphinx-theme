@@ -56,6 +56,22 @@ intersphinx_mapping = {
 
 html_theme = "sunpy"
 
+# Test out all the options for navbar_links
+html_theme_options = {
+    "navbar_links": [
+        ("Home", "index.html", 1),
+        ("Code Ref", "code_ref/index", 0),
+        ("sunpy.org", "https://sunpy.org", 3),
+        (
+            "Dropdown",
+            [
+                ("SunPy Docs", "https://docs.sunpy.org", 3),
+                ("About SunPy", "about/index.html", 2),
+            ],
+        ),
+    ]
+}
+
 graphviz_output_format = "svg"
 graphviz_dot_args = [
     "-Nfontsize=10",

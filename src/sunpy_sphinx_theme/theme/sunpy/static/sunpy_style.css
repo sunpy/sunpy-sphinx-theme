@@ -16,6 +16,7 @@ html {
   --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
 
   /* SunPy Theme Colors */
+  /* If you add or change the names of these please update the docs */
   --sst-accent-color-bright: var(--sst-sunpy-logo-primary-color);
   --sst-accent-color-muted: var(--sst-sunpy-theme-orange);
   --sst-dark-color: var(--sst-sunpy-logo-gray);
@@ -26,6 +27,7 @@ html {
   --sst-light-color: rgb(206, 206, 206);
 
   /* Component Colours */
+  /* If you add or change the names of these please update the docs */
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);

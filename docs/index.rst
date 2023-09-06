@@ -1,9 +1,5 @@
-Welcome to sunpy-sphinx-theme's documentation!
-==============================================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+sunpy-sphinx-theme
+==================
 
 The ``sunpy-sphinx-theme`` is a `sphinx` theme designed for the needs of the SunPy Project's main website and subproject documentation pages.
 It's primary goals are:
@@ -19,3 +15,9 @@ The core changes between this theme and the `pydata-sphinx-theme` are:
 * Add links to the header bar which are specified as theme config variables, with defaults for sunpy.org.
 * Add a center element to the footer bar.
 * Restyled the theme for SunPy colors.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   customizing
