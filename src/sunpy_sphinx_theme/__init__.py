@@ -26,8 +26,9 @@ def default_navbar(navbar_base):
         (
             "About",
             [
-                ("Our Mission", page_url("about/mission.html"), 1),
-                ("The SunPy Project", page_url("about/project.html"), 1),
+                ("Our Mission", page_url("about/index.html"), 1),
+                ("SunPy Project", page_url("about/project.html"), 1),
+                ("Presentations", page_url("about/presentations.html"), 1),
                 ("Community Roles", page_url("about/roles.html"), 1),
                 ("Meetings", page_url("about/meetings.html"), 1),
                 ("Code of Conduct", page_url("coc.html"), 1),
@@ -85,6 +86,9 @@ def update_config(app):
     # Set the default value of show_source to False unless it's specified in the user config
     if "html_show_sourcelink" not in app.config._raw_config:
         app.config.html_show_sourcelink = False
+
+    if "html_logo" not in app.config._raw_config:
+        app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
 
 def update_html_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:

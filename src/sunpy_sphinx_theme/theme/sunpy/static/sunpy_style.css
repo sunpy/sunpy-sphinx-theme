@@ -58,7 +58,7 @@ html[data-theme="dark"] {
 
 /* Flip the colours on graphviz graphs on dark mode */
 html[data-theme="dark"] div.graphviz > object.inheritance {
-  filter: invert(1);
+  filter: invert(0.9);
 }
 
 /* sphinx-gallery themeing */
@@ -73,7 +73,6 @@ body {
   --sg-download-a-hover-box-shadow-1: none;
   --sg-download-a-hover-box-shadow-2: none;
 }
-
 
 /* Main SunPy Styling */
 a:visited {
