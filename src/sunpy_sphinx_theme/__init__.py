@@ -19,19 +19,17 @@ def get_html_theme_path():
     return theme_path
 
 
-def default_navbar(navbar_base):
-    page_url = partial(urljoin, navbar_base)
-
+def default_navbar(path_to):
     return [
         (
             "About",
             [
-                ("Our Mission", page_url("about/index.html"), 1),
-                ("SunPy Project", page_url("about/project.html"), 1),
-                ("Presentations", page_url("about/presentations.html"), 1),
-                ("Community Roles", page_url("about/roles.html"), 1),
-                ("Meetings", page_url("about/meetings.html"), 1),
-                ("Code of Conduct", page_url("coc.html"), 1),
+                ("Our Mission", path_to("about/index"), 1),
+                ("SunPy Project", path_to("about/project"), 1),
+                ("Presentations", path_to("about/presentations"), 1),
+                ("Community Roles", path_to("about/roles"), 1),
+                ("Meetings", path_to("about/meetings"), 1),
+                ("Code of Conduct", path_to("coc"), 1),
             ],
             1,
         ),
@@ -52,10 +50,10 @@ def default_navbar(navbar_base):
             ],
             1,
         ),
-        ("Affiliated Packages", page_url("affiliated.html"), 1),
-        ("Get Help", page_url("help.html"), 1),
-        ("Contribute", page_url("contribute.html"), 1),
-        ("Blog", page_url("blog.html"), 1),
+        ("Affiliated Packages", path_to("affiliated"), 1),
+        ("Get Help", path_to("help"), 1),
+        ("Contribute", path_to("contribute"), 1),
+        ("Blog", path_to("blog"), 1),
     ]
 
 
@@ -76,10 +74,12 @@ def update_config(app):
         theme_options["sst_is_root"] = False
 
     if not theme_options.get("navbar_links"):
-        theme_options["navbar_links"] = default_navbar(theme_options["sst_site_root"])
+        theme_options["navbar_links"] = default_navbar
     # Let users pass a callable which take the sst_site_root to calculate the links
     elif iscallable(theme_options.get("navbar_links")):
-        theme_options["navbar_links"] = theme_options["navbar_links"](theme_options["sst_site_root"])
+        theme_options["navbar_links"] = theme_options["navbar_links"]
+    else:
+        theme_options["navbar_links"] = lambda path_to: theme_options["navbar_links"]
 
     if not theme_options.get("footer_links"):
         theme_options["footer_links"] = [
@@ -103,6 +103,11 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     Set extra things to use in jinja templates.
     """
     context["favicon_url"] = context.get("favicon_url", None) or "_static/img/sunpy_icon.svg"
+
+    path_to = partial(lambda root, page: urljoin(root, page + ".html"), context["theme_sst_site_root"])
+    if context["theme_sst_is_root"]:
+        path_to = context["pathto"]
+    context["theme_navbar_links"] = context["theme_navbar_links"](path_to)
 
 
 # See https://github.com/pydata/pydata-sphinx-theme/blob/f6e1943c5f9fab4442f7e7d6f5ce5474833b66f6/src/pydata_sphinx_theme/__init__.py#L178
