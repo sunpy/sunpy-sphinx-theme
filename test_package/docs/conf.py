@@ -68,6 +68,8 @@ graphviz_dot_args = [
 
 from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
 
+from sunpy_sphinx_theme import SVG_ICON
+
 sphinx_gallery_conf = {
     "backreferences_dir": os.path.join("generated", "modules"),
     "filename_pattern": "^((?!skip_).)*$",
@@ -79,8 +81,7 @@ sphinx_gallery_conf = {
     ),
     "within_subsection_order": ExampleTitleSortKey,
     "gallery_dirs": os.path.join("generated", "gallery"),
-    # svg_icon comes from the theme conf
-    # "default_thumb_file": svg_icon,
+    "default_thumb_file": SVG_ICON,
     "abort_on_example_error": False,
     "plot_gallery": "True",
     "remove_config_comments": True,
