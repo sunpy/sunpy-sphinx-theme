@@ -99,6 +99,10 @@ nav.bd-header {
   margin-bottom: -3px;
 }
 
+nav.bd-header nav.navbar-nav li.nav-item {
+  padding-left: 0.6rem;
+}
+
 .bd-header .navbar-nav li a.nav-link {
   color: var(--sst-header-text);
 }
@@ -155,13 +159,21 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   top: var(--pst-header-height);
 }
 
-.navbar-brand {
+.bdsidebar .navbar-brand {
+  height: fit-content;
+  margin: 0;
+  max-height: none;
+  padding: 0;
   white-space: inherit;
   text-align: center;
 }
 
 .bd-navbar-elements .ms-2 {
   margin-left: 0 !important;
+}
+
+img.logo__image {
+  height: var(--pst-header-height);
 }
 
 /* Bizzarely having a minimum height here fixes the permanent appearence of the */
