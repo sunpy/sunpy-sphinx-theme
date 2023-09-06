@@ -4,52 +4,57 @@ html {
   --pst-font-size-base: 17px;
   --pst-sidebar-font-size: 1em;
   --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
-  /* sbt uses this for the footer */
-  --sbt-font-size-small-1: var(--pst-font-size-base);
-  /* SunPy Variables */
-  /* SunPy Logo Colors */
-  --sst-sunpy-logo-primary-color: #fe7900;
-  --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
-  --sst-sunpy-logo-secondary-color: #fed20b;
-  --sst-sunpy-light-gray: #444444;
-  --sst-sunpy-dark-gray: #333333;
-  --sst-sunpy-darkest-gray: #222222;
-  --sst-sunpy-white: rgb(231, 231, 231);
-  --sst-sunpy-less-white: rgb(206, 206, 206);
-  /* Theme Accent Colors */
-  --sst-accent-background-color: var(--sst-sunpy-dark-gray);
-  --theme-header-button-color-hover: var(--sst-sunpy-primary-color);
-
-  --sst-header-background: var(--sst-sunpy-light-gray);
-  --sst-header-text: var(--sst-sunpy-white);
-  --sst-sidebar-background-color: var(--pst-color-background);
   --pst-header-height: 3.5rem;
+
+  /* SunPy Variables */
+
+  /* SunPy Logo Colors */
+  /* These should not be directly used */
+  --sst-sunpy-logo-primary-color: #fe7900;
+  --sst-sunpy-logo-secondary-color: #fed20b;
+  --sst-sunpy-logo-gray: #444444;
+  --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
+
+  /* SunPy Theme Colors */
+  --sst-accent-color-bright: var(--sst-sunpy-logo-primary-color);
+  --sst-accent-color-muted: var(--sst-sunpy-theme-orange);
+  --sst-dark-color: var(--sst-sunpy-logo-gray);
+  --sst-darker-color: #333333;
+  --sst-darkest-color: #222222;
+  --sst-lightest-color: rgb(251, 251, 251);
+  --sst-lighter-color: rgb(231, 231, 231);
+  --sst-light-color: rgb(206, 206, 206);
+
+  /* Component Colours */
+  --sst-header-background: var(--sst-dark-color);
+  --sst-header-text: var(--sst-lighter-color);
+  --sst-sidebar-background-color: var(--pst-color-background);
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: var(--sst-sunpy-dark-gray);
-  --pst-color-secondary: var(--sst-sunpy-theme-orange);
-  --pst-color-link: var(--sst-sunpy-theme-orange);
-  --sst-footer-background-color: #fafafa;
+  --pst-color-primary: var(--sst-darker-gray);
+  --pst-color-secondary: var(--sst-accent-color-muted);
+  --pst-color-link: var(--sst-accent-color-muted);
+  --sst-footer-background-color: var(--sst-lightest-color);
 }
 
 html[data-theme="dark"] {
   /* Swap primary and secondary for dark theme */
-  --pst-color-secondary: var(--sst-sunpy-dark-gray);
-  --pst-color-primary: var(--sst-sunpy-logo-primary-color);
-  --pst-color-background: var(--sst-sunpy-darkest-gray);
+  --pst-color-secondary: var(--sst-darker-color);
+  --pst-color-primary: var(--sst-accent-color-bright);
+  --pst-color-background: var(--sst-darkest-color);
   /* Make the text colours slightly lighter than default as we are using a lighter background */
-  --pst-color-text-base: var(--sst-sunpy-white);
-  --pst-color-text-muted: var(--sst-sunpy-less-white);
+  --pst-color-text-base: var(--sst-lighter-color);
+  --pst-color-text-muted: var(--sst-lighter-color);
 
-  --sst-header-background: var(--sst-sunpy-dark-gray);
-  --sst-footer-background-color: var(--sst-sunpy-dark-gray);
-  --sg-thumb-box-shadow-color: var(--sst-sunpy-light-gray);
+  --sst-header-background: var(--sst-darker-color);
+  --sst-footer-background-color: var(--sst-darker-color);
+  --sg-thumb-box-shadow-color: var(--sst-dark-color);
   --sd-color-secondary: var(--pst-color-primary);
 }
 
 .always-light-theme {
-  color: var(--sst-sunpy-dark-gray) !important;
+  color: var(--sst-darker-color) !important;
 }
 
 .modal {
@@ -88,7 +93,7 @@ code.literal {
 nav.bd-header {
   background-color: var(--sst-header-background) !important;
   border-bottom: 3px;
-  border-bottom-color: var(--sst-sunpy-logo-primary-color);
+  border-bottom-color: var(--sst-accent-color-bright);
   border-bottom-style: solid;
   box-shadow: none;
   margin-bottom: -3px;
@@ -99,19 +104,19 @@ nav.bd-header {
 }
 .bd-header .navbar-nav li a.nav-link:focus,
 .bd-header .navbar-nav li a.nav-link:hover {
-  color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-accent-color-bright);
 }
 
 .bd-header a.navbar-brand {
   font-weight: bold;
-  color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-accent-color-bright);
 }
 
 .search-button {
   color: var(--sst-header-text);
 }
 .search-button:hover {
-  color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-accent-color-bright);
 }
 
 .theme-switch-button {
@@ -128,7 +133,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
 
 .theme-switch-button:active,
 .theme-switch-button:hover {
-  background-color: var(--sst-sunpy-logo-primary-color) !important;
+  background-color: var(--sst-accent-color-bright) !important;
   border-color: var(--pst-color-on-background) !important;
 }
 
@@ -142,7 +147,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   max-height: calc(100vh - var(--pst-header-height));
   flex-basis: 22%;
   border-right-width: 3px;
-  border-right-color: var(--sst-sunpy-logo-primary-color);
+  border-right-color: var(--sst-accent-color-bright);
   top: var(--pst-header-height);
 }
 
@@ -218,19 +223,19 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   box-shadow: none;
   margin-top: 0.85rem;
   border: 0;
-  border-color: var(--sst-sunpy-logo-primary-color);
+  border-color: var(--sst-accent-color-bright);
 }
 
 /* Things from sunpy.org but generally useful */
 
 .sunpy-icon-text {
-  color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-accent-color-bright);
   font-size: 120px;
   font-weight: bold;
 }
 
 .sunpy-icon-text-color2 {
-  color: var(--sst-sunpy-light-gray);
+  color: var(--sst-dark-color);
 }
 
 /* sunpy.org landing page buttons */
@@ -249,30 +254,30 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
 
 .btn-sunpy1,
 .btn-sunpy1:visited {
-  color: var(--sst-sunpy-darkest-gray);
-  background-color: var(--sst-sunpy-logo-primary-color);
-  border-color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-darkest-color);
+  background-color: var(--sst-accent-color-bright);
+  border-color: var(--sst-accent-color-bright);
 }
 
 .btn-sunpy1:hover {
-  color: var(--sst-sunpy-light-gray);
-  background-color: #fff;
-  border-color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-dark-color);
+  background-color: var(--sst-lighest-color);
+  border-color: var(--sst-accent-color-bright);
   text-decoration-line: none;
 }
 
 .btn-sunpy2,
 .btn-sunpy2:visited {
-  color: #fff;
-  background-color: var(--sst-sunpy-light-gray);
-  border-color: var(--sst-sunpy-light-gray);
+  color: var(--sst-lightest-color);
+  background-color: var(--sst-dark-color);
+  border-color: var(--sst-dark-color);
 }
 
 .btn-sunpy2:hover {
-  color: var(--sst-sunpy-light-gray);
-  background-color: #fff;
+  color: var(--sst-dark-color);
+  background-color: var(--sst-lighest-color);
   text-decoration-line: none;
-  border-color: var(--sst-sunpy-light-gray);
+  border-color: var(--sst-dark-color);
 }
 
 /* Card Decks */
@@ -310,15 +315,15 @@ html[data-theme="dark"] .card {
   padding: 5px 20px;
   margin-bottom: 20px;
   border-radius: 5px;
-  color: var(--sst-sunpy-white);
-  background-color: var(--sst-sunpy-logo-primary-color);
+  color: var(--sst-lighter-color);
+  background-color: var(--sst-accent-color-bright);
   text-align: center;
   cursor: pointer;
   font-size: 16px;
 }
 
 .button:hover {
-  background-color: var(--sst-sunpy-dark-gray);
+  background-color: var(--sst-darker-color);
 }
 
 h4.modal-title {
