@@ -19,7 +19,7 @@
               <ul class="{{ list_class }}" id="{{ navlink[0] }}" aria-labelledby="dropdownMenuLink">
               {%- for link in navlink[1] %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ pathto(*link[1:]) }}">{{ link[0] }}</a>
+                    <a class="nav-link" href="{{ sst_pathto(*link[1:]) }}">{{ link[0] }}</a>
                 </li>
               {%- endfor %}
               </ul>

@@ -19,41 +19,39 @@ def get_html_theme_path():
     return theme_path
 
 
-def default_navbar(path_to):
+def default_navbar():
     return [
         (
             "About",
             [
-                ("Our Mission", path_to("about/index"), 1),
-                ("SunPy Project", path_to("about/project"), 1),
-                ("Presentations", path_to("about/presentations"), 1),
-                ("Community Roles", path_to("about/roles"), 1),
-                ("Meetings", path_to("about/meetings"), 1),
-                ("Code of Conduct", path_to("coc"), 1),
+                ("Our Mission", "about/index.html", 2),
+                ("SunPy Project", "about/project.html", 2),
+                ("Presentations", "about/presentations.html", 2),
+                ("Community Roles", "about/roles.html", 2),
+                ("Meetings", "about/meetings.html", 2),
+                ("Code of Conduct", "coc.html", 2),
             ],
-            1,
         ),
         (
             "Documentation",
             [
-                ("sunpy", "https://docs.sunpy.org/", 1),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 1),
-                ("aiapy", "https://aiapy.readthedocs.io/", 1),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 1),
-                ("pfsspy", "https://pfsspy.readthedocs.io/", 1),
-                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 1),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 1),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 1),
-                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 1),
-                ("sunpy-soar", "https://github.com/sunpy/sunpy-soar#readme", 1),
-                ("roentgen", "https://roentgen.readthedocs.io/", 1),
+                ("sunpy", "https://docs.sunpy.org/", 3),
+                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
+                ("aiapy", "https://aiapy.readthedocs.io/", 3),
+                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
+                ("pfsspy", "https://pfsspy.readthedocs.io/", 3),
+                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
+                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
+                ("sunpy-soar", "https://github.com/sunpy/sunpy-soar#readme", 3),
+                ("roentgen", "https://roentgen.readthedocs.io/", 3),
             ],
-            1,
         ),
-        ("Affiliated Packages", path_to("affiliated"), 1),
-        ("Get Help", path_to("help"), 1),
-        ("Contribute", path_to("contribute"), 1),
-        ("Blog", path_to("blog"), 1),
+        ("Affiliated Packages", "affiliated.html", 2),
+        ("Get Help", "help.html", 2),
+        ("Contribute", "contribute.html", 2),
+        ("Blog", "blog.html", 2),
     ]
 
 
@@ -74,18 +72,13 @@ def update_config(app):
         theme_options["sst_is_root"] = False
 
     if not theme_options.get("navbar_links"):
-        theme_options["navbar_links"] = default_navbar
-    # Let users pass a callable which take the sst_site_root to calculate the links
-    elif iscallable(theme_options.get("navbar_links")):
-        theme_options["navbar_links"] = theme_options["navbar_links"]
-    else:
-        theme_options["navbar_links"] = lambda path_to: theme_options["navbar_links"]
+        theme_options["navbar_links"] = default_navbar()
 
     if not theme_options.get("footer_links"):
         theme_options["footer_links"] = [
-            ("Code", "https://github.com/sunpy", 1),
-            ("Forum", "https://community.openastronomy.org/c/sunpy", 1),
-            ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
+            ("Code", "https://github.com/sunpy", 3),
+            ("Forum", "https://community.openastronomy.org/c/sunpy", 3),
+            ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 3),
         ]
 
     # TODO: This is nasty
@@ -98,16 +91,40 @@ def update_config(app):
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
 
+def sst_pathto(context, document, relative_to=0):
+    """
+    This is a modfied version of the built-in ``pathto()`` function.
+
+    The default version when called with one argument returns the URL to a
+    sphinx document, when specified with a 1 as the second arguemnt it returns
+    the path to a file relative to the root of the generated output.
+
+    This version has 4 modes:
+    * ``sst_pathto(document)`` - The same as ``pathto(document)``
+    * ``sst_pathto(document, 1)`` - The same as ``pathto(document, 1)``
+    * ``sst_pathto(document, 2)`` - A URL relative to ``sst_site_root`` will be returned when ``sst_is_root`` is ``False`` and the equivalent of specifying 1 as the second argument when it is ``True``.
+    * ``sst_pathto(document, 3)`` - Do nothing return ``document`` unmodified.
+    """
+    if relative_to == 0:
+        return context["pathto"](document)
+    elif relative_to == 1:
+        return context["pathto"](document, 1)
+    elif relative_to == 2:
+        if context.get("theme_sst_is_root", False):
+            return context["pathto"](document, 1)
+        return urljoin(context["theme_sst_site_root"], document)
+    elif relative_to == 3:
+        return document
+    else:
+        raise ValueError("The third element of a link tuple must be 1, 2 or 3")
+
+
 def update_html_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:
     """
     Set extra things to use in jinja templates.
     """
     context["favicon_url"] = context.get("favicon_url", None) or "_static/img/sunpy_icon.svg"
-
-    path_to = partial(lambda root, page: urljoin(root, page + ".html"), context["theme_sst_site_root"])
-    if context["theme_sst_is_root"]:
-        path_to = context["pathto"]
-    context["theme_navbar_links"] = context["theme_navbar_links"](path_to)
+    context["sst_pathto"] = partial(sst_pathto, context)
 
 
 # See https://github.com/pydata/pydata-sphinx-theme/blob/f6e1943c5f9fab4442f7e7d6f5ce5474833b66f6/src/pydata_sphinx_theme/__init__.py#L178
