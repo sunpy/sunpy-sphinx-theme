@@ -74,11 +74,14 @@ def update_config(app):
 
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar(theme_options["sst_site_root"])
+    # Let users pass a callable which take the sst_site_root to calculate the links
+    elif iscallable(theme_options.get("navbar_links")):
+        theme_options["navbar_links"] = theme_options["navbar_links"](theme_options["sst_site_root"])
 
     if not theme_options.get("footer_links"):
         theme_options["footer_links"] = [
-            ("GitHub", "https://github.com/sunpy", 1),
-            ("Discourse", "https://community.openastronomy.org/c/sunpy", 1),
+            ("Code", "https://github.com/sunpy", 1),
+            ("Forum", "https://community.openastronomy.org/c/sunpy", 1),
             ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 1),
         ]
 
@@ -87,6 +90,7 @@ def update_config(app):
     if "html_show_sourcelink" not in app.config._raw_config:
         app.config.html_show_sourcelink = False
 
+    # Set the logo to the sunpy logo unless it's overriden in the user conifg
     if "html_logo" not in app.config._raw_config:
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
