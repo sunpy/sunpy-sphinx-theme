@@ -67,11 +67,7 @@ def update_config(app):
     # To do this, you must manually modify `app.builder.theme_options`.
     theme_options = utils.get_theme_options_dict(app)
 
-    if not theme_options.get("sst_site_root"):
-        theme_options["sst_site_root"] = "https://sunpy.org"
-
-    if not theme_options.get("sst_is_root"):
-        theme_options["sst_is_root"] = False
+    theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
 
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar()

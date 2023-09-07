@@ -34,7 +34,7 @@ html {
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: var(--sst-darker-gray);
+  --pst-color-primary: var(--sst-darker-color);
   --pst-color-secondary: var(--sst-accent-color-muted);
   --pst-color-link: var(--sst-accent-color-muted);
   --sst-footer-background-color: var(--sst-lightest-color);
