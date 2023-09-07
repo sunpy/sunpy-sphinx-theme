@@ -1,4 +1,15 @@
 <a class="navbar-brand" href="{{ sst_pathto('.', 2) }}">
-  {%- if theme_sst_logo %}<img src="{{ pathto('_static/' + theme_sst_logo, 1) }}"/>{%- endif %}
+  {% if theme_sst_logo %}
+    {# Theme switching is only available when JavaScript is enabled.
+     # Thus we should add the extra image using JavaScript, defaulting
+     # depending on the value of default_mode; and light if unset.
+     #}
+    {% if default_mode is undefined or default_mode == "auto" %}
+      {% set default_mode = "light" %}
+    {% endif %}
+    {% set js_mode = "light" if default_mode == "dark" else "dark" %}
+    <img src="{{ pathto('_static/' + theme_sst_logo[default_mode], 1) }}" class="logo__image only-{{ default_mode }}" alt="{{ alt }}"/>
+    <script>document.write(`<img src="{{ pathto('_static/' + theme_sst_logo[js_mode], 1) }}" class="logo__image only-{{ js_mode }}" alt="{{ theme_sst_logo.get('alt', '') }}"/>`);</script>
+  {% endif %}
   {{ theme_sst_project_name }}
 </a>
