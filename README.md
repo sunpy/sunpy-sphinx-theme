@@ -4,16 +4,6 @@
 
 This repository contains the sphinx theme used by the Sunpy Project for its website and documentation.
 
-To use put this in your `conf.py` file:
+This theme is a derivitive of the excellent [pydata-sphinx-theme](https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html), customised to present a uniform navigation over all the sunpy projects.
 
-    from sunpy_sphinx_theme.conf import *
-
-and make sure you do not have the `html_theme` variable defined elsewhere in `conf.py`.
-
-## Sidebar
-
-We do not have a recursive check for the sidebar on all pages.
-
-If you want to add pages to the sidebar you can find ``html_sidebars`` in `sunpy_sphinx_theme/conf.py`.
-
-You will want to add to this in your own packages ``conf.py``
+For more information see the [documentation](https://sunpy-sphinx-theme.readthedocs.io/).
