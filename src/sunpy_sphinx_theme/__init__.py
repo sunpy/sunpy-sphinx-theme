@@ -77,7 +77,7 @@ def update_config(app):
     if not theme_options.get("navbar_links"):
         theme_options["navbar_links"] = default_navbar()
 
-    if not theme_options.get("footer_links"):
+    if theme_options.get("footer_links", False) != []:
         theme_options["footer_links"] = [
             ("Code", "https://github.com/sunpy", 3),
             ("Forum", "https://community.openastronomy.org/c/sunpy", 3),
