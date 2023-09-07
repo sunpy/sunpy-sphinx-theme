@@ -1,8 +1,4 @@
 <a class="navbar-brand" href="{{ sst_pathto('.', 2) }}">
-  {%- block sidebarlogo %}
   {%- if theme_sst_logo %}<img src="{{ pathto('_static/' + theme_sst_logo, 1) }}"/>{%- endif %}
-  {%- endblock %}
-  {%- if not theme_sst_logo %}
-  {{ sst_project_name }}
-  {%- endif %}
+  {{ theme_sst_project_name }}
 </a>
