@@ -191,6 +191,11 @@ img.logo__image {
   height: var(--pst-header-height);
 }
 
+/* RTD Flyout tweaks */
+.bd-sidebar-primary div#rtd-footer-container .rst-other-versions input {
+  color: var(--pst-color-primary);
+}
+
 /* Bizzarely having a minimum height here fixes the permanent appearence of the */
 /* sidebar scrollbar */
 #rtd-footer-container {
