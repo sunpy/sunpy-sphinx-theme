@@ -82,6 +82,11 @@ code.literal {
   color: var(--sst-darker-color) !important;
 }
 
+div.math {
+  flex-direction: row;
+  justify-content: center;
+}
+
 .modal {
   --bs-modal-bg: var(--pst-color-background);
 }
