@@ -20,6 +20,8 @@ Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
 
     .. grid-item-card::
         :class-card: card
+        :link: subsections
+        :link-type: ref
 
         Conventions
         ^^^^^^^^^^^

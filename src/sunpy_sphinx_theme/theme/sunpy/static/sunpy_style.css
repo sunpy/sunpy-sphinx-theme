@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900");
 
-html {
+:root {
   --pst-font-size-base: 17px;
   --pst-sidebar-font-size: 1em;
   --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
@@ -31,6 +31,9 @@ html {
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
+
+  /* sphinx-design themeing */
+  --sd-color-card-border-hover: var(--sst-accent-color-bright);
 }
 
 html[data-theme="light"] {
@@ -66,6 +69,7 @@ body {
   --sg-download-a-hover-background-color: var(--sg-download-a-background-color);
   --sg-download-a-hover-box-shadow-1: none;
   --sg-download-a-hover-box-shadow-2: none;
+  --sg-thumb-hover-border: var(--sst-accent-color-bright);
 }
 
 /* Global Styling */
@@ -80,6 +84,11 @@ code.literal {
 
 .always-light-theme {
   color: var(--sst-darker-color) !important;
+}
+
+div.math {
+  flex-direction: row;
+  justify-content: center;
 }
 
 .modal {
