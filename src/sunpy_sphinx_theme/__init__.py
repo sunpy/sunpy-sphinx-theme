@@ -156,7 +156,7 @@ def setup(app: Sphinx):
     # Register theme
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
-    app.add_css_file("sunpy_style.css")
+    app.add_css_file("sunpy_style.css", priority=600)
 
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
