@@ -25,7 +25,7 @@
               </ul>
           </li>
         {% else %}
-          <li class="nav-item ms-2"><a class="nav-link" role="button" href="{{ pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
+          <li class="nav-item ms-2"><a class="nav-link" role="button" href="{{ sst_pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
         {% endif %}
       {%- endfor %}
     {% endif %}

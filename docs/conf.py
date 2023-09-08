@@ -13,4 +13,3 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "sunpy"
-html_static_path = ["_static"]
