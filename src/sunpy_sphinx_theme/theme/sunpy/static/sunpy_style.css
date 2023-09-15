@@ -166,6 +166,10 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   border-color: var(--sst-accent-color-bright);
 }
 
+.bd-header .navbar-header-items__start {
+  width: auto;
+}
+
 /* Sidebar */
 .bd-sidebar-primary {
   background-color: var(--sst-sidebar-background-color);
@@ -217,24 +221,6 @@ img.logo__image {
   background-color: var(--sst-footer-background-color);
   width: 100%;
   border-top: none;
-}
-
-/* Override the default start and end from pst here so we make it the same as our new center */
-.bd-footer .footer-items__end,
-.bd-footer .footer-items__start,
-.bd-footer .footer-items__center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.bd-footer .footer-items__center {
-  text-align: center;
-}
-
-.bd-footer .footer-items__end {
-  margin-left: 0;
 }
 
 .bd-footer a {
