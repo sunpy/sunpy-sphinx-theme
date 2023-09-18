@@ -72,8 +72,10 @@ These colors change between the dark and light themes.
   span.pst-on-surface {background-color: var(--pst-color-on-surface);}
   span.pst-target {background-color: var(--pst-color-target);}
   span.pst-link {background-color: var(--pst-color-link);}
-  span.pst-code {background-color: var(--pst-color-code);}
   span.pst-inline-code {background-color: var(--pst-color-inline-code);}
+  span.pst-inline-code-links {background-color: var(--pst-color-inline-code-links);}
+  span.pst-text {background-color: var(--pst-color-text-base); color: white;}
+  span.pst-text-muted {background-color: var(--pst-color-text-muted);}
   </style>
   <p>
   <span class="sd-sphinx-override sd-badge pst-badge pst-primary sd-bg-text-primary">primary</span>
@@ -89,8 +91,10 @@ These colors change between the dark and light themes.
   <span class="sd-sphinx-override sd-badge pst-badge pst-on-surface sd-bg-text-primary">on-surface</span>
   <span class="sd-sphinx-override sd-badge pst-badge pst-target">target</span>
   <span class="sd-sphinx-override sd-badge pst-badge pst-link">link</span>
-  <span class="sd-sphinx-override sd-badge pst-badge pst-code">code</span>
   <span class="sd-sphinx-override sd-badge pst-badge pst-inline-code">inline code</span>
+  <span class="sd-sphinx-override sd-badge pst-badge pst-inline-code-links">inline code links</span>
+  <span class="sd-sphinx-override sd-badge pst-badge pst-text">text base</span>
+  <span class="sd-sphinx-override sd-badge pst-badge pst-text-muted">text muted</span>
   </p>
 
 Testing
@@ -120,7 +124,7 @@ Normal
 Normal
 `numpy.ndarray.mean`
 
-Sometimes you need a URL: `bbc.com <https://www.bbc.co.com>`__
+Sometimes you need a URL: `bbc.com <https://www.bbc.com>`__
 
 Contributing to ``sunraster``
 
@@ -129,7 +133,7 @@ Admonitions
 
 .. admonition:: Generic Admonition
 
-   You can make up your own admonition too.
+    Generic admnition needs content apparently
 
 .. attention:: attention
 .. caution:: caution

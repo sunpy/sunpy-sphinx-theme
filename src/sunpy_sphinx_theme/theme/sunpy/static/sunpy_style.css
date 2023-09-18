@@ -8,7 +8,7 @@
 
   /* SunPy Variables */
 
-  /* SunPy Logo Colors */
+  /* SunPy Colors */
   /* These should not be directly used */
   --sst-sunpy-logo-primary-color: #fe7900;
   --sst-sunpy-logo-secondary-color: #fed20b;
@@ -37,20 +37,51 @@
 }
 
 html[data-theme="light"] {
+  /* A lot of these colors we have inherited from pst however, I have copied them all */
+  /* in here to make it obvious which colors are in use, and to shield us from any */
+  /* upstream changes. */
   --pst-color-primary: var(--sst-darker-color);
   --pst-color-secondary: var(--sst-accent-color-muted);
+  --pst-color-accent: var(--sst-sunpy-logo-secondary-color);
+  --pst-color-success: rgb(0, 132, 63);
+  --pst-color-info: rgb(39, 107, 233);
+  --pst-color-warning: rgb(246, 106, 10);
+  --pst-color-danger: rgb(215, 45, 71);
+  --pst-color-background: var(--sst-lightest-color);
+  --pst-color-on-background: var(--sst-lightest-color);
+  --pst-color-surface: var(--sst-lighter-color);
+  --pst-color-on-surface: var(--sst-darkest-color);
+  --pst-color-target: rgb(243, 207, 149);
   --pst-color-link: var(--sst-accent-color-muted);
+  --pst-color-inline-code: rgb(145, 37, 131);
+  --pst-color-inline-code-links: rgb(8, 93, 108);
+  --pst-color-text-base: var(--sst-darkest-color);
+  --pst-color-text-muted: var(--sst-darker-color);
+
   --sst-footer-background-color: var(--sst-lightest-color);
 }
 
 html[data-theme="dark"] {
-  /* Swap primary and secondary for dark theme */
-  --pst-color-secondary: var(--sst-darker-color);
+  /* A lot of these colors we have inherited from pst however, I have copied them all */
+  /* in here to make it obvious which colors are in use, and to shield us from any */
+  /* upstream changes. */
   --pst-color-primary: var(--sst-accent-color-bright);
+  --pst-color-secondary: var(--sst-darker-color);
+  --pst-color-accent: var(--sst-sunpy-logo-secondary-color);
+  --pst-color-success: rgb(95, 180, 136);
+  --pst-color-info: rgb(121, 163, 242);
+  --pst-color-warning: rgb(255, 146, 69);
+  --pst-color-danger: rgb(231, 136, 148);
   --pst-color-background: var(--sst-darkest-color);
-  /* Make the text colours slightly lighter than default as we are using a lighter background */
+  --pst-color-on-background: var(--sst-darker-color);
+  --pst-color-surface: var(--sst-dark-color);
+  --pst-color-on-surface: var(--sst-lighter-color);
+  --pst-color-target: rgb(103, 92, 4);
+  --pst-color-link: var(--sst-accent-color-muted);
+  --pst-color-inline-code: rgb(243, 199, 238);
+  --pst-color-inline-code-links: rgb(63, 177, 197);
   --pst-color-text-base: var(--sst-lighter-color);
-  --pst-color-text-muted: var(--sst-lighter-color);
+  --pst-color-text-muted: var(--sst-light-color);
 
   --sst-header-background: var(--sst-darker-color);
   --sst-footer-background-color: var(--sst-darker-color);
