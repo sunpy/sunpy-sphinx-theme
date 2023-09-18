@@ -72,6 +72,10 @@ body {
   --sg-thumb-hover-border: var(--sst-accent-color-bright);
 }
 
+.sphx-glr-download a > code {
+  color: var(--sg-download-a-color);
+}
+
 /* Global Styling */
 a:visited {
   color: var(--pst-color-link);
@@ -230,6 +234,10 @@ img.logo__image {
 .footer-links a {
   display: inline-block;
   padding: 0 10px;
+}
+
+.bd-footer .footer-items__center {
+  text-align: left;
 }
 
 /* This width is hard coded, ideally it should be when then content gets wider than */
