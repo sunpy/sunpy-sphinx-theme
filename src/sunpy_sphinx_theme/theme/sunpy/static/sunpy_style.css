@@ -22,17 +22,17 @@
   --sst-dark-color: var(--sst-sunpy-logo-gray);
   --sst-darker-color: #333333;
   --sst-darkest-color: #222222;
-  --sst-lightest-color: rgb(251, 251, 251);
-  --sst-lighter-color: rgb(231, 231, 231);
+  --sst-lightest-color: rgb(255, 255, 255);
+  --sst-lighter-color: rgb(245, 245, 245);
   --sst-light-color: rgb(206, 206, 206);
 
-  /* Component Colours */
+  /* Component Colors */
   /* If you add or change the names of these please update the docs */
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
 
-  /* sphinx-design themeing */
+  /* sphinx-design theming */
   --sd-color-card-border-hover: var(--sst-accent-color-bright);
 }
 
@@ -45,7 +45,8 @@ html[data-theme="light"] {
   --pst-color-accent: var(--sst-sunpy-logo-secondary-color);
   --pst-color-success: rgb(0, 132, 63);
   --pst-color-info: rgb(39, 107, 233);
-  --pst-color-warning: rgb(246, 106, 10);
+  --pst-color-warning: rgb(238, 144, 64);
+  --pst-color-warning-text: rgb(255, 255, 255);
   --pst-color-danger: rgb(215, 45, 71);
   --pst-color-background: var(--sst-lightest-color);
   --pst-color-on-background: var(--sst-lightest-color);
@@ -54,7 +55,7 @@ html[data-theme="light"] {
   --pst-color-target: rgb(243, 207, 149);
   --pst-color-link: var(--sst-accent-color-muted);
   --pst-color-inline-code: rgb(145, 37, 131);
-  --pst-color-inline-code-links: rgb(8, 93, 108);
+  --pst-color-inline-code-links: rgb(238, 144, 64);
   --pst-color-text-base: var(--sst-darkest-color);
   --pst-color-text-muted: var(--sst-darker-color);
 
@@ -77,16 +78,17 @@ html[data-theme="dark"] {
   --pst-color-surface: var(--sst-dark-color);
   --pst-color-on-surface: var(--sst-lighter-color);
   --pst-color-target: rgb(103, 92, 4);
-  --pst-color-link: var(--sst-accent-color-muted);
+  --pst-color-link: var(--sst-accent-color-bright);
   --pst-color-inline-code: rgb(243, 199, 238);
-  --pst-color-inline-code-links: rgb(63, 177, 197);
-  --pst-color-text-base: var(--sst-lighter-color);
-  --pst-color-text-muted: var(--sst-light-color);
+  --pst-color-inline-code-links: rgb(238, 144, 64);
+  --pst-color-text-base: var(--sst-lightest-color);
+  --pst-color-text-muted: var(--sst-lighter-color);
 
   --sst-header-background: var(--sst-darker-color);
   --sst-footer-background-color: var(--sst-darker-color);
   --sg-thumb-box-shadow-color: var(--sst-dark-color);
   --sd-color-secondary: var(--pst-color-primary);
+  --sd-color-card-border: var(var(--sst-lightest-color));
 }
 
 /* sphinx-gallery themeing */
@@ -133,6 +135,27 @@ div.math {
 /* Flip the colours on graphviz graphs on dark mode */
 html[data-theme="dark"] div.graphviz > object.inheritance {
   filter: invert(0.9);
+}
+
+/* The sidebar text is light gray, so we make it white here */
+html[data-theme="dark"] nav.bd-links li > a {
+  color: rgb(255, 255, 255);
+}
+
+/* The sphinx design card border in dark mode is blue */
+html[data-theme="dark"] .sd-card {
+  border-top-color: var(--pst-color-text-base);
+  border-left-color: var(--pst-color-text-base);
+  border-right-color: var(--pst-color-text-base);
+  border-bottom-color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .sd-card .sd-card-header {
+  border-bottom-color: var(--pst-color-text-base);
+}
+
+html[data-theme="dark"] .sidebar-secondary-item {
+  border-left-color: var(--pst-color-text-base);
 }
 
 /* Top Nav */
@@ -201,6 +224,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   border-color: var(--sst-accent-color-bright);
 }
 
+/* Required to center the items in the bottom bar */
 .bd-header .navbar-header-items__start {
   width: auto;
 }
@@ -258,6 +282,24 @@ img.logo__image {
   border-top: none;
 }
 
+/* Override the default start and end from pst here so we make it the same as our new center */
+.bd-footer .footer-items__end,
+.bd-footer .footer-items__start,
+.bd-footer .footer-items__center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.bd-footer .footer-items__center {
+  text-align: center;
+}
+
+.bd-footer .footer-items__end {
+  margin-left: 0;
+}
+
 .bd-footer a {
   color: var(--pst-color-link);
 }
@@ -265,10 +307,6 @@ img.logo__image {
 .footer-links a {
   display: inline-block;
   padding: 0 10px;
-}
-
-.bd-footer .footer-items__center {
-  text-align: left;
 }
 
 /* This width is hard coded, ideally it should be when then content gets wider than */
