@@ -1,12 +1,13 @@
 """
 Configuration file for the Sphinx documentation builder.
 """
+
 import os
 import datetime
 
 project = "Test Package"
 author = "The Test Package Community"
-copyright = "{}, {}".format(datetime.datetime.now().year, author)
+copyright = f"{datetime.datetime.now().year}, {author}"
 extensions = [
     "matplotlib.sphinxext.plot_directive",
     "sphinx_automodapi.automodapi",

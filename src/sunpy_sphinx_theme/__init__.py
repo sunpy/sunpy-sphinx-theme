@@ -17,8 +17,7 @@ def get_html_theme_path():
     Return list of HTML theme paths.
     """
     parent = Path(__file__).parent.resolve()
-    theme_path = parent / "theme" / "sunpy"
-    return theme_path
+    return parent / "theme" / "sunpy"
 
 
 def default_navbar():
@@ -69,10 +68,9 @@ def update_config(app):
     # To do this, you must manually modify `app.builder.theme_options`.
     theme_options = utils.get_theme_options_dict(app)
 
-    if theme_options.get("sst_logo"):
-        if not isinstance(theme_options["sst_logo"], dict):
-            sst_logo = str(theme_options["sst_logo"])
-            theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
+    if theme_options.get("sst_logo") and not isinstance(theme_options["sst_logo"], dict):
+        sst_logo = str(theme_options["sst_logo"])
+        theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
 
     theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
 
