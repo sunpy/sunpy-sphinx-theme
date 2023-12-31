@@ -50,7 +50,6 @@ It's possible to add dropdown menus to the topnav by setting document equal to a
 Footer links are a number of links which will get placed in the center of the footer.
 They are specified in the same format as the ``navbar_links``.
 
-
 Adjusting the Styling
 ---------------------
 
@@ -70,7 +69,6 @@ We have tried to use CSS variables to control the styling the key variables are:
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
-
 
 The included CSS uses "light" (light, lighter, lightest) colors for the background on the light theme and "dark" colors for the text, and the inverse on the dark theme.
 The bright accent color is used for some text (e.g. links) on the dark theme, and the muted variant on the light theme to increase contrast.

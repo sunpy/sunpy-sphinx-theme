@@ -1,5 +1,5 @@
 """
-This module provies a object that can handle a time range.
+This module provides a object that can handle a time range.
 """
 from datetime import timedelta
 
@@ -22,8 +22,8 @@ class TimeRange:
 
     .. note::
 
-       Regardless of how a `sunpy.time.TimeRange` is constructed it will always
-       provide a positive time range where the start time is before the end time.
+        Regardless of how a `sunpy.time.TimeRange` is constructed it will always
+        provide a positive time range where the start time is before the end time.
 
     Parameters
     ----------

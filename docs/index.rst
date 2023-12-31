@@ -16,7 +16,44 @@ The core changes between this theme and the `pydata-sphinx-theme` are:
 * Add a center element to the footer bar.
 * Restyled the theme for SunPy colors.
 
-.. toctree::
-   :maxdepth: 2
+.. grid:: 1 2 2 2
+   :gutter: 3
 
-   customizing
+   .. grid-item-card::
+      :class-card: card
+
+      Documentation
+      ^^^^^^^^^^^^^
+
+      .. toctree::
+            :maxdepth: 1
+
+            customizing
+            colors
+            web-components
+
+   .. grid-item-card::
+      :class-card: card
+
+      Examples
+      ^^^^^^^^
+
+      .. toctree::
+            :maxdepth: 1
+
+            generated/gallery/index
+            code_ref/index
+
+   .. grid-item-card::
+      :class-card: card
+      :link: subsections
+      :link-type: ref
+
+      Conventions
+      ^^^^^^^^^^^
+
+      .. toctree::
+            :maxdepth: 1
+
+            subsections
+            subsections_toc

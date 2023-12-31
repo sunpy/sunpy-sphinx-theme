@@ -103,15 +103,19 @@ ENV/
 # vim tmp files
 *~
 
-# test_package
-test_package/docs/_build
-test_package/docs/generated
-test_package/docs/api
+# vscode
 .history
 .vscode
 
 # temp directory that tox uses
 .tmp
 
+# Docs
+docs/generated/
+docs/sg_execution_times.rst
+docs/autoapi/
+docs/api/
+
+# node
 node_modules
 .nodeenv
