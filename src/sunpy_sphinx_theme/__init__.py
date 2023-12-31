@@ -17,7 +17,8 @@ def get_html_theme_path():
     Return list of HTML theme paths.
     """
     parent = Path(__file__).parent.resolve()
-    return parent / "theme" / "sunpy"
+    theme_path = parent / "theme" / "sunpy"
+    return theme_path
 
 
 def default_navbar():
@@ -68,9 +69,10 @@ def update_config(app):
     # To do this, you must manually modify `app.builder.theme_options`.
     theme_options = utils.get_theme_options_dict(app)
 
-    if theme_options.get("sst_logo") and not isinstance(theme_options["sst_logo"], dict):
-        sst_logo = str(theme_options["sst_logo"])
-        theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
+    if theme_options.get("sst_logo"):
+        if not isinstance(theme_options["sst_logo"], dict):
+            sst_logo = str(theme_options["sst_logo"])
+            theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
 
     theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
 
@@ -130,6 +132,28 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     context["sst_pathto"] = partial(sst_pathto, context)
 
 
+# See https://github.com/pydata/pydata-sphinx-theme/blob/f6e1943c5f9fab4442f7e7d6f5ce5474833b66f6/src/pydata_sphinx_theme/__init__.py#L178
+# Copied here to make footer_center behave like footer start and end
+def update_and_remove_templates(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:
+    """
+    Update template names and assets for page build.
+    """
+    # Allow for more flexibility in template names
+    template_sections = [
+        "theme_footer_center",
+    ]
+    for section in template_sections:
+        if context.get(section):
+            # Break apart `,` separated strings so we can use , in the defaults
+            if isinstance(context.get(section), str):
+                context[section] = [ii.strip() for ii in context.get(section).split(",")]
+
+            # Add `.html` to templates with no suffix
+            for ii, template in enumerate(context.get(section)):
+                if not os.path.splitext(template)[1]:
+                    context[section][ii] = template + ".html"
+
+
 def setup(app: Sphinx):
     # Register theme
     theme_dir = get_html_theme_path()
@@ -138,6 +162,7 @@ def setup(app: Sphinx):
 
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
+    app.connect("html-page-context", update_and_remove_templates)
 
     return {
         "parallel_read_safe": True,

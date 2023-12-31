@@ -247,40 +247,24 @@ class TimeRange:
         fully_qualified_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
         return (
-            (
-                (
-                    (
-                        (
-                            (
-                                (
-                                    (
-                                        f"   <{fully_qualified_name} object at {hex(id(self))}>"
-                                        + "\n    Start:".ljust(12)
-                                    )
-                                    + t1
-                                )
-                                + "\n    End:".ljust(12)
-                                + t2
-                            )
-                            + "\n    Center:".ljust(12)
-                            + center
-                        )
-                        + "\n    Duration:".ljust(12)
-                        + str(self.days.value)
-                        + " days or"
-                    )
-                    + "\n    ".ljust(12)
-                    + str(self.hours.value)
-                    + " hours or"
-                )
-                + "\n    ".ljust(12)
-                + str(self.minutes.value)
-                + " minutes or"
-            )
+            f"   <{fully_qualified_name} object at {hex(id(self))}>"
+            + "\n    Start:".ljust(12)
+            + t1
+            + "\n    End:".ljust(12)
+            + t2
+            + "\n    Center:".ljust(12)
+            + center
+            + "\n    Duration:".ljust(12)
+            + str(self.days.value)
+            + " days or"
             + "\n    ".ljust(12)
-            + str(self.seconds.value)
-            + " seconds"
-        ) + "\n"
+            + str(self.hours.value)
+            + " hours or"
+            + "\n    ".ljust(12)
+            + str(self.minutes.value)
+            + " minutes or"
+            + "\n"
+        )
 
     def split(self, n=2):
         """
