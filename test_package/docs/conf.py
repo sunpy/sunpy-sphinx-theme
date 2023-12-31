@@ -5,6 +5,10 @@ Configuration file for the Sphinx documentation builder.
 import os
 import datetime
 
+from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
+
+from sunpy_sphinx_theme import SVG_ICON
+
 project = "Test Package"
 author = "The Test Package Community"
 copyright = f"{datetime.datetime.now().year}, {author}"
@@ -54,9 +58,7 @@ intersphinx_mapping = {
     "parfive": ("https://parfive.readthedocs.io/en/latest/", None),
     "reproject": ("https://reproject.readthedocs.io/en/stable/", None),
 }
-
 html_theme = "sunpy"
-
 # Test out all the options for navbar_links
 html_theme_options = {
     "navbar_links": [
@@ -72,7 +74,6 @@ html_theme_options = {
         ),
     ]
 }
-
 graphviz_output_format = "svg"
 graphviz_dot_args = [
     "-Nfontsize=10",
@@ -82,11 +83,6 @@ graphviz_dot_args = [
     "-Gfontsize=10",
     "-Gfontname=Helvetica Neue, Helvetica, Arial, sans-serif",
 ]
-
-from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
-
-from sunpy_sphinx_theme import SVG_ICON
-
 sphinx_gallery_conf = {
     "backreferences_dir": os.path.join("generated", "modules"),
     "filename_pattern": "^((?!skip_).)*$",
