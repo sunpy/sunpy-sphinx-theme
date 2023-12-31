@@ -1,7 +1,7 @@
 .. COPY FROM PYDATA THEME DOCS
 
-Color
-*****
+Colors
+******
 
 This theme specifies color variables for the primary and secondary colors (``--pst-color-primary`` and ``--pst-color-secondary``, respectively).
 These are meant to complement one another visually across the theme, if you modify these, choose colors that look good when paired with one another.
@@ -44,19 +44,6 @@ Here is an overview of the colors available in the theme (change theme mode to s
         <span class="sd-sphinx-override sd-badge pst-badge pst-target">target</span>
         </p>
 
-
-**To modify the colors for these variables** for light and dark themes, :ref:`add a custom CSS stylesheet <custom-css>` with a structure like so:
-
-.. code-block:: css
-
-    html[data-theme="light"] {
-        --pst-color-primary: black;
-    }
-
-    html[data-theme="dark"] {
-        --pst-color-primary: white;
-    }
-
 This theme uses shadows to convey depth in the light theme mode and opacity in the dark one.
 It defines 4 color variables that help build overlays in your documentation.
 
@@ -93,4 +80,64 @@ The following image should help you understand these overlays:
     <div class="pst-overlay pst-on-surface">
     <p class="label sd-bg-text-primary">on-surface</p>
     </div>
-</div>
+    </div>
+
+Snippets
+--------
+
+Documentation :any:`index <genindex>` and :any:`Module <modindex>` index.
+
+Some code:
+
+.. code-block:: python
+
+    """
+    Parameters
+    ----------
+    x : `type`
+        Description of parameter x.
+    """
+    import numpy as np
+
+    def func(x):
+        return np.mean(x)
+
+    # This is a comment
+    return func
+
+It's good to have your upstream remote have a scary name [#]_, to remind you that it's a read-write remote:
+
+.. code-block:: bash
+
+    $ git remote add upstream-rw git@github.com:sunpy/sunpy.git
+    $ git fetch upstream-rw
+
+.. [#] Text of the first footnote.
+
+``:func:``
+:func:`numpy.mean`
+
+``:meth:``
+:meth:`numpy.mean`
+
+``:class:``
+:class:`numpy.mean`
+
+Normal
+`numpy.mean`
+
+``:func:``
+:func:`numpy.ndarray.mean`
+
+``:meth:``
+:meth:`numpy.ndarray.mean`
+
+``:class:``
+:class:`numpy.ndarray.mean`
+
+Normal
+`numpy.ndarray.mean`
+
+Sometimes you need a URL: `bbc.com <https://www.bbc.com>`__
+
+Contributing to ``sunraster``

@@ -22,8 +22,8 @@ class TimeRange:
 
     .. note::
 
-       Regardless of how a `sunpy.time.TimeRange` is constructed it will always
-       provide a positive time range where the start time is before the end time.
+        Regardless of how a `sunpy.time.TimeRange` is constructed it will always
+        provide a positive time range where the start time is before the end time.
 
     Parameters
     ----------
@@ -247,7 +247,7 @@ class TimeRange:
         fully_qualified_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
         return (
-            f"   <{fully_qualified_name} object at {hex(id(self))}>"
+            "   <{} object at {}>".format(fully_qualified_name, hex(id(self)))
             + "\n    Start:".ljust(12)
             + t1
             + "\n    End:".ljust(12)
@@ -263,6 +263,9 @@ class TimeRange:
             + "\n    ".ljust(12)
             + str(self.minutes.value)
             + " minutes or"
+            + "\n    ".ljust(12)
+            + str(self.seconds.value)
+            + " seconds"
             + "\n"
         )
 
@@ -399,9 +402,11 @@ class TimeRange:
         """
         Return all partial days contained within the time range.
         """
-        return [
+        dates = []
+        dates = [
             parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day) for i in range(int(self.days.value) + 1)
         ]
+        return dates
 
     @add_common_docstring(**_variables_for_parse_time_docstring())
     def __contains__(self, time):
