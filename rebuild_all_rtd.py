@@ -14,11 +14,7 @@ headers = {"Authorization": f"Token {TOKEN}"}
 
 
 def get_active_versions(project):
-    r = requests.get(
-        f"{BASE_URL}{project}/versions",
-        headers=headers,
-        params={"active": True},
-    )
+    r = requests.get(f"{BASE_URL}{project}/versions", headers=headers, params={"active": True})
     if not r.ok:
         print(f"Failed to get versions for {project}: {r}")
         return []
