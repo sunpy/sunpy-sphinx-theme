@@ -1,5 +1,5 @@
 """
-This module provies a collection of functions.
+This module provides a collection of functions.
 """
 from sunpy.util.decorators import deprecated
 

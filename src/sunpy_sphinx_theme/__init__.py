@@ -89,17 +89,17 @@ def update_config(app):
     if "html_show_sourcelink" not in app.config._raw_config:
         app.config.html_show_sourcelink = False
 
-    # Set the logo to the sunpy logo unless it's overriden in the user conifg
+    # Set the logo to the sunpy logo unless it's overridden in the user config
     if "html_logo" not in app.config._raw_config:
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
 
 def sst_pathto(context, document, relative_to=0):
     """
-    This is a modfied version of the built-in ``pathto()`` function.
+    This is a modified version of the built-in ``pathto()`` function.
 
     The default version when called with one argument returns the URL to a
-    sphinx document, when specified with a 1 as the second arguemnt it returns
+    sphinx document, when specified with a 1 as the second argument it returns
     the path to a file relative to the root of the generated output.
 
     This version has 4 modes:

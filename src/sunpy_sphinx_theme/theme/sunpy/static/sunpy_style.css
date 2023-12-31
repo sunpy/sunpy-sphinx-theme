@@ -268,7 +268,7 @@ img.logo__image {
   color: var(--pst-color-primary);
 }
 
-/* Bizzarely having a minimum height here fixes the permanent appearence of the */
+/* Bizzarely having a minimum height here fixes the permanent appearance of the */
 /* sidebar scrollbar */
 #rtd-footer-container {
   min-height: 1rem;

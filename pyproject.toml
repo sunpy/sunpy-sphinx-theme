@@ -21,10 +21,22 @@ classifiers = [
   "Operating System :: OS Independent",
   "License :: OSI Approved :: BSD License",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 dependencies = [
   "pydata-sphinx-theme~=0.14.0",
   "sphinx"
+]
+
+[project.optional-dependencies]
+docs = [
+  "matplotlib",
+  "sphinx-automodapi",
+  "sphinx-copybutton",
+  "sphinx-design",
+  "sphinx-gallery",
+  "sphinx-hoverxref",
+  "sphinx-togglebutton",
+  "sunpy",
 ]
 
 [project.entry-points]
@@ -55,11 +67,6 @@ exclude = '''
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]
     enabled = false
-
-  [ tool.gilesbot.circleci_artifacts.testpackage ]
-    url = "test_package/docs/_build/html/index.html"
-    message = "testpackage docs preview"
-    report_on_fail = true
 
   [ tool.gilesbot.circleci_artifacts.website ]
     url = "sunpy.org/_build/html/index.html"
