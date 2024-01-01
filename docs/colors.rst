@@ -82,6 +82,23 @@ The following image should help you understand these overlays:
     </div>
     </div>
 
+Admonitions
+-----------
+
+.. admonition:: Generic Admonition
+
+    Generic admonition needs content apparently
+
+.. attention:: attention
+.. caution:: caution
+.. danger:: danger
+.. error:: error
+.. hint:: hint
+.. important:: important
+.. note:: note
+.. tip:: tip
+.. warning:: warning
+
 Snippets
 --------
 
