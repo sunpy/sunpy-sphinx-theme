@@ -9,7 +9,7 @@
   --pst-color-attention-bg: var(--pst-color-warning-bg);
   --pst-color-attention: var(--pst-color-warning);
   --pst-color-background: #fff;
-  --pst-color-border-muted: rgba(23,23,26,.2);
+  --pst-color-border-muted: rgba(23, 23, 26, 0.2);
   --pst-color-border: #d1d5da;
   --pst-color-danger-bg: #f9e1e4;
   --pst-color-danger: #d72d47;
@@ -18,7 +18,7 @@
   --pst-color-info: #276be9;
   --pst-color-inline-code-links: #085d6c;
   --pst-color-inline-code: #912583;
-  --pst-color-link-hover: var(--pst-color-secondary)
+  --pst-color-link-hover: var(--pst-color-secondary);
   --pst-color-link: var(--pst-color-primary);
   --pst-color-on-background: #fff;
   --pst-color-on-surface: #222832;
@@ -26,7 +26,7 @@
   --pst-color-primary: #0a7d91;
   --pst-color-secondary-bg: #e0c7ff;
   --pst-color-secondary: #8045e5;
-  --pst-color-shadow: rgba(0,0,0,.1);
+  --pst-color-shadow: rgba(0, 0, 0, 0.1);
   --pst-color-success-bg: #d6ece1;
   --pst-color-success: #00843f;
   --pst-color-surface: #f3f4f5;
@@ -35,94 +35,10 @@
   --pst-color-text-muted: #48566b;
   --pst-color-warning-bg: #f8e3d0;
   --pst-color-warning: #f66a0a;
-  --pst-foundation-black: #14181e
+  --pst-foundation-black: #14181e;
   --pst-foundation-white: #fff;
-  --pst-gray-100: #f3f4f5;
-  --pst-gray-200: #e5e7ea;
-  --pst-gray-300: #d1d5da;
-  --pst-gray-400: #9ca4af;
-  --pst-gray-50: #f9f9fa;
-  --pst-gray-500: #677384;
-  --pst-gray-600: #48566b;
-  --pst-gray-700: #29313d;
-  --pst-gray-800: #222832;
-  --pst-gray-900: #14181e;
-  --pst-pink-100: #fcf0fa;
-  --pst-pink-200: #f8dff5;
-  --pst-pink-300: #f3c7ee;
-  --pst-pink-400: #e47fd7;
-  --pst-pink-50: #fcf8fd;
-  --pst-pink-500: #c132af;
-  --pst-pink-600: #912583;
-  --pst-pink-700: #6e1c64;
-  --pst-pink-800: #46123f;
-  --pst-pink-900: #2b0b27;
-  --pst-teal-100: #e9f6f8;
-  --pst-teal-200: #d0ecf1;
-  --pst-teal-300: #abdde6;
-  --pst-teal-400: #3fb1c5;
-  --pst-teal-50: #f4fbfc;
-  --pst-teal-500: #0a7d91;
-  --pst-teal-600: #085d6c;
-  --pst-teal-700: #064752;
-  --pst-teal-800: #042c33;
-  --pst-teal-900: #021b1f;
-  --pst-violet-100: #e0c7ff;
-  --pst-violet-200: #d5b4fd;
-  --pst-violet-300: #b780ff;
-  --pst-violet-400: #9c5ffd;
-  --pst-violet-50: #f4eefb;
-  --pst-violet-500: #8045e5;
-  --pst-violet-600: #6432bd;
-  --pst-violet-700: #4b258f;
-  --pst-violet-800: #341a61;
-  --pst-violet-900: #1e0e39;
-  --sd-color-card-background: transparent;
-  --sd-color-card-border-hover: hsla(231, 99%, 66%, 1);
-  --sd-color-card-border: rgba(0, 0, 0, 0.125);
-  --sd-color-card-footer: transparent;
-  --sd-color-card-header: transparent;
-  --sd-color-card-text: inherit;
-  --sd-color-danger-highlight: #bb2d3b;
-  --sd-color-danger-text: #fff;
-  --sd-color-danger: #dc3545;
-  --sd-color-dark-highlight: #1c1f23;
-  --sd-color-dark-text: #fff;
-  --sd-color-dark: #212529;
-  --sd-color-info-highlight: #148a9c;
-  --sd-color-info-text: #fff;
-  --sd-color-info: #17a2b8;
-  --sd-color-light-highlight: #d3d4d5;
-  --sd-color-light-text: #212529;
-  --sd-color-light: #f8f9fa;
-  --sd-color-muted-highlight: #5c636a;
-  --sd-color-muted-text: #fff;
-  --sd-color-muted: #6c757d;
-  --sd-color-primary-highlight: #0069d9;
-  --sd-color-primary-text: #fff;
-  --sd-color-primary: #007bff;
-  --sd-color-secondary-highlight: #5c636a;
-  --sd-color-secondary-text: #fff;
-  --sd-color-secondary: #6c757d;
-  --sd-color-shadow: rgba(0, 0, 0, 0.15);
-  --sd-color-success-highlight: #228e3b;
-  --sd-color-success-text: #fff;
-  --sd-color-success: #28a745;
-  --sd-color-tabs-label-active: hsla(231, 99%, 66%, 1);
-  --sd-color-tabs-label-hover: hsla(231, 99%, 66%, 1);
-  --sd-color-tabs-label-inactive: hsl(0, 0%, 66%);
-  --sd-color-tabs-overline: rgb(222, 222, 222);
-  --sd-color-tabs-underline-active: hsla(231, 99%, 66%, 1);
-  --sd-color-tabs-underline-hover: rgba(178, 206, 245, 0.62);
-  --sd-color-tabs-underline-inactive: transparent;
-  --sd-color-tabs-underline: rgb(222, 222, 222);
-  --sd-color-warning-highlight: #cc986b;
-  --sd-color-warning-text: #212529;
-  --sd-color-warning: #f0b37e;
-  --sd-fontsize-tabs-label: 1rem
 
   /* SunPy Variables */
-
   /* Override the default font config */
   --pst-font-size-base: 17px;
   --pst-sidebar-font-size: 1em;
@@ -158,7 +74,6 @@
   --sd-color-card-border-hover: var(--sst-accent-color-bright);
 }
 
-
 html[data-theme="light"] {
   /* A lot of these colors we have inherited from pst however, I have copied them all */
   /* in here to make it obvious which colors are in use, and to shield us from any */
@@ -176,9 +91,9 @@ html[data-theme="light"] {
   --pst-color-text-base: #222832;
   --pst-color-text-muted: #48566b;
   --pst-color-heading-color: #fff;
-  --pst-color-shadow: rgba(0,0,0,.1);
+  --pst-color-shadow: rgba(0, 0, 0, 0.1);
   --pst-color-border: #d1d5da;
-  --pst-color-border-muted: rgba(23,23,26,.2);
+  --pst-color-border-muted: rgba(23, 23, 26, 0.2);
   --pst-color-inline-code: #912583;
   --pst-color-inline-code-links: #085d6c;
   --pst-color-target: #f3cf95;
@@ -189,8 +104,6 @@ html[data-theme="light"] {
   --pst-color-link: var(--pst-color-primary);
   --pst-color-link-hover: var(--pst-color-secondary);
 }
-
-
 
 html[data-theme="dark"] {
   /* A lot of these colors we have inherited from pst however, I have copied them all */
@@ -209,7 +122,7 @@ html[data-theme="dark"] {
   --pst-color-text-base: #ced6dd;
   --pst-color-text-muted: #9ca4af;
   --pst-color-heading-color: #14181e;
-  --pst-color-shadow: rgba(0,0,0,.2);
+  --pst-color-shadow: rgba(0, 0, 0, 0.2);
   --pst-color-border: #48566b;
   --pst-color-border-muted: #29313d;
   --pst-color-inline-code: #f3c7ee;
@@ -223,7 +136,7 @@ html[data-theme="dark"] {
   --pst-color-link-hover: var(--pst-color-secondary);
 }
 
-/* sphinx-gallery themeing */
+/* sphinx-gallery Styling */
 :root,
 html,
 body {
@@ -267,27 +180,6 @@ div.math {
 /* Flip the colours on graphviz graphs on dark mode */
 html[data-theme="dark"] div.graphviz > object.inheritance {
   filter: invert(0.9);
-}
-
-/* The sidebar text is light gray, so we make it white here */
-html[data-theme="dark"] nav.bd-links li > a {
-  color: rgb(255, 255, 255);
-}
-
-/* The sphinx design card border in dark mode is blue */
-html[data-theme="dark"] .sd-card {
-  border-top-color: var(--pst-color-text-base);
-  border-left-color: var(--pst-color-text-base);
-  border-right-color: var(--pst-color-text-base);
-  border-bottom-color: var(--pst-color-text-base);
-}
-
-html[data-theme="dark"] .sd-card .sd-card-header {
-  border-bottom-color: var(--pst-color-text-base);
-}
-
-html[data-theme="dark"] .sidebar-secondary-item {
-  border-left-color: var(--pst-color-text-base);
 }
 
 /* Top Nav */
