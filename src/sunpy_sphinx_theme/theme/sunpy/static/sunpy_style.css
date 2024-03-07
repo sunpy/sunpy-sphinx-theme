@@ -64,7 +64,7 @@
 
   /* Component Colors */
   /* If you add or change the names of these please update the docs */
-  --sst-footer-background-color: var(--sst-lightest-color);
+  --sst-footer-background-color: var(--sst-dark-color);
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
@@ -324,6 +324,14 @@ img.logo__image {
   background-color: var(--sst-footer-background-color);
   width: 100%;
   border-top: none;
+}
+
+.bd-footer p {
+  color: var(--sst-light-color);
+}
+
+.bd-footer span {
+  color: var(--sst-light-color);
 }
 
 /* Override the default start and end from pst here so we make it the same as our new center */
