@@ -203,7 +203,7 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
 }
 
 /* Top Nav */
-nav.bd-header {
+.bd-header {
   background-color: var(--sst-header-background) !important;
   border-bottom: 3px;
   border-bottom-color: var(--sst-accent-color-bright);
@@ -212,7 +212,7 @@ nav.bd-header {
   margin-bottom: -3px;
 }
 
-nav.bd-header nav.navbar-nav li.nav-item {
+.bd-header .navbar-nav li.nav-item {
   padding-left: 0.6rem;
 }
 
