@@ -1,6 +1,7 @@
 """
 This module provides a object that can handle a time range.
 """
+
 from datetime import timedelta
 
 import astropy.units as u

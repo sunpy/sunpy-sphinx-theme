@@ -1,6 +1,7 @@
 """
 SunPy Sphinx Theme.
 """
+
 import os
 from pathlib import Path
 from functools import partial
@@ -42,7 +43,11 @@ def default_navbar():
                 ("drms", "https://docs.sunpy.org/projects/drms/", 3),
                 ("pfsspy", "https://pfsspy.readthedocs.io/", 3),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
+                (
+                    "sunkit-instruments ",
+                    "https://docs.sunpy.org/projects/sunkit-instruments/",
+                    3,
+                ),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
                 ("sunpy-soar", "https://github.com/sunpy/sunpy-soar#readme", 3),
@@ -81,7 +86,11 @@ def update_config(app):
         theme_options["footer_links"] = [
             ("Code", "https://github.com/sunpy", 3),
             ("Forum", "https://community.openastronomy.org/c/sunpy", 3),
-            ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 3),
+            (
+                "Chat",
+                "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org",
+                3,
+            ),
         ]
 
     # TODO: This is nasty
