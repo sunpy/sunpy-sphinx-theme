@@ -236,22 +236,12 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
   color: var(--sst-accent-color-bright);
 }
 
-.theme-switch-button {
-  border: none;
-}
-
 html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   color: var(--pst-color-muted);
 }
 
 .theme-switch-button span {
   color: var(--sst-header-text);
-}
-
-.theme-switch-button:active,
-.theme-switch-button:hover {
-  background-color: var(--sst-accent-color-bright) !important;
-  border-color: var(--pst-color-on-background) !important;
 }
 
 .bd-header label.sidebar-toggle {
