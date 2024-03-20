@@ -1,18 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900");
 
 :root {
-  --pst-font-size-base: 17px;
-  --pst-sidebar-font-size: 1em;
-  --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
-  --pst-header-height: 3.5rem;
+  /* A lot of these colors we have inherited from pst however, I have copied them all */
+  /* in here to make it obvious which colors are in use, and to shield us from any */
+  /* upstream changes. */
+  --pst-color-danger: #d72d47;
+  --pst-color-info: #276be9;
+  --pst-color-success: #00843f;
+  --pst-color-text-base: #222832;
+  --pst-color-warning: #f66a0a;
+  --pst-foundation-black: #14181e;
+  --pst-foundation-white: #fff;
 
   /* SunPy Variables */
+  /* Override the default font config */
+  --pst-font-family-base: "Source Sans Pro", var(--pst-font-family-base-system);
+  --pst-font-size-base: 17px;
+  --pst-header-height: 3.5rem;
+  --pst-sidebar-font-size: 1em;
 
-  /* SunPy Logo Colors */
+  /* SunPy Colors */
   /* These should not be directly used */
+  --sst-sunpy-logo-gray: #444444;
   --sst-sunpy-logo-primary-color: #fe7900;
   --sst-sunpy-logo-secondary-color: #fed20b;
-  --sst-sunpy-logo-gray: #444444;
   --sst-sunpy-theme-orange: #bd5b00; /* A more accessible version of logo colour */
 
   /* SunPy Theme Colors */
@@ -22,43 +33,108 @@
   --sst-dark-color: var(--sst-sunpy-logo-gray);
   --sst-darker-color: #333333;
   --sst-darkest-color: #222222;
-  --sst-lightest-color: rgb(251, 251, 251);
-  --sst-lighter-color: rgb(231, 231, 231);
   --sst-light-color: rgb(206, 206, 206);
+  --sst-lighter-color: rgb(231, 231, 231);
+  --sst-lightest-color: rgb(251, 251, 251);
 
-  /* Component Colours */
+  /* Component Colors */
   /* If you add or change the names of these please update the docs */
+  --sst-footer-background-color: var(--sst-dark-color);
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
 
-  /* sphinx-design themeing */
+  /* sphinx-design theming */
   --sd-color-card-border-hover: var(--sst-accent-color-bright);
+
+  /* sphinx hover-ref theming */
+  /* Until https://github.com/readthedocs/sphinx-hoverxref/issues/231 is fixed */
+  --hoverxref-bg-color-dark: dimgray;
+  --hoverxref-bg-color-light: rgb(100, 99, 99);
+  /* dark means light-on-dark so fg-color-dark is a light color */
+  --hoverxref-fg-color-dark: white;
+  --hoverxref-fg-color-light: black;
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: var(--sst-darker-color);
-  --pst-color-secondary: var(--sst-accent-color-muted);
-  --pst-color-link: var(--sst-accent-color-muted);
+  /* A lot of these colors we have inherited from pst however, I have copied them all */
+  /* in here to make it obvious which colors are in use, and to shield us from any */
+  /* upstream changes. */
+  --pst-color-accent-bg: #f8dff5;
+  --pst-color-accent: var(--sst-accent-color-bright);
+  --pst-color-attention-bg: var(--pst-color-warning-bg);
+  --pst-color-attention: var(--pst-color-warning);
+  --pst-color-background: #fff;
+  --pst-color-border-muted: rgba(23, 23, 26, 0.2);
+  --pst-color-border: #d1d5da;
+  --pst-color-danger-bg: #f9e1e4;
+  --pst-color-heading-color: #fff;
+  --pst-color-info-bg: #dce7fc;
+  --pst-color-inline-code-links: #085d6c;
+  --pst-color-inline-code: #912583;
+  --pst-color-link-hover: var(--sst-accent-color-muted);
+  --pst-color-link: var(--sst-accent-color-bright);
+  --pst-color-on-background: #fff;
+  --pst-color-on-surface: #222832;
+  --pst-color-primary-bg: #d0ecf1;
+  --pst-color-primary: var(--sst-accent-color-bright);
+  --pst-color-secondary-bg: #e0c7ff;
+  --pst-color-secondary: var(--sst-accent-color-bright);
+  --pst-color-shadow: rgba(0, 0, 0, 0.1);
+  --pst-color-success-bg: #d6ece1;
+  --pst-color-surface: #f3f4f5;
+  --pst-color-target: #f3cf95;
+  --pst-color-text-muted: #48566b;
+  --pst-color-warning-bg: #f8e3d0;
+
   --sst-footer-background-color: var(--sst-lightest-color);
 }
 
 html[data-theme="dark"] {
-  /* Swap primary and secondary for dark theme */
-  --pst-color-secondary: var(--sst-darker-color);
-  --pst-color-primary: var(--sst-accent-color-bright);
+  /* A lot of these colors we have inherited from pst however, I have copied them all */
+  /* in here to make it obvious which colors are in use, and to shield us from any */
+  /* upstream changes. */
+  --pst-color-accent-bg: #46123f;
+  --pst-color-accent: var(--sst-accent-color-bright);
+  --pst-color-attention-bg: var(--pst-color-warning-bg);
+  --pst-color-attention: var(--pst-color-warning);
   --pst-color-background: var(--sst-darkest-color);
-  /* Make the text colours slightly lighter than default as we are using a lighter background */
-  --pst-color-text-base: var(--sst-lighter-color);
-  --pst-color-text-muted: var(--sst-lighter-color);
+  --pst-color-border-muted: #29313d;
+  --pst-color-border: #48566b;
+  --pst-color-danger-bg: #4e111b;
+  --pst-color-heading-color: #14181e;
+  --pst-color-info-bg: #06245d;
+  --pst-color-inline-code-links: var(--sst-accent-color-bright);
+  --pst-color-inline-code: #f3c7ee;
+  --pst-color-link-hover: var(--pst-color-secondary);
+  --pst-color-link: var(--sst-accent-color-bright);
+  --pst-color-on-background: #222832;
+  --pst-color-on-surface: #f3f4f5;
+  --pst-color-primary-bg: #042c33;
+  --pst-color-primary: var(--sst-accent-color-bright);
+  --pst-color-secondary-bg: #341a61;
+  --pst-color-secondary: var(--sst-accent-color-bright);
+  --pst-color-shadow: rgba(0, 0, 0, 0.2);
+  --pst-color-success-bg: #002f17;
+  --pst-color-surface: #29313d;
+  --pst-color-target: #675c04;
+  --pst-color-text-muted: #9ca4af;
+  --pst-color-warning-bg: #652a02;
 
-  --sst-header-background: var(--sst-darker-color);
   --sst-footer-background-color: var(--sst-darker-color);
-  --sg-thumb-box-shadow-color: var(--sst-dark-color);
-  --sd-color-secondary: var(--pst-color-primary);
 }
 
-/* sphinx-gallery themeing */
+/* sphinx hover-ref theming */
+/* Until https://github.com/readthedocs/sphinx-hoverxref/issues/231 is fixed */
+html[data-theme="dark"] .tooltipster-content {
+  background-color: var(--pst-color-background);
+}
+
+.hxr-hoverxref {
+  border-bottom: none;
+}
+
+/* sphinx-gallery Styling */
 :root,
 html,
 body {
@@ -70,6 +146,10 @@ body {
   --sg-download-a-hover-box-shadow-1: none;
   --sg-download-a-hover-box-shadow-2: none;
   --sg-thumb-hover-border: var(--sst-accent-color-bright);
+}
+
+.sphx-glr-download a > code {
+  color: var(--sg-download-a-color);
 }
 
 /* Global Styling */
@@ -101,7 +181,7 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
 }
 
 /* Top Nav */
-nav.bd-header {
+.bd-header {
   background-color: var(--sst-header-background) !important;
   border-bottom: 3px;
   border-bottom-color: var(--sst-accent-color-bright);
@@ -110,7 +190,7 @@ nav.bd-header {
   margin-bottom: -3px;
 }
 
-nav.bd-header nav.navbar-nav li.nav-item {
+.bd-header .navbar-nav li.nav-item {
   padding-left: 0.6rem;
 }
 
@@ -134,10 +214,6 @@ nav.bd-header nav.navbar-nav li.nav-item {
   color: var(--sst-accent-color-bright);
 }
 
-.theme-switch-button {
-  border: none;
-}
-
 html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   color: var(--pst-color-muted);
 }
@@ -146,13 +222,8 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   color: var(--sst-header-text);
 }
 
-.theme-switch-button:active,
-.theme-switch-button:hover {
-  background-color: var(--sst-accent-color-bright) !important;
-  border-color: var(--pst-color-on-background) !important;
-}
-
 .bd-header label.sidebar-toggle {
+  padding-bottom: 0;
   color: var(--sst-header-text);
 }
 
@@ -164,6 +235,11 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   margin-top: 0.85rem;
   border: 0;
   border-color: var(--sst-accent-color-bright);
+}
+
+/* Required to center the items in the bottom bar */
+.bd-header .navbar-header-items__start {
+  width: auto;
 }
 
 /* Sidebar */
@@ -214,6 +290,7 @@ img.logo__image {
 /* Footers */
 
 .bd-footer {
+  color: var(--pst-color-text-base);
   background-color: var(--sst-footer-background-color);
   width: 100%;
   border-top: none;
