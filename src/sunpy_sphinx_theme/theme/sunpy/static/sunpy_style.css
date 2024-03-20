@@ -96,7 +96,7 @@ html[data-theme="dark"] {
   --pst-color-accent: var(--sst-accent-color-bright);
   --pst-color-attention-bg: var(--pst-color-warning-bg);
   --pst-color-attention: var(--pst-color-warning);
-  --pst-color-background: #14181e;
+  --pst-color-background: var(--sst-darkest-color);
   --pst-color-border-muted: #29313d;
   --pst-color-border: #48566b;
   --pst-color-danger-bg: #4e111b;
