@@ -86,6 +86,8 @@ html[data-theme="light"] {
   --pst-color-target: #f3cf95;
   --pst-color-text-muted: #48566b;
   --pst-color-warning-bg: #f8e3d0;
+
+  --sst-footer-background-color: var(--sst-lightest-color);
 }
 
 html[data-theme="dark"] {
@@ -118,6 +120,8 @@ html[data-theme="dark"] {
   --pst-color-target: #675c04;
   --pst-color-text-muted: #9ca4af;
   --pst-color-warning-bg: #652a02;
+
+  --sst-footer-background-color: var(--sst-darker-color);
 }
 
 /* sphinx hover-ref theming */
@@ -126,9 +130,6 @@ html[data-theme="dark"] .tooltipster-content {
   background-color: var(--pst-color-background);
 }
 
-html[data-theme="dark"] .bd-footer {
-  background-color: var(--pst-color-background);
-}
 
 /* sphinx-gallery Styling */
 :root,
