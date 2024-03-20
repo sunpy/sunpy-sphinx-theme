@@ -285,17 +285,10 @@ img.logo__image {
 /* Footers */
 
 .bd-footer {
+  color: var(--pst-color-text-base);
   background-color: var(--sst-footer-background-color);
   width: 100%;
   border-top: none;
-}
-
-.bd-footer p {
-  color: var(--sst-light-color);
-}
-
-.bd-footer span {
-  color: var(--sst-light-color);
 }
 
 /* Override the default start and end from pst here so we make it the same as our new center */
