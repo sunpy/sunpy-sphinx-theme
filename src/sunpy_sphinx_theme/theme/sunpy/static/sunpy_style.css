@@ -130,6 +130,9 @@ html[data-theme="dark"] .tooltipster-content {
   background-color: var(--pst-color-background);
 }
 
+.hxr-hoverxref {
+  border-bottom: none;
+}
 
 /* sphinx-gallery Styling */
 :root,
