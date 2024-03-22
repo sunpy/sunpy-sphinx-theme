@@ -82,7 +82,7 @@ html[data-theme="light"] {
   --pst-color-secondary: var(--sst-accent-color-bright);
   --pst-color-shadow: rgba(0, 0, 0, 0.1);
   --pst-color-success-bg: #d6ece1;
-  --pst-color-surface: #f3f4f5;
+  --pst-color-surface: var(--sst-lightest-color);
   --pst-color-target: #f3cf95;
   --pst-color-text-muted: #48566b;
   --pst-color-warning-bg: #f8e3d0;
@@ -116,7 +116,7 @@ html[data-theme="dark"] {
   --pst-color-secondary: var(--sst-accent-color-bright);
   --pst-color-shadow: rgba(0, 0, 0, 0.2);
   --pst-color-success-bg: #002f17;
-  --pst-color-surface: #29313d;
+  --pst-color-surface: var(--sst-darker-color);
   --pst-color-target: #675c04;
   --pst-color-text-muted: #9ca4af;
   --pst-color-warning-bg: #652a02;
