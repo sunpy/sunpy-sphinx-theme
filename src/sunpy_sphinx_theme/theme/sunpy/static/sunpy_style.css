@@ -301,6 +301,10 @@ img.logo__image {
   border: 2px solid var(--pst-color-accent);
 }
 
+.search-button-field {
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
 html[data-theme="light"] .search-button-field:hover {
   background-color: var(--sst-light-color);
 }
