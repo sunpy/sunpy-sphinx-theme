@@ -287,6 +287,28 @@ img.logo__image {
   min-height: 1rem;
 }
 
+/* Search Box */
+.search-button__wrapper.show input {
+  border: none;
+}
+
+.form-control:focus,
+.form-control:focus-visible {
+  outline: none;
+}
+
+.search-button__wrapper.show form.bd-search:focus-within {
+  border: 2px solid var(--pst-color-accent);
+}
+
+html[data-theme="light"] .search-button-field:hover {
+  background-color: var(--sst-light-color);
+}
+
+.search-button-field:hover {
+  background-color: var(--pst-color-background);
+}
+
 /* Footers */
 
 .bd-footer {
