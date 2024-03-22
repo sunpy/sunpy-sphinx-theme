@@ -281,14 +281,33 @@ img.logo__image {
   color: var(--pst-color-primary);
 }
 
+/* Hide the search bar in the flyout */
+.rst-other-versions dl:has(form#flyout-search-form) {
+  display: none;
+}
+
+/* Reduce the margin at the end */
+.rst-versions .rst-other-versions hr {
+  margin: 5px 0;
+  border-top-color: var(--pst-color-border);
+}
+
 /* Bizzarely having a minimum height here fixes the permanent appearance of the */
 /* sidebar scrollbar */
 #rtd-footer-container {
   min-height: 1rem;
 }
 
+/* Revert the flyout footer to the RTD font size */
+.rst-versions small {
+  font-size: 90%;
+}
+
 /* Search Box */
 .search-button__wrapper.show input {
+  border: none;
+}
+.form-control {
   border: none;
 }
 
@@ -297,7 +316,7 @@ img.logo__image {
   outline: none;
 }
 
-.search-button__wrapper.show form.bd-search:focus-within {
+form.bd-search:focus-within {
   border: 2px solid var(--pst-color-accent);
 }
 
