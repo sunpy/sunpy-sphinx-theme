@@ -73,7 +73,10 @@ html_theme_options = {
     "footer_links": [
         ("Google", "https://google.com", 3),
         ("DDG", "https://duckduckgo.com", 3),
-    ]
+    ],
+    "external_links": [
+        {"name": "Python", "url": "https://www.python.org/"},
+    ],
 }
 graphviz_output_format = "svg"
 graphviz_dot_args = [
