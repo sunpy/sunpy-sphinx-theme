@@ -232,7 +232,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   --bs-dropdown-border-radius: 0rem;
   background-color: var(--sst-header-background);
   box-shadow: none;
-  margin-top: 0.85rem;
+  margin-top: 0.86rem;
   border: 0;
   border-color: var(--sst-accent-color-bright);
 }
