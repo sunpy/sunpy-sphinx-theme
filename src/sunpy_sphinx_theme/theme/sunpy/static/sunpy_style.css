@@ -305,7 +305,7 @@ html[data-theme="light"] .search-button-field:hover {
   background-color: var(--sst-light-color);
 }
 
-.search-button-field:hover {
+html[data-theme="dark"] .search-button-field:hover {
   background-color: var(--pst-color-background);
 }
 
