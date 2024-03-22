@@ -29,5 +29,10 @@
         {% endif %}
       {%- endfor %}
     {% endif %}
+    {% if theme_external_links %}
+      {%- for external_link in theme_external_links %}
+          <li class="nav-item ms-2"><a class="nav-link nav-external" role="button" href="{{ external_link['url'] }}">{{ external_link['name'] }}</a></li>
+      {%- endfor %}
+    {% endif %}
   </ul>
 </nav>

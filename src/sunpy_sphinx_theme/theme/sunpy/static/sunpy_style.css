@@ -39,7 +39,7 @@
 
   /* Component Colors */
   /* If you add or change the names of these please update the docs */
-  --sst-footer-background-color: var(--sst-dark-color);
+  --sst-footer-background-color: var(--sst-lightest-color);
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
@@ -82,7 +82,7 @@ html[data-theme="light"] {
   --pst-color-secondary: var(--sst-accent-color-bright);
   --pst-color-shadow: rgba(0, 0, 0, 0.1);
   --pst-color-success-bg: #d6ece1;
-  --pst-color-surface: #f3f4f5;
+  --pst-color-surface: var(--sst-lightest-color);
   --pst-color-target: #f3cf95;
   --pst-color-text-muted: #48566b;
   --pst-color-warning-bg: #f8e3d0;
@@ -116,7 +116,7 @@ html[data-theme="dark"] {
   --pst-color-secondary: var(--sst-accent-color-bright);
   --pst-color-shadow: rgba(0, 0, 0, 0.2);
   --pst-color-success-bg: #002f17;
-  --pst-color-surface: #29313d;
+  --pst-color-surface: var(--sst-darker-color);
   --pst-color-target: #675c04;
   --pst-color-text-muted: #9ca4af;
   --pst-color-warning-bg: #652a02;
@@ -232,7 +232,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   --bs-dropdown-border-radius: 0rem;
   background-color: var(--sst-header-background);
   box-shadow: none;
-  margin-top: 0.85rem;
+  margin-top: 0.86rem;
   border: 0;
   border-color: var(--sst-accent-color-bright);
 }
@@ -281,10 +281,55 @@ img.logo__image {
   color: var(--pst-color-primary);
 }
 
+/* Hide the search bar in the flyout */
+.rst-other-versions dl:has(form#flyout-search-form) {
+  display: none;
+}
+
+/* Reduce the margin at the end */
+.rst-versions .rst-other-versions hr {
+  margin: 5px 0;
+  border-top-color: var(--pst-color-border);
+}
+
 /* Bizzarely having a minimum height here fixes the permanent appearance of the */
 /* sidebar scrollbar */
 #rtd-footer-container {
   min-height: 1rem;
+}
+
+/* Revert the flyout footer to the RTD font size */
+.rst-versions small {
+  font-size: 90%;
+}
+
+/* Search Box */
+.search-button__wrapper.show input {
+  border: none;
+}
+.form-control {
+  border: none;
+}
+
+.form-control:focus,
+.form-control:focus-visible {
+  outline: none;
+}
+
+form.bd-search:focus-within {
+  border: 2px solid var(--pst-color-accent);
+}
+
+.search-button-field {
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+html[data-theme="light"] .search-button-field:hover {
+  background-color: var(--sst-light-color);
+}
+
+html[data-theme="dark"] .search-button-field:hover {
+  background-color: var(--sst-darkest-color);
 }
 
 /* Footers */
