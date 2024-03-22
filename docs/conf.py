@@ -68,6 +68,13 @@ intersphinx_mapping = {
     "reproject": ("https://reproject.readthedocs.io/en/stable/", None),
 }
 html_theme = "sunpy"
+
+html_theme_options = {
+    "footer_links": [
+        ("Google", "https://google.com", 3),
+        ("DDG", "https://duckduckgo.com", 3),
+    ]
+}
 graphviz_output_format = "svg"
 graphviz_dot_args = [
     "-Nfontsize=10",
