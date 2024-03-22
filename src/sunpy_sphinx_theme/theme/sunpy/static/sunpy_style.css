@@ -39,7 +39,7 @@
 
   /* Component Colors */
   /* If you add or change the names of these please update the docs */
-  --sst-footer-background-color: var(--sst-dark-color);
+  --sst-footer-background-color: var(--sst-lightest-color);
   --sst-header-background: var(--sst-dark-color);
   --sst-header-text: var(--sst-lighter-color);
   --sst-sidebar-background-color: var(--pst-color-background);
@@ -329,7 +329,7 @@ html[data-theme="light"] .search-button-field:hover {
 }
 
 html[data-theme="dark"] .search-button-field:hover {
-  background-color: var(--pst-color-background);
+  background-color: var(--sst-darkest-color);
 }
 
 /* Footers */
