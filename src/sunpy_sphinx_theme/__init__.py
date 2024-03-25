@@ -46,7 +46,7 @@ def default_navbar():
                 ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
-                ("sunpy-soar", "https://github.com/sunpy/sunpy-soar#readme", 3),
+                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
                 ("demcmc", "https://demcmc.readthedocs.io/en/latest/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
