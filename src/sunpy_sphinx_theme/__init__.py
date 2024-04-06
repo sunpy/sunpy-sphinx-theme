@@ -140,6 +140,24 @@ def setup(app: Sphinx):
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
 
+    # Conditionally include goat counter js
+    # We can't do this in update_config as that causes the scripts to be duplicated.
+    theme_options = utils.get_theme_options_dict(app)
+    if theme_options.get("goatcounter_analytics_url"):
+        app.add_js_file(
+            None,
+            body="""
+            window.goatcounter = {
+                path: function(p) { return location.host + p }
+            }
+            """,
+        )
+        app.add_js_file(
+            "https://gc.zgo.at/count.js",
+            loading_method="async",
+            **{"data-goatcounter": theme_options["goatcounter_analytics_url"]},
+        )
+
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,
