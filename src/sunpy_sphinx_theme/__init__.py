@@ -143,7 +143,7 @@ def setup(app: Sphinx):
     # Conditionally include goat counter js
     # We can't do this in update_config as that causes the scripts to be duplicated.
     theme_options = utils.get_theme_options_dict(app)
-    if theme_options.get("goatcounter_analytics_url"):
+    if theme_options.get("goatcounter_analytics_url", "https://sunpy.goatcounter.com/count"):
         root_domain = (
             theme_options.get("sst_site_root", "https://sunpy.org").removeprefix("https://").removeprefix("http://")
         )
