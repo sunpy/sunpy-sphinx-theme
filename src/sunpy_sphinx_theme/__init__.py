@@ -142,11 +142,15 @@ def setup(app: Sphinx):
 
     # Conditionally include goat counter js
     # We can't do this in update_config as that causes the scripts to be duplicated.
+    # Also in here none of the theme defaults have be applied by `update_config`
+    # TODO: Improve this mess
     theme_options = utils.get_theme_options_dict(app)
-    if theme_options.get("goatcounter_analytics_url", "https://sunpy.goatcounter.com/count"):
-        root_domain = (
-            theme_options.get("sst_site_root", "https://sunpy.org").removeprefix("https://").removeprefix("http://")
-        )
+    # We want to default to the sunpy goat counter only if the sst_site_root is sunpy.org
+    root_domain = theme_options.get("sst_site_root", "https://sunpy.org")
+    sunpy_goat_url = "https://sunpy.goatcounter.com/count"
+    default_goat_url = sunpy_goat_url if root_domain == "https://sunpy.org" else None
+    if theme_options.get("goatcounter_analytics_url", default_goat_url):
+        root_domain = root_domain.removeprefix("https://").removeprefix("http://")
         default_endpoint = theme_options.get("goatcounter_non_domain_endpoint", False)
         if default_endpoint is False:
             default_endpoint = ""
