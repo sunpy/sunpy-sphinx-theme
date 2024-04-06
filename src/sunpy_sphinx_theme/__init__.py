@@ -149,7 +149,7 @@ def setup(app: Sphinx):
     root_domain = theme_options.get("sst_site_root", "https://sunpy.org")
     sunpy_goat_url = "https://sunpy.goatcounter.com/count"
     default_goat_url = sunpy_goat_url if root_domain == "https://sunpy.org" else None
-    if theme_options.get("goatcounter_analytics_url", default_goat_url):
+    if primary_goat_url := theme_options.get("goatcounter_analytics_url", default_goat_url):
         root_domain = root_domain.removeprefix("https://").removeprefix("http://")
         default_endpoint = theme_options.get("goatcounter_non_domain_endpoint", False)
         if default_endpoint is False:
@@ -159,7 +159,7 @@ def setup(app: Sphinx):
             body=f"""
             var endpoint = '{default_endpoint}';
             if (location.hostname.endsWith('{root_domain}')) {{
-                endpoint = '{theme_options["goatcounter_analytics_url"]}'
+                endpoint = '{primary_goat_url}'
             }}
 
             window.goatcounter = {{
