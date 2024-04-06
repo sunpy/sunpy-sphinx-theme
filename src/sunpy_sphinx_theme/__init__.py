@@ -144,18 +144,31 @@ def setup(app: Sphinx):
     # We can't do this in update_config as that causes the scripts to be duplicated.
     theme_options = utils.get_theme_options_dict(app)
     if theme_options.get("goatcounter_analytics_url"):
+        root_domain = (
+            theme_options.get("sst_site_root", "https://sunpy.org").removeprefix("https://").removeprefix("http://")
+        )
+        default_endpoint = theme_options.get(
+            "goatcounter_non_domain_endpoint", theme_options["goatcounter_analytics_url"]
+        )
+        if default_endpoint is False:
+            default_endpoint = ""
         app.add_js_file(
             None,
-            body="""
-            window.goatcounter = {
-                path: function(p) { return location.host + p }
-            }
+            body=f"""
+            var endpoint = '{default_endpoint}';
+            if (location.hostname.endsWith('{root_domain}')) {{
+                endpoint = '{theme_options["goatcounter_analytics_url"]}'
+            }}
+
+            window.goatcounter = {{
+                endpoint: endpoint,
+                path: function(p) {{ return location.host + p }}
+            }}
             """,
         )
         app.add_js_file(
             "https://gc.zgo.at/count.js",
             loading_method="async",
-            **{"data-goatcounter": theme_options["goatcounter_analytics_url"]},
         )
 
     return {
