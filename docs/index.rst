@@ -15,6 +15,7 @@ The core changes between this theme and the `pydata-sphinx-theme` are:
 * Add links to the header bar which are specified as theme config variables, with defaults for sunpy.org.
 * Add a center element to the footer bar.
 * Restyled the theme for SunPy colors.
+* Added optional support for analytics though `goatcounter.com <https://www.goatcounter.com/>`__ which defaults to on for sunpy.org domains.
 
 .. grid:: 1 2 2 2
    :gutter: 3

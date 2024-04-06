@@ -77,6 +77,7 @@ html_theme_options = {
     "external_links": [
         {"name": "Python", "url": "https://www.python.org/"},
     ],
+    "goatcounter_non_domain_endpoint": "https://sunpy-testing.goatcounter.com/count",
 }
 graphviz_output_format = "svg"
 graphviz_dot_args = [

@@ -140,6 +140,39 @@ def setup(app: Sphinx):
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
 
+    # Conditionally include goat counter js
+    # We can't do this in update_config as that causes the scripts to be duplicated.
+    # Also in here none of the theme defaults have be applied by `update_config`
+    # TODO: Improve this mess
+    theme_options = utils.get_theme_options_dict(app)
+    # We want to default to the sunpy goat counter only if the sst_site_root is sunpy.org
+    root_domain = theme_options.get("sst_site_root", "https://sunpy.org")
+    sunpy_goat_url = "https://sunpy.goatcounter.com/count"
+    default_goat_url = sunpy_goat_url if root_domain == "https://sunpy.org" else None
+    if primary_goat_url := theme_options.get("goatcounter_analytics_url", default_goat_url):
+        root_domain = root_domain.removeprefix("https://").removeprefix("http://")
+        default_endpoint = theme_options.get("goatcounter_non_domain_endpoint", False)
+        if default_endpoint is False:
+            default_endpoint = ""
+        app.add_js_file(
+            None,
+            body=f"""
+            var endpoint = '{default_endpoint}';
+            if (location.hostname.endsWith('{root_domain}')) {{
+                endpoint = '{primary_goat_url}'
+            }}
+
+            window.goatcounter = {{
+                endpoint: endpoint,
+                path: function(p) {{ return location.host + p }}
+            }}
+            """,
+        )
+        app.add_js_file(
+            "https://gc.zgo.at/count.js",
+            loading_method="async",
+        )
+
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,
