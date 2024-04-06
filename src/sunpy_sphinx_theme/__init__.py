@@ -147,9 +147,7 @@ def setup(app: Sphinx):
         root_domain = (
             theme_options.get("sst_site_root", "https://sunpy.org").removeprefix("https://").removeprefix("http://")
         )
-        default_endpoint = theme_options.get(
-            "goatcounter_non_domain_endpoint", theme_options["goatcounter_analytics_url"]
-        )
+        default_endpoint = theme_options.get("goatcounter_non_domain_endpoint", False)
         if default_endpoint is False:
             default_endpoint = ""
         app.add_js_file(
