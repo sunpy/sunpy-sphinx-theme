@@ -26,12 +26,12 @@ def default_navbar():
         (
             "About",
             [
-                ("Our Mission", "about/index", 2),
-                ("SunPy Project", "about/project", 2),
-                ("Presentations", "about/presentations", 2),
-                ("Community Roles", "about/roles", 2),
-                ("Meetings", "about/meetings", 2),
-                ("Code of Conduct", "coc", 2),
+                ("Our Mission", "about/index/", 2),
+                ("SunPy Project", "about/project/", 2),
+                ("Presentations", "about/presentations/", 2),
+                ("Community Roles", "about/roles/", 2),
+                ("Meetings", "about/meetings/", 2),
+                ("Code of Conduct", "coc/", 2),
             ],
         ),
         (
@@ -52,10 +52,10 @@ def default_navbar():
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
             ],
         ),
-        ("Affiliated Packages", "affiliated", 2),
-        ("Get Help", "help", 2),
-        ("Contribute", "contribute", 2),
-        ("Blog", "blog", 2),
+        ("Affiliated Packages", "affiliated/", 2),
+        ("Get Help", "help/", 2),
+        ("Contribute", "contribute/", 2),
+        ("Blog", "blog/", 2),
     ]
 
 
