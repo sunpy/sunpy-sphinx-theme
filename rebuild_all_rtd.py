@@ -9,8 +9,9 @@ import requests
 
 ORG_PROJECT = "sunpy"
 BASE_URL = "https://readthedocs.org/api/v3/projects/"
-HEADERS = {"Authorization": f"Token {os.environ["RTD_AUTH_TOKEN"]}"}
-WEBSITE_PROJECT = "sunpy.org"
+HEADERS = {"Authorization": f"Token {os.environ['RTD_AUTH_TOKEN']}"}
+# RTD removes the full stop from the project slug
+WEBSITE_PROJECT = "sunpyorg"
 
 
 def get_active_versions(project):
