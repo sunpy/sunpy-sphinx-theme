@@ -44,6 +44,6 @@ def rebuild_all_versions_for_project(project):
 
 
 if __name__ == "__main__":
-    projects = [ORG_PROJECT, *get_all_subprojects(ORG_PROJECT), *WEBSITE_PROJECT]
+    projects = [ORG_PROJECT, *get_all_subprojects(ORG_PROJECT), WEBSITE_PROJECT]
     for project in projects:
         rebuild_all_versions_for_project(project)
