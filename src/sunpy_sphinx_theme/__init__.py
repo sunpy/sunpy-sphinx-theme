@@ -26,7 +26,7 @@ def default_navbar():
         (
             "About",
             [
-                ("Our Mission", "about/index.html", 2),
+                ("Our Mission", "about/index/", 2),
                 ("SunPy Project", "about/project/", 2),
                 ("Presentations", "about/presentations/", 2),
                 ("Community Roles", "about/roles/", 2),
