@@ -40,11 +40,11 @@ class TimeRange:
     Examples
     --------
     >>> from sunpy.time import TimeRange
-    >>> time_range = TimeRange('2010/03/04 00:10', '2010/03/04 00:20')
-    >>> time_range = TimeRange(('2010/03/04 00:10', '2010/03/04 00:20'))
+    >>> time_range = TimeRange("2010/03/04 00:10", "2010/03/04 00:20")
+    >>> time_range = TimeRange(("2010/03/04 00:10", "2010/03/04 00:20"))
     >>> import astropy.units as u
-    >>> time_range = TimeRange('2010/03/04 00:10', 400 * u.s)
-    >>> TimeRange('2010/03/04 00:10', 400 * u.day)
+    >>> time_range = TimeRange("2010/03/04 00:10", 400 * u.s)
+    >>> TimeRange("2010/03/04 00:10", 400 * u.day)
        <sunpy.time.timerange.TimeRange object at ...>
         Start: 2010-03-04 00:10:00
         End:   2011-04-08 00:10:00
@@ -56,7 +56,7 @@ class TimeRange:
     <BLANKLINE>
     """
 
-    def __init__(self, a, b=None, format=None):
+    def __init__(self, a, b=None, format=None):  # NOQA: A002
         # If a is a TimeRange object, copy attributes to new instance.
         self._t1 = None
         self._t2 = None
@@ -69,9 +69,9 @@ class TimeRange:
         if b is None:
             x = parse_time(a[0], format=format)
             if len(a) != 2:
-                raise ValueError("If b is None a must have two elements")
-            else:
-                y = a[1]
+                msg = "If b is None a must have two elements"
+                raise ValueError(msg)
+            y = a[1]
         else:
             x = parse_time(a, format=format)
             y = b
@@ -248,7 +248,7 @@ class TimeRange:
         fully_qualified_name = f"{self.__class__.__module__}.{self.__class__.__name__}"
 
         return (
-            "   <{} object at {}>".format(fully_qualified_name, hex(id(self)))
+            f"   <{fully_qualified_name} object at {hex(id(self))}>"
             + "\n    Start:".ljust(12)
             + t1
             + "\n    End:".ljust(12)
@@ -286,7 +286,8 @@ class TimeRange:
             A list of equally sized `sunpy.time.TimeRange` between the start and end times.
         """
         if n <= 0:
-            raise ValueError("n must be greater than or equal to 1")
+            msg = "n must be greater than or equal to 1"
+            raise ValueError(msg)
         subsections = []
         previous_time = self.start
         next_time = None
@@ -319,8 +320,8 @@ class TimeRange:
         --------
         >>> import astropy.units as u
         >>> from sunpy.time import TimeRange
-        >>> time_range = TimeRange('2010/03/04 00:10', '2010/03/04 01:20')
-        >>> time_range.window(60*60*u.s, window=12*u.s)   # doctest:  +SKIP
+        >>> time_range = TimeRange("2010/03/04 00:10", "2010/03/04 01:20")
+        >>> time_range.window(60 * 60 * u.s, window=12 * u.s)  # doctest:  +SKIP
         [   <sunpy.time.timerange.TimeRange object at 0x7f0214bfc208>
             Start: 2010-03-04 00:10:00
             End:   2010-03-04 00:10:12
@@ -403,11 +404,9 @@ class TimeRange:
         """
         Return all partial days contained within the time range.
         """
-        dates = []
-        dates = [
+        return [
             parse_time(self.start.strftime("%Y-%m-%d")) + TimeDelta(i * u.day) for i in range(int(self.days.value) + 1)
         ]
-        return dates
 
     @add_common_docstring(**_variables_for_parse_time_docstring())
     def __contains__(self, time):
@@ -430,9 +429,9 @@ class TimeRange:
         Examples
         --------
         >>> from sunpy.time import TimeRange
-        >>> time1 = '2014/5/5 12:11'
-        >>> time2 = '2012/5/5 12:11'
-        >>> time_range = TimeRange('2014/05/04 13:54', '2018/02/03 12:12')
+        >>> time1 = "2014/5/5 12:11"
+        >>> time2 = "2012/5/5 12:11"
+        >>> time_range = TimeRange("2014/05/04 13:54", "2018/02/03 12:12")
         >>> time1 in time_range
         True
         >>> time2 in time_range

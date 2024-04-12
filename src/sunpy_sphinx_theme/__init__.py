@@ -3,8 +3,8 @@ SunPy Sphinx Theme.
 """
 
 import os
-from pathlib import Path
 from functools import partial
+from pathlib import Path
 from urllib.parse import urljoin
 
 from pydata_sphinx_theme import utils
@@ -87,11 +87,11 @@ def update_config(app):
 
     # TODO: This is nasty
     # Set the default value of show_source to False unless it's specified in the user config
-    if "html_show_sourcelink" not in app.config._raw_config:
+    if "html_show_sourcelink" not in app.config._raw_config:  # NOQA: SLF001
         app.config.html_show_sourcelink = False
 
     # Set the logo to the sunpy logo unless it's overridden in the user config
-    if "html_logo" not in app.config._raw_config:
+    if "html_logo" not in app.config._raw_config:  # NOQA: SLF001
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
 
@@ -111,7 +111,7 @@ def sst_pathto(context, document, relative_to=0):
     """
     if relative_to == 0:
         return context["pathto"](document)
-    elif relative_to == 1:
+    elif relative_to == 1:  # NOQA: RET505
         return context["pathto"](document, 1)
     elif relative_to == 2:
         if context.get("theme_sst_is_root", False):
@@ -120,10 +120,11 @@ def sst_pathto(context, document, relative_to=0):
     elif relative_to == 3:
         return document
     else:
-        raise ValueError("The third element of a link tuple must be 1, 2 or 3")
+        msg = "The third element of a link tuple must be 1, 2 or 3"
+        raise ValueError(msg)
 
 
-def update_html_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:
+def update_html_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:  # NOQA: ARG001
     """
     Set extra things to use in jinja templates.
     """

@@ -84,7 +84,8 @@ class Animal:
         * `A URL. <www.sunpy.org>`__
         """
         if self.sound is None and sound is None:
-            raise NotImplementedError("Silent Animals are not supported!")
+            msg = "Silent Animals are not supported!"
+            raise NotImplementedError(msg)
 
         out_sound = self.sound if sound is None else sound
         print(self.says_str.format(name=self.name, sound=out_sound))

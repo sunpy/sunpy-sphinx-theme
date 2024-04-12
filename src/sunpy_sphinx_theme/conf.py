@@ -4,9 +4,9 @@ now been moved into the theme itself or can be imported from the main namespace
 of the theme.
 """
 
-from sunpy_sphinx_theme import ON_RTD as on_rtd  # noqa
-from sunpy_sphinx_theme import PNG_ICON as png_icon  # noqa
-from sunpy_sphinx_theme import SVG_ICON as svg_icon  # noqa
+from sunpy_sphinx_theme import ON_RTD as on_rtd
+from sunpy_sphinx_theme import PNG_ICON as png_icon
+from sunpy_sphinx_theme import SVG_ICON as svg_icon
 from sunpy_sphinx_theme import get_html_theme_path
 
 __all__ = [
