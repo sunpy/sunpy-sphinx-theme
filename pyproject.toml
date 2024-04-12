@@ -47,23 +47,6 @@ include-package-data = true
 
 [tool.setuptools_scm]
 
-[tool.black]
-line-length = 120
-target-version = ["py39"]
-include = '\.pyi?$'
-exclude = '''
-/(
-  \.eggs
-  | \.git
-  | \.tox
-  | \.venv
-  | _build
-  | build
-  | dist
-  | \.history
-)/
-'''
-
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]
     enabled = false
@@ -77,16 +60,3 @@ exclude = '''
     url = "sunpy/docs/_build/html/index.html"
     message = "sunpy docs preview"
     report_on_fail = true
-
-[tool.isort]
-  profile = "black"
-  balanced_wrapping = true
-  default_section = "THIRDPARTY"
-  include_trailing_comma = true
-  known_first_party = "sunpy_sphinx_theme"
-  length_sort = false
-  length_sort_sections = "stdlib"
-  line_length = 110
-  multi_line_output = 3
-  no_lines_before = "LOCALFOLDER"
-  sections = "STDLIB, THIRDPARTY, FIRSTPARTY, LOCALFOLDER"

@@ -2,18 +2,22 @@
 Configuration file for the Sphinx documentation builder.
 """
 
+import datetime
 import os
 import sys
-import datetime
 from pathlib import Path
 
 from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
-
 from sunpy_sphinx_theme import SVG_ICON
 
-project = "Test Package"
-author = "The Test Package Community"
-copyright = f"{datetime.datetime.now().year}, {author}"
+# Add the test package to the path so we can import it for automodapi
+sys.path.append(Path().absolute().as_posix())
+# This serves as a check
+import test_package  # NOQA: F401
+
+project = "sunpy-sphinx-theme test docs"
+author = "The SunPy Community"
+copyright = f"{datetime.datetime.now(datetime.UTC).year}, {author}"  # NOQA: A001
 extensions = [
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
@@ -32,11 +36,6 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
 ]
-
-# Add the test package to the path so we can import it for automodapi
-sys.path.append(Path(".").absolute().as_posix())
-import test_package  # NOQA - Test package must be on the path
-
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 source_suffix = ".rst"
 master_doc = "index"
@@ -68,7 +67,6 @@ intersphinx_mapping = {
     "reproject": ("https://reproject.readthedocs.io/en/stable/", None),
 }
 html_theme = "sunpy"
-
 html_theme_options = {
     "footer_links": [
         ("Google", "https://google.com", 3),
@@ -90,14 +88,14 @@ graphviz_dot_args = [
 ]
 sphinx_gallery_conf = {
     "filename_pattern": "^((?!skip_).)*$",
-    "examples_dirs": os.path.join("..", "examples"),
+    "examples_dirs": str(Path("..") / Path("examples")),
     "subsection_order": ExplicitOrder(
         [
             "../examples/section",
         ]
     ),
     "within_subsection_order": ExampleTitleSortKey,
-    "gallery_dirs": os.path.join("generated", "gallery"),
+    "gallery_dirs": str(Path("generated") / Path("gallery")),
     "default_thumb_file": SVG_ICON,
     "abort_on_example_error": False,
     "plot_gallery": "True",

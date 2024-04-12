@@ -12,18 +12,18 @@ jobs:
   website:
     resource_class: large
     docker:
-      - image: cimg/python:3.11
+      - image: cimg/python:3.12
     steps:
       - checkout
       - run: *apt-install
       - run: *tox
-      - run: python -m tox -e website -- -j 4
+      - run: python -m tox -e website -- -j 8
       - store_artifacts:
           path: .tmp/website/sunpy.org/_build/html
   sunpy:
     resource_class: large
     docker:
-      - image: cimg/python:3.11
+      - image: cimg/python:3.12
     steps:
       - checkout
       - run: *apt-install
@@ -31,7 +31,7 @@ jobs:
       # Needed to install mplcairo
       - run: sudo apt install libcairo2-dev pkg-config
       # the large resource_class has 4 CPUs but auto detection does not work
-      - run: python -m tox -e sunpy_docs -- -j 4
+      - run: python -m tox -e sunpy_docs -- -j 8
       # Remove some parts of the build to speed up upload
       - run: rm -r .tmp/sunpy_docs/sunpy/docs/_build/html/.doctrees
       - run: rm -r .tmp/sunpy_docs/sunpy/docs/_build/html/_downloads
