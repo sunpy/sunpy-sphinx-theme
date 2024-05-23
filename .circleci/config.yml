@@ -38,6 +38,24 @@ jobs:
       - run: rm -r .tmp/sunpy_docs/sunpy/docs/_build/html/_sources
       - store_artifacts:
           path: .tmp/sunpy_docs/sunpy/docs/_build/html
+  sunpy-devdeps:
+    resource_class: large
+    docker:
+      - image: cimg/python:3.12
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *tox
+      # Needed to install mplcairo
+      - run: sudo apt install libcairo2-dev pkg-config
+      # the large resource_class has 4 CPUs but auto detection does not work
+      - run: python -m tox -e sunpy_docs-devdeps -- -j 8
+      # Remove some parts of the build to speed up upload
+      - run: rm -r .tmp/sunpy_docs-devdeps/sunpy/docs/_build/html/.doctrees
+      - run: rm -r .tmp/sunpy_docs-devdeps/sunpy/docs/_build/html/_downloads
+      - run: rm -r .tmp/sunpy_docs-devdeps/sunpy/docs/_build/html/_sources
+      - store_artifacts:
+          path: .tmp/sunpy_docs-devdeps/sunpy/docs/_build/html
   css_linting:
     resource_class: small
     docker:
@@ -54,3 +72,4 @@ workflows:
       - css_linting
       - sunpy
       - website
+      - sunpy-devdeps

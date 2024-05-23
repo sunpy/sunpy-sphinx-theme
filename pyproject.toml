@@ -56,7 +56,12 @@ include-package-data = true
     message = "SunPy website preview"
     report_on_fail = true
 
-  [ tool.gilesbot.circleci_artifacts.sunpydocs ]
-    url = "sunpy/docs/_build/html/index.html"
+  [ tool.gilesbot.circleci_artifacts.sunpy_docs ]
+    url = "sunpy_docs/sunpy/docs/_build/html/index.html"
     message = "sunpy docs preview"
+    report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.sunpy_docs-devdeps ]
+    url = "sunpy_docs-devdeps/sunpy/docs/_build/html/index.html"
+    message = "sunpy docs with devdeps preview"
     report_on_fail = true
