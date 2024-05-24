@@ -9,4 +9,4 @@ jobs:
       - name: Lighthouse
         uses: foo-software/lighthouse-check-action@master
         with:
-          urls: "https://docs.sunpy.org/en/stable/"
+          urls: "https://docs.sunpy.org/en/stable/,https://docs.sunpy.org/projects/sunpy-sphinx-theme/latest/"

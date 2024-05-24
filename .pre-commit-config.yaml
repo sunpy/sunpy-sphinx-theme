@@ -41,8 +41,7 @@ repos:
       - id: mixed-line-ending
         args: ["--fix=lf"]
       - id: trailing-whitespace
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.3.0
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.21.0
     hooks:
-      - id: codespell
-        args: ["--write-changes"]
+      - id: typos
