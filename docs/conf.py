@@ -7,7 +7,7 @@ import os
 import sys
 from pathlib import Path
 
-from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
+from sphinx_gallery.sorting import ExplicitOrder
 from sunpy_sphinx_theme import SVG_ICON
 
 # Add the test package to the path so we can import it for automodapi
@@ -94,7 +94,7 @@ sphinx_gallery_conf = {
             "../examples/section",
         ]
     ),
-    "within_subsection_order": ExampleTitleSortKey,
+    "within_subsection_order": "ExampleTitleSortKey",
     "gallery_dirs": str(Path("generated") / Path("gallery")),
     "default_thumb_file": SVG_ICON,
     "abort_on_example_error": False,
