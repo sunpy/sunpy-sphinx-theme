@@ -52,9 +52,9 @@ plt.ylabel("$y$")
 # time to introduce the next code block generates 2 separate figures.
 
 plt.figure()
-plt.imshow(z, cmap=plt.cm.get_cmap("hot"))
+plt.imshow(z, cmap=plt.get_cmap("hot"))
 plt.figure()
-plt.imshow(z, cmap=plt.cm.get_cmap("Spectral"), interpolation="none")
+plt.imshow(z, cmap=plt.get_cmap("Spectral"), interpolation="none")
 
 ##########################################################################
 # There's some subtle differences between rendered html rendered comment
