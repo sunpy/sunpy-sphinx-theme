@@ -41,7 +41,7 @@ def default_navbar():
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("pfsspy", "https://pfsspy.readthedocs.io/", 3),
+                ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
                 ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
