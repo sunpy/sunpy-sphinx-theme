@@ -194,9 +194,23 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
   padding-left: 0.6rem;
 }
 
+.bd-header ul.navbar-nav > li.nav-item.dropdown > .dropdown-toggle {
+  color: var(--sst-header-text);
+}
+
+.bd-header ul.navbar-nav > li.nav-item.dropdown > .dropdown-toggle:hover {
+  color: var(--sst-accent-color-bright);
+  box-shadow: none;
+}
+
+.bd-header ul.navbar-nav > li.nav-item > .nav-link {
+  color: var(--sst-header-text);
+}
+
 .bd-header .navbar-nav li a.nav-link {
   color: var(--sst-header-text);
 }
+
 .bd-header .navbar-nav li a.nav-link:focus,
 .bd-header .navbar-nav li a.nav-link:hover {
   color: var(--sst-accent-color-bright);
@@ -207,9 +221,14 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
   color: var(--sst-accent-color-bright);
 }
 
+html .pst-navbar-icon {
+  color: var(--sst-header-text);
+}
+
 .search-button {
   color: var(--sst-header-text);
 }
+
 .search-button:hover {
   color: var(--sst-accent-color-bright);
 }
@@ -235,6 +254,11 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   margin-top: 0.86rem;
   border: 0;
   border-color: var(--sst-accent-color-bright);
+}
+
+.bd-header ul.navbar-nav .dropdown .dropdown-menu {
+  background-color: var(--sst-header-background);
+  border: none;
 }
 
 /* Required to center the items in the bottom bar */
