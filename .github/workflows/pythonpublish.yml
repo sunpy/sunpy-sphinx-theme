@@ -32,5 +32,5 @@ jobs:
           RTD_AUTH_TOKEN: ${{ secrets.RTD_AUTH_TOKEN }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
-          python rebuild_all_rtd.py
+          python tools/rebuild_all_rtd.py
           http POST https://api.netlify.com/api/v1/sites/1ba3a6d4-f1ee-4524-bbec-3edc04720a48/builds "Authorization: Bearer $NETLIFY_AUTH_TOKEN"

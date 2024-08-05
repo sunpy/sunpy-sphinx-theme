@@ -56,7 +56,7 @@ class TimeRange:
     <BLANKLINE>
     """
 
-    def __init__(self, a, b=None, format=None):  # NOQA: A002
+    def __init__(self, a, b=None, format=None) -> None:  # NOQA: A002
         # If a is a TimeRange object, copy attributes to new instance.
         self._t1 = None
         self._t2 = None
@@ -238,7 +238,7 @@ class TimeRange:
 
         return NotImplemented
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Returns a human-readable representation of `sunpy.time.TimeRange`.
         """
@@ -385,7 +385,7 @@ class TimeRange:
 
         return self
 
-    def extend(self, dt_start, dt_end):
+    def extend(self, dt_start, dt_end) -> None:
         """
         Extend the time range forwards and backwards.
 
@@ -409,7 +409,7 @@ class TimeRange:
         ]
 
     @add_common_docstring(**_variables_for_parse_time_docstring())
-    def __contains__(self, time):
+    def __contains__(self, time) -> bool:
         """
         Checks whether the given time lies within this range. Both limits are
         inclusive (i.e., ``__contains__(t1)`` and ``__contains__(t2)`` always
