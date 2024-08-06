@@ -10,6 +10,8 @@ from urllib.parse import urljoin
 from pydata_sphinx_theme import utils
 from sphinx.application import Sphinx
 
+from .cards import Card, _Card, depart_card_node, visit_card_node
+
 __all__ = ["get_html_theme_path", "ON_RTD", "PNG_ICON", "SVG_ICON"]
 
 
@@ -61,7 +63,7 @@ def default_navbar():
     ]
 
 
-def update_config(app):
+def update_config(app) -> None:
     """
     Update config with new default values and handle deprecated keys.
     """
@@ -139,7 +141,9 @@ def setup(app: Sphinx):
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
     app.add_css_file("sunpy_style.css", priority=600)
-
+    app.add_css_file("sunpy_cards.css", priority=600)
+    app.add_directive("custom-card", Card)
+    app.add_node(_Card, html=(visit_card_node, depart_card_node))
     app.connect("builder-inited", update_config)
     app.connect("html-page-context", update_html_context)
 

@@ -1,0 +1,112 @@
+:root {
+  --white-cross: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>");
+  --black-cross: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>");
+}
+
+.card {
+  margin: 0 auto;
+}
+
+html[data-theme="light"] .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--pst-color-table-row-zebra-low-bg);
+  color: var(--pst-color-text-muted);
+}
+
+html[data-theme="dark"] .card {
+  box-shadow: 0 4px 8px 0 rgba(150, 150, 150, 0.2);
+  background-color: var(--pst-color-table-row-zebra-low-bg);
+  color: var(--pst-color-text-muted);
+}
+
+html[data-theme="light"] div.card .btn-sunpy.btn-sunpy1 {
+  color: var(--pst-color-text-muted);
+}
+
+html[data-theme="dark"] div.card .btn-sunpy.btn-sunpy1 {
+  color: var(--pst-color-text-muted);
+}
+
+.modal-header .btn-close {
+  margin: 0;
+  padding: 0;
+}
+
+html[data-theme="light"] div.card .btn-sunpy.btn-sunpy1.btn-close {
+  background: transparent var(--black-cross) center/1em auto no-repeat;
+}
+
+html[data-theme="dark"] .modal-header .btn-close {
+  background: transparent var(--white-cross) center/1em auto no-repeat;
+}
+
+.card p {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+  padding-top: 10px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: var(--sst-lighter-color);
+  background-color: var(--sst-accent-color-bright);
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: var(--sst-darker-color);
+}
+
+h4.modal-title {
+  margin: 0 auto;
+}
+
+.column {
+  display: inline-block;
+  width: 24%;
+  margin-bottom: 16px;
+  padding: 0 10px;
+}
+
+.column > h4 {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.section#sunpy-board {
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 355px) {
+  .column {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 356px) and (max-width: 680px) {
+  .column {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .card p {
+    text-align: center;
+    padding-top: 10px;
+  }
+}

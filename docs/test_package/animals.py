@@ -46,7 +46,7 @@ class Animal:
 
     says_str = "A {name} says {sound}"
 
-    def __init__(self, name, sound, num_legs=5):
+    def __init__(self, name, sound, num_legs=5) -> None:
         """
         Parameters
         ----------
@@ -61,7 +61,7 @@ class Animal:
         self.sound = sound
         self.num_legs = num_legs
 
-    def says(self, sound=None):
+    def says(self, sound=None) -> None:
         """
         Prints what the animals name is and what sound it makes.
 
@@ -87,11 +87,8 @@ class Animal:
             msg = "Silent Animals are not supported!"
             raise NotImplementedError(msg)
 
-        out_sound = self.sound if sound is None else sound
-        print(self.says_str.format(name=self.name, sound=out_sound))
 
-
-def function():
+def function() -> None:
     """
     Prints what the animals name is and what sound it makes.
 
@@ -132,10 +129,9 @@ def function():
     ----------
     * `A URL. <www.sunpy.org>`__
     """
-    print("A SOUND")
 
 
-def a_really_long_function_name_just_to_see_what_happens():
+def a_really_long_function_name_just_to_see_what_happens() -> None:
     """
     Prints what the animals name is and what sound it makes.
 
@@ -176,4 +172,3 @@ def a_really_long_function_name_just_to_see_what_happens():
     ----------
     * `A URL. <www.sunpy.org>`__
     """
-    print("A SOUND")

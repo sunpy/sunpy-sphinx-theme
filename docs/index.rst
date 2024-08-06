@@ -32,6 +32,7 @@ The core changes between this theme and the `pydata-sphinx-theme` are:
             customizing
             colors
             web-components
+            cards
 
    .. grid-item-card::
       :class-card: card

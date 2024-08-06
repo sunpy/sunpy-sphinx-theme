@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from sphinx_gallery.sorting import ExplicitOrder
-from sunpy_sphinx_theme import SVG_ICON
+from sunpy_sphinx_theme import SVG_ICON, _sunpy_static_path
 
 # Add the test package to the path so we can import it for automodapi
 sys.path.append(Path().absolute().as_posix())
@@ -67,6 +67,8 @@ intersphinx_mapping = {
     "reproject": ("https://reproject.readthedocs.io/en/stable/", None),
 }
 html_theme = "sunpy"
+html_static_path = [str(_sunpy_static_path), "_static"]
+html_extra_path = ["_static/img"]
 html_theme_options = {
     "footer_links": [
         ("Google", "https://google.com", 3),
