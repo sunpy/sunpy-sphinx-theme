@@ -3,8 +3,10 @@
   --black-cross: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 16 16'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>");
 }
 
-.card {
-  margin: 0 auto;
+.card p {
+  text-align: center;
+  padding-top: 1px;
+  margin: 0;
 }
 
 .card[data-clickable="true"] {
@@ -42,11 +44,6 @@ html[data-theme="light"] div.card .btn-sunpy.btn-sunpy1.btn-close {
 
 html[data-theme="dark"] .modal-header .btn-close {
   background: transparent var(--white-cross) center/1em auto no-repeat;
-}
-
-.card p {
-  text-align: center;
-  padding-top: 10px;
 }
 
 .card img {
@@ -105,12 +102,5 @@ h4.modal-title {
 @media only screen and (min-width: 356px) and (max-width: 680px) {
   .column {
     width: 45%;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .card p {
-    text-align: center;
-    padding-top: 10px;
   }
 }
