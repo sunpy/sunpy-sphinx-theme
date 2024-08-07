@@ -8,7 +8,7 @@ Cards
 ******
 
 .. custom-card:: Stuart Mumford
-    :img_name: Stuart-Mumford.png
+    :img_name: _static/img/Stuart-Mumford.png
     :github: cadair
     :title: Lead Developer
     :aff_name: Sheffield University
