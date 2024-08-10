@@ -1,9 +1,10 @@
 """
-This provides the card extension from the website into the theme.
+This provides a card extension for the website.
 """
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
+from sphinx.application import Sphinx
 
 __all__ = ["Card", "_Card", "visit_card_node", "depart_card_node"]
 
@@ -97,3 +98,13 @@ class Card(Directive):
         )
         self.state.nested_parse(self.content, 0, out)
         return [out]
+
+
+def setup(app: Sphinx):
+    app.add_css_file("sunpy_cards.css", priority=600)
+    app.add_directive("custom-card", Card)
+    app.add_node(_Card, html=(visit_card_node, depart_card_node))
+    return {
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+    }
