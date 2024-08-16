@@ -60,6 +60,7 @@ html[data-theme="light"] {
   /* A lot of these colors we have inherited from pst however, I have copied them all */
   /* in here to make it obvious which colors are in use, and to shield us from any */
   /* upstream changes. */
+  /* changed the colour on surface for light mode  */
   --pst-color-accent-bg: #f8dff5;
   --pst-color-accent: var(--sst-accent-color-bright);
   --pst-color-attention-bg: var(--pst-color-warning-bg);
@@ -75,7 +76,7 @@ html[data-theme="light"] {
   --pst-color-link-hover: var(--sst-accent-color-muted);
   --pst-color-link: var(--sst-accent-color-bright);
   --pst-color-on-background: #fff;
-  --pst-color-on-surface: #222832;
+  --pst-color-on-surface: #a2a2a0;
   --pst-color-primary-bg: #d0ecf1;
   --pst-color-primary: var(--sst-accent-color-bright);
   --pst-color-secondary-bg: #e0c7ff;
