@@ -75,8 +75,8 @@ html[data-theme="light"] {
   --pst-color-link-hover: var(--sst-accent-color-muted);
   --pst-color-link: var(--sst-accent-color-bright);
   --pst-color-on-background: #fff;
-  --pst-color-on-surface: #222832;
-  --pst-color-primary-bg: #d0ecf1;
+  --pst-color-on-surface: #ffffff;
+  --pst-color-primary-bg: #ffffff;
   --pst-color-primary: var(--sst-accent-color-bright);
   --pst-color-secondary-bg: #e0c7ff;
   --pst-color-secondary: var(--sst-accent-color-bright);
