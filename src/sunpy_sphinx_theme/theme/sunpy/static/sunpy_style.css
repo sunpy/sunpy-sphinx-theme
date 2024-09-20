@@ -49,7 +49,7 @@
 
   /* sphinx hover-ref theming */
   /* Until https://github.com/readthedocs/sphinx-hoverxref/issues/231 is fixed */
-  --hoverxref-bg-color-dark: dimgray;
+  --hoverxref-bg-color-dark: rgb(255,255,255);
   --hoverxref-bg-color-light: rgb(100, 99, 99);
   /* dark means light-on-dark so fg-color-dark is a light color */
   --hoverxref-fg-color-dark: white;
