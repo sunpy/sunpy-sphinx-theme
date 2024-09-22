@@ -196,6 +196,14 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
   padding-left: 0.6rem;
 }
 
+button.sidebar-toggle {
+  font-size: var(--pst-font-size-icon);
+  color: #ffffff;
+  margin-bottom: 0;
+  background-color: inherit;
+  padding: 0.5rem;
+}
+
 .bd-header ul.navbar-nav > li.nav-item.dropdown > .dropdown-toggle {
   color: var(--sst-header-text);
 }
