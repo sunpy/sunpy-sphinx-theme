@@ -253,7 +253,7 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
 
 .bd-header label.sidebar-toggle {
   padding-bottom: 0;
-  color: var(--sst-header-text);
+  color:  #ffffff;
 }
 
 /* Style the dropdown from the top nav */
