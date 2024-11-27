@@ -25,7 +25,7 @@ def visit_card_node(self, node) -> None:
     body = f"""<div class="column {col_extra_class}">
                 {title}
                 <div class="card">
-                <img class="dark-light" src="{node['img_name']}" alt="{node['name']}">
+                <img class="dark-light" src="https://github.com/{node['github']}.png" alt="{node['name']}">
                 <p>{node['name']}</p>
                 <p><button type="button" class="btn btn-sunpy btn-sunpy1 stretched-link" data-bs-toggle="modal" data-bs-target="#{key}">More Info</button></p>
                 <div class="modal fade" id="{key}" tabindex=-1>
