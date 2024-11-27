@@ -19,7 +19,7 @@ repos:
             "--remove-unused-variable",
           ]
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.7.5
+    rev: master
     hooks:
       - id: docformatter
         args: ["--make-summary-multi-line", "--pre-summary-newline", "-ri"]

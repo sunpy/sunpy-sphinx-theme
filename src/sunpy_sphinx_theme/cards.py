@@ -22,10 +22,15 @@ def visit_card_node(self, node) -> None:
     key = key.lower().replace(" ", "-")
     title = f"<h4>{title}</h4>" if len(title) > 0 else ""
     col_extra_class = "column-half" if title else ""
+    img_src = node.get("img_name")
+    # If there is no "img_name" given, we fallback to using the github avatar
+    # if a user handle is provided. If so, the image provided is actually the sunpy icon
+    if img_src == "sunpy_icon.svg" and node.get("github") is not None:
+        img_src = f"https://github.com/{node['github']}.png"
     body = f"""<div class="column {col_extra_class}">
                 {title}
                 <div class="card">
-                <img class="dark-light" src="{node['img_name']}" alt="{node['name']}">
+                <img class="dark-light" src="{img_src}" alt="{node['name']}">
                 <p>{node['name']}</p>
                 <p><button type="button" class="btn btn-sunpy btn-sunpy1 stretched-link" data-bs-toggle="modal" data-bs-target="#{key}">More Info</button></p>
                 <div class="modal fade" id="{key}" tabindex=-1>
