@@ -22,6 +22,10 @@ def visit_card_node(self, node) -> None:
     key = key.lower().replace(" ", "-")
     title = f"<h4>{title}</h4>" if len(title) > 0 else ""
     col_extra_class = "column-half" if title else ""
+    if node.get("github") is not None:
+        img_src = "https://github.com/{node['github']}.png"
+    else:
+        img_src = "{node['img_name']}"
     body = f"""<div class="column {col_extra_class}">
                 {title}
                 <div class="card">
