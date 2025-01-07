@@ -10,7 +10,7 @@ from urllib.parse import urljoin
 from pydata_sphinx_theme import utils
 from sphinx.application import Sphinx
 
-__all__ = ["get_html_theme_path", "ON_RTD", "PNG_ICON", "SVG_ICON"]
+__all__ = ["ON_RTD", "PNG_ICON", "SVG_ICON", "get_html_theme_path"]
 
 
 def get_html_theme_path():

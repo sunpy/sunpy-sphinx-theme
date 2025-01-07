@@ -6,8 +6,8 @@ from sunpy.util.decorators import deprecated
 
 __all__ = [
     "Animal",
-    "function",
     "a_really_long_function_name_just_to_see_what_happens",
+    "function",
 ]
 
 

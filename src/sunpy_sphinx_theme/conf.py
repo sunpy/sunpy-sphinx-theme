@@ -19,8 +19,8 @@ _log.warning(
 
 __all__ = [
     "html_static_path",
-    "html_theme_path",
     "html_theme",
+    "html_theme_path",
     "on_rtd",
     "png_icon",
     "svg_icon",
