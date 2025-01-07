@@ -6,7 +6,7 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from sphinx.application import Sphinx
 
-__all__ = ["Card", "_Card", "visit_card_node", "depart_card_node"]
+__all__ = ["Card", "_Card", "depart_card_node", "visit_card_node"]
 
 
 class _Card(nodes.General, nodes.Element):

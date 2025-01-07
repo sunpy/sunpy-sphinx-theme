@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 from sphinx_gallery.sorting import ExplicitOrder
+
 from sunpy_sphinx_theme import SVG_ICON, _sunpy_static_path
 
 # Add the test package to the path so we can import it for automodapi
