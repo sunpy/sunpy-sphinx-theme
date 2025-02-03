@@ -30,14 +30,14 @@ def visit_card_node(self, node) -> None:
     body = f"""<div class="column {col_extra_class}">
                 {title}
                 <div class="card">
-                <img class="dark-light" src="{img_src}" alt="{node['name']}">
-                <p>{node['name']}</p>
+                <img class="dark-light" src="{img_src}" alt="{node["name"]}">
+                <p>{node["name"]}</p>
                 <p><button type="button" class="btn btn-sunpy btn-sunpy1 stretched-link" data-bs-toggle="modal" data-bs-target="#{key}">More Info</button></p>
                 <div class="modal fade" id="{key}" tabindex=-1>
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title center">{node['name']}</h4>
+                                <h4 class="modal-title center">{node["name"]}</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -50,9 +50,9 @@ def depart_card_node(self, node) -> None:
     Finalize the card node after rendering.
     """
     body = f"""
-                                <p>Affiliation: <a href="{node['aff_link']}">{node['aff_name']}</a></p>
-                                <p>GitHub: <a href="https://github.com/{node['github']}">{node['github']}</a></p>
-                                <p>Start Date: {node['date']}</p>
+                                <p>Affiliation: <a href="{node["aff_link"]}">{node["aff_name"]}</a></p>
+                                <p>GitHub: <a href="https://github.com/{node["github"]}">{node["github"]}</a></p>
+                                <p>Start Date: {node["date"]}</p>
                             </div>
                         </div>
                     </div>
