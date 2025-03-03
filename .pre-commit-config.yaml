@@ -3,7 +3,7 @@ ci:
   autoupdate_schedule: "monthly"
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.9.4"
+    rev: "v0.9.9"
     hooks:
       - id: ruff
         args: ["--fix", "--unsafe-fixes"]
@@ -37,6 +37,6 @@ repos:
         args: ["--fix=lf"]
       - id: trailing-whitespace
   - repo: https://github.com/crate-ci/typos
-    rev: typos-dict-v0.12.4
+    rev: v1.30.0
     hooks:
       - id: typos
