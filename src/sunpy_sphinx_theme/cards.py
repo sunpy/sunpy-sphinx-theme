@@ -25,8 +25,9 @@ def visit_card_node(self, node) -> None:
     img_src = node.get("img_name")
     # If there is no "img_name" given, we fallback to using the github avatar
     # if a user handle is provided. If so, the image provided is actually the sunpy icon
-    if img_src == "sunpy_icon.svg" and node.get("github") is not None:
+    if img_src.endswith("sunpy_icon.svg") and node.get("github"):
         img_src = f"https://github.com/{node['github']}.png"
+
     body = f"""<div class="column {col_extra_class}">
                 {title}
                 <div class="card">
