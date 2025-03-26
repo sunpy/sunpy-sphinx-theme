@@ -51,6 +51,8 @@ html[data-theme="dark"] .modal-header .btn-close {
   margin: 0 auto;
   max-width: 60%;
   padding-top: 10px;
+  /* Make the card avatars circular */
+  border-radius: 50%;
 }
 
 .button {
