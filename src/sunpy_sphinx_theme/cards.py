@@ -25,8 +25,8 @@ def visit_card_node(self, node) -> None:
     img_src = node.get("img_name")
     # If there is no "img_name" given, we fallback to using the github avatar
     # if a user handle is provided. If so, the image provided is actually the sunpy icon
-    if img_src.endswith("sunpy_icon.svg") and node.get("github"):
-        img_src = f"https://github.com/{node['github']}.png"
+    if img_src.endswith("sunpy_icon.svg"):
+        img_src = f"https://github.com/{node['github']}.png" if node.get("github") else "/_static/sunpy_icon.svg"
 
     body = f"""<div class="column {col_extra_class}">
                 {title}
@@ -50,10 +50,11 @@ def depart_card_node(self, node) -> None:
     """
     Finalize the card node after rendering.
     """
+    start_date = '"<p>Start Date: {node["date"]}</p>' if node.get("date") else ""
     body = f"""
                                 <p>Affiliation: <a href="{node["aff_link"]}">{node["aff_name"]}</a></p>
                                 <p>GitHub: <a href="https://github.com/{node["github"]}">{node["github"]}</a></p>
-                                <p>Start Date: {node["date"]}</p>
+                                {start_date}
                             </div>
                         </div>
                     </div>

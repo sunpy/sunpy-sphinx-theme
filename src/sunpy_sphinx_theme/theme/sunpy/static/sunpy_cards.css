@@ -13,6 +13,11 @@
   cursor: pointer;
 }
 
+.card {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 html[data-theme="light"] .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: var(--pst-color-table-row-zebra-low-bg);
@@ -50,7 +55,6 @@ html[data-theme="dark"] .modal-header .btn-close {
   display: block;
   margin: 0 auto;
   max-width: 60%;
-  padding-top: 10px;
   /* Make the card avatars circular */
   border-radius: 50%;
 }
