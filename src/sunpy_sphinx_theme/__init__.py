@@ -58,6 +58,8 @@ def default_navbar():
         ("Get Help", "help/", 2),
         ("Contribute", "contribute/", 2),
         ("Blog", "blog/", 2),
+        ("Citing SunPy", "https://docs.sunpy.org/en/stable/citation.html", 3),
+
     ]
 
 
