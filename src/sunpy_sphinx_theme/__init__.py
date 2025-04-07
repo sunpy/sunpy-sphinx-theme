@@ -181,6 +181,6 @@ def setup(app: Sphinx):
 
 
 _sunpy_static_path = get_html_theme_path() / "static"
-ON_RTD = os.environ.get("READTHEDOCS", False) == "True"
+ON_RTD = os.environ.get("READTHEDOCS", "False") == "True"
 SVG_ICON = _sunpy_static_path / "img" / "sunpy_icon.svg"
 PNG_ICON = _sunpy_static_path / "img" / "sunpy_icon_128x128.png"
