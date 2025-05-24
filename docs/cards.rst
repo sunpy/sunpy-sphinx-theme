@@ -15,7 +15,7 @@ Cards
     :aff_link: https://www.sheffield.ac.uk/
     :date: 17 March 2014
 
-    Stuart Mumford is the Python developer for the Daniel K. Inouye Solar Telescope Data Centre. He obtained a PhD in Numerical solar physics from Sheffield University in 2016, prior to his PhD he obtained a first class MPhys degree in Physics with Planetary and Space Physics from The University of Wales Aberystwyth, during which he spent 5 months studying at UNIS on Svalbard in the high arctic.
+    This card has an image and a GitHub handle
 
 .. custom-card:: Stuart Mumford and Sons
     :github: cadair
@@ -24,30 +24,26 @@ Cards
     :aff_link: https://www.sheffield.ac.uk/
     :date: 17 March 2014
 
-    Stuart Mumford is the Python developer for the Daniel K. Inouye Solar Telescope Data Centre. He obtained a PhD in Numerical solar physics from Sheffield University in 2016, prior to his PhD he obtained a first class MPhys degree in Physics with Planetary and Space Physics from The University of Wales Aberystwyth, during which he spent 5 months studying at UNIS on Svalbard in the high arctic.
+    This card only has a github handle
 
 .. custom-card:: Stu
     :img_name: _static/img/Stuart-Mumford.png
-    :github: cadair
     :title: Lead Lead Developer
     :aff_name: Sheffield University
     :aff_link: https://www.sheffield.ac.uk/
     :date: 17 March 2014
 
-    Stuart Mumford is the Python developer for the Daniel K. Inouye Solar Telescope Data Centre. He obtained a PhD in Numerical solar physics from Sheffield University in 2016, prior to his PhD he obtained a first class MPhys degree in Physics with Planetary and Space Physics from The University of Wales Aberystwyth, during which he spent 5 months studying at UNIS on Svalbard in the high arctic.
+    This card only has an image.
 
 .. custom-card:: Stuart Mumford and Family
-    :img_name: _static/img/Stuart-Mumford.png
-    :github: cadair
     :title: Lead Lead Lead Lead Developer
     :aff_name: Sheffield University
     :aff_link: https://www.sheffield.ac.uk/
     :date: 17 March 2014
 
-    Stuart Mumford is the Python developer for the Daniel K. Inouye Solar Telescope Data Centre. He obtained a PhD in Numerical solar physics from Sheffield University in 2016, prior to his PhD he obtained a first class MPhys degree in Physics with Planetary and Space Physics from The University of Wales Aberystwyth, during which he spent 5 months studying at UNIS on Svalbard in the high arctic.
+    This card has neither an image or a github handle.
 
 .. custom-card:: Stuart van der Vaartford
-    :img_name: _static/img/Stuart-Mumford.png
     :github: cadair
     :title: Summer of Code Administrator
     :aff_name: Sheffield University
