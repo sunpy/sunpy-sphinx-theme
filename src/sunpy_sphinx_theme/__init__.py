@@ -29,7 +29,6 @@ def default_navbar():
                 ("Our Mission", "about/", 2),
                 ("SunPy Project", "about/project/", 2),
                 ("Presentations", "about/presentations/", 2),
-                ("Community Roles", "about/roles/", 2),
                 ("Meetings", "about/meetings/", 2),
                 ("Code of Conduct", "coc/", 2),
             ],
