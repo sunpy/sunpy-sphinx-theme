@@ -173,6 +173,13 @@ def setup(app: Sphinx):
             loading_method="async",
         )
 
+        if theme_options.get("rtd_search", True):
+            # Add project-wide search
+            app.add_js_file(
+                "sunpy_enhanced_search.js",
+                loading_method="async",
+            )
+
     return {
         "parallel_read_safe": True,
         "parallel_write_safe": True,
