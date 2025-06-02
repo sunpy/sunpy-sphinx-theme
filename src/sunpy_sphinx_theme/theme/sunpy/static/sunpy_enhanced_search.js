@@ -348,12 +348,8 @@
 			form.classList.add('loading');
 
 			let projstr = this.projectorder.join('+project:').replace(new RegExp("^"+config.all+"[\s\+]"),'');
-			let path = (page || ("api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str)));
-			if(debug) {
-				url = "https://corsproxy.io/?https://readthedocs.org/" + path;
-			}else{
-				url = "/_/" + path;
-			};
+			let url = (page || ("https://readthedocs.org/api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str)));
+			if(debug) url = "https://corsproxy.io/?" + url;
 			console.info('Getting '+url);
 			fetch(url,{}).then(response =>{
 				return response.json();
