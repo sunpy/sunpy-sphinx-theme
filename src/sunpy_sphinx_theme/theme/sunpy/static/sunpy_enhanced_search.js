@@ -497,8 +497,13 @@
 			// If we've been provided an increment we find the appropriate project
 			if(typeof inc==="number"){
 				let idx = this.projectorder.indexOf(found);
-				idx = (idx + inc + this.projectorder.length) % this.projectorder.length;
-				found = this.projectorder[idx];
+				let i = 0;
+				do {
+					idx = (idx + inc + this.projectorder.length) % this.projectorder.length;
+					found = this.projectorder[idx];
+					i++;
+					// We try again if the tab is hidden and we haven't run out of projects (avoid an infinite loop)
+				}while(this.projects[found].tab.style.display=="none" && i < this.projectorder.length);
 			}
 			// Loop over projects setting the properties
 			for(let p = 0; p < this.projectorder.length; p++){
