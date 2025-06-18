@@ -33,6 +33,7 @@
 	  * projects - an ordered array of projects to include (if empty this will be constructed from the ".nav-link" items found within #Documentation)
 
 */
+/*jshint esversion: 6 */
 (function(root){
 	function ready(fn){
 		if(document.readyState != 'loading') fn();
@@ -272,7 +273,7 @@
 
 		// Loop over projects and create any tabs that are needed
 		for(let p = 0; p < this.projectorder.length; p++){
-			slug = this.projectorder[p];
+			let slug = this.projectorder[p];
 			if(!this.projects[slug].tab){
 				let tab = document.createElement('button');
 				tab.innerHTML = '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book" class="svg-inline--fa fa-book" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path></svg> ' + this.projects[slug].name + '<span class="n"></span>';
@@ -349,20 +350,12 @@
 			form.classList.add('loading');
 
 			let projstr = this.projectorder.join('+project:').replace(new RegExp("^"+config.all+"[\s\+]"),'');
+			let url;
 			if(page) {
-			    if(debug) {
-					url = "https://corsproxy.io/?" + page;
-				}else{
-					url = page;
-				};
+				url = (debug ? "https://corsproxy.io/?":"") + page;
 			}else{
-				let path = ("api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str));
-				if(debug) {
-					url = "https://corsproxy.io/?https://readthedocs.org/" + path;
-				}else{
-					url = "/_/" + path;
-				};
-			};
+				url = (debug ? "https://corsproxy.io/?https://readthedocs.org/" : "/_/") + ("api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str));
+			}
 			console.info('Getting '+url);
 			fetch(url,{}).then(response =>{
 				return response.json();
@@ -413,10 +406,10 @@
 				}
 			}
 			return txt;
-		}
+		};
 
 		this.displayResults = function(str){
-			let data,slug,r,li,li2,url,result;
+			let data,slug,r,li,li2,result;
 			if(str in this.results){
 				data = this.results[str];
 			}else{
@@ -492,7 +485,7 @@
 			let found = "";
 			// Find out which project this tab is
 			for(var p = 0; p < this.projectorder.length; p++){
-				slug  = this.projectorder[p];
+				let slug  = this.projectorder[p];
 				if(this.projects[slug].tab == tab) found = slug;
 			}
 			// If we've been provided an increment we find the appropriate project
@@ -508,7 +501,7 @@
 			}
 			// Loop over projects setting the properties
 			for(let p = 0; p < this.projectorder.length; p++){
-				slug = this.projectorder[p];
+				let slug = this.projectorder[p];
 				if(slug == found){
 					// Update the selected tab
 					this.projects[slug].tab.setAttribute('aria-selected','true');
@@ -529,7 +522,7 @@
 		};
 
 		this.navLi = function(e){
-			var nextEl,prevEl,li;
+			var nextEl,prevEl;
 			if(e.target == inp){
 				nextEl = this.projects[this.selectedPanel].results.querySelector('li.kind-title');
 			}else{
@@ -539,7 +532,7 @@
 			}
 			if(e.key == "ArrowDown"){
 				if(nextEl){
-					nextEl.focus()
+					nextEl.focus();
 					nextEl.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
 				}
 			}else if(e.key == "ArrowUp"){
@@ -554,7 +547,7 @@
 				dialog.close();
 			}
 			return;
-		}
+		};
 		function next(el, selector) {
 			const nextEl = el.nextElementSibling;
 			if (!selector || (nextEl && nextEl.matches(selector))) return nextEl;
