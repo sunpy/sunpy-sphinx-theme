@@ -48,7 +48,7 @@
 		if(!config['no-results']) config['no-results'] = {};
 		if(!config['no-results'].label) config['no-results'].label = "There are no results";
 		if(!config['load-more']) config['load-more'] = {};
-		if(!config['load-more'].class) config['load-more'].class = "btn btn-lg btn-sunpy btn-sunpy1";
+		if(!config['load-more'].class) config['load-more'].class = "btn sd-btn sd-bg-primary sd-bg-text-primary";
 		if(!config['load-more'].label) config['load-more'].label = "Load more results";
 
 		let _obj = this;
