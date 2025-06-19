@@ -103,6 +103,12 @@ class TimeRange:
                 self._t1 = y
                 self._t2 = x
 
+    def __hash__(self):
+        """
+        Returns a fake hash.
+        """
+        return 42
+
     @property
     def start(self):
         """
