@@ -29,7 +29,6 @@ def default_navbar():
                 ("Our Mission", "about/", 2),
                 ("SunPy Project", "about/project/", 2),
                 ("Presentations", "about/presentations/", 2),
-                ("Community Roles", "about/roles/", 2),
                 ("Meetings", "about/meetings/", 2),
                 ("Code of Conduct", "coc/", 2),
             ],
@@ -182,6 +181,6 @@ def setup(app: Sphinx):
 
 
 _sunpy_static_path = get_html_theme_path() / "static"
-ON_RTD = os.environ.get("READTHEDOCS", False) == "True"
+ON_RTD = os.environ.get("READTHEDOCS", "False") == "True"
 SVG_ICON = _sunpy_static_path / "img" / "sunpy_icon.svg"
 PNG_ICON = _sunpy_static_path / "img" / "sunpy_icon_128x128.png"
