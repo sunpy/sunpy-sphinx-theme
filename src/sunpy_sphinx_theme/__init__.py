@@ -53,10 +53,11 @@ def default_navbar():
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
             ],
         ),
-        ("Affiliated Packages", "affiliated/", 2),
+        ("Packages", "affiliated/", 2),
         ("Get Help", "help/", 2),
         ("Contribute", "contribute/", 2),
         ("Blog", "blog/", 2),
+        ("Cite SunPy", "https://docs.sunpy.org/en/stable/citation.html", 3),
     ]
 
 
