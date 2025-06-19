@@ -50,7 +50,7 @@ def depart_card_node(self, node) -> None:
     """
     Finalize the card node after rendering.
     """
-    start_date = '"<p>Start Date: {node["date"]}</p>' if node.get("date") else ""
+    start_date = '<p>Start Date: {node["date"]}</p>' if node.get("date") else ""
     body = f"""
                                 <p>Affiliation: <a href="{node["aff_link"]}">{node["aff_name"]}</a></p>
                                 <p>GitHub: <a href="https://github.com/{node["github"]}">{node["github"]}</a></p>
