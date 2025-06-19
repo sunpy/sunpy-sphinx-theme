@@ -26,7 +26,8 @@ def visit_card_node(self, node) -> None:
     # If there is no "img_name" given, we fallback to using the github avatar
     # if a user handle is provided. If so, the image provided is actually the sunpy icon
     if img_src.endswith("sunpy_icon.svg"):
-        img_src = f"https://github.com/{node['github']}.png" if node.get("github") else "_static/img/sunpy_icon.svg"
+        # The / works on RTD on the website repo, it is broken in this repo and on circleci
+        img_src = f"https://github.com/{node['github']}.png" if node.get("github") else "/_static/img/sunpy_icon.svg"
 
     body = f"""<div class="column {col_extra_class}">
                 {title}
