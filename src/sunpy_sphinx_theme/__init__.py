@@ -34,7 +34,7 @@ def default_navbar():
             ],
         ),
         (
-"Documentation",
+            "Documentation",
             [
                 # Core packages shown directly
                 ("sunpy", "https://docs.sunpy.org/", 3),
@@ -55,7 +55,7 @@ def default_navbar():
                     [
                         ("pyflct", "https://pyflct.readthedocs.io/", 3),
                         ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
-                    ]
+                    ],
                 ),
                 # Tools submenu
                 (

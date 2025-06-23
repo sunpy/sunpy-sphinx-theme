@@ -51,7 +51,7 @@
         {{ render_nav_item(navlink) }}
       {% endfor %}
     {% endif %}
-    
+
     {% if theme_external_links %}
       {% for external_link in theme_external_links %}
         <li class="nav-item ms-2">
@@ -68,7 +68,7 @@
 
     triggers.forEach(function (trigger, i) {
       // Prevent multiple listeners
-      trigger.dataset.bound = "true";  
+      trigger.dataset.bound = "true";
       trigger.addEventListener('click', function (e) {
 
         if (trigger.dataset.processing === "true") {

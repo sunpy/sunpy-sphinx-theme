@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 html_js_files = [
-    'js/submenu-toggle.js',
+    "js/submenu-toggle.js",
 ]
 
 html_theme = "sunpy"
