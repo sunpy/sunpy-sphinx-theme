@@ -70,6 +70,9 @@ intersphinx_mapping = {
 }
 html_theme = "sunpy"
 html_static_path = [str(_sunpy_static_path), "_static"]
+html_js_files = [
+    "js/submenu-toggle.js",
+]
 html_extra_path = ["_static/img"]
 html_theme_options = {
     "footer_links": [

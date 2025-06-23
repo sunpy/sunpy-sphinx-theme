@@ -26,9 +26,6 @@ __all__ = [
     "svg_icon",
 ]
 
-html_js_files = [
-    "js/submenu-toggle.js",
-]
 
 html_theme = "sunpy"
 html_theme_options = {}
