@@ -36,21 +36,30 @@ def default_navbar():
         (
             "Documentation",
             [
+                # Core goes first always
                 ("sunpy", "https://docs.sunpy.org/", 3),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                # Other affiliated packages are in alphabetical order
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
-                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
-                ("roentgen", "https://roentgen.readthedocs.io/", 3),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
-                ("demcmc", "https://demcmc.readthedocs.io/en/latest/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
+                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
+                ("irispy-lmsal", "https://irispy-lmsal.readthedocs.io/", 3),
+                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
+                ("roentgen", "https://roentgen.readthedocs.io/", 3),
                 ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
+                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
                 ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
+                ("sunkit-pyvista", "https://docs.sunpy.org/projects/sunkit-pyvista/", 3),
+                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
+                ("xrtpy", "https://xrtpy.readthedocs.io/", 3),
+                # Then we have provisional packages
                 ("pyflct", "https://pyflct.readthedocs.io/", 3),
                 ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                # These are tools which are not affiliated but are maintained by SunPy
+                ("ablog", "https://ablog.readthedocs.io/", 3),
+                ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
+                ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
             ],
         ),
         ("Packages", "affiliated/", 2),
