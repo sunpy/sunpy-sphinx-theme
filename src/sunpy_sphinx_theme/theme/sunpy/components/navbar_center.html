@@ -8,31 +8,93 @@
 {% set toggle="collapse" %}
 {% set list_class="collapse" %}
 {% endif %}
+{% macro render_nav_item(item, depth=0) %}
+  {% set is_leaf = item[1] is string %}
+  {% set is_nested = item[1] is iterable and (item[1]|length > 0) and (item[1][0] is sequence or item[1][0] is mapping) %}
+
+  {% if is_leaf %}
+    <li class="nav-item{% if depth > 0 %} dropdown-submenu{% endif %} ms-2">
+      <a
+        class="{% if depth == 0 %}nav-link{% else %}dropdown-item{% endif %}"
+        href="{{ sst_pathto(*item[1:]) }}">
+        {{ item[0] }}
+      </a>
+    </li>
+
+  {% elif is_nested %}
+    {% set submenu_id = item[0]|replace(" ", "_")|lower %}
+    <li class="nav-item dropdown{% if depth > 0 %} dropdown-submenu{% endif %} ms-2">
+      <a
+        href="#"
+        class="dropdown-toggle {% if depth > 0 %}dropdown-item{% else %}nav-link{% endif %}"
+        id="dropdownMenu_{{ submenu_id }}"
+        {% if depth == 0 %} data-bs-toggle="dropdown" {% endif %}
+        role="button"
+        aria-expanded="false">
+        {{ item[0] }}
+      </a>
+      <ul
+        class="dropdown-menu{% if depth > 0 %} dropdown-submenu-menu{% endif %}"
+        aria-labelledby="dropdownMenu_{{ submenu_id }}">
+        {% for subitem in item[1] %}
+          {{ render_nav_item(subitem, depth + 1) }}
+        {% endfor %}
+      </ul>
+    </li>
+  {% endif %}
+{% endmacro %}
 
 <nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     {% if theme_navbar_links %}
-      {%- for navlink in theme_navbar_links %}
-        {% if navlink[1] is not string %}
-          <li class="nav-item dropdown ms-2 has-children">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="{{ toggle }}" data-bs-target="#{{ navlink[0] }}" aria-haspopup="true" aria-expanded="false">{{ navlink[0] }}<b class="caret"></b></a>
-              <ul class="{{ list_class }}" id="{{ navlink[0] }}" aria-labelledby="dropdownMenuLink">
-              {%- for link in navlink[1] %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ sst_pathto(*link[1:]) }}">{{ link[0] }}</a>
-                </li>
-              {%- endfor %}
-              </ul>
-          </li>
-        {% else %}
-          <li class="nav-item ms-2"><a class="nav-link" role="button" href="{{ sst_pathto(*navlink[1:]) }}">{{ navlink[0] }}</a></li>
-        {% endif %}
-      {%- endfor %}
+      {% for navlink in theme_navbar_links %}
+        {{ render_nav_item(navlink) }}
+      {% endfor %}
     {% endif %}
+    
     {% if theme_external_links %}
-      {%- for external_link in theme_external_links %}
-          <li class="nav-item ms-2"><a class="nav-link nav-external" role="button" href="{{ external_link['url'] }}">{{ external_link['name'] }}</a></li>
-      {%- endfor %}
+      {% for external_link in theme_external_links %}
+        <li class="nav-item ms-2">
+          <a class="nav-link nav-external" href="{{ external_link['url'] }}">{{ external_link['name'] }}</a>
+        </li>
+      {% endfor %}
     {% endif %}
   </ul>
 </nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const triggers = document.querySelectorAll('.dropdown-submenu > .dropdown-toggle');
+
+    triggers.forEach(function (trigger, i) {
+      // Prevent multiple listeners
+      trigger.dataset.bound = "true";  
+      trigger.addEventListener('click', function (e) {
+
+        if (trigger.dataset.processing === "true") {
+          // Defensive double-bind check to avoid multiple event listeners triggering
+          return;
+        }
+        trigger.dataset.processing = "true";
+        setTimeout(() => delete trigger.dataset.processing, 100);
+
+        // we need to stop bootstrap from using this click to close the dropdown
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = trigger.nextElementSibling;
+        // Close other submenus
+        const parent = trigger.closest('.dropdown-menu');
+        if (parent) {
+          parent.querySelectorAll('.dropdown-menu.show').forEach(function (open) {
+            if (open !== submenu) {
+              open.classList.remove('show');
+            }
+          });
+        }
+
+        submenu.classList.toggle('show');
+      });
+    });
+  });
+</script>

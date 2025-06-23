@@ -34,23 +34,39 @@ def default_navbar():
             ],
         ),
         (
-            "Documentation",
+"Documentation",
             [
+                # Core packages shown directly
                 ("sunpy", "https://docs.sunpy.org/", 3),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
-                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
-                ("roentgen", "https://roentgen.readthedocs.io/", 3),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
-                ("demcmc", "https://demcmc.readthedocs.io/en/latest/", 3),
+                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
-                ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
+                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
+                ("roentgen", "https://roentgen.readthedocs.io/", 3),
+                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                ("sunkit-instruments", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
                 ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
-                ("pyflct", "https://pyflct.readthedocs.io/", 3),
-                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
+                ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
+                # Provisional packages submenu
+                (
+                    "Provisional",
+                    [
+                        ("pyflct", "https://pyflct.readthedocs.io/", 3),
+                        ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                    ]
+                ),
+                # Tools submenu
+                (
+                    "Tools",
+                    [
+                        ("ablog", "https://ablog.readthedocs.io/en/stable/", 3),
+                        ("demcmc", "https://demcmc.readthedocs.io/en/stable/", 3),
+                        ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
+                        ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
+                    ],
+                ),
             ],
         ),
         ("Packages", "affiliated/", 2),

@@ -412,3 +412,22 @@ html[data-theme="dark"] .search-button-field:hover {
     align-items: center;
   }
 }
+
+/* Position submenu beside parent */
+.dropdown-submenu {
+  position: relative;
+}
+
+/* Initially hidden */
+.dropdown-submenu > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  z-index: 1000;
+}
+
+/* Show when toggled by JS */
+.dropdown-submenu > .dropdown-menu.show {
+  display: block;
+}
