@@ -418,6 +418,10 @@ html[data-theme="dark"] .search-button-field:hover {
   position: relative;
 }
 
+.navbar-nav .dropdown-item {
+  color: var(--sst-header-text);
+}
+
 /* Initially hidden */
 .dropdown-submenu > .dropdown-menu {
   position: absolute;
@@ -427,7 +431,7 @@ html[data-theme="dark"] .search-button-field:hover {
   z-index: 1000;
 }
 
-/* Show when toggled by JS */
+/* Show when toggled */
 .dropdown-submenu > .dropdown-menu.show {
   display: block;
 }
