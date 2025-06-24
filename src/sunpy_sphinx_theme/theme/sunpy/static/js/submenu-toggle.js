@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Setup toggle for nested submenus
-  const triggers = document.querySelectorAll(".dropdown-submenu > .dropdown-toggle");
+  const triggers = document.querySelectorAll(
+    ".dropdown-submenu > .dropdown-toggle",
+  );
 
   triggers.forEach(function (trigger, i) {
     trigger.dataset.bound = "true";
@@ -30,19 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close all open submenus when a top-level dropdown is closed
-  document.querySelectorAll('.dropdown').forEach(function (dropdown) {
-    dropdown.addEventListener('hide.bs.dropdown', function () {
-      dropdown.querySelectorAll('.dropdown-menu.show').forEach(function (submenu) {
-        submenu.classList.remove('show');
-      });
+  document.querySelectorAll(".dropdown").forEach(function (dropdown) {
+    dropdown.addEventListener("hide.bs.dropdown", function () {
+      dropdown
+        .querySelectorAll(".dropdown-menu.show")
+        .forEach(function (submenu) {
+          submenu.classList.remove("show");
+        });
     });
   });
 
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      document.querySelectorAll('.dropdown-menu.show').forEach(function (submenu) {
-        submenu.classList.remove('show');
-      });
+      document
+        .querySelectorAll(".dropdown-menu.show")
+        .forEach(function (submenu) {
+          submenu.classList.remove("show");
+        });
     }
   });
 });
