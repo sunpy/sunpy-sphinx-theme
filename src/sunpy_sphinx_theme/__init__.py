@@ -189,6 +189,10 @@ def setup(app: Sphinx):
             "https://gc.zgo.at/count.js",
             loading_method="async",
         )
+        app.add_js_file(
+            "submenu-concertina-toggle.js",
+            loading_method="async",
+        )
 
     return {
         "parallel_read_safe": True,
