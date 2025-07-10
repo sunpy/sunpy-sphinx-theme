@@ -39,8 +39,8 @@ def default_navbar():
                 # Core packages shown directly
                 ("sunpy", "https://docs.sunpy.org/", 3),
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
+                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),

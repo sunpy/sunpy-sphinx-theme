@@ -1,41 +1,53 @@
-{# When we are rendering the top nav bar (wide screens) we use bootstrap dropdowns, #}
-{# when we render the sidebar (narrow screens) use collapse instead. #}
-{# TODO: If you have a section uncollapsed and then expand the width of your screen, weird shit happens #}
-{% if in_header %}
-{% set toggle="dropdown" %}
-{% set list_class="dropdown-menu" %}
-{% else %}
-{% set toggle="collapse" %}
-{% set list_class="collapse" %}
-{% endif %}
 {% macro render_nav_item(item, depth=0) %}
+  {# Determine item type and a unique, context-prefixed submenu ID #}
   {% set is_leaf = item[1] is string %}
   {% set is_nested = item[1] is iterable and (item[1]|length > 0) and (item[1][0] is sequence or item[1][0] is mapping) %}
+  {% set context_prefix = 'header' if in_header else 'sidebar' %}
+  {% set base_id = item[0]|replace(" ", "_")|lower %}
+  {% set submenu_id = context_prefix ~ '_' ~ base_id ~ '_' ~ depth %}
 
+  {# ----------------------------- LEAF LINK ----------------------------- #}
   {% if is_leaf %}
-    <li class="nav-item{% if depth > 0 %} dropdown-submenu{% endif %} ms-2">
-      <a
-        class="{% if depth == 0 %}nav-link{% else %}dropdown-item{% endif %}"
-        href="{{ sst_pathto(*item[1:]) }}">
+    <li class="nav-item{% if depth > 0 %} dropdown-submenu{% endif %} {% if depth == 0 %}ms-2{% endif %}">
+      <a class="{% if depth == 0 %}nav-link{% else %}dropdown-item{% endif %}{% if depth > 1 %} concertina-subitem{% endif %}" href="{{ sst_pathto(*item[1:]) }}">
         {{ item[0] }}
       </a>
     </li>
 
-  {% elif is_nested %}
-    {% set submenu_id = item[0]|replace(" ", "_")|lower %}
-    <li class="nav-item dropdown{% if depth > 0 %} dropdown-submenu{% endif %} ms-2">
-      <a
-        href="#"
-        class="dropdown-toggle {% if depth > 0 %}dropdown-item{% else %}nav-link{% endif %}"
-        id="dropdownMenu_{{ submenu_id }}"
-        {% if depth == 0 %} data-bs-toggle="dropdown" {% endif %}
-        role="button"
-        aria-expanded="false">
-        {{ item[0] }}
-      </a>
-      <ul
-        class="dropdown-menu{% if depth > 0 %} dropdown-submenu-menu{% endif %}"
-        aria-labelledby="dropdownMenu_{{ submenu_id }}">
+  {# ----------------------------- TOP LEVEL DROPDOWN ----------------------------- #}
+  {% elif depth == 0 and is_nested %}
+    <li class="nav-item dropdown ms-2">
+      {% if in_header %}
+        <a href="#" class="dropdown-toggle nav-link" id="dropdownMenu_{{ submenu_id }}"
+           data-bs-toggle="dropdown" role="button" aria-expanded="false">
+          {{ item[0] }}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu_{{ submenu_id }}">
+      {% else %}
+        <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+           data-bs-toggle="collapse" data-bs-target="#collapse_{{ submenu_id }}"
+           role="button" aria-expanded="false" aria-controls="collapse_{{ submenu_id }}">
+          {{ item[0] }}
+          <span class="caret" aria-hidden="true">▾</span>
+        </a>
+        <ul class="collapse" id="collapse_{{ submenu_id }}">
+      {% endif %}
+        {% for subitem in item[1] %}
+          {{ render_nav_item(subitem, depth + 1) }}
+        {% endfor %}
+      </ul>
+    </li>
+
+  {# ----------------------------- NESTED CONCERTINA ----------------------------- #}
+  {% elif depth > 0 and is_nested %}
+    <li>
+      <button class="dropdown-item concertina-toggle d-flex align-items-center px-0 position-relative"
+              aria-expanded="false"
+              aria-controls="submenu_{{ submenu_id }}">
+        <span class="concertina-label ps-4">{{ item[0] }}</span>
+        <span class="concertina-icon position-absolute start-0" aria-hidden="true">▸</span>
+      </button>
+      <ul id="submenu_{{ submenu_id }}" class="concertina-submenu collapse">
         {% for subitem in item[1] %}
           {{ render_nav_item(subitem, depth + 1) }}
         {% endfor %}
@@ -53,9 +65,9 @@
     {% endif %}
 
     {% if theme_external_links %}
-      {% for external_link in theme_external_links %}
+      {% for ext in theme_external_links %}
         <li class="nav-item ms-2">
-          <a class="nav-link nav-external" href="{{ external_link['url'] }}">{{ external_link['name'] }}</a>
+          <a class="nav-link nav-external" href="{{ ext['url'] }}">{{ ext['name'] }}</a>
         </li>
       {% endfor %}
     {% endif %}
