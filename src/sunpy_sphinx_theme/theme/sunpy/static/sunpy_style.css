@@ -465,3 +465,11 @@ html[data-theme="dark"] .search-button-field:hover {
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
   text-underline-offset: 0.1578em;
 }
+
+/* Limit the height of dropdown menu to keep on screen */
+.bd-header .dropdown-menu {
+  max-height: 80vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
