@@ -36,20 +36,23 @@ def default_navbar():
         (
             "Documentation",
             [
-                # Core goes first, rest are in alphabetical order
-                # They are also shown directly (for now)
+                # Core goes first always
                 ("sunpy", "https://docs.sunpy.org/", 3),
+                # Other affiliated packages are in alphabetical order
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 3),
+                ("irispy-lmsal", "https://irispy-lmsal.readthedocs.io/", 3),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
-                ("sunkit-instruments", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
-                ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
-                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
                 ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
+                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
+                ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
+                ("sunkit-pyvista", "https://docs.sunpy.org/projects/sunkit-pyvista/", 3),
+                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
+                ("xrtpy", "https://xrtpy.readthedocs.io/", 3),
                 # Provisional packages submenu
                 (
                     "Provisional",
