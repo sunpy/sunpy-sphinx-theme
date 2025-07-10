@@ -190,7 +190,7 @@ def setup(app: Sphinx):
             loading_method="async",
         )
         app.add_js_file(
-            "submenu-concertina-toggle.js",
+            "js/submenu-concertina-toggle.js",
             loading_method="async",
         )
 
