@@ -40,6 +40,7 @@ def default_navbar():
                 ("sunpy", "https://docs.sunpy.org/", 3),
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
+                ("demcmc", "https://demcmc.readthedocs.io/en/stable/", 3),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 3),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
@@ -62,7 +63,6 @@ def default_navbar():
                     "Tools",
                     [
                         ("ablog", "https://ablog.readthedocs.io/en/stable/", 3),
-                        ("demcmc", "https://demcmc.readthedocs.io/en/stable/", 3),
                         ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
                         ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
                     ],

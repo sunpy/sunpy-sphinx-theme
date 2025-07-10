@@ -448,7 +448,7 @@ html[data-theme="dark"] .search-button-field:hover {
 }
 .bd-header .dropdown-item,
 .bd-header .concertina-toggle {
-  color: var(--pst-header-text);
+  color: var(--sst-header-text);
 }
 
 /* Hover and focus styles */
@@ -465,7 +465,9 @@ html[data-theme="dark"] .search-button-field:hover {
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
   text-underline-offset: 0.1578em;
 }
-
+.bd-header .concertina-toggle .concertina-icon {
+  left: 0.4rem !important;
+}
 /* Limit the height of dropdown menu to keep on screen */
 .bd-header .dropdown-menu {
   max-height: 80vh;
