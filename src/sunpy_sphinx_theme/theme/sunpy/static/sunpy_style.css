@@ -412,3 +412,65 @@ html[data-theme="dark"] .search-button-field:hover {
     align-items: center;
   }
 }
+
+.concertina-icon {
+  left: 0;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  text-decoration: none !important; /* otherwise couldn't get the icon to not be underlined */
+}
+
+.concertina-toggle[aria-expanded="true"] .concertina-icon {
+  transform: rotate(90deg);
+}
+
+.concertina-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none; /* Controlled via the concertina toggle JS */
+}
+
+.concertina-submenu.show {
+  display: block;
+}
+.concertina-submenu.collapse {
+  width: 100%;
+}
+
+.concertina-subitem {
+  padding-left: 2rem;
+}
+
+/* Have to restore some pst styling since we have removed some bs classes in the navbar_center template */
+.navbar-nav .concertina-toggle {
+  color: var(--pst-color-text-muted);
+}
+.bd-header .dropdown-item,
+.bd-header .concertina-toggle {
+  color: var(--sst-header-text);
+}
+
+/* Hover and focus styles */
+.concertina-toggle.dropdown-item:hover,
+.navbar-nav .concertina-toggle:hover,
+.bd-header .dropdown-item:hover,
+.bd-header .concertina-toggle:hover {
+  color: var(--pst-color-link-hover);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.navbar-nav .concertina-toggle:hover {
+  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+  text-underline-offset: 0.1578em;
+}
+.bd-header .concertina-toggle .concertina-icon {
+  left: 0.4rem !important;
+}
+/* Limit the height of dropdown menu to keep on screen */
+.bd-header .dropdown-menu {
+  max-height: 80vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

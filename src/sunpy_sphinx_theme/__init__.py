@@ -53,13 +53,23 @@ def default_navbar():
                 ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
                 ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
                 ("xrtpy", "https://xrtpy.readthedocs.io/", 3),
-                # Then we have provisional packages
-                ("pyflct", "https://pyflct.readthedocs.io/", 3),
-                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
-                # These are tools which are not affiliated but are maintained by SunPy
-                ("ablog", "https://ablog.readthedocs.io/", 3),
-                ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
-                ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
+                # Provisional packages submenu
+                (
+                    "Provisional",
+                    [
+                        ("pyflct", "https://pyflct.readthedocs.io/", 3),
+                        ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                    ],
+                ),
+                # Tools submenu
+                (
+                    "Tools",
+                    [
+                        ("ablog", "https://ablog.readthedocs.io/en/stable/", 3),
+                        ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
+                        ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
+                    ],
+                ),
             ],
         ),
         ("Packages", "affiliated/", 2),
@@ -180,6 +190,10 @@ def setup(app: Sphinx):
         )
         app.add_js_file(
             "https://gc.zgo.at/count.js",
+            loading_method="async",
+        )
+        app.add_js_file(
+            "js/submenu-concertina-toggle.js",
             loading_method="async",
         )
 
