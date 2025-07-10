@@ -26,7 +26,6 @@ __all__ = [
     "svg_icon",
 ]
 
-
 html_theme = "sunpy"
 html_theme_options = {}
 
