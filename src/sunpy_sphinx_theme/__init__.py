@@ -36,7 +36,8 @@ def default_navbar():
         (
             "Documentation",
             [
-                # Core packages shown directly
+                # Core goes first, rest are in alphabetical order
+                # They are also shown directly (for now)
                 ("sunpy", "https://docs.sunpy.org/", 3),
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
