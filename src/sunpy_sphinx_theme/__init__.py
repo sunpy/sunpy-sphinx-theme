@@ -45,6 +45,7 @@ def default_navbar():
                 ("irispy-lmsal", "https://irispy-lmsal.readthedocs.io/", 3),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
+                ("scope", "https://statistical-confidence-of-oscillatory-processes-with-emd.readthedocs.io", 3),
                 ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
                 ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
                 ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
