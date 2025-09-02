@@ -2,9 +2,11 @@
 SunPy Sphinx Theme.
 """
 
+import json
 import os
 from functools import partial
 from pathlib import Path
+from textwrap import dedent, indent
 from urllib.parse import urljoin
 
 from pydata_sphinx_theme import utils
@@ -154,12 +156,54 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     context["sst_pathto"] = partial(sst_pathto, context)
 
 
+def generate_search_config(app):
+    """
+    This function parses the config for the "Documentation" section of the theme config.
+    """
+    theme_config = utils.get_theme_options_dict(app)
+    search_projects = theme_config.get("rtd_search_projects", None)
+    if search_projects is None:
+        navbar_links = theme_config["navbar_links"]
+        doc_links = next(section[1] for section in navbar_links if section[0] == "Documentation")
+
+        def filter_doc_links(links):
+            out_links = []
+            for link in links:
+                if isinstance(link[1], list):
+                    out_links += filter_doc_links(link[1])
+                elif isinstance(link[1], str) and link[1].startswith("http"):
+                    out_links.append({"name": link[0], "link": link[1]})
+                else:
+                    err = f"Unable to parse {link} in the nav tree. Try setting search_projects explicitly or fixing navbar_links."
+                    raise ValueError(err)
+            return out_links
+
+        projects = filter_doc_links(doc_links)
+
+    load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
+    no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
+    script = dedent(f"""
+        const set_search_config = {{
+          "no-results":{{
+            "label": "{no_results_label}"
+          }},
+          "load-more":{{
+            "label": "{load_more_label}",
+            "class": "btn sd-btn sd-bg-primary sd-bg-text-primary"
+          }},
+          "projects":{indent(json.dumps(projects, indent=2), " " * 10, predicate=lambda line: line.strip() != "[")}
+        }};
+    """)
+    app.add_js_file(None, body=script)
+
+
 def setup(app: Sphinx):
     # Register theme
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
     app.add_css_file("sunpy_style.css", priority=600)
-    app.connect("builder-inited", update_config)
+    app.connect("builder-inited", update_config, priority=100)
+    app.connect("builder-inited", generate_search_config, priority=500)
     app.connect("html-page-context", update_html_context)
     # Conditionally include goat counter js
     # We can't do this in update_config as that causes the scripts to be duplicated.
