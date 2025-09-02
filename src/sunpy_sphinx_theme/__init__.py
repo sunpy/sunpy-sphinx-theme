@@ -244,6 +244,7 @@ def setup(app: Sphinx):
 
         if theme_options.get("rtd_search", True):
             # Add project-wide search
+            app.add_css_file("css/rtd_enhanced_search.css")
             app.add_js_file(
                 "js/rtd_enhanced_search.js",
                 loading_method="async",

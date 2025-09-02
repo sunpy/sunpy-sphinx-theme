@@ -9,7 +9,7 @@
   flex-grow: 0;
 }
 .readthedocs-search {
-  background: white;
+  background: var(--pst-color-background);
   border-radius: 0.25rem;
   width: 100%;
   display: flex;
