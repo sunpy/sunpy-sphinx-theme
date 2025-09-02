@@ -36,27 +36,48 @@ def default_navbar():
         (
             "Documentation",
             [
+                # Core goes first always
                 ("sunpy", "https://docs.sunpy.org/", 3),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                # Other affiliated packages are in alphabetical order
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
-                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
-                ("roentgen", "https://roentgen.readthedocs.io/", 3),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
-                ("demcmc", "https://demcmc.readthedocs.io/en/latest/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
+                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
+                ("irispy-lmsal", "https://irispy-lmsal.readthedocs.io/", 3),
+                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
+                ("roentgen", "https://roentgen.readthedocs.io/", 3),
+                ("scope", "https://statistical-confidence-of-oscillatory-processes-with-emd.readthedocs.io", 3),
                 ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
+                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
+                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
                 ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
-                ("pyflct", "https://pyflct.readthedocs.io/", 3),
-                ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                ("sunkit-pyvista", "https://docs.sunpy.org/projects/sunkit-pyvista/", 3),
+                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
+                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
+                ("xrtpy", "https://xrtpy.readthedocs.io/", 3),
+                # Provisional packages submenu
+                (
+                    "Provisional",
+                    [
+                        ("pyflct", "https://pyflct.readthedocs.io/", 3),
+                        ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
+                    ],
+                ),
+                # Tools submenu
+                (
+                    "Tools",
+                    [
+                        ("ablog", "https://ablog.readthedocs.io/en/stable/", 3),
+                        ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
+                        ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
+                    ],
+                ),
             ],
         ),
-        ("Affiliated Packages", "affiliated/", 2),
+        ("Packages", "affiliated/", 2),
         ("Get Help", "help/", 2),
         ("Contribute", "contribute/", 2),
         ("Blog", "blog/", 2),
+        ("Cite SunPy", "https://docs.sunpy.org/en/stable/citation.html", 3),
     ]
 
 
@@ -170,6 +191,10 @@ def setup(app: Sphinx):
         )
         app.add_js_file(
             "https://gc.zgo.at/count.js",
+            loading_method="async",
+        )
+        app.add_js_file(
+            "js/submenu-concertina-toggle.js",
             loading_method="async",
         )
 

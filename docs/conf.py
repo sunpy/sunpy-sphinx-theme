@@ -18,7 +18,7 @@ import test_package  # NOQA: F401
 
 project = "sunpy-sphinx-theme test docs"
 author = "The SunPy Community"
-copyright = f"{datetime.datetime.now(datetime.UTC).year}, {author}"  # NOQA: A001
+copyright = f"{datetime.datetime.now(datetime.timezone.utc).year}, {author}"  # NOQA: A001
 extensions = [
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
