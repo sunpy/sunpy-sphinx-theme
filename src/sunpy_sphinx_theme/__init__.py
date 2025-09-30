@@ -42,7 +42,7 @@ def default_navbar():
                 ("aiapy", "https://aiapy.readthedocs.io/", 3),
                 ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
                 ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("irispy-lmsal", "https://irispy.readthedocs.io/", 3),
+                ("irispy", "https://irispy.readthedocs.io/", 3),
                 ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
                 ("roentgen", "https://roentgen.readthedocs.io/", 3),
                 ("scope", "https://statistical-confidence-of-oscillatory-processes-with-emd.readthedocs.io", 3),
