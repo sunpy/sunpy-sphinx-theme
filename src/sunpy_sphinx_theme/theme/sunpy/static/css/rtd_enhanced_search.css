@@ -1,0 +1,168 @@
+#pst-search-dialog[open] {
+  left: revert;
+  top: 2rem;
+  margin-top: 0;
+  transform: revert;
+  max-height: calc(100vh - 4rem);
+}
+
+#pst-search-dialog[open] form.bd-search {
+  flex-grow: 0;
+}
+
+.readthedocs-search {
+  background: var(--pst-color-background);
+  border-radius: 0.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.readthedocs-search form {
+  margin: 0.5rem;
+  border: 0;
+}
+
+.readthedocs-search form:focus-within {
+  outline: 2px solid var(--pst-color-accent);
+  border: 0;
+}
+
+/* .readthedocs-search form.loading input { */
+/* } */
+
+.readthedocs-search form.loading .fa-magnifying-glass {
+  background-image: url("data:image/svg+xml,<svg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_6kVp%7Btransform-origin:center;animation:spinner_irSm .75s infinite linear%7D@keyframes spinner_irSm%7B100%25%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath d='M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z' class='spinner_6kVp'/%3E%3C/svg>");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+html[data-theme="dark"] .readthedocs-search form.loading .fa-magnifying-glass {
+  background-image: url("data:image/svg+xml,<svg fill='white' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_6kVp%7Btransform-origin:center;animation:spinner_irSm .75s infinite linear%7D@keyframes spinner_irSm%7B100%25%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath d='M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z' class='spinner_6kVp'/%3E%3C/svg>");
+}
+
+.readthedocs-search form.loading .fa-magnifying-glass path {
+  display: none;
+}
+
+.readthedocs-search .content {
+  max-height: calc(100% - 110px);
+  overflow-y: auto;
+}
+
+.readthedocs-search .tablist {
+  position: sticky;
+  display: flex;
+  overflow-x: auto;
+  top: 0;
+  outline: 0;
+  background: var(--pst-color-background);
+}
+
+.readthedocs-search .tablist button {
+  display: flex;
+  border: 0;
+  border-bottom: max(3px, 0.1875rem, 0.12em) solid transparent;
+  color: var(--pst-color-text-base);
+  background-color: var(--pst-color-surface);
+  padding: 0.5rem 1rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.readthedocs-search .tablist button:focus {
+  color: var(--sst-lightest-color);
+  background-color: var(--sst-dark-color);
+}
+
+.readthedocs-search .tablist button:focus,
+.readthedocs-search .tablist button[aria-selected="true"] {
+  outline: 0;
+  border-bottom: max(3px, 0.1875rem, 0.12em) solid var(--pst-color-secondary);
+}
+
+.readthedocs-search .tablist button svg {
+  padding-right: 0.25rem;
+}
+
+.readthedocs-search .tablist button .n {
+  padding-left: 0.25rem;
+}
+
+.readthedocs-search .results .results-message > * {
+  margin: 1rem;
+}
+
+.readthedocs-search .results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.readthedocs-search .results ul li {
+  margin: 0;
+  padding: 1rem;
+}
+
+.readthedocs-search .results ul li:focus {
+  background: var(--pst-color-attention-bg);
+  outline: 0;
+}
+
+.readthedocs-search .results ul li:first-child {
+  border: 0;
+}
+
+/* .readthedocs-search .results ul li > *:last-child { */
+/* } */
+
+.readthedocs-search .results ul li a:hover,
+.readthedocs-search .results ul li a:focus,
+.readthedocs-search .results ul li.selected a {
+  color: var(--pst-color-text-base);
+  background-color: var(--sst-footer-background-color);
+}
+
+.readthedocs-search .footer {
+  padding: 10px;
+  border-top: 1px solid #e1e4e5;
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--pst-color-text-base);
+  background-color: var(--sst-footer-background-color);
+}
+
+.readthedocs-search .help {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.readthedocs-search .credits {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  text-align: right;
+}
+.readthedocs-search .credits a {
+  color: inherit;
+}
+
+.readthedocs-search .credits svg {
+  height: 20px;
+}
+
+@media only screen and (max-width: 70rem) {
+  .readthedocs-search .footer,
+  .readthedocs-search .help {
+    display: block;
+  }
+}

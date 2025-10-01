@@ -109,7 +109,7 @@ class Card(Directive):
 
 
 def setup(app: Sphinx):
-    app.add_css_file("sunpy_cards.css", priority=600)
+    app.add_css_file("css/sunpy_cards.css", priority=600)
     app.add_directive("custom-card", Card)
     app.add_node(_Card, html=(visit_card_node, depart_card_node))
     return {
