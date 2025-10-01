@@ -178,7 +178,7 @@ def generate_search_config(app):
                     raise ValueError(err)
             return out_links
 
-        projects = filter_doc_links(doc_links)
+        search_projects = filter_doc_links(doc_links)
 
     load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
     no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
@@ -191,7 +191,7 @@ def generate_search_config(app):
             "label": "{load_more_label}",
             "class": "btn sd-btn sd-bg-primary sd-bg-text-primary"
           }},
-          "projects":{indent(json.dumps(projects, indent=2), " " * 10, predicate=lambda line: line.strip() != "[")}
+          "projects":{indent(json.dumps(search_projects, indent=2), " " * 10, predicate=lambda line: line.strip() != "[")}
         }};
     """)
     app.add_js_file(None, body=script)
