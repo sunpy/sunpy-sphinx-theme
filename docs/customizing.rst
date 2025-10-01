@@ -1,3 +1,5 @@
+.. _customizing:
+
 Customizing the Theme
 =====================
 
@@ -8,6 +10,9 @@ Changing the Theme Settings
 
 As well as all the default configuration settings we inherit from the pydata-sphinx-theme the sunpy-sphinx-theme provides the following configuration options.
 All of these options should be set inside the ``html_theme_options`` dictionary in your ``conf.py`` file.
+
+General Configuration
+^^^^^^^^^^^^^^^^^^^^^
 
 ``footer_center``
 #################
@@ -49,6 +54,67 @@ It's possible to add dropdown menus to the topnav by setting document equal to a
 
 Footer links are a number of links which will get placed in the center of the footer.
 They are specified in the same format as the ``navbar_links``.
+
+Analytics with Goat Counter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The theme supports using `Goat Counter <https://www.goatcounter.com/>`__ to monitor traffic. Goat Counter is an Open Source project with free hosting, so a good fit for many projects using this theme.
+GoatCounter support is enabled by default for the ``sunpy.org`` domain, so if your ``sst_site_root="https://sunpy.org"`` then it will be enabled with the default SunPy settings.
+To enable it for other sites you need to do configure the following options.
+
+``goatcounter_analytics_url``
+#############################
+
+This is the analytics URL for the GoatCounter project, for example ``"https://sunpy.goatcounter.com/count"``.
+
+``goatcounter_non_domain_endpoint``
+###################################
+
+This setting configures how analytics work for domains which are not ``sst_site_root`` or subdomains of the root.
+The default is ``False`` meaning that if the domain isn't ``sst_site_root`` then GoatCounter is disabled.
+If you set this to a GoatCounter endpoint (such as ``goatcounter_analytics_endpoint`` then that endpoint will be used for domains which are not ``sst_site_root``.
+
+
+Read the Docs Search
+^^^^^^^^^^^^^^^^^^^^
+
+The theme supports an enhanced version of the `Server Side Search <https://docs.readthedocs.com/platform/stable/server-side-search/index.html>`__ Read the Docs add-on.
+This adds a similar UI, but enables searching multiple Read the Docs projects simultaneously, not just the current RTD project and all subprojects as supported by the official add-on.
+This means that when configured this enables all RTD projects using the theme to search all others, i.e. if you have a parent project "sunpy" and a subproject "ndcube" this search allows users in the "ndcube" documentation to also search "sunpy", whereas the official one only allows users in "sunpy" to also search "ndcube".
+
+This is enabled by default, but will not work unless accessing the documentation via Read the Docs, if the enhanced search fails for any reason it will fallback to the standard sphinx search.
+To facilitate debugging of this extension, it supports proxying requests to the RTD search API through the `corsproxy.io <https://corsproxy.io>`__ service if the ``?debug`` query parameter is set on the URL, set this if testing the search on a local build.
+
+``rtd_search``
+##############
+
+Enable or disable the RTD search functionality. Defaults to ``True``.
+
+``rtd_search_projects``
+#######################
+
+This configuration option is the list of projects that the search will query the RTD API for results.
+By default this configuration uses all the links in ``navbar_links``.
+The format of this option is a list of dictionaries with ``"name"`` and ``"links"`` keys, i.e.:
+
+.. code-block:: python
+
+   rtd_search_projects = [
+       {"name": "sunpy", "link": "https://docs.sunpy.org"}
+   ]
+
+
+``rtd_search_load_more_label``
+##############################
+
+This is the label shown on the button to load more results from the RTD API.
+The default is ``"Load more results"``.
+
+``rtd_search_no_results_label``
+###############################
+
+This is the label shown when no results match the query.
+The default is ``"There are no results for this search"``.
 
 Adjusting the Styling
 ---------------------
