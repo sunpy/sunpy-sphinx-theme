@@ -23,7 +23,7 @@ classifiers = [
 requires-python = ">=3.9"
 dependencies = [
   "pydata-sphinx-theme~=0.16.0",
-  "sphinx"
+  "sphinx>=7.3.0"
 ]
 
 [project.optional-dependencies]
