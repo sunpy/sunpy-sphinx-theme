@@ -15,72 +15,19 @@ from sphinx.application import Sphinx
 __all__ = ["ON_RTD", "PNG_ICON", "SVG_ICON", "get_html_theme_path"]
 
 
+def get_theme_options(app):
+    """
+    This gets the user configured options and the defaults and merges them.
+    """
+    return {**app.builder.theme.get_options(), **utils.get_theme_options_dict(app)}
+
+
 def get_html_theme_path():
     """
     Return list of HTML theme paths.
     """
     parent = Path(__file__).parent.resolve()
     return parent / "theme" / "sunpy"
-
-
-def default_navbar():
-    return [
-        (
-            "About",
-            [
-                ("Our Mission", "about/", 2),
-                ("SunPy Project", "about/project/", 2),
-                ("Presentations", "about/presentations/", 2),
-                ("Meetings", "about/meetings/", 2),
-                ("Code of Conduct", "coc/", 2),
-            ],
-        ),
-        (
-            "Documentation",
-            [
-                # Core goes first always
-                ("sunpy", "https://docs.sunpy.org/", 3),
-                # Other affiliated packages are in alphabetical order
-                ("aiapy", "https://aiapy.readthedocs.io/", 3),
-                ("dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3),
-                ("drms", "https://docs.sunpy.org/projects/drms/", 3),
-                ("irispy", "https://irispy.readthedocs.io/", 3),
-                ("ndcube", "https://docs.sunpy.org/projects/ndcube/", 3),
-                ("roentgen", "https://roentgen.readthedocs.io/", 3),
-                ("scope", "https://statistical-confidence-of-oscillatory-processes-with-emd.readthedocs.io", 3),
-                ("solarmach", "https://solarmach.readthedocs.io/en/stable/", 3),
-                ("sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3),
-                ("sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3),
-                ("sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3),
-                ("sunkit-pyvista", "https://docs.sunpy.org/projects/sunkit-pyvista/", 3),
-                ("sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3),
-                ("sunraster", "https://docs.sunpy.org/projects/sunraster/", 3),
-                ("xrtpy", "https://xrtpy.readthedocs.io/", 3),
-                # Provisional packages submenu
-                (
-                    "Provisional",
-                    [
-                        ("pyflct", "https://pyflct.readthedocs.io/", 3),
-                        ("radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3),
-                    ],
-                ),
-                # Tools submenu
-                (
-                    "Tools",
-                    [
-                        ("ablog", "https://ablog.readthedocs.io/en/stable/", 3),
-                        ("mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3),
-                        ("streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3),
-                    ],
-                ),
-            ],
-        ),
-        ("Packages", "affiliated/", 2),
-        ("Get Help", "help/", 2),
-        ("Contribute", "contribute/", 2),
-        ("Blog", "blog/", 2),
-        ("Cite SunPy", "https://docs.sunpy.org/en/stable/citation.html", 3),
-    ]
 
 
 def update_config(app) -> None:
@@ -91,7 +38,7 @@ def update_config(app) -> None:
     # At this point, modifying app.config.html_theme_options will NOT update the
     # page's HTML context (e.g. in jinja, `theme_keyword`).
     # To do this, you must manually modify `app.builder.theme_options`.
-    theme_options = utils.get_theme_options_dict(app)
+    theme_options = get_theme_options(app)
 
     if theme_options.get("sst_logo") and not isinstance(theme_options["sst_logo"], dict):
         sst_logo = str(theme_options["sst_logo"])
@@ -99,23 +46,12 @@ def update_config(app) -> None:
 
     theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
 
-    if not theme_options.get("navbar_links"):
-        theme_options["navbar_links"] = default_navbar()
-
-    if not theme_options.get("footer_links", False):
-        theme_options["footer_links"] = [
-            ("Code", "https://github.com/sunpy", 3),
-            ("Forum", "https://community.openastronomy.org/c/sunpy", 3),
-            ("Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 3),
-        ]
-
-    # TODO: This is nasty
     # Set the default value of show_source to False unless it's specified in the user config
-    if "html_show_sourcelink" not in app.config._raw_config:  # NOQA: SLF001
+    if not utils.config_provided_by_user(app, "html_show_sourcelink"):
         app.config.html_show_sourcelink = False
 
     # Set the logo to the sunpy logo unless it's overridden in the user config
-    if "html_logo" not in app.config._raw_config:  # NOQA: SLF001
+    if not utils.config_provided_by_user(app, "html_logo"):
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
 
@@ -160,7 +96,7 @@ def generate_search_config(app):
     """
     This function parses the config for the "Documentation" section of the theme config.
     """
-    theme_config = utils.get_theme_options_dict(app)
+    theme_config = get_theme_options(app)
     search_projects = theme_config.get("rtd_search_projects", None)
     if search_projects is None:
         navbar_links = theme_config["navbar_links"]

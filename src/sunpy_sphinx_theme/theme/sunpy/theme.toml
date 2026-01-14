@@ -1,0 +1,80 @@
+[theme]
+inherit = "pydata_sphinx_theme"
+sidebars = [
+    "components/navbar-logo.html",
+    "icon-links.html",
+    "components/sst-sidebar-nav.html",
+]
+
+[options]
+navbar_start = "components/navbar_start.html"
+navbar_center = "components/navbar_center.html"
+footer_start = "copyright.html"
+footer_center = "components/footer-links.html"
+footer_end = "components/built-with.html"
+
+sst_site_root = "https://sunpy.org"
+sst_is_root = false
+sst_project_name = "SunPy"
+sst_logo = ""
+navbar_links = [
+    ["About",
+        [
+            ["Our Mission", "about/", 2],
+            ["SunPy Project", "about/project/", 2],
+            ["Presentations", "about/presentations/", 2],
+            ["Meetings", "about/meetings/", 2],
+            ["Code of Conduct", "coc/", 2]
+        ]
+    ],
+    ["Documentation",
+        [
+            ["sunpy", "https://docs.sunpy.org/", 3],
+            ["aiapy", "https://aiapy.readthedocs.io/", 3],
+            ["dkist", "https://docs.dkist.nso.edu/projects/python-tools", 3],
+            ["drms", "https://docs.sunpy.org/projects/drms/", 3],
+            ["irispy", "https://irispy.readthedocs.io/", 3],
+            ["ndcube", "https://docs.sunpy.org/projects/ndcube/", 3],
+            ["roentgen", "https://roentgen.readthedocs.io/", 3],
+            ["scope", "https://statistical-confidence-of-oscillatory-processes-with-emd.readthedocs.io", 3],
+            ["solarmach", "https://solarmach.readthedocs.io/en/stable/", 3],
+            ["sunkit-image", "https://docs.sunpy.org/projects/sunkit-image/", 3],
+            ["sunkit-instruments ", "https://docs.sunpy.org/projects/sunkit-instruments/", 3],
+            ["sunkit-magex", "https://docs.sunpy.org/projects/sunkit-magex/", 3],
+            ["sunkit-pyvista", "https://docs.sunpy.org/projects/sunkit-pyvista/", 3],
+            ["sunpy-soar", "https://docs.sunpy.org/projects/soar/", 3],
+            ["sunraster", "https://docs.sunpy.org/projects/sunraster/", 3],
+            ["xrtpy", "https://xrtpy.readthedocs.io/", 3],
+            ["Provisional",
+                [
+                    ["pyflct", "https://pyflct.readthedocs.io/", 3],
+                    ["radiospectra", "https://docs.sunpy.org/projects/radiospectra/", 3]
+                ]
+            ],
+            ["Tools",
+                [
+                    ["ablog", "https://ablog.readthedocs.io/en/stable/", 3],
+                    ["mpl-animators", "https://docs.sunpy.org/projects/mpl-animators/", 3],
+                    ["streamtracer", "https://docs.sunpy.org/projects/streamtracer/", 3]
+                ]
+            ]
+        ]
+    ],
+    ["Packages", "affiliated/", 2],
+    ["Get Help", "help/", 2],
+    ["Contribute", "contribute/", 2],
+    ["Blog", "blog/", 2],
+    ["Cite SunPy", "https://docs.sunpy.org/en/stable/citation.html", 3]
+]
+footer_links = [
+    ["Code", "https://github.com/sunpy", 3],
+    ["Forum", "https://community.openastronomy.org/c/sunpy", 3],
+    ["Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 3],
+]
+goatcounter_analytics_url = ""
+goatcounter_non_domain_endpoint = "False"
+pygment_light_style = "github-light"
+rtd_search = "True"
+rtd_search_projects = ""
+rtd_search_load_more_label = "\"Load more results\""
+rtd_search_no_results_label = "\"There are no results for this search\""
