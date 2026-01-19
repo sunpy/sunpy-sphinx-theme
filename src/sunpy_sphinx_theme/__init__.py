@@ -98,7 +98,7 @@ def generate_search_config(app):
     """
     theme_config = get_theme_options(app)
     search_projects = theme_config.get("rtd_search_projects", None)
-    if search_projects is None:
+    if not search_projects:
         navbar_links = theme_config["navbar_links"]
         doc_links = next(section[1] for section in navbar_links if section[0] == "Documentation")
 
