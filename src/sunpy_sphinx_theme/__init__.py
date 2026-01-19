@@ -54,6 +54,18 @@ def update_config(app) -> None:
     if not utils.config_provided_by_user(app, "html_logo"):
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
 
+    # Include sunpy.org in extra_search_projects as long as none of
+    # navbar_links, rtd_search_projects and rtd_extra_search_projects
+    # are set, i.e. you are using the default sunpy set of projects.
+    # Without this non-sunpy projects would have to explicitly un-set
+    # rtd_extra_search_projects
+    if not (
+        utils.config_provided_by_user(app, "navbar_links")
+        or utils.config_provided_by_user(app, "rtd_search_projects")
+        or utils.config_provided_by_user(app, "rtd_extra_search_projects")
+    ):
+        theme_options["rtd_extra_search_projects"] = [["sunpyorg", "https://sunpy.org"]]
+
 
 def sst_pathto(context, document, relative_to=0):
     """
@@ -117,7 +129,7 @@ def generate_search_config(app):
         search_projects = filter_doc_links(doc_links)
 
     if extra_search_projects := theme_config.get("rtd_extra_search_projects", None):
-        search_projects += extra_search_projects
+        search_projects += filter_doc_links(extra_search_projects)
 
     load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
     no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
