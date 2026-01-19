@@ -116,6 +116,9 @@ def generate_search_config(app):
 
         search_projects = filter_doc_links(doc_links)
 
+    if extra_search_projects := theme_config.get("rtd_extra_search_projects", None):
+        search_projects += extra_search_projects
+
     load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
     no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
     script = dedent(f"""
