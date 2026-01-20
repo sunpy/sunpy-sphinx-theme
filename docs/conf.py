@@ -3,7 +3,6 @@ Configuration file for the Sphinx documentation builder.
 """
 
 import datetime
-import os
 import sys
 from pathlib import Path
 
@@ -22,7 +21,6 @@ copyright = f"{datetime.datetime.now(datetime.timezone.utc).year}, {author}"  # 
 extensions = [
     "sphinx_automodapi.automodapi",
     "sphinx_automodapi.smart_resolver",
-    "hoverxref.extension",
     "matplotlib.sphinxext.plot_directive",
     "sphinx_copybutton",
     "sphinx_design",
@@ -104,37 +102,6 @@ sphinx_gallery_conf = {
     "abort_on_example_error": False,
     "plot_gallery": "True",
     "remove_config_comments": True,
-}
-if os.environ.get("READTHEDOCS"):
-    hoverxref_api_host = "https://readthedocs.org"
-
-    if os.environ.get("PROXIED_API_ENDPOINT"):
-        # Use the proxied API endpoint
-        # A RTD thing to avoid a CSRF block when docs are using a custom domain
-        hoverxref_api_host = "/_"
-
-hoverxref_auto_ref = False
-hoverxref_domains = ["py"]
-hoverxref_mathjax = True
-hoverxref_modal_hover_delay = 500
-hoverxref_tooltip_maxwidth = 600  # RTD main window is 696px
-hoverxref_intersphinx = list(intersphinx_mapping.keys())
-hoverxref_role_types = {
-    # Roles within the py domain
-    "attr": "tooltip",
-    "class": "tooltip",
-    "const": "tooltip",
-    "data": "tooltip",
-    "exc": "tooltip",
-    "func": "tooltip",
-    "meth": "tooltip",
-    "mod": "tooltip",
-    "obj": "tooltip",
-    # Roles within the std domain
-    "confval": "tooltip",
-    "hoverxref": "tooltip",
-    "ref": "tooltip",  # Would be used by hoverxref_auto_ref if we set it to True
-    "term": "tooltip",
 }
 copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 copybutton_prompt_is_regexp = True
