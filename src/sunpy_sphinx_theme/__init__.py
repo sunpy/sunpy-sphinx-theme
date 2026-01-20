@@ -38,13 +38,14 @@ def update_config(app) -> None:
     # At this point, modifying app.config.html_theme_options will NOT update the
     # page's HTML context (e.g. in jinja, `theme_keyword`).
     # To do this, you must manually modify `app.builder.theme_options`.
-    theme_options = get_theme_options(app)
+    theme_options_with_defaults = get_theme_options(app)
+    theme_options = utils.get_theme_options_dict(app)
 
-    if theme_options.get("sst_logo") and not isinstance(theme_options["sst_logo"], dict):
+    if theme_options_with_defaults.get("sst_logo") and not isinstance(theme_options_with_defaults["sst_logo"], dict):
         sst_logo = str(theme_options["sst_logo"])
         theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
 
-    theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
+    theme_options["sst_is_root"] = bool(theme_options_with_defaults.get("sst_is_root", False))
 
     # Set the default value of show_source to False unless it's specified in the user config
     if not utils.config_provided_by_user(app, "html_show_sourcelink"):
