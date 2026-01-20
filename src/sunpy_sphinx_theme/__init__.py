@@ -38,13 +38,14 @@ def update_config(app) -> None:
     # At this point, modifying app.config.html_theme_options will NOT update the
     # page's HTML context (e.g. in jinja, `theme_keyword`).
     # To do this, you must manually modify `app.builder.theme_options`.
-    theme_options = get_theme_options(app)
+    theme_options_with_defaults = get_theme_options(app)
+    theme_options = utils.get_theme_options_dict(app)
 
-    if theme_options.get("sst_logo") and not isinstance(theme_options["sst_logo"], dict):
+    if theme_options_with_defaults.get("sst_logo") and not isinstance(theme_options_with_defaults["sst_logo"], dict):
         sst_logo = str(theme_options["sst_logo"])
         theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
 
-    theme_options["sst_is_root"] = bool(theme_options.get("sst_is_root", False))
+    theme_options["sst_is_root"] = bool(theme_options_with_defaults.get("sst_is_root", False))
 
     # Set the default value of show_source to False unless it's specified in the user config
     if not utils.config_provided_by_user(app, "html_show_sourcelink"):
@@ -53,6 +54,18 @@ def update_config(app) -> None:
     # Set the logo to the sunpy logo unless it's overridden in the user config
     if not utils.config_provided_by_user(app, "html_logo"):
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
+
+    # Include sunpy.org in extra_search_projects as long as none of
+    # navbar_links, rtd_search_projects and rtd_extra_search_projects
+    # are set, i.e. you are using the default sunpy set of projects.
+    # Without this non-sunpy projects would have to explicitly un-set
+    # rtd_extra_search_projects
+    if not (
+        utils.config_provided_by_user(app, "navbar_links")
+        or utils.config_provided_by_user(app, "rtd_search_projects")
+        or utils.config_provided_by_user(app, "rtd_extra_search_projects")
+    ):
+        theme_options["rtd_extra_search_projects"] = [["sunpyorg", "https://sunpy.org"]]
 
 
 def sst_pathto(context, document, relative_to=0):
@@ -98,7 +111,7 @@ def generate_search_config(app):
     """
     theme_config = get_theme_options(app)
     search_projects = theme_config.get("rtd_search_projects", None)
-    if search_projects is None:
+    if not search_projects:
         navbar_links = theme_config["navbar_links"]
         doc_links = next(section[1] for section in navbar_links if section[0] == "Documentation")
 
@@ -115,6 +128,9 @@ def generate_search_config(app):
             return out_links
 
         search_projects = filter_doc_links(doc_links)
+
+    if extra_search_projects := theme_config.get("rtd_extra_search_projects", None):
+        search_projects += filter_doc_links(extra_search_projects)
 
     load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
     no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
