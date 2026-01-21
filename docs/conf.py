@@ -78,6 +78,7 @@ html_theme_options = {
         {"name": "Python", "url": "https://www.python.org/"},
     ],
     "goatcounter_non_domain_endpoint": "https://sunpy-testing.goatcounter.com/count",
+    "github_url": "https://github.com/sunpy/sunpy-sphinx-theme",
 }
 graphviz_output_format = "svg"
 graphviz_dot_args = [
