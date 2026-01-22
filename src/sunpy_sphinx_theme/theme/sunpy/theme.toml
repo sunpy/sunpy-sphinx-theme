@@ -2,7 +2,6 @@
 inherit = "pydata_sphinx_theme"
 sidebars = [
     "components/navbar-logo.html",
-    "icon-links.html",
     "components/sst-sidebar-nav.html",
 ]
 
