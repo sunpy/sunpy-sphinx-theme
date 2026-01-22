@@ -223,8 +223,25 @@ html[data-theme="dark"] div.graphviz > object.inheritance {
   color: var(--sst-accent-color-bright);
 }
 
-html .pst-navbar-icon {
+/* Change the top navbar toggles and icons in the header to be light */
+.bd-header button.sidebar-toggle,
+html .navbar-header-items__end .pst-navbar-icon,
+html .navbar-header-items__end .pst-navbar-icon:visited {
   color: var(--sst-header-text);
+}
+
+/* Don't style sidebar links as visited color */
+html .pst-navbar-icon:visited {
+  color: var(--pst-color-text-muted);
+}
+
+html .pst-navbar-icon:hover {
+  color: var(--pst-color-secondary);
+}
+
+/* Don't put an underline on the icons when hovering */
+html .pst-navbar-icon:hover::before {
+  border-bottom: none;
 }
 
 .search-button {
