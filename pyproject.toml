@@ -22,7 +22,7 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-  "pydata-sphinx-theme~=0.16.0",
+  "pydata-sphinx-theme>=0.16.1",  # Need 0.16.1 for graphviz css
   "sphinx>=7.3.0"
 ]
 
