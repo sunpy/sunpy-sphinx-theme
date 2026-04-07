@@ -11,7 +11,7 @@ updates:
       actions:
         patterns:
           - "*"
-  - package-ecosystem: "pip"
+  - package-ecosystem: "pip" # zizmor: ignore[dependabot-cooldown]
     directory: "/"
     versioning-strategy: "increase"
     schedule:
