@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#  "requests",
+# ]
+# ///
+
 """
 Run all builds for all active versions of all SunPy and SunPy subprojects on
 RTD.

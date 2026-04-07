@@ -4,33 +4,66 @@ on:
   release:
     types: [published]
 
+# Restrict default permissions for all jobs
+permissions: {}
+
 jobs:
-  deploy:
+  build:
+    name: Build distribution
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.x"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install -U --user --force-reinstall pep517 setuptools_scm twine
-      - name: Build and publish
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_UPLOAD_TOKEN }}
-        run: |
-          python -m pep517.build --binary --source --out-dir wheelhouse .
-          python -m twine upload --skip-existing wheelhouse/*
-      - name: Install dependencies
-        run: |
-          pip install requests httpie
+      - name: Install build dependencies
+        run: python -m pip install --upgrade pip build
+      - name: Build package
+        run: python -m build
+      - name: Upload distribution artifacts
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+    steps:
+      - name: Download distribution artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+
+  post-release:
+    name: Trigger documentation rebuilds
+    needs: publish
+    runs-on: ubuntu-latest
+    environment: rtd-rebuild
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.x"
       - name: Build all RTD versions
         env:
           RTD_AUTH_TOKEN: ${{ secrets.RTD_AUTH_TOKEN }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: |
-          python tools/rebuild_all_rtd.py
-          http POST https://api.netlify.com/api/v1/sites/1ba3a6d4-f1ee-4524-bbec-3edc04720a48/builds "Authorization: Bearer $NETLIFY_AUTH_TOKEN"
+        run: pipx run tools/rebuild_all_rtd.py
