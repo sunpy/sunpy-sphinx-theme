@@ -4,15 +4,18 @@ SunPy Sphinx Theme.
 
 import json
 import os
+import posixpath
 from functools import partial
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from textwrap import dedent, indent
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 from pydata_sphinx_theme import utils
 from sphinx.application import Sphinx
 
 __all__ = ["ON_RTD", "PNG_ICON", "SVG_ICON", "get_html_theme_path"]
+
+SPHINX_GALLERY_IMAGE_EXTENSIONS = {".apng", ".gif", ".jpeg", ".jpg", ".png", ".webp"}
 
 
 def get_theme_options(app):
@@ -54,6 +57,12 @@ def update_config(app) -> None:
     # Set the logo to the sunpy logo unless it's overridden in the user config
     if not utils.config_provided_by_user(app, "html_logo"):
         app.config.html_logo = str(get_html_theme_path() / "static" / "img" / "sunpy_icon.svg")
+
+    if not utils.config_provided_by_user(app, "ogp_use_first_image"):
+        app.config.ogp_use_first_image = True
+
+    if app.config.html_baseurl and not utils.config_provided_by_user(app, "ogp_site_url"):
+        app.config.ogp_site_url = app.config.html_baseurl
 
     # Include sunpy.org in extra_search_projects as long as none of
     # navbar_links, rtd_search_projects and rtd_extra_search_projects
@@ -105,6 +114,38 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     context["sst_pathto"] = partial(sst_pathto, context)
 
 
+def update_opengraph_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:  # NOQA: ARG001
+    """
+    Add Sphinx-Gallery images to the Open Graph metadata context.
+    """
+    if doctree is None:
+        return
+
+    metadata = context.get("meta") or {}
+    if "og:image" in metadata:
+        return
+
+    for node in doctree.findall():
+        if node.__class__.__name__ != "imgsgnode" or not node.get("uri"):
+            continue
+
+        parsed_uri = urlparse(node["uri"])
+        image_suffix = PurePosixPath(parsed_uri.path).suffix.lower()
+        if image_suffix not in SPHINX_GALLERY_IMAGE_EXTENSIONS:
+            continue
+
+        if parsed_uri.scheme:
+            metadata["og:image"] = node["uri"]
+        else:
+            metadata["og:image"] = posixpath.join(app.builder.imagedir, PurePosixPath(parsed_uri.path).name)
+
+        if node.get("alt") and "og:image:alt" not in metadata:
+            metadata["og:image:alt"] = node["alt"]
+
+        context["meta"] = metadata
+        return
+
+
 def generate_search_config(app):
     """
     This function parses the config for the "Documentation" section of the theme config.
@@ -150,12 +191,15 @@ def generate_search_config(app):
 
 
 def setup(app: Sphinx):
+    app.setup_extension("sphinxext.opengraph")
+
     # Register theme
     theme_dir = get_html_theme_path()
     app.add_html_theme("sunpy", theme_dir)
     app.add_css_file("sunpy_style.css", priority=600)
     app.connect("builder-inited", update_config, priority=100)
     app.connect("builder-inited", generate_search_config, priority=500)
+    app.connect("html-page-context", update_opengraph_context, priority=400)
     app.connect("html-page-context", update_html_context)
     # Conditionally include goat counter js
     # We can't do this in update_config as that causes the scripts to be duplicated.
