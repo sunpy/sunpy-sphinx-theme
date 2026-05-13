@@ -64,3 +64,8 @@ include-package-data = true
     url = "sunpy_docs-devdeps/sunpy/docs/_build/html/index.html"
     message = "sunpy docs with devdeps preview"
     report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.astropy_website ]
+    url = "astropy.org/_build/html/index.html"
+    message = "Astropy website preview"
+    report_on_fail = true
