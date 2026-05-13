@@ -335,7 +335,7 @@ div.sidebar-primary-item > a.logo {
 }
 
 img.logo__image {
-  height: var(--pst-header-height);
+  max-height: var(--pst-header-height);
 }
 
 .bd-sidebar-primary .sidebar-primary-items__end {
