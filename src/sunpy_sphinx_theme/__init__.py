@@ -2,6 +2,7 @@
 SunPy Sphinx Theme.
 """
 
+import importlib
 import json
 import os
 import posixpath
@@ -75,6 +76,14 @@ def update_config(app) -> None:
         or utils.config_provided_by_user(app, "rtd_extra_search_projects")
     ):
         theme_options["rtd_extra_search_projects"] = [["sunpyorg", "https://sunpy.org"]]
+
+    if importlib.util.find_spec("sphinx_gallery"):
+        ssi = theme_options_with_defaults["secondary_sidebar_items"].split(",")
+        if "sg_download_links" not in ssi:
+            ssi.append("sg_download_links")
+        if "sg_launcher_links" not in ssi:
+            ssi.append("sg_launcher_links")
+        theme_options["secondary_sidebar_items"] = ", ".join(ssi)
 
 
 def sst_pathto(context, document, relative_to=0):
