@@ -2,7 +2,6 @@
 SunPy Sphinx Theme.
 """
 
-import importlib
 import json
 import os
 import posixpath
@@ -77,7 +76,7 @@ def update_config(app) -> None:
     ):
         theme_options["rtd_extra_search_projects"] = [["sunpyorg", "https://sunpy.org"]]
 
-    if importlib.util.find_spec("sphinx_gallery"):
+    if "sphinx_gallery.gen_gallery" in app.extensions:
         ssi = theme_options_with_defaults["secondary_sidebar_items"].split(",")
         if "sg_download_links" not in ssi:
             ssi.append("sg_download_links")
