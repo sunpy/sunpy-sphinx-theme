@@ -290,6 +290,12 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   border-right-color: var(--sst-accent-color-bright);
 }
 
+/* Put the logo above the version. */
+div.sidebar-primary-item > a.logo {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Both left and right sidebars */
 .bd-sidebar-primary,
 .bd-sidebar-secondary {
@@ -468,7 +474,7 @@ html[data-theme="dark"] .search-button-field:hover {
 .navbar-nav .concertina-toggle:hover,
 .bd-header .dropdown-item:hover,
 .bd-header .concertina-toggle:hover {
-  color: var(--pst-color-link-hover);
+  color: var(--sst-accent-color-bright);
   background-color: transparent;
   text-decoration: underline;
 }
@@ -482,7 +488,15 @@ html[data-theme="dark"] .search-button-field:hover {
 }
 /* Limit the height of dropdown menu to keep on screen */
 .bd-header .dropdown-menu {
+  --bs-dropdown-bg: var(--sst-header-background);
+  --bs-dropdown-color: var(--sst-header-text);
+  --bs-dropdown-link-active-bg: var(--bs-dropdown-bg);
   max-height: 80vh;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
 }
