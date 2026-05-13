@@ -20,6 +20,17 @@ jobs:
       - run: python -m tox -e website -- -j 8
       - store_artifacts:
           path: .tmp/website/sunpy.org/_build/html
+  astropy_website:
+    resource_class: large
+    docker:
+      - image: cimg/python:3.12
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *tox
+      - run: python -m tox -e astropy_website -- -j 8
+      - store_artifacts:
+          path: .tmp/astropy_website/astropy.org/_build/html
   sunpy:
     resource_class: large
     docker:
@@ -73,3 +84,4 @@ workflows:
       - sunpy
       - website
       - sunpy-devdeps
+      - astropy_website
