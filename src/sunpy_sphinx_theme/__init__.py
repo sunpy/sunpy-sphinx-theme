@@ -71,9 +71,9 @@ def update_config(app) -> None:
     # Without this non-sunpy projects would have to explicitly un-set
     # rtd_extra_search_projects
     if not (
-        utils.config_provided_by_user(app, "navbar_links")
-        or utils.config_provided_by_user(app, "rtd_search_projects")
-        or utils.config_provided_by_user(app, "rtd_extra_search_projects")
+        "navbar_links" not in theme_options
+        or "rtd_search_projects" not in theme_options
+        or "rtd_extra_search_projects" not in theme_options
     ):
         theme_options["rtd_extra_search_projects"] = [["sunpyorg", "https://sunpy.org"]]
 
