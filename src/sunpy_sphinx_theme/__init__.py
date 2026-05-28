@@ -122,6 +122,28 @@ def update_html_context(app: Sphinx, pagename: str, templatename: str, context, 
     context["sst_pathto"] = partial(sst_pathto, context)
 
 
+def _get_sphinx_gallery_thumbnail(doctree):
+    """
+    Return the generated Sphinx-Gallery thumbnail for an example page.
+    """
+    source = doctree.get("source")
+    if not source:
+        return None
+
+    source_path = Path(source)
+    thumbnail_dir = source_path.parent / "images" / "thumb"
+    if not thumbnail_dir.is_dir():
+        return None
+
+    # Reuse the thumbnail Sphinx-Gallery already picked for this page.
+    thumbnails = sorted(thumbnail_dir.glob(f"sphx_glr_{source_path.stem}_thumb.*"))
+    for thumbnail in thumbnails:
+        if thumbnail.suffix.lower() in SPHINX_GALLERY_IMAGE_EXTENSIONS:
+            return thumbnail
+
+    return None
+
+
 def update_opengraph_context(app: Sphinx, pagename: str, templatename: str, context, doctree) -> None:  # NOQA: ARG001
     """
     Add Sphinx-Gallery images to the Open Graph metadata context.
@@ -133,6 +155,13 @@ def update_opengraph_context(app: Sphinx, pagename: str, templatename: str, cont
     if "og:image" in metadata:
         return
 
+    # Prefer the user defined generated gallery thumbnail when one exists.
+    if thumbnail := _get_sphinx_gallery_thumbnail(doctree):
+        metadata["og:image"] = posixpath.join(app.builder.imagedir, thumbnail.name)
+        context["meta"] = metadata
+        return
+
+    # Fall back to the first gallery image
     for node in doctree.findall():
         if node.__class__.__name__ != "imgsgnode" or not node.get("uri"):
             continue
