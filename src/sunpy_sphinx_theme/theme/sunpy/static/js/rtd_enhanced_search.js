@@ -34,6 +34,18 @@
 
 */
 /*jshint esversion: 6 */
+// Capture the current RTD version so search results stay on the version
+// the user is reading. Without this, the v3 search API defaults to the
+// project's default version (usually stable) and results link elsewhere.
+let _rtdVersion = null;
+document.addEventListener("readthedocs-addons-data-ready", function (event) {
+  try {
+    _rtdVersion = event.detail.data().versions.current.slug;
+  } catch (e) {
+    _rtdVersion = null;
+  }
+});
+
 (function (root) {
   function ready(fn) {
     if (document.readyState != "loading") fn();
@@ -248,7 +260,8 @@
       } else {
         url =
           (debug ? "https://corsproxy.io/?https://readthedocs.org/" : "/_/") +
-          ("api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str));
+          ("api/v3/search/?q=" + projstr + "+" + encodeURIComponent(str)) +
+          (_rtdVersion ? "&version=" + encodeURIComponent(_rtdVersion) : "");
       }
       console.info("Getting " + url);
       fetch(url, {})
