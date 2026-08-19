@@ -31,6 +31,7 @@ lint.extend-ignore = [
     "PLR2004", # Magic value used in comparison
     "TD002", # Missing author in TODO
     "TD003", # Missing issue link on the line following this TODO
+    "CPY001", # Copyright in each file
 ]
 
 [lint.per-file-ignores]
