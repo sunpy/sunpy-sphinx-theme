@@ -231,6 +231,7 @@ div.math {
 /* Change the top navbar toggles and icons in the header to be light */
 .bd-header button.sidebar-toggle,
 html .navbar-header-items__end .pst-navbar-icon,
+html .navbar-header-items__end .pst-navbar-icon:active,
 html .navbar-header-items__end .pst-navbar-icon:visited {
   color: var(--sst-header-text);
 }
