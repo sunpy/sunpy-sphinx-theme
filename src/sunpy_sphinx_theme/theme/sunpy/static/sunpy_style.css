@@ -291,6 +291,10 @@ html[data-theme="light"] .bd-sidebar-primary .theme-switch-button span {
   border: none;
 }
 
+.bd-header ul.navbar-nav .dropdown button:hover {
+  color: var(--sst-accent-color-bright);
+}
+
 /* Required to center the items in the bottom bar */
 .bd-header .navbar-header-items__start {
   width: auto;
