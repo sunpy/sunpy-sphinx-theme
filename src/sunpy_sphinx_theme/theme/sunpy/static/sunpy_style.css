@@ -74,6 +74,7 @@ html[data-theme="light"] {
   --pst-color-inline-code: #912583;
   --pst-color-link-hover: var(--sst-accent-color-muted);
   --pst-color-link: var(--sst-accent-color-bright);
+  --pst-color-link-higher-contrast: var(--sst-accent-color-bright);
   --pst-color-on-background: #fff;
   --pst-color-on-surface: #222832;
   --pst-color-primary-bg: #d0ecf1;
@@ -109,6 +110,7 @@ html[data-theme="dark"] {
   --pst-color-inline-code: #f3c7ee;
   --pst-color-link-hover: var(--pst-color-secondary);
   --pst-color-link: var(--sst-accent-color-bright);
+  --pst-color-link-higher-contrast: var(--sst-accent-color-bright);
   --pst-color-on-background: #222832;
   --pst-color-on-surface: #f3f4f5;
   --pst-color-primary-bg: #042c33;
