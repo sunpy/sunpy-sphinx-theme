@@ -197,6 +197,11 @@ div.math {
   margin-bottom: -3px;
 }
 
+.bd-header .bd-header__inner {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .bd-header .navbar-nav li.nav-item {
   padding-left: 0.6rem;
 }
