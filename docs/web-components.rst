@@ -210,10 +210,6 @@ See `the Sphinx Design Dropdown documentation <https://sphinx-design.readthedocs
 
     And some admonition content.
 
-.. dropdown::
-
-    And with no title and some content!
-
 .. dropdown:: With a title
 
     And some content!

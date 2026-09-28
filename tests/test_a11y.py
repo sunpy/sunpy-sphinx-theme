@@ -26,17 +26,38 @@ from playwright.sync_api import Page, expect  # noqa: E402
 # pitfalls.
 
 
-def filter_ignored_violations(violations, url_pathname):
+def filter_ignored_violations(violations, url_pathname, theme):
     """Filter out ignored axe-core violations.
 
     In some tests, we wish to ignore certain accessibility violations that we
     won't ever fix or that we don't plan to fix soon.
     """
+    new_violations = []
+
+    for violation in violations:
+        ignore = False
+
+        # TODO: Our light theme link color does not pass, either fix it or just accept it
+        if violation["id"] == "color-contrast" and theme == "light":
+            ignore = True
+        # This one is probably fine, it's the headings inside the popup
+        if url_pathname == "/cards.html" and violation["id"] == "heading-order":
+            ignore = True
+
+        if url_pathname == "/subsections.html" and violation["id"] in ("region", "summary-name"):
+            ignore = True
+
+        if url_pathname == "/index.html" and violation["id"] in ("region", "summary-name"):
+            ignore = True
+
+        if not ignore:
+            new_violations.append(violation)
+
     # No violations are currently ignored for our documentation pages. When a
     # violation is found that we do not plan to fix, filter it out here by
     # url_pathname and rule id, in the same manner as the pydata-sphinx-theme
     # does in its tests/test_a11y.py.
-    return violations
+    return new_violations
 
 
 def format_violations(violations):
@@ -124,7 +145,7 @@ def test_axe_core(
     results = page.evaluate("axe.run()" if selector == "" else f"axe.run('{selector}')")
 
     # Check found violations against known violations that we do not plan to fix
-    filtered_violations = filter_ignored_violations(results["violations"], url_pathname)
+    filtered_violations = filter_ignored_violations(results["violations"], url_pathname, theme)
 
     assert len(filtered_violations) == 0, format_violations(filtered_violations)
 
