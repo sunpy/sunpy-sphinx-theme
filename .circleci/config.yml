@@ -76,11 +76,29 @@ jobs:
       - run: sudo npm install -g stylelint
       - run: sudo npm install stylelint-config-recommended
       - run: sudo stylelint "**/*.{css,scss,sass}"
+  a11y:
+    resource_class: large
+    docker:
+      - image: cimg/python:3.14
+    steps:
+      - checkout
+      - run: *apt-install
+      # Node.js is needed to install axe-core for the accessibility tests
+      - run: sudo apt install -y nodejs npm
+      - run: *tox
+      # Build the docs the accessibility tests are run against
+      - run: python -m tox -e build_docs
+      - run: python -m tox -e a11y
+      # Make sure the trace directory exists so the artifact upload does not fail
+      - run: mkdir -p test-results
+      - store_artifacts:
+          path: test-results
 workflows:
   version: 2
   tests:
     jobs:
       - css_linting
+      - a11y
       - sunpy
       - website
       - sunpy-devdeps

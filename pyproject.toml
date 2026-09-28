@@ -37,6 +37,10 @@ docs = [
   "sphinx-togglebutton",
   "sunpy",
 ]
+test = [
+  "pytest>=7.0",
+  "pytest-playwright",
+]
 
 [project.entry-points]
 "sphinx.html_themes" = { sunpy = "sunpy_sphinx_theme" }
@@ -45,6 +49,11 @@ docs = [
 include-package-data = true
 
 [tool.setuptools_scm]
+
+[tool.pytest.ini_options]
+markers = "a11y: mark a test as an accessibility test"
+testpaths = ["tests"]
+addopts = "--durations=10"
 
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]

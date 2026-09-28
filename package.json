@@ -1,0 +1,8 @@
+{
+  "name": "sunpy-sphinx-theme",
+  "private": true,
+  "description": "Node dependencies for testing the sunpy-sphinx-theme",
+  "devDependencies": {
+    "axe-core": "^4.13.0"
+  }
+}
