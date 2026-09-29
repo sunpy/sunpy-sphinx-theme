@@ -71,7 +71,7 @@ class SphinxBuild:
 def sphinx_build_factory(make_app: Callable, tmp_path: Path, request) -> Callable:
     """Return a factory builder pointing to the tmp directory."""
 
-    def _func(src_folder: str, **kwargs) -> SphinxBuild:
+    def _func(src_folder: str, files: dict[str, str] | None = None, **kwargs) -> SphinxBuild:
         """Create the SphinxBuild from the source folder."""
         no_temp = environ.get("SST_TEST_HTML_DIR")
         nonlocal tmp_path
@@ -79,6 +79,8 @@ def sphinx_build_factory(make_app: Callable, tmp_path: Path, request) -> Callabl
             tmp_path = Path(no_temp) / request.node.name / str(src_folder)
         srcdir = tmp_path / src_folder
         copytree(tests_path / "sites" / src_folder, tmp_path / src_folder)
+        for filename, contents in (files or {}).items():
+            Path(srcdir / filename).resolve().write_text(contents)
         app = make_app(srcdir=srcdir, **kwargs)
         return SphinxBuild(app, tmp_path / src_folder)
 
