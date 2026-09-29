@@ -66,6 +66,7 @@ To enable it for other sites you need to do configure the following options.
 #############################
 
 This is the analytics URL for the GoatCounter project, for example ``"https://sunpy.goatcounter.com/count"``.
+Set to ``false`` or ``""`` to override the default in the theme for sites under the ``sst_site_root`` domain.
 
 ``goatcounter_non_domain_endpoint``
 ###################################
@@ -94,7 +95,7 @@ Enable or disable the RTD search functionality. Defaults to ``True``.
 #######################
 
 This configuration option is the list of projects that the search will query the RTD API for results.
-By default this configuration uses all the links in ``navbar_links``.
+By default this configuration uses all the links in ``navbar_links``, under the ``"Documentation"`` key.
 The format of this option is a list of dictionaries with ``"name"`` and ``"links"`` keys, i.e.:
 
 .. code-block:: python

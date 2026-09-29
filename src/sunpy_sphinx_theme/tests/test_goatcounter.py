@@ -138,3 +138,27 @@ def test_goatcounter_astropy(sphinx_build_factory):
     assert "location.hostname.endsWith('astropy.org')" in script
     assert "endpoint = 'https://astropy.goatcounter.com/count'" in script
     assert GOATCOUNTER_COUNT_JS in script_srcs(html)
+
+
+def test_goat_counter_theme_defaults(sphinx_build_factory):
+    config_toml = """\
+    [theme]
+    inherit = "sunpy"
+
+    [options]
+    sst_site_root = "https://astropy.org"
+    goatcounter_analytics_url = "https://astropy.goatcounter.com/count"
+
+    navbar_links = [
+        ["Home", "index.html", 2],
+        ["astropy", "https://docs.astropy.org/", 3],
+    ]
+    """
+    sphinx_build = sphinx_build_factory("derived", files={"theme/theme.toml": config_toml}).build()
+    html = sphinx_build.html_tree("index.html")
+
+    script = goatcounter_inline_script(html)
+    assert "var endpoint = '';" in script
+    assert "location.hostname.endsWith('astropy.org')" in script
+    assert "endpoint = 'https://astropy.goatcounter.com/count'" in script
+    assert GOATCOUNTER_COUNT_JS in script_srcs(html)

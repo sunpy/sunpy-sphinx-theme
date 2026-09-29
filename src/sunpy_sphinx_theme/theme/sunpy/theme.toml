@@ -71,10 +71,10 @@ footer_links = [
     ["Forum", "https://community.openastronomy.org/c/sunpy", 3],
     ["Chat", "https://openastronomy.element.io/#/room/#sunpy:openastronomy.org", 3],
 ]
-goatcounter_analytics_url = ""
-goatcounter_non_domain_endpoint = "False"
+goatcounter_analytics_url = "DEFAULT"  # Use a sentinel here to allow disabling by setting to false
+goatcounter_non_domain_endpoint = false
 pygment_light_style = "github-light"
-rtd_search = "True"
+rtd_search = true
 rtd_search_projects = ""
 rtd_extra_search_projects = ""
 rtd_search_load_more_label = "Load more results"

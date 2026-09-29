@@ -12,6 +12,9 @@ from urllib.parse import urljoin, urlparse
 
 from pydata_sphinx_theme import utils
 from sphinx.application import Sphinx
+from sphinx.util import logging
+
+logger = logging.getLogger(__name__)
 
 __all__ = ["ON_RTD", "PNG_ICON", "SVG_ICON", "get_html_theme_path"]
 
@@ -45,7 +48,7 @@ def update_config(app) -> None:
     theme_options = utils.get_theme_options_dict(app)
 
     if theme_options_with_defaults.get("sst_logo") and not isinstance(theme_options_with_defaults["sst_logo"], dict):
-        sst_logo = str(theme_options["sst_logo"])
+        sst_logo = str(theme_options_with_defaults["sst_logo"])
         theme_options["sst_logo"] = {"light": sst_logo, "dark": sst_logo}
 
     theme_options["sst_is_root"] = bool(theme_options_with_defaults.get("sst_is_root", False))
@@ -188,27 +191,42 @@ def generate_search_config(app):
     This function parses the config for the "Documentation" section of the theme config.
     """
     theme_config = get_theme_options(app)
-    search_projects = theme_config.get("rtd_search_projects", None)
+
+    if not theme_config.get("rtd_search", True):
+        return
+
+    # Add project-wide search
+    app.add_css_file("css/rtd_enhanced_search.css")
+    app.add_js_file(
+        "js/rtd_enhanced_search.js",
+        loading_method="async",
+    )
+
+    def filter_doc_links(links):
+        out_links = []
+        for link in links:
+            if isinstance(link[1], list):
+                out_links += filter_doc_links(link[1])
+            elif isinstance(link[1], str) and link[1].startswith("http"):
+                out_links.append({"name": link[0], "link": link[1]})
+            else:
+                err = f"Unable to parse {link} in the nav tree. Try setting search_projects explicitly or fixing navbar_links."
+                raise ValueError(err)
+        return out_links
+
+    search_projects = theme_config.get("rtd_search_projects", []) or []
     if not search_projects:
         navbar_links = theme_config["navbar_links"]
-        doc_links = next(section[1] for section in navbar_links if section[0] == "Documentation")
-
-        def filter_doc_links(links):
-            out_links = []
-            for link in links:
-                if isinstance(link[1], list):
-                    out_links += filter_doc_links(link[1])
-                elif isinstance(link[1], str) and link[1].startswith("http"):
-                    out_links.append({"name": link[0], "link": link[1]})
-                else:
-                    err = f"Unable to parse {link} in the nav tree. Try setting search_projects explicitly or fixing navbar_links."
-                    raise ValueError(err)
-            return out_links
-
-        search_projects = filter_doc_links(doc_links)
+        doc_links = next((section[1] for section in navbar_links if section[0] == "Documentation"), None)
+        if doc_links:
+            search_projects = filter_doc_links(doc_links)
 
     if extra_search_projects := theme_config.get("rtd_extra_search_projects", None):
         search_projects += filter_doc_links(extra_search_projects)
+
+    if not search_projects:
+        logger.info("No RTD search projects were found, disabling RTD search.")
+        return
 
     load_more_label = theme_config.get("rtd_search_load_more_label", "Load more results")
     no_results_label = theme_config.get("rtd_search_no_results_label", "There are no results for this search")
@@ -227,29 +245,24 @@ def generate_search_config(app):
     app.add_js_file(None, body=script)
 
 
-def setup(app: Sphinx):
-    app.setup_extension("sphinxext.opengraph")
-
-    # Register theme
-    theme_dir = get_html_theme_path()
-    app.add_html_theme("sunpy", theme_dir)
-    app.add_css_file("sunpy_style.css", priority=600)
-    app.connect("builder-inited", update_config, priority=100)
-    app.connect("builder-inited", generate_search_config, priority=500)
-    app.connect("html-page-context", update_opengraph_context, priority=400)
-    app.connect("html-page-context", update_html_context)
-    # Conditionally include goat counter js
-    # We can't do this in update_config as that causes the scripts to be duplicated.
-    # Also in here none of the theme defaults have be applied by `update_config`
-    theme_options = utils.get_theme_options_dict(app)
+def configure_goatcounter(app):
+    """
+    Conditionally include goat counter js and configure endpoint.
+    """
+    theme_options = get_theme_options(app)
     # We want to default to the sunpy goat counter only if the sst_site_root is sunpy.org
     root_domain = theme_options.get("sst_site_root", "https://sunpy.org")
     sunpy_goat_url = "https://sunpy.goatcounter.com/count"
-    default_goat_url = sunpy_goat_url if root_domain == "https://sunpy.org" else None
-    if primary_goat_url := theme_options.get("goatcounter_analytics_url", default_goat_url):
+    default_goat_url = (
+        sunpy_goat_url if root_domain == "https://sunpy.org" else False
+    )  # Only default on sunpy.org pages
+    # The theme default is 'DEFAULT', to allow disabling it
+    primary_goat_url = theme_options.get("goatcounter_analytics_url", "DEFAULT")
+    primary_goat_url = primary_goat_url if primary_goat_url != "DEFAULT" else default_goat_url
+    if primary_goat_url:
         root_domain = root_domain.removeprefix("https://").removeprefix("http://")
         default_endpoint = theme_options.get("goatcounter_non_domain_endpoint", False)
-        if default_endpoint is False:
+        if default_endpoint in (False, "False"):  # sphinx config can sometimes be str
             default_endpoint = ""
         app.add_js_file(
             None,
@@ -270,18 +283,24 @@ def setup(app: Sphinx):
             loading_method="async",
         )
 
+
+def setup(app: Sphinx):
+    app.setup_extension("sphinxext.opengraph")
+
+    # Register theme
+    theme_dir = get_html_theme_path()
+    app.add_html_theme("sunpy", theme_dir)
+    app.add_css_file("sunpy_style.css", priority=600)
+    app.connect("builder-inited", update_config, priority=100)
+    app.connect("builder-inited", generate_search_config, priority=500)
+    app.connect("builder-inited", configure_goatcounter, priority=510)
+    app.connect("html-page-context", update_opengraph_context, priority=400)
+    app.connect("html-page-context", update_html_context)
+
     app.add_js_file(
         "js/submenu-concertina-toggle.js",
         loading_method="async",
     )
-
-    if theme_options.get("rtd_search", True):
-        # Add project-wide search
-        app.add_css_file("css/rtd_enhanced_search.css")
-        app.add_js_file(
-            "js/rtd_enhanced_search.js",
-            loading_method="async",
-        )
 
     return {
         "parallel_read_safe": True,

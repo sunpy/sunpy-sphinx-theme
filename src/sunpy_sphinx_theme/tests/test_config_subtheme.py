@@ -1,8 +1,6 @@
 """
 Tests relating to subthemes (i.e. astropy) setting config defaults.
 """
-import logging
-import re
 
 from sunpy_sphinx_theme.tests.helpers import inline_scripts
 
