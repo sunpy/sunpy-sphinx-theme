@@ -241,7 +241,6 @@ def setup(app: Sphinx):
     # Conditionally include goat counter js
     # We can't do this in update_config as that causes the scripts to be duplicated.
     # Also in here none of the theme defaults have be applied by `update_config`
-    # TODO: Improve this mess
     theme_options = utils.get_theme_options_dict(app)
     # We want to default to the sunpy goat counter only if the sst_site_root is sunpy.org
     root_domain = theme_options.get("sst_site_root", "https://sunpy.org")
@@ -270,18 +269,19 @@ def setup(app: Sphinx):
             "https://gc.zgo.at/count.js",
             loading_method="async",
         )
+
+    app.add_js_file(
+        "js/submenu-concertina-toggle.js",
+        loading_method="async",
+    )
+
+    if theme_options.get("rtd_search", True):
+        # Add project-wide search
+        app.add_css_file("css/rtd_enhanced_search.css")
         app.add_js_file(
-            "js/submenu-concertina-toggle.js",
+            "js/rtd_enhanced_search.js",
             loading_method="async",
         )
-
-        if theme_options.get("rtd_search", True):
-            # Add project-wide search
-            app.add_css_file("css/rtd_enhanced_search.css")
-            app.add_js_file(
-                "js/rtd_enhanced_search.js",
-                loading_method="async",
-            )
 
     return {
         "parallel_read_safe": True,
