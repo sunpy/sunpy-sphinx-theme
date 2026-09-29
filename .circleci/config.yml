@@ -12,7 +12,7 @@ jobs:
   website:
     resource_class: large
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.14
     steps:
       - checkout
       - run: *apt-install
@@ -23,7 +23,7 @@ jobs:
   astropy_website:
     resource_class: large
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.14
     steps:
       - checkout
       - run: *apt-install
@@ -34,7 +34,7 @@ jobs:
   sunpy:
     resource_class: large
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.14
     steps:
       - checkout
       - run: *apt-install
@@ -52,7 +52,7 @@ jobs:
   sunpy-devdeps:
     resource_class: large
     docker:
-      - image: cimg/python:3.12
+      - image: cimg/python:3.14
     steps:
       - checkout
       - run: *apt-install
@@ -76,6 +76,14 @@ jobs:
       - run: sudo npm install -g stylelint
       - run: sudo npm install stylelint-config-recommended
       - run: sudo stylelint "**/*.{css,scss,sass}"
+  tests:
+    resource_class: small
+    docker:
+      - image: cimg/python:3.14
+    steps:
+      - checkout
+      - run: *tox
+      - run: python -m tox -e tests
   a11y:
     resource_class: large
     docker:
@@ -98,6 +106,7 @@ workflows:
   tests:
     jobs:
       - css_linting
+      - tests
       - a11y
       - sunpy
       - website

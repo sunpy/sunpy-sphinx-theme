@@ -20,7 +20,7 @@ classifiers = [
   "Framework :: Sphinx :: Theme",
   "Operating System :: OS Independent",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
   "pydata-sphinx-theme>=0.22.0rc0,<0.23",
   "sphinxext-opengraph>=0.13",
