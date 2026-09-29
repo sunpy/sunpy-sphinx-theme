@@ -49,13 +49,7 @@ lint.extend-ignore = [
 "setup.py" = [
     "D100", # Missing docstring in public module
 ]
-"test_*.py" = [
-    "D100", # Missing docstring in public module
-    "D103", # Missing docstring in public function
-    "N806", # in function should be lowercase
-    "S101", # Use of `assert` detected
-]
-"tests/*.py" = [
+"{src/sunpy_sphinx_theme/tests/*.py,conftest.py,test_*.py}" = [
     "D100", # Missing docstring in public module
     "D103", # Missing docstring in public function
     "INP001", # tests are not part of an implicit namespace package
@@ -63,12 +57,6 @@ lint.extend-ignore = [
     "S404", # subprocess module is possibly insecure
     "S603", # subprocess call: check for execution of untrusted input
     "ARG001", # Unused function argument (kept for interface compatibility)
-]
-"sunpy_soar/version.py" = [
-    "D100", # Missing docstring in public module
-]
-"sunpy_soar/conftest.py" = [
-    "D100", # Missing docstring in public module
 ]
 
 [lint.pydocstyle]
