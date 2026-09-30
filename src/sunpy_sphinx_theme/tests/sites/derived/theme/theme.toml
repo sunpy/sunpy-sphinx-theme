@@ -1,0 +1,15 @@
+[theme]
+inherit = "sunpy"
+
+[options]
+sst_site_root = "https://example.org/"
+navbar_links = [
+    ["Home", "index.html", 2],
+    ["Docs", "https://docs.example.org/", 3],
+]
+footer_links = [
+    ["Footer Example", "https://footer.example.org/", 3],
+]
+rtd_search_projects = [
+    { name = "example", link = "https://example.org/docs/" },
+]
