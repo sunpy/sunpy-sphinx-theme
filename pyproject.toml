@@ -22,7 +22,7 @@ classifiers = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-  "pydata-sphinx-theme>=0.22.0rc0,<0.23",
+  "pydata-sphinx-theme>=0.22.0,<0.24",
   "sphinxext-opengraph>=0.13",
   "sphinx>=7.3.0"
 ]
