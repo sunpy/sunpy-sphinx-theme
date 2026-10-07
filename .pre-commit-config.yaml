@@ -39,9 +39,12 @@ repos:
     rev: typos-dict-v0.14.2
     hooks:
       - id: typos
-  - id: prettier
-    entry: prettier --write --ignore-unknown
-    language: node
-    args: []
-    additional_dependencies: ["prettier@3.9.9"]
-    types_or: [css, scss, javascript, rst, json, yaml, toml, markdown]
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: prettier --write --ignore-unknown
+        language: node
+        args: []
+        additional_dependencies: ["prettier@3.9.9"]
+        types_or: [css, scss, javascript, rst, json, yaml, toml, markdown]
