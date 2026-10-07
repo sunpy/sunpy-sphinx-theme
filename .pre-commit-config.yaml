@@ -22,11 +22,6 @@ repos:
             "--remove-all-unused-imports",
             "--remove-unused-variable",
           ]
-  - repo: https://github.com/garettmd/pre-commit-prettier
-    rev: v1.0.0
-    hooks:
-      - id: prettier
-        types_or: [css, scss, javascript, rst, json, yaml, toml, markdown]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -44,3 +39,9 @@ repos:
     rev: typos-dict-v0.14.2
     hooks:
       - id: typos
+  - id: prettier
+    entry: prettier --write --ignore-unknown
+    language: node
+    args: []
+    additional_dependencies: ["prettier@3.9.9"]
+    types_or: [css, scss, javascript, rst, json, yaml, toml, markdown]
