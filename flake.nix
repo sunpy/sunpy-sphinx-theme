@@ -16,13 +16,14 @@
           nodejs_latest
           playwright-driver.browsers
           uv
+	  python314
         ];
 
         # runs every time you enter the shell, after activation
         shellHook = ''
           export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
           export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true;
-          uv sync --all-extras
+          uv sync -p python3.14 --all-extras
           source .venv/bin/activate
           npm install
         '';

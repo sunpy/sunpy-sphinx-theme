@@ -37,9 +37,19 @@ def filter_ignored_violations(violations, url_pathname, theme):
     for violation in violations:
         ignore = False
 
+        all_targets = [t for n in violation["nodes"] for t in n["target"]]
+
         # TODO: Our light theme link color does not pass, either fix it or just accept it
         if violation["id"] == "color-contrast" and theme == "light":
             ignore = True
+
+        # This is an upstream issue, and seems that the problem is the
+        # shortcut key text is missing from the aria-label
+        if violation["id"] == "label-content-name-mismatch" and any(
+            'search-button-field.search-button__button[aria-label="Search"]' in t for t in all_targets
+        ):
+            ignore = True
+
         # This one is probably fine, it's the headings inside the popup
         if url_pathname == "/cards.html" and violation["id"] == "heading-order":
             ignore = True
