@@ -26,14 +26,10 @@ repos:
       - id: ruff
         args: ["--fix", "--show-fixes"]
       - id: ruff-format
-  - repo: local
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.9.9
     hooks:
       - id: prettier
-        name: prettier
-        entry: prettier --write --ignore-unknown
-        language: node
-        args: []
-        additional_dependencies: ["prettier@3.9.9"]
         types_or: [css, scss, javascript, rst, json, yaml, toml, markdown]
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
     rev: v1.30.1
