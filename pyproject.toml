@@ -39,7 +39,8 @@ docs = [
 ]
 test = [
   "pytest>=7.0",
-  "pytest-playwright",
+  "pytest-playwright==0.10.0",
+  "playwright==1.64.1",
   "playwright-figure-tests",
 ]
 
@@ -76,6 +77,11 @@ mpl-hash-library = "src/sunpy_sphinx_theme/tests/screenshot_hashes.json"
   [ tool.gilesbot.circleci_artifacts.sunpy_docs-devdeps ]
     url = "sunpy_docs-devdeps/sunpy/docs/_build/html/index.html"
     message = "sunpy docs with devdeps preview"
+    report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.visual-tests-summary ]
+    url = "fig_comparison.html"
+    message = "screenshot test summary page"
     report_on_fail = true
 
   [ tool.gilesbot.circleci_artifacts.astropy_website ]
