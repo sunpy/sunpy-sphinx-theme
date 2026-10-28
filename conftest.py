@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
     from sphinx.testing.util import SphinxTestApp
 
-pytest_plugins = "sphinx.testing.fixtures"
+pytest_plugins = ("sphinx.testing.fixtures", "playwright_figure_tests")
 
 repo_path = Path(__file__).parent
 tests_path = repo_path / "src" / "sunpy_sphinx_theme" / "tests"
@@ -92,7 +92,7 @@ def sphinx_build_factory(make_app: Callable, tmp_path: Path, request) -> Callabl
 # -- global fixture to serve the built docs ----------------------------------
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def url_base():
     """Start local server on built docs and return the localhost URL as the base URL."""
     # The accessibility tests are run against a build of our documentation, so
