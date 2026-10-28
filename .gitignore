@@ -126,3 +126,5 @@ package-lock.json
 
 # nix
 flake.lock
+
+figure_test_images/
