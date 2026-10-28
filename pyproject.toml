@@ -40,7 +40,7 @@ docs = [
 test = [
   "pytest>=7.0",
   "pytest-playwright",
-  "git+https://github.com/Cadair/playwright-figure-tests",
+  "playwright-figure-tests@git+https://github.com/Cadair/playwright-figure-tests",
 ]
 
 [project.entry-points]
@@ -54,7 +54,9 @@ include-package-data = true
 [tool.pytest.ini_options]
 markers = "a11y: mark a test as an accessibility test"
 testpaths = ["tests"]
-addopts = "--durations=10"
+addopts = ["--durations=10", "-m not mpl_image_compare and not a11y"]
+mpl-results-path = "figure_test_images"
+mpl-use-full-test-name = true
 
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]
