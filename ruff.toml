@@ -57,6 +57,8 @@ lint.extend-ignore = [
     "S404", # subprocess module is possibly insecure
     "S603", # subprocess call: check for execution of untrusted input
     "ARG001", # Unused function argument (kept for interface compatibility)
+    "PLR0913", # Too many arguments in function definition
+    "PLR0917", # Too many positional arguments
 ]
 
 [lint.pydocstyle]
