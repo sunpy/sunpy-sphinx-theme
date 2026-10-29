@@ -156,11 +156,7 @@ workflows:
       - a11y
       - visual
       - deploy-reference-images:
-          name: baseline-<< matrix.jobname >>
-          matrix:
-            parameters:
-              jobname:
-                - "visual"
+          jobname: baseline-visual
           requires:
             - visual
           filters:
