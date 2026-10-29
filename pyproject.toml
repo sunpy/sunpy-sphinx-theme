@@ -39,7 +39,11 @@ docs = [
 ]
 test = [
   "pytest>=7.0",
-  "pytest-playwright",
+]
+test-playwright = [
+  "playwright==1.64.1",
+  "pytest-playwright==0.10.0",
+  "playwright-figure-tests",
 ]
 
 [project.entry-points]
@@ -53,7 +57,9 @@ include-package-data = true
 [tool.pytest.ini_options]
 markers = "a11y: mark a test as an accessibility test"
 testpaths = ["tests"]
-addopts = "--durations=10"
+addopts = ["--durations=10", "-m not mpl_image_compare and not a11y"]
+mpl-results-path = "figure_test_images"
+mpl-use-full-test-name = true
 
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]
@@ -72,6 +78,11 @@ addopts = "--durations=10"
   [ tool.gilesbot.circleci_artifacts.sunpy_docs-devdeps ]
     url = "sunpy_docs-devdeps/sunpy/docs/_build/html/index.html"
     message = "sunpy docs with devdeps preview"
+    report_on_fail = true
+
+  [ tool.gilesbot.circleci_artifacts.visual-tests-summary ]
+    url = "fig_comparison.html"
+    message = "screenshot test summary page"
     report_on_fail = true
 
   [ tool.gilesbot.circleci_artifacts.astropy_website ]

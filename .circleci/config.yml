@@ -83,7 +83,7 @@ jobs:
     steps:
       - checkout
       - run: *tox
-      - run: python -m tox -e tests
+      - run: python -m tox -e py314
   a11y:
     resource_class: large
     docker:
@@ -101,6 +101,52 @@ jobs:
       - run: mkdir -p test-results
       - store_artifacts:
           path: test-results
+  visual:
+    resource_class: large
+    docker:
+      - image: cimg/python:3.14
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *tox
+      - run: python -m tox -m visual
+      # Make sure the trace directory exists so the artifact upload does not fail
+      - run: mkdir -p figure_test_images
+      - store_artifacts:
+          path: figure_test_images
+  deploy-reference-images:
+    parameters:
+      jobname:
+        type: string
+    docker:
+      - image: cimg/python:3.14
+    environment:
+      TOXENV: << parameters.jobname >>
+    steps:
+      - checkout
+      - run: *apt-install
+      - run: *tox
+      # Clear out all the ssh keys so that it always uses the write deploy key
+      - run: ssh-add -D
+      # Register a write deploy key for sunpy/sunpy-figure-tests in the CircleCI
+      # project SSH keys, then replace the fingerprint below.
+      - add_ssh_keys:
+          fingerprints: "SHA256:vJyM9ncnDErtqIxhQPRE5ARrZ1zwF9DNprMcFGlSYqY"
+      - run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run: git config --global user.email "sunpy@circleci" && git config --global user.name "SunPy Circle CI"
+      - run: git clone git@github.com:sunpy/sunpy-figure-tests.git --depth 1 -b sunpy-sphinx-theme-main /home/circleci/sunpy-figure-tests/
+      # Build the docs the visual tests are run against
+      - run: python -m tox -e build_docs
+      # Generate reference images
+      - run: rm -rf /home/circleci/sunpy-figure-tests/figures/$TOXENV/*
+      - run: python -m tox -e $TOXENV -- --mpl-generate-path=/home/circleci/sunpy-figure-tests/figures/$TOXENV
+      - run: |
+          cd /home/circleci/sunpy-figure-tests/
+          git pull
+          git status
+          git add .
+          git commit -m "Update reference figures from ${CIRCLE_BRANCH}" || echo "No changes to reference images to deploy"
+          git push
 workflows:
   version: 2
   tests:
@@ -108,6 +154,15 @@ workflows:
       - css_linting
       - tests
       - a11y
+      - visual
+      - deploy-reference-images:
+          jobname: baseline-visual
+          requires:
+            - visual
+          filters:
+            branches:
+              only:
+                - main
       - sunpy
       - website
       - sunpy-devdeps
