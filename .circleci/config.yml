@@ -158,7 +158,9 @@ workflows:
       - deploy-reference-images:
           jobname: baseline-visual
           requires:
-            - visual
+            - visual:
+                - success
+                - failed
           filters:
             branches:
               only:
