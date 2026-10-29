@@ -7,7 +7,7 @@ import pytest
 @pytest.mark.parametrize(
     "viewport",
     [
-        pytest.param((820, 600), id="tablet width"),
+        pytest.param((820, 600), id="tablet-width"),
         pytest.param((1920, 1080), id="larger-pc"),
     ],
 )
