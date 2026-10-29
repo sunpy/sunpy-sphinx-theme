@@ -156,7 +156,7 @@ workflows:
       - a11y
       - visual
       - deploy-reference-images:
-          jobname: baseline-visual
+          jobname: visual
           requires:
             - visual:
                 - success
