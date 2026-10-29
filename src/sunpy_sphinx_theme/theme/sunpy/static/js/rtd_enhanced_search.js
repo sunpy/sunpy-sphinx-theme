@@ -34,6 +34,39 @@
 
 */
 /*jshint esversion: 6 */
+// Capture the current RTD project and version so search results stay on the
+// version the user is reading. Without this, the v3 search API defaults to the
+// project's default version (usually stable) and results link elsewhere.
+let _rtdSearchContext = null;
+
+function updateRtdSearchContext(eventData) {
+  try {
+    const data = eventData.data();
+    const project = data.projects.current.slug;
+    const version = data.versions.current;
+
+    // Pull request previews are external versions and are not indexed. Pinning
+    // search to one would therefore return no results at all.
+    if (!project || !version.slug || version.type === "external") {
+      _rtdSearchContext = null;
+      return;
+    }
+
+    _rtdSearchContext = { project: project, version: version.slug };
+  } catch (e) {
+    _rtdSearchContext = null;
+  }
+}
+
+document.addEventListener("readthedocs-addons-data-ready", function (event) {
+  updateRtdSearchContext(event.detail);
+});
+
+// This script is loaded asynchronously, so the event may have already fired.
+if (window.ReadTheDocsEventData !== undefined) {
+  updateRtdSearchContext(window.ReadTheDocsEventData);
+}
+
 (function (root) {
   function ready(fn) {
     if (document.readyState != "loading") fn();
@@ -240,8 +273,17 @@
       form.classList.add("loading");
 
       let projstr = this.projectorder
-        .join("+project:")
-        .replace(new RegExp("^" + config.all + "[s+]"), "");
+        .filter((project) => project !== config.all)
+        .map((project) => {
+          // Only the project being read shares its current version. Other
+          // projects in this cross-project search keep their own defaults.
+          if (_rtdSearchContext && project === _rtdSearchContext.project) {
+            return "project:" + project + "/" + _rtdSearchContext.version;
+          }
+
+          return "project:" + project;
+        })
+        .join("+");
       let url;
       if (page) {
         url = (debug ? "https://corsproxy.io/?" : "") + page;
