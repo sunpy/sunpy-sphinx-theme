@@ -22,21 +22,6 @@ if TYPE_CHECKING:
 pytest_plugins = ("sphinx.testing.fixtures", "playwright_figure_tests")
 
 
-# Force single-threaded rasterization so SwiftShader's floating-point
-# coverage reduction at glyph edges is deterministic run-to-run. Without this
-# we see ±1 channel drift on anti-aliased icon edges between CI runs.
-@pytest.fixture(scope="session")
-def browser_type_launch_args():
-    return {
-        "args": [
-            "--num-raster-threads=1",
-            "--font-render-hinting=none",
-            "--disable-lcd-text",
-            "--force-device-scale-factor=1",
-        ]
-    }
-
-
 repo_path = Path(__file__).parent
 tests_path = repo_path / "src" / "sunpy_sphinx_theme" / "tests"
 docs_build_path = repo_path / "docs" / "_build" / "html"

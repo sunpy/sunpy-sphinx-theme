@@ -58,7 +58,6 @@ testpaths = ["tests"]
 addopts = ["--durations=10", "-m not mpl_image_compare and not a11y"]
 mpl-results-path = "figure_test_images"
 mpl-use-full-test-name = true
-mpl-hash-library = "src/sunpy_sphinx_theme/tests/screenshot_hashes.json"
 
 [ tool.gilesbot ]
   [ tool.gilesbot.circleci_artifacts.giles ]

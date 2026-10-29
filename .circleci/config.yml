@@ -141,8 +141,6 @@ jobs:
       # Generate reference images
       - run: rm -rf /home/circleci/sunpy-figure-tests/figures/$TOXENV/*
       - run: python -m tox -e $TOXENV -- --mpl-generate-path=/home/circleci/sunpy-figure-tests/figures/$TOXENV
-      # Copy the committed hash library alongside the generated figures
-      - run: cp src/sunpy_sphinx_theme/tests/screenshot_hashes.json /home/circleci/sunpy-figure-tests/figures/$TOXENV/
       - run: |
           cd /home/circleci/sunpy-figure-tests/
           git pull
