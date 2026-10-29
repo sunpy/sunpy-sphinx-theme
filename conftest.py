@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 
     from sphinx.testing.util import SphinxTestApp
 
-pytest_plugins = ("sphinx.testing.fixtures", "playwright_figure_tests")
+pytest_plugins = ("sphinx.testing.fixtures",)
 
 
 repo_path = Path(__file__).parent

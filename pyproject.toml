@@ -39,8 +39,10 @@ docs = [
 ]
 test = [
   "pytest>=7.0",
-  "pytest-playwright==0.10.0",
+]
+test-playwright = [
   "playwright==1.64.1",
+  "pytest-playwright==0.10.0",
   "playwright-figure-tests",
 ]
 
