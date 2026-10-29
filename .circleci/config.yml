@@ -109,10 +109,9 @@ jobs:
       - checkout
       - run: *apt-install
       - run: *tox
-      # Build the docs the accessibility tests are run against
       - run: python -m tox -m visual
       # Make sure the trace directory exists so the artifact upload does not fail
-      - run: mkdir -p test-results
+      - run: mkdir -p figure_test_images
       - store_artifacts:
           path: figure_test_images
   deploy-reference-images:
